@@ -1,61 +1,97 @@
 <link rel="stylesheet" href="style.css">
+<script>
+
+
+        let dead = 0
+        function deadpeople() {
+            let j = 0
+            for (i = dead; i < 16; i++){
+                if(document.getElementById(i).checked == true){
+                    j++
+                }
+            }
+            alert("À tous les étudiants. Aujourd'hui, " + j + " personnes sont mortes. Ou peut-être hier, je ne sais plus.")
+        }
+
+    </script>
 <h1>Project Rebirth</h1>
-<table class="CharactersTable">
-    <tr>
-        <th>
-            <a href="main.html"><img src="https://zupimages.net/up/24/38/28l4.png" alt="Angie"></a>
-        </th>
-        <th>
-            <img src="https://zupimages.net/up/24/38/y36c.png" alt="Gonta">
-        </th>
-        <th>
-            <img src="https://zupimages.net/up/24/38/2829.png" alt="Himiko">
-        </th>
-        <th>
-            <img src="https://zupimages.net/up/24/38/sime.png" alt="Kaede">
-        </th>
-    </tr>
-    <tr>
-        <th>
-            <img src="https://zupimages.net/up/24/38/psg2.png" alt="Kaito">
-        </th>
-        <th>
-            <img src="https://zupimages.net/up/24/38/n66n.png" alt="Kibo">
-        </th>
-        <th>
-            <img src="https://zupimages.net/up/24/38/z23p.png" alt="Kirumi">
-        </th>
-        <th>
-            <img src="https://zupimages.net/up/24/38/l89a.png" alt="Kokichi">
-        </th>
-    </tr>
-    <tr>
-        <th>
-            <img src="https://zupimages.net/up/24/38/e8z9.png" alt="Korekiyo">
-        </th>
-        <th>
-            <img src="https://zupimages.net/up/24/38/shzr.png" alt="Maki">
-        </th>
-        <th>
-            <img src="https://zupimages.net/up/24/38/gb2b.png" alt="Miu">
-        </th>
-        <th>
-            <img src="https://zupimages.net/up/24/38/1pth.png" alt="Rantaro">
-        </th>
-    </tr>
-    <tr>
-        <th>
-            <img src="https://zupimages.net/up/24/38/x6g8.png" alt="Ryoma">
-        </th>
-        <th>
-            <img src="https://zupimages.net/up/24/38/fxeg.png" alt="Shuichi">
-        </th>
-        <th>
-            <img src="https://zupimages.net/up/24/38/p6zw.png" alt="Tenko">
-        </th>
-        <th>
-            <img src="https://zupimages.net/up/24/38/7bbt.png" alt="Tsumugi">
-        </th>
-    </tr>
-</table>
+    <form method="post" id="formulaire1" action="">
+    <table class="CharactersTable">
+        <tr>
+            <th>
+                <a href="main.html"><img src="https://zupimages.net/up/24/38/28l4.png" alt="Angie"></a>
+                <br><input type="checkbox" id="0">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/y36c.png" alt="Gonta">
+                <br><input type="checkbox" id="1">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/2829.png" alt="Himiko">
+                <br><input type="checkbox" id="2">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/sime.png" alt="Kaede">
+                <br><input type="checkbox" id="3">
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <img src="https://zupimages.net/up/24/38/psg2.png" alt="Kaito">
+                <br><input type="checkbox" id="4">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/n66n.png" alt="Kibo">
+                <br><input type="checkbox" id="5">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/z23p.png" alt="Kirumi">
+                <br><input type="checkbox" id="6">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/l89a.png" alt="Kokichi">
+                <br><input type="checkbox" id="7">
+            </th>
+        </tr>
+    
+    
+        <tr>
+            <th>
+                <img src="https://zupimages.net/up/24/38/e8z9.png" alt="Korekiyo">
+                <br><input type="checkbox" id="8">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/shzr.png" alt="Maki">
+                <br><input type="checkbox" id="9">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/gb2b.png" alt="Miu">
+                <br><input type="checkbox" id="10">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/1pth.png" alt="Rantaro">
+                <br><input type="checkbox" id="11">
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <img src="https://zupimages.net/up/24/38/x6g8.png" alt="Ryoma">
+                <br><input type="checkbox" id="12">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/fxeg.png" alt="Shuichi">
+                <br><input type="checkbox" id="13">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/p6zw.png" alt="Tenko">
+                <br><input type="checkbox" id="14">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/7bbt.png" alt="Tsumugi">
+                <br><input type="checkbox" id="15">
+            </th>
+        </tr>
+    </table>
+        <input type="submit" onClick="deadpeople(); return false;" />
+        </form>
             <center><a href="electrolithe.html"><button>Grotte Electrolithe</button></a></center>
