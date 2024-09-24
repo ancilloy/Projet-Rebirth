@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <script>
+
+
+        let dead = 0
+        function deadpeople() {
+            let j = 0
+            for (i = dead; i < 16; i++){
+                if(document.getElementById("Live_"+i).checked == true){
+                    j++
+                }
+            }
+            if (j == 0) {
+                alert("À tous les étudiants. Aujourd'hui, personne n'est mort. Quel dommage.")
+            }
+            else if (j == 1) {
+                alert ("À tous les étudiants. Aujourd'hui, une personne est morte. Quelle chance.")
+            }
+            else if (j == 6) {
+                alert ("Au premier crépuscule, les six choisis par la clé seront sacrifiés.")
+            }
+            else {
+                alert("À tous les étudiants. Aujourd'hui, " + j + " personnes sont mortes. Ou peut-être hier, je ne sais plus.")
+            }
+        }
+        const randomColor = "#"+((1<<24)*Math.random()|0).toString(16);
+
+    </script>
+</head>
+<body onload="document.body.style.backgroundColor = randomColor"><h1><u>Project Rebirth</u></h1></br>
+    <form method="post" id="formulaire1" action="">
+    <table class="DanganTable">
+        <tr>
+            <th>
+                <img src="https://zupimages.net/up/24/38/28l4.png" alt="Angie"></a>
+                <br><input type="checkbox" id="Live_0">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/y36c.png" alt="Gonta">
+                <br><input type="checkbox" id="Live_1">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/2829.png" alt="Himiko">
+                <br><input type="checkbox" id="Live_2">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/sime.png" alt="Kaede">
+                <br><input type="checkbox" id="Live_3">
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <img src="https://zupimages.net/up/24/38/psg2.png" alt="Kaito">
+                <br><input type="checkbox" id="Live_4">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/n66n.png" alt="Kibo">
+                <br><input type="checkbox" id="Live_5">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/z23p.png" alt="Kirumi">
+                <br><input type="checkbox" id="Live_6">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/l89a.png" alt="Kokichi">
+                <br><input type="checkbox" id="Live_7">
+            </th>
+        </tr>
+
+
+        <tr>
+            <th>
+                <img src="https://zupimages.net/up/24/38/e8z9.png" alt="Korekiyo">
+                <br><input type="checkbox" id="Live_8">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/shzr.png" alt="Maki">
+                <br><input type="checkbox" id="Live_9">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/gb2b.png" alt="Miu">
+                <br><input type="checkbox" id="Live_10">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/1pth.png" alt="Rantaro">
+                <br><input type="checkbox" id="Live_11">
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <img src="https://zupimages.net/up/24/38/x6g8.png" alt="Ryoma">
+                <br><input type="checkbox" id="Live_12">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/fxeg.png" alt="Shuichi">
+                <br><input type="checkbox" id="Live_13">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/p6zw.png" alt="Tenko">
+                <br><input type="checkbox" id="Live_14">
+            </th>
+            <th>
+                <img src="https://zupimages.net/up/24/38/7bbt.png" alt="Tsumugi">
+                <br><input type="checkbox" id="Live_15">
+            </th>
+        </tr>
+    </table>
+        <center><input type="submit" value="Valider les morts" onClick="deadpeople(); return false;"/></center>
+        </form>
+    </br>
+        <center><a href="electrolithe.html"><button>Grotte Electrolithe</button></a></center>
+
+</body>
+</html>
