@@ -1,5 +1,11 @@
-<link rel="stylesheet" href="style.css">
-<script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <script>
 
 
         let dead = 0
@@ -20,11 +26,13 @@
                 alert("À tous les étudiants. Aujourd'hui, " + j + " personnes sont mortes. Ou peut-être hier, je ne sais plus.")
             }
         }
-        const randomColor = "#"+((1<<24)*Math.random()|0).toString(16)
+        const randomColor = "#"+((1<<24)*Math.random()|0).toString(16); 
 
     </script>
-<h1 onload="document.body.style.backgroundColor = randomColor"><u>Project Rebirth</u></h1></br>
-    <table class="CharactersTable">
+</head>
+<body onload="document.body.style.backgroundColor = randomColor"><h1><u>Project Rebirth</u></h1></br>
+    <form method="post" id="formulaire1" action="">
+    <table class="DanganTable">
         <tr>
             <th>
                 <img src="https://zupimages.net/up/24/38/28l4.png" alt="Angie"></a>
@@ -102,4 +110,8 @@
     </table>
         <center><input type="submit" value="Valider les morts" onClick="deadpeople(); return false;"/></center>
         </form>
-            <center><a href="electrolithe.html"><button>Grotte Electrolithe</button></a></center>
+    </br>
+        <center><a href="electrolithe.html"><button>Grotte Electrolithe</button></a></center>
+        
+</body>
+</html>
