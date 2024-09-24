@@ -20,9 +20,10 @@
                 alert("À tous les étudiants. Aujourd'hui, " + j + " personnes sont mortes. Ou peut-être hier, je ne sais plus.")
             }
         }
+        const randomColor = "#"+((1<<24)*Math.random()|0).toString(16); 
 
     </script>
-<h1>Project Rebirth</h1>
+<h1 onload="document.body.style.backgroundColor = randomColor"><u>Project Rebirth</u></h1></br>
     <table class="CharactersTable">
         <tr>
             <th>
@@ -99,6 +100,6 @@
             </th>
         </tr>
     </table>
-        <input type="submit" onClick="deadpeople(); return false;" />
+        <center><input type="submit" value="Valider les morts" onClick="deadpeople(); return false;"/></center>
         </form>
             <center><a href="electrolithe.html"><button>Grotte Electrolithe</button></a></center>
