@@ -5,10 +5,14 @@ h1 {
 
 .DanganTable {
   margin: auto;
-  width: 40%;
+  width: 30%;
   padding: 10px;
 }
 
 tr {
   vertical-align: bottom;
+}
+
+.bottom_button {
+  text-align: center;
 }
