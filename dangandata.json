@@ -1,26 +1,98 @@
 [
   {
     "name": "Angie Yonaga",
-    "height": "157cm",
+    "height": 157,
     "birthday": "18th April",
     "url": "https://zupimages.net/up/24/38/28l4.png"
   },
   {
     "name": "Gonta Gokuhara",
-    "height": "198cm",
+    "height": 198,
     "birthday": "23rd January",
     "url": "https://zupimages.net/up/24/38/y36c.png"
   },
   {
     "name": "Himiko Yumeno",
-    "height": "150cm",
+    "height": 150,
     "birthday": "3rd December",
     "url": "https://zupimages.net/up/24/38/2829.png"
   },
   {
     "name": "Kaede Akamatsu",
-    "height": "167cm",
+    "height": 167,
     "birthday": "26th March",
     "url": "https://zupimages.net/up/24/38/sime.png"
+  },
+  {
+    "name": "Kaito Momota",
+    "height": 184,
+    "birthday": "12th April",
+    "url": "https://zupimages.net/up/24/38/psg2.png"
+  },
+  {
+    "name": "K1-B0",
+    "height": 160,
+    "birthday": "29 October",
+    "url": "https://zupimages.net/up/24/38/n66n.png"
+  },
+  {
+    "name": "Kirumi Tôjô",
+    "height": 176,
+    "birthday": "10th May",
+    "url": "https://zupimages.net/up/24/38/z23p.png"
+  },
+  {
+    "name": "Kokichi Ôma",
+    "height": 156,
+    "birthday": "21st June",
+    "url": "https://zupimages.net/up/24/38/l89a.png"
+  },
+  {
+    "name": "Korekiyo Shingûji",
+    "height": 188,
+    "birthday": "31st July",
+    "url": "https://zupimages.net/up/24/38/e8z9.png"
+  },
+  {
+    "name": "Maki Harukawa",
+    "height": 162,
+    "birthday": "2nd February",
+    "url": "https://zupimages.net/up/24/38/shzr.png"
+  },
+  {
+    "name": "Miu Iruma",
+    "height": 173,
+    "birthday": "16th November",
+    "url": "https://zupimages.net/up/24/38/gb2b.png"
+  },
+  {
+    "name": "Rantarô Amami",
+    "height": 179,
+    "birthday": "3rd October",
+    "url": "https://zupimages.net/up/24/38/1pth.png"
+  },
+  {
+    "name": "Ryôma Hoshi",
+    "height": 105,
+    "birthday": "1st July",
+    "url": "https://zupimages.net/up/24/38/x6g8.png"
+  },
+  {
+    "name": "Shûichi Saihara",
+    "height": 171,
+    "birthday": "7th September",
+    "url": "https://zupimages.net/up/24/38/fxeg.png"
+  },
+  {
+    "name": "Tenko Chabashira",
+    "height": 165,
+    "birthday": "9th January",
+    "url": "https://zupimages.net/up/24/38/p6zw.png"
+  },
+  {
+    "name": "Tsumugi Shirogane",
+    "height": 174,
+    "birthday": "15th August",
+    "url": "https://zupimages.net/up/24/38/7bbt.png"
   }
 ]
