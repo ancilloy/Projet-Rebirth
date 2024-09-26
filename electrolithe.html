@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <title>Grotte Electrolithe</title>
         <style>
             body {
                 background-image: url('https://archives.bulbagarden.net/media/upload/b/b6/BW_Chargestone_Cave_Tile.png');
@@ -15,6 +16,45 @@
             Bienvenue dans la Grotte Electrolithe
             &ensp;<img src="rocher_flottant.png">
         </h2></center>
-        Some body once told me
+        Pourquoi ne pas essayer la Grotte Electrolithe ? On a :
+        <ul id="liste-poke"></ul>
+
+        <script>
+            fetch('https://pokeapi.co/api/v2/location-area/chargestone-cave-1f')
+                .then(response => response.json())
+                .then(data => {
+                  // Fonction pour afficher les données
+                  afficherDonnees(data.pokemon_encounters);
+                })
+                .catch(error => console.error('Erreur lors de l\'appel API :', error));
+
+                function capitalize(mot) {
+                    return mot.charAt(0).toUpperCase() + mot.slice(1);
+                }
+
+                function fetchTranslation(name, lg) {
+                    return fetch('https://pokeapi.co/api/v2/pokemon-species/' + name)
+                        .then(response => response.json())
+                        .then(data =>              data.names.find(elt => elt.language.name == lg).name )
+                        .catch(error => console.error('Erreur lors de l\'appel API :', error));
+                }
+
+                // Fonction pour insérer les données dans la page
+                function afficherDonnees(data) {
+                  const ul = document.getElementById('liste-poke');
+
+                  // Supposons que les données sont un tableau d'objets
+                  data.forEach(item => {
+                    // Créez des éléments HTML pour chaque entrée de données
+                    fetchTranslation(item.pokemon.name, 'fr').then((nom) => ajouterElement(nom, ul))
+                  });
+                }
+
+                function ajouterElement(nom, ul) {
+                    const itemLi = document.createElement('li');
+                    itemLi.innerHTML = `${capitalize( nom )}`;
+                    ul.appendChild(itemLi);
+                }
+        </script>
     </body>
 </html>
