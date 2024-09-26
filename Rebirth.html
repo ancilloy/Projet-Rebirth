@@ -8,22 +8,24 @@
 <!--JaajaScript-->
     <script>
 
-    /*Génère une couleur aléatoire pour colormix*/
+    //Génère une couleur aléatoire pour colormix
         let colormix = ""
         function randomColor() {
             let colormix = "#"+((1<<24)*Math.random()|0).toString(16)
             return colormix
         }
 
-    /*Traite le nombre de cases cochées du tableau.*/
+    //Traite le nombre de cases cochées du tableau.
         let dead = 0
         function deadpeople() {
+        //Compte le nombre de morts
             let j = 0
             for (i = dead; i < 16; i++){
                 if(document.getElementById("Live_"+i).checked == true){
                     j++
                 }
             }
+        //Message en réaction
             if (j == 0) {
                 alert("À tous les étudiants. Aujourd'hui, personne n'est mort. Quel dommage.")
             }
@@ -38,88 +40,73 @@
             }
         }
         
+    //Récupération des données du .JSON
+        async function fetchData() {
+            try {
+                const response = await fetch("https://ancilloy.github.io/Projet-Rebirth/dangandata.json");
+                dangandata = await response.json();
+                displayData(dangandata);
+            } catch (error) {
+                console.error('Oh no ! :', error);
+            }
+        }
+
+    //Affichage des données du .JSON
+        function displayData(dangandata) {
+            const dataList = document.getElementById('alpha');
+            dataList.innerHTML = '';
+
+            let row;
+            dangandata.forEach((character, index) => {
+            //Gestion du Tableau
+                if (index % 4 === 0) {
+                    row = document.createElement('tr');
+                    dataList.appendChild(row);
+                }
+                const cell = document.createElement('td');
+
+            //Importation de l'image
+                const danganImage = document.createElement('img');
+                danganImage.src = character.url;
+
+            //Gestionnaire des fonctions sur clicks d'images
+                danganImage.addEventListener('click', () => {
+                    handleImageClick(character);
+                });
+
+            //Création d'une checkbox + ID
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';    
+                checkbox.id = `Live_${index}`;
+                
+            //Assemblage dans la cellule
+                cell.appendChild(danganImage);
+                cell.appendChild(document.createElement('br'));
+                cell.appendChild(checkbox);
+                row.appendChild(cell);
+            });
+        }
+
+    //Fonctions en cliquant sur perso X.
+        function handleImageClick(character, index) {
+        //Himiko change la couleur de fond.
+            if ((character.name) === "Himiko Yumeno") {
+                document.body.style.backgroundColor = randomColor(colormix);
+            }
+        //Tsumugi renvoie à "electrolithe".
+            if (character.name === "Tsumugi Shirogane") {
+                window.location.href = "electrolithe.html";
+            }
+                console.log('Vous avez cliqué sur : ' + (character.name));
+        }
+
+document.addEventListener('DOMContentLoaded', fetchData);
+
     </script>
 </head>
 <body><h1><u>Project Rebirth</u></h1>
-
     <!--Tableau central-->
-        <table class="DanganTable">
-        <!--1ère ligne-->
-            <tr>
-                <th>
-                    <img src="https://zupimages.net/up/24/38/28l4.png" alt="Angie"></a>
-                    <br><input type="checkbox" id="Live_0">
-                </th>
-                <th>
-                    <img src="https://zupimages.net/up/24/38/y36c.png" alt="Gonta">
-                    <br><input type="checkbox" id="Live_1">
-                </th>
-                <th>
-                    <img src="https://zupimages.net/up/24/38/2829.png" alt="Himiko" onClick="document.body.style.backgroundColor = randomColor(colormix)">
-                    <br><input type="checkbox" id="Live_2">
-                </th>
-                <th>
-                    <img src="https://zupimages.net/up/24/38/sime.png" alt="Kaede">
-                    <br><input type="checkbox" id="Live_3">
-                </th>
-            </tr>
-        <!--2eme ligne-->
-            <tr>
-                <th>
-                    <img src="https://zupimages.net/up/24/38/psg2.png" alt="Kaito">
-                    <br><input type="checkbox" id="Live_4">
-                </th>
-                <th>
-                    <img src="https://zupimages.net/up/24/38/n66n.png" alt="Kibo">
-                    <br><input type="checkbox" id="Live_5">
-                </th>
-                <th>
-                    <img src="https://zupimages.net/up/24/38/z23p.png" alt="Kirumi">
-                    <br><input type="checkbox" id="Live_6">
-                </th>
-                <th>
-                    <img src="https://zupimages.net/up/24/38/l89a.png" alt="Kokichi">
-                    <br><input type="checkbox" id="Live_7">
-                </th>
-            </tr>
-        <!--3eme ligne-->
-            <tr>
-                <th>
-                    <img src="https://zupimages.net/up/24/38/e8z9.png" alt="Korekiyo">
-                    <br><input type="checkbox" id="Live_8">
-                </th>
-                <th>
-                    <img src="https://zupimages.net/up/24/38/shzr.png" alt="Maki">
-                    <br><input type="checkbox" id="Live_9">
-                </th>
-                <th>
-                    <img src="https://zupimages.net/up/24/38/gb2b.png" alt="Miu">
-                    <br><input type="checkbox" id="Live_10">
-                </th>
-                <th>
-                    <img src="https://zupimages.net/up/24/38/1pth.png" alt="Rantaro">
-                    <br><input type="checkbox" id="Live_11">
-                </th>
-            </tr>
-        <!--4eme ligne-->
-            <tr>
-                <th>
-                    <img src="https://zupimages.net/up/24/38/x6g8.png" alt="Ryoma">
-                    <br><input type="checkbox" id="Live_12">
-                </th>
-                <th>
-                    <img src="https://zupimages.net/up/24/38/fxeg.png" alt="Shuichi">
-                    <br><input type="checkbox" id="Live_13">
-                </th>
-                <th>
-                    <img src="https://zupimages.net/up/24/38/p6zw.png" alt="Tenko">
-                    <br><input type="checkbox" id="Live_14">
-                </th>
-                <th>
-                    <a href="electrolithe.html"><img src="https://zupimages.net/up/24/38/7bbt.png" alt="Tsumugi"></a>
-                    <br><input type="checkbox" id="Live_15">
-                </th>
-            </tr>
+        <table class="DanganTable" id="alpha" onload="displayData">
         </table>
         <div class="bottom_button">
             <input type="submit" value="Valider les morts" onClick="deadpeople(); return false;"/>
