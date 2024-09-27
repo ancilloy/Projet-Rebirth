@@ -7,6 +7,17 @@
                 background-image: url('https://archives.bulbagarden.net/media/upload/b/b6/BW_Chargestone_Cave_Tile.png');
                 color: #00aeff;
             }
+
+            table {
+                overflow: hidden;
+                border: 1px solid #000000;
+                background-color: #487e98;
+            }
+
+            th {
+                padding: 5px;
+                border: 1px solid #000000;
+            }
         </style>
     </head>
 
@@ -16,15 +27,27 @@
             Bienvenue dans la Grotte Electrolithe
             &ensp;<img src="rocher_flottant.png">
         </h2></center>
-        Pourquoi ne pas essayer la Grotte Electrolithe ? On a :
-        <ul id="liste-poke"></ul>
+        Pourquoi ne pas essayer la Grotte Electrolithe ? On a :<br><br>
+        <center><table id="poketab">
+            <tr>
+                <th>Sprite</th>
+                <th>Nom</th>
+                <th>Nom anglais</th>
+                <th>PV</th>
+                <th>Attaque</th>
+                <th>Défense</th>
+                <th>Attaque spéciale</th>
+                <th>Défense spéciale</th>
+                <th>Vitesse</th>
+            </tr>
+        </table></center>
 
         <script>
             fetch('https://pokeapi.co/api/v2/location-area/chargestone-cave-1f')
                 .then(response => response.json())
                 .then(data => {
-                  // Fonction pour afficher les données
-                  afficherDonnees(data.pokemon_encounters);
+                    // Fonction pour afficher les données
+                    parcoursListePoke(data.pokemon_encounters);
                 })
                 .catch(error => console.error('Erreur lors de l\'appel API :', error));
 
@@ -32,25 +55,69 @@
                     return mot.charAt(0).toUpperCase() + mot.slice(1);
                 }
 
-                function fetchTranslation(name, lg) {
+                function fetchPokemon(name, n) {
+                    return fetch('https://pokeapi.co/api/v2/pokemon/' + name)
+                        .then(response => response.json())
+                        .then(data => {
+                            sprite = document.getElementById(`poketab-row-${n}-sprite`);
+                            sprite.innerHTML = `<img src="${ data.sprites.front_default }">`;
+
+                            allstats = ['hp', 'attack', 'defense', 'special-attack', 'special-defense', 'speed'];
+
+                            allstats.forEach(stati => {
+                                elt = document.getElementById(`poketab-row-${n}-${stati}`);
+                                elt.innerHTML = `${ data.stats.find(elt => elt.stat.name == stati).base_stat }`;
+                            })
+
+                        })
+                        .catch(error => console.error('Erreur lors de l\'appel API :', error));
+                }
+
+                function fetchPokeSpecies(name, n) {
                     return fetch('https://pokeapi.co/api/v2/pokemon-species/' + name)
                         .then(response => response.json())
-                        .then(data =>              data.names.find(elt => elt.language.name == lg).name )
+                        .then(data => {
+                            name_fr = document.getElementById(`poketab-row-${n}-name-fr`);
+                            name_fr.innerHTML = data.names.find(elt => elt.language.name == 'fr').name;
+                        })
                         .catch(error => console.error('Erreur lors de l\'appel API :', error));
                 }
 
                 // Fonction pour insérer les données dans la page
-                function afficherDonnees(data) {
-                  const ul = document.getElementById('liste-poke');
+                function parcoursListePoke(data) {
+                    const table = document.getElementById('poketab');
 
-                  // Supposons que les données sont un tableau d'objets
-                  data.forEach(item => {
-                    // Créez des éléments HTML pour chaque entrée de données
-                    fetchTranslation(item.pokemon.name, 'fr').then((nom) => ajouterElement(nom, ul))
-                  });
+                    n = 1;
+
+                    // Supposons que les données sont un tableau d'objets
+                    data.forEach(item => {
+
+                        const row = document.createElement('tr');
+                        row.innerHTML = `<th id="poketab-row-${n}-sprite"></th>` +
+                                        `<th id="poketab-row-${n}-name-fr"></th>` +
+                                        `<th id="poketab-row-${n}-name-en"></th>` +
+                                        `<th id="poketab-row-${n}-hp"></th>` +
+                                        `<th id="poketab-row-${n}-attack"></th>` +
+                                        `<th id="poketab-row-${n}-defense"></th>` +
+                                        `<th id="poketab-row-${n}-special-attack"></th>` +
+                                        `<th id="poketab-row-${n}-special-defense"></th>` +
+                                        `<th id="poketab-row-${n}-speed"></th>`;
+                        table.appendChild(row);
+
+                        fetchPokemon(item.pokemon.name, n);
+                        fetchPokeSpecies(item.pokemon.name, n);
+
+                        name_en = document.getElementById(`poketab-row-${n}-name-en`);
+                        name_en.innerHTML = capitalize(item.pokemon.name);
+
+                        n += 1;
+
+
+
+                    });
                 }
 
-                function ajouterElement(nom, ul) {
+                function ajouterNomFr(nom, ul) {
                     const itemLi = document.createElement('li');
                     itemLi.innerHTML = `${capitalize( nom )}`;
                     ul.appendChild(itemLi);
