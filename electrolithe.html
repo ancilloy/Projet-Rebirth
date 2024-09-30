@@ -99,7 +99,8 @@
                         .then(response => response.json())
                         .then(data => {
                             name_fr = document.getElementById(`poketab-row-${n}-name-fr`);
-                            name_fr.innerHTML = data.names.find(elt => elt.language.name == 'fr').name;
+                            n = data.names.find(elt => elt.language.name == 'fr').name;
+                            name_fr.innerHTML = `<a href="https://www.pokepedia.fr/${n}">${n}</a>`;
                         })
                         .catch(error => console.error('Erreur lors de l\'appel API :', error));
                 }
@@ -129,7 +130,8 @@
                         fetchPokeSpecies(item.pokemon.name, n);
 
                         name_en = document.getElementById(`poketab-row-${n}-name-en`);
-                        name_en.innerHTML = capitalize(item.pokemon.name);
+                        n = capitalize(item.pokemon.name);
+                        name_en.innerHTML = `<a href="https://bulbapedia.bulbagarden.net/wiki/${n}_(Pok%C3%A9mon)">${n}</a>`;
 
                         n += 1;
 
