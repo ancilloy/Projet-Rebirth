@@ -27,29 +27,50 @@
             Bienvenue dans la Grotte Electrolithe
             &ensp;<img src="rocher_flottant.png">
         </h2></center>
-        Pourquoi ne pas essayer la Grotte Electrolithe ? On a :<br><br>
+        Entrez le nom de la zone que vous cherchez :
+        <select id="areaSelect"></select>
+
+        <br><br>
         <center><table id="poketab">
-            <tr>
-                <th>Sprite</th>
-                <th>Nom</th>
-                <th>Nom anglais</th>
-                <th>PV</th>
-                <th>Attaque</th>
-                <th>Défense</th>
-                <th>Attaque spéciale</th>
-                <th>Défense spéciale</th>
-                <th>Vitesse</th>
-            </tr>
         </table></center>
 
         <script>
-            fetch('https://pokeapi.co/api/v2/location-area/chargestone-cave-1f')
+            fetch('https://pokeapi.co/api/v2/location-area?limit=1054')
                 .then(response => response.json())
                 .then(data => {
-                    // Fonction pour afficher les données
-                    parcoursListePoke(data.pokemon_encounters);
-                })
-                .catch(error => console.error('Erreur lors de l\'appel API :', error));
+                    picklist = document.getElementById('areaSelect');
+                    data.results.forEach(item => {
+                        newOption = document.createElement('option');
+                        newOption.innerHTML = item.name;
+                        newOption.value = item.name;
+                        if (item.name == 'chargestone-cave-1f') { newOption.selected = true; }
+                        newOption.addEventListener('click', () => { reloadList(item.name); });
+                        picklist.appendChild(newOption);
+                    })
+                });
+            reloadList('chargestone-cave-1f');
+
+            function reloadList(locationName) {
+                table = document.getElementById('poketab');
+                table.innerHTML = '<tr>' +
+                    '<th>Sprite</th>' +
+                    '<th>Nom</th>' +
+                    '<th>Nom anglais</th>' +
+                    '<th>PV</th>' +
+                    '<th>Attaque</th>' +
+                    '<th>Défense</th>' +
+                    '<th>Attaque spéciale</th>' +
+                    '<th>Défense spéciale</th>' +
+                    '<th>Vitesse</th>' +
+                    '</tr>';
+                fetch('https://pokeapi.co/api/v2/location-area/' + locationName)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Fonction pour afficher les données
+                        parcoursListePoke(data.pokemon_encounters);
+                    })
+                    .catch(error => console.error('Erreur lors de l\'appel API :', error));
+            }
 
                 function capitalize(mot) {
                     return mot.charAt(0).toUpperCase() + mot.slice(1);
