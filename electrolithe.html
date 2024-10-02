@@ -30,9 +30,21 @@
         </h2></center>
 
         <table>
-            <tr><th>Entrez les informations sur le Pokémon :</th><th>Nature</th><th>Caractéristique</th></tr>
-            <tr><th></th><th><select id="natureSelect"></select></th><th><select id="caracSelect"></select></th></tr>
+            <tr>
+                <th>Entrez les informations sur le Pokémon :</th>
+                <th>Nature</th>
+                <th>Caractéristique</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th><select id="natureSelect"></select></th>
+                <th><select id="caracSelect"></select></th>
+            </tr>
         </table>
+        <br><br>
+        <center><input type="submit" value="Process" onClick="process(); return false;"/></center>
+        <div id="processBlock"></div>
+        <br><br>
 
         <script>
             fetch("https://ancilloy.github.io/Projet-Rebirth/pokedata.json")
@@ -44,17 +56,25 @@
                     data.natures.forEach(nat => {
                         newOption = document.createElement('option');
                         newOption.innerHTML = nat.nom;
-                        newOption.value = nat;
+                        newOption.value = nat.nom;
                         natureSelect.appendChild(newOption);
                     });
 
                     data.caracteristiques.forEach(car => {
                         newOption = document.createElement('option');
                         newOption.innerHTML = car.nom;
-                        newOption.value = car;
+                        newOption.value = car.nom;
                         caracSelect.appendChild(newOption);
                     });
                 });
+
+                function process() {
+                    selectedNature = document.getElementById('natureSelect').selectedOptions[0].value;
+                    selectedCarac  = document.getElementById('caracSelect').selectedOptions[0].value;
+
+                    document.getElementById('processBlock').innerHTML = `<b>Nature selectionnée :</b> ${selectedNature}<br>` +
+                                                                       `<b>Caractéristique selectionnée :</b> ${selectedCarac}<br>`;
+                }
         </script>
 
         <center><a href="parsemille.html"><img src="sortie.png"></a></center>
