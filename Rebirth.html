@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="shortcut icon" type="image/x-icon" href="ico.ico" />
+    <title>Project Rebirth</title>
 <!--JaajaScript-->
     <script>
+
+    //Kaede Music
+        function maestro() {
+            var audio = document.getElementById("audio-player");
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            };
+        }
 
     //Random Color
         let colormix = ""
@@ -89,14 +100,24 @@
     //Sprite Clicking Functions
         function handleImageClick(character, index) {
             document.getElementById('dylanbob').textContent = "\"On vient pas de la street, nous ?\""
+
         //Himiko : Swaps background color
             if ((character.name) === "Himiko Yumeno") {
                 document.body.style.backgroundColor = randomColor(colormix);
+                document.getElementById('dylanbob').textContent = "\"Background color goes brrr\"";
             }
+
+        //Kaede : Debussy (ça ressemble à Depussy, non ? Non...? Bon)
+            if ((character.name) === "Kaede Akamatsu"){
+                maestro();
+                document.getElementById('dylanbob').textContent = "\"Je suis chanteur.\"";
+            }
+
         //Tsumugi : Sends to Electrolithe
             if (character.name === "Tsumugi Shirogane") {
                 document.getElementById('dylanbob').textContent = "\"Rip Tsumugi X Electrolithe\"";
             }
+
         //All : Swap left image + Name in log
             document.getElementById('danganleft').src = (character.url2);
             console.log('Vous avez cliqué sur : ' + (character.name));
@@ -107,15 +128,19 @@
 
     </script>
 </head>
-<body><h1><u>Project Rebirth</u></h1>
+<body><h1 id="titre"><u>Project Rebirth</u></h1>
     <div class="container">
         <div class="block image-block">
     <!--Block 1-->
-            <img id="danganleft" class="characterimage" alt="Description de l'image">
+            <img id="danganleft" class="characterimage" alt="Clique sur un perso stp...">
         </div>
     <!--Block 2-->
         <div class="block table-block">
             <table class="DanganTable" id="alpha" onload="displayData"></table>
+            <input type="submit" value="Valider les morts" onClick="deadpeople(); return false;"/>
+            <a href=electrolithe.html><button>Grotte Electrolithe</button></a>
+        <!--Kaede does who the fuck knows what-->
+            <audio id="audio-player" src="Debussy - Clair de Lune.mp3" preload="auto"></audio>
         </div>
     <!--Block 3-->
         <div class="block empty-block">
@@ -123,11 +148,14 @@
             <h2 id="bobdylan">- Nounours</h2>
         </div>
     </div>
-    <!--Buttons-->
-        <div class="bottom_button">
-            <input type="submit" value="Valider les morts" onClick="deadpeople(); return false;"/>
-            <a href=electrolithe.html><button>Grotte Electrolithe</button></a>
-        </div>
     </div>
 </body>
 </html>
+
+
+<!--Image floue pour Kokichi
+Gérer les tailles de chaque blocs
+- Miu trop grande
+- Tableau central trop à l'étroit puis trop intrusif si trop zoomé
+
+-->
