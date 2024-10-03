@@ -41,6 +41,33 @@
                 <th><select id="caracSelect"></select></th>
             </tr>
         </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>Niveau</th>
+                    <th>PV</th>
+                    <th>Attaque</th>
+                    <th>Défense</th>
+                    <th>Attaque spéciale</th>
+                    <th>Défense spéciale</th>
+                    <th>Vitesse</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="stat-table-body">
+                <tr id="row-1">
+                    <th><input id="row-1-niveau"      type="number" min="1" max="100"/></th>
+                    <th><input id="row-1-pv"          type="number" min="1" max="999"/></th>
+                    <th><input id="row-1-attaque"     type="number" min="1" max="999"/></th>
+                    <th><input id="row-1-defense"     type="number" min="1" max="999"/></th>
+                    <th><input id="row-1-attaque-spe" type="number" min="1" max="999"/></th>
+                    <th><input id="row-1-defense-spe" type="number" min="1" max="999"/></th>
+                    <th><input id="row-1-vitesse"     type="number" min="1" max="999"/></th>
+                    <th></th>
+                </tr>
+            </tbody>
+        </table>
+        <button onclick="newRow();">+ Ajouter une ligne</button>
         <br><br>
         <center><input type="submit" value="Process" onClick="process(); return false;"/></center>
         <div id="processBlock"></div>
@@ -68,13 +95,53 @@
                     });
                 });
 
-                function process() {
-                    selectedNature = document.getElementById('natureSelect').selectedOptions[0].value;
-                    selectedCarac  = document.getElementById('caracSelect').selectedOptions[0].value;
+            function process() {
+                selectedNature = document.getElementById('natureSelect').selectedOptions[0].value;
+                selectedCarac  = document.getElementById('caracSelect').selectedOptions[0].value;
 
-                    document.getElementById('processBlock').innerHTML = `<b>Nature selectionnée :</b> ${selectedNature}<br>` +
-                                                                       `<b>Caractéristique selectionnée :</b> ${selectedCarac}<br>`;
+                document.getElementById('processBlock').innerHTML = `<b>Nature selectionnée :</b> ${selectedNature}<br>` +
+                                                                    `<b>Caractéristique selectionnée :</b> ${selectedCarac}<br>`;
+            }
+
+            function newRow() {
+                statTable = document.getElementById("stat-table-body");
+                n = statTable.childElementCount + 1;
+
+                tr = document.createElement("tr");
+                tr.id = `row-${n}`;
+                tr.innerHTML = `<th><input id="row-${n}-niveau"      type="number" min="1" max="100"/></th>` +
+                    `<th><input id="row-${n}-pv"          type="number" min="1" max="999"/></th>` +
+                    `<th><input id="row-${n}-attaque"     type="number" min="1" max="999"/></th>` +
+                    `<th><input id="row-${n}-defense"     type="number" min="1" max="999"/></th>` +
+                    `<th><input id="row-${n}-attaque-spe" type="number" min="1" max="999"/></th>` +
+                    `<th><input id="row-${n}-defense-spe" type="number" min="1" max="999"/></th>` +
+                    `<th><input id="row-${n}-vitesse"     type="number" min="1" max="999"/></th>` +
+                    `<th><button id="row-${n}-remover" onclick="removeRow(${n});">Supprimer</button></th>`;
+
+                statTable.appendChild(tr);
+            }
+
+            function renameRow(src, dst) {
+                document.getElementById(`row-${src}`).id             = `row-${dst}`;
+                document.getElementById(`row-${src}-niveau`).id      = `row-${dst}-niveau`;
+                document.getElementById(`row-${src}-pv`).id          = `row-${dst}-pv`;
+                document.getElementById(`row-${src}-attaque`).id     = `row-${dst}-attaque`;
+                document.getElementById(`row-${src}-defense`).id     = `row-${dst}-defense`;
+                document.getElementById(`row-${src}-attaque-spe`).id = `row-${dst}-attaque-spe`;
+                document.getElementById(`row-${src}-defense-spe`).id = `row-${dst}-defense-spe`;
+                document.getElementById(`row-${src}-vitesse`).id     = `row-${dst}-vitesse`;
+
+                remover = document.getElementById(`row-${src}-remover`);
+                remover.outerHTML = `<th><button id="row-${dst}-remover" onclick="removeRow(${dst});">Supprimer</button></th>`;
+            }
+
+            function removeRow(i) {
+                n = document.getElementById("stat-table-body").childElementCount + 1;
+                document.getElementById(`row-${i}`).remove();
+                for (j=i+1; j<n; j++) {
+                    renameRow(j, j-1);
                 }
+            }
         </script>
 
         <center><a href="parsemille.html"><img src="sortie.png"></a></center>
