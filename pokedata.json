@@ -1,0 +1,70 @@
+{
+    "natures": [
+        { "nom" : "Hardi",   "effet" : [1,   1,   1,   1,   1  ] },
+        { "nom" : "Solo",    "effet" : [1.1, 0.9, 1,   1,   1  ] },
+        { "nom" : "Rigide",  "effet" : [1.1, 1,   0.9, 1,   1  ] },
+        { "nom" : "Mauvais", "effet" : [1.1, 1,   1,   0.9, 1  ] },
+        { "nom" : "Brave",   "effet" : [1.1, 1,   1,   1,   0.9] },
+
+        { "nom" : "Assuré",  "effet" : [0.9, 1.1, 1,   1,   1  ] },
+        { "nom" : "Docile",  "effet" : [1,   1,   1,   1,   1  ] },
+        { "nom" : "Malin",   "effet" : [1,   1.1, 0.9, 1,   1  ] },
+        { "nom" : "Lâche",   "effet" : [1,   1.1, 1,   0.9, 1  ] },
+        { "nom" : "Relax",   "effet" : [1,   1.1, 1,   1,   0.9] },
+
+        { "nom" : "Modeste", "effet" : [0.9, 1,   1.1, 1,   1  ] },
+        { "nom" : "Doux",    "effet" : [1,   0.9, 1.1, 1,   1  ] },
+        { "nom" : "Pudique", "effet" : [1,   1,   1,   1,   1  ] },
+        { "nom" : "Foufou",  "effet" : [1,   1,   1.1, 0.9, 1  ] },
+        { "nom" : "Discret", "effet" : [1,   1,   1.1, 1,   0.9] },
+
+        { "nom" : "Calme",   "effet" : [0.9, 1,   1,   1.1, 1  ] },
+        { "nom" : "Gentil",  "effet" : [1,   0.9, 1,   1.1, 1  ] },
+        { "nom" : "Prudent", "effet" : [1,   1,   0.9, 1.1, 1  ] },
+        { "nom" : "Bizarre", "effet" : [1,   1,   1,   1,   1  ] },
+        { "nom" : "Malpoli", "effet" : [1,   1,   1,   1.1, 0.9] },
+
+        { "nom" : "Timide",  "effet" : [0.9, 1,   1,   1,   1.1] },
+        { "nom" : "Pressé",  "effet" : [1,   0.9, 1,   1,   1.1] },
+        { "nom" : "Jovial",  "effet" : [1,   1,   0.9, 1,   1.1] },
+        { "nom" : "Naïf",    "effet" : [1,   1,   1,   0.9, 1.1] },
+        { "nom" : "Sérieux", "effet" : [1,   1,   1,   1,   1  ] }
+    ],
+    "caracteristiques" : [
+        { "stat" : "pv", "modulo" : 0, "nom" : "Adore manger." },
+        { "stat" : "pv", "modulo" : 1, "nom" : "S'assoupit souvent." },
+        { "stat" : "pv", "modulo" : 2, "nom" : "Dort beaucoup." },
+        { "stat" : "pv", "modulo" : 3, "nom" : "Éparpille les choses." },
+        { "stat" : "pv", "modulo" : 4, "nom" : "Aime se détendre." },
+
+        { "stat" : "attaque", "modulo" : 0, "nom" : "Fier de sa puissance." },
+        { "stat" : "attaque", "modulo" : 1, "nom" : "Aime se démener." },
+        { "stat" : "attaque", "modulo" : 2, "nom" : "Un peu coléreux." },
+        { "stat" : "attaque", "modulo" : 3, "nom" : "Aime combattre." },
+        { "stat" : "attaque", "modulo" : 4, "nom" : "S'emporte facilement." },
+
+        { "stat" : "défense", "modulo" : 0, "nom" : "Corps robuste." },
+        { "stat" : "défense", "modulo" : 1, "nom" : "Sait encaisser les coups." },
+        { "stat" : "défense", "modulo" : 2, "nom" : "Très obstiné." },
+        { "stat" : "défense", "modulo" : 3, "nom" : "Bonne endurance." },
+        { "stat" : "défense", "modulo" : 4, "nom" : "Persévérant." },
+
+        { "stat" : "attaque-spéciale", "modulo" : 0, "nom" : "Extrêmement curieux." },
+        { "stat" : "attaque-spéciale", "modulo" : 1, "nom" : "Coquin." },
+        { "stat" : "attaque-spéciale", "modulo" : 2, "nom" : "Très astucieux." },
+        { "stat" : "attaque-spéciale", "modulo" : 3, "nom" : "Souvent dans la lune." },
+        { "stat" : "attaque-spéciale", "modulo" : 4, "nom" : "Très particulier." },
+
+        { "stat" : "défense-spéciale", "modulo" : 0, "nom" : "Très volontaire." },
+        { "stat" : "défense-spéciale", "modulo" : 1, "nom" : "Un peu vaniteux." },
+        { "stat" : "défense-spéciale", "modulo" : 2, "nom" : "Esprit rebelle." },
+        { "stat" : "défense-spéciale", "modulo" : 3, "nom" : "A horreur de perdre." },
+        { "stat" : "défense-spéciale", "modulo" : 4, "nom" : "Assez entêté." },
+
+        { "stat" : "vitesse", "modulo" : 0, "nom" : "Aime courir." },
+        { "stat" : "vitesse", "modulo" : 1, "nom" : "Attentif aux sons." },
+        { "stat" : "vitesse", "modulo" : 2, "nom" : "Bête et impulsif." },
+        { "stat" : "vitesse", "modulo" : 3, "nom" : "Aime faire le pitre." },
+        { "stat" : "vitesse", "modulo" : 4, "nom" : "Fuit rapidement." }
+    ]
+}

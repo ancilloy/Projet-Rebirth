@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Aéroport de Parsemille</title>
+        <style>
+            body {
+                background-color: #88e0b8;
+            }
+
+            table {
+                color: #ffffff;
+                overflow: hidden;
+                border: 1px solid #000000;
+                background-image: url('piste.png');
+            }
+
+            th {
+                padding: 5px;
+                border: 1px solid #000000;
+            }
+
+            a {
+                color: #ffffff;
+            }
+        </style>
+    </head>
+
+    <body>
+        <center><h2>
+            <img src="champ.png">&ensp;
+            Bienvenue à l'aéroport de Parsemille
+            &ensp;<img src="champ.png">
+        </h2></center>
+        Ou souhaitez-vous partir aujourd'hui ?
+        <select id="areaSelect"></select>
+
+        <br><br>
+        <center><table id="poketab">
+        </table></center>
+
+        <script>
+            fetch('https://pokeapi.co/api/v2/location-area?limit=1054')
+                .then(response => response.json())
+                .then(data => {
+                    picklist = document.getElementById('areaSelect');
+                    data.results.forEach(item => {
+                        newOption = document.createElement('option');
+                        newOption.innerHTML = item.name;
+                        newOption.value = item.name;
+                        if (item.name == 'chargestone-cave-1f') { newOption.selected = true; }
+                        newOption.addEventListener('click', () => { reloadList(item.name); });
+                        picklist.appendChild(newOption);
+                    })
+                });
+            reloadList('chargestone-cave-1f');
+
+            function reloadList(locationName) {
+                table = document.getElementById('poketab');
+                table.innerHTML = '<tr>' +
+                    '<th>Sprite</th>' +
+                    '<th>Nom</th>' +
+                    '<th>Nom anglais</th>' +
+                    '<th>PV</th>' +
+                    '<th>Attaque</th>' +
+                    '<th>Défense</th>' +
+                    '<th>Attaque spéciale</th>' +
+                    '<th>Défense spéciale</th>' +
+                    '<th>Vitesse</th>' +
+                    '</tr>';
+                fetch('https://pokeapi.co/api/v2/location-area/' + locationName)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Fonction pour afficher les données
+                        parcoursListePoke(data.pokemon_encounters);
+                    })
+                    .catch(error => console.error('Erreur lors de l\'appel API :', error));
+            }
+
+                function capitalize(mot) {
+                    return mot.charAt(0).toUpperCase() + mot.slice(1);
+                }
+
+                function fetchPokemon(name, n) {
+                    return fetch('https://pokeapi.co/api/v2/pokemon/' + name)
+                        .then(response => response.json())
+                        .then(data => {
+                            sprite = document.getElementById(`poketab-row-${n}-sprite`);
+                            sprite.innerHTML = `<img src="${ data.sprites.front_default }">`;
+
+                            allstats = ['hp', 'attack', 'defense', 'special-attack', 'special-defense', 'speed'];
+
+                            allstats.forEach(stati => {
+                                elt = document.getElementById(`poketab-row-${n}-${stati}`);
+                                elt.innerHTML = `${ data.stats.find(elt => elt.stat.name == stati).base_stat }`;
+                            })
+
+                        })
+                        .catch(error => console.error('Erreur lors de l\'appel API :', error));
+                }
+
+                function fetchPokeSpecies(name, n) {
+                    return fetch('https://pokeapi.co/api/v2/pokemon-species/' + name)
+                        .then(response => response.json())
+                        .then(data => {
+                            name_fr = document.getElementById(`poketab-row-${n}-name-fr`);
+                            n = data.names.find(elt => elt.language.name == 'fr').name;
+                            name_fr.innerHTML = `<a href="https://www.pokepedia.fr/${n}">${n}</a>`;
+                        })
+                        .catch(error => console.error('Erreur lors de l\'appel API :', error));
+                }
+
+                // Fonction pour insérer les données dans la page
+                function parcoursListePoke(data) {
+                    const table = document.getElementById('poketab');
+
+                    n = 1;
+
+                    // Supposons que les données sont un tableau d'objets
+                    data.forEach(item => {
+
+                        const row = document.createElement('tr');
+                        row.innerHTML = `<th id="poketab-row-${n}-sprite"></th>` +
+                                        `<th id="poketab-row-${n}-name-fr"></th>` +
+                                        `<th id="poketab-row-${n}-name-en"></th>` +
+                                        `<th id="poketab-row-${n}-hp"></th>` +
+                                        `<th id="poketab-row-${n}-attack"></th>` +
+                                        `<th id="poketab-row-${n}-defense"></th>` +
+                                        `<th id="poketab-row-${n}-special-attack"></th>` +
+                                        `<th id="poketab-row-${n}-special-defense"></th>` +
+                                        `<th id="poketab-row-${n}-speed"></th>`;
+                        table.appendChild(row);
+
+                        fetchPokemon(item.pokemon.name, n);
+                        fetchPokeSpecies(item.pokemon.name, n);
+
+                        name_en = document.getElementById(`poketab-row-${n}-name-en`);
+                        n = capitalize(item.pokemon.name);
+                        name_en.innerHTML = `<a href="https://bulbapedia.bulbagarden.net/wiki/${n}_(Pok%C3%A9mon)">${n}</a>`;
+
+                        n += 1;
+                    });
+                }
+        </script>
+    </body>
+</html>
