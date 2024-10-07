@@ -5,7 +5,8 @@
     "birthday": "18th April",
     "url": "https://zupimages.net/up/24/38/28l4.png",
     "url2": "https://zupimages.net/up/24/40/2z73.png",
-    "dead" : "https://zupimages.net/up/24/40/kanz.png"
+    "dead" : "https://zupimages.net/up/24/40/kanz.png",
+    "status" : "Alive"
   },
   {
     "name": "Gonta Gokuhara",
@@ -13,7 +14,8 @@
     "birthday": "23rd January",
     "url": "https://zupimages.net/up/24/38/y36c.png",
     "url2": "https://zupimages.net/up/24/40/54el.png",
-    "dead" : "https://zupimages.net/up/24/40/lc76.png"
+    "dead" : "https://zupimages.net/up/24/40/lc76.png",
+    "status" : "Alive"
   },
   {
     "name": "Himiko Yumeno",
@@ -21,7 +23,8 @@
     "birthday": "3rd December",
     "url": "https://zupimages.net/up/24/38/2829.png",
     "url2": "https://zupimages.net/up/24/40/vhv9.png",
-    "dead" : "https://zupimages.net/up/24/40/p2as.png"
+    "dead" : "https://zupimages.net/up/24/40/p2as.png",
+    "status" : "Alive"
   },
   {
     "name": "Kaede Akamatsu",
@@ -29,7 +32,8 @@
     "birthday": "26th March",
     "url": "https://zupimages.net/up/24/38/sime.png",
     "url2": "https://zupimages.net/up/24/40/5fn5.png",
-    "dead" : "https://zupimages.net/up/24/40/wg82.png"
+    "dead" : "https://zupimages.net/up/24/40/wg82.png",
+    "status" : "Alive"
   },
   {
     "name": "Kaito Momota",
@@ -37,7 +41,8 @@
     "birthday": "12th April",
     "url": "https://zupimages.net/up/24/38/psg2.png",
     "url2": "https://zupimages.net/up/24/40/d7u3.png",
-    "dead" : "https://zupimages.net/up/24/40/w7go.png"
+    "dead" : "https://zupimages.net/up/24/40/w7go.png",
+    "status" : "Alive"
   },
   {
     "name": "K1-B0",
@@ -45,7 +50,8 @@
     "birthday": "29 October",
     "url": "https://zupimages.net/up/24/38/n66n.png",
     "url2": "https://zupimages.net/up/24/40/onsy.png",
-    "dead" : "https://zupimages.net/up/24/40/h9rc.png"
+    "dead" : "https://zupimages.net/up/24/40/h9rc.png",
+    "status" : "Alive"
   },
   {
     "name": "Kirumi Tôjô",
@@ -53,7 +59,8 @@
     "birthday": "10th May",
     "url": "https://zupimages.net/up/24/38/z23p.png",
     "url2": "https://zupimages.net/up/24/40/32pz.png",
-    "dead" : "https://zupimages.net/up/24/40/icaj.png"
+    "dead" : "https://zupimages.net/up/24/40/icaj.png",
+    "status" : "Alive"
   },
   {
     "name": "Kokichi Ôma",
@@ -61,7 +68,8 @@
     "birthday": "21st June",
     "url": "https://zupimages.net/up/24/38/l89a.png",
     "url2": "https://zupimages.net/up/24/40/cdxg.png",
-    "dead" : "https://zupimages.net/up/24/40/72uz.png"
+    "dead" : "https://zupimages.net/up/24/40/72uz.png",
+    "status" : "Alive"
   },
   {
     "name": "Korekiyo Shingûji",
@@ -69,7 +77,8 @@
     "birthday": "31st July",
     "url": "https://zupimages.net/up/24/38/e8z9.png",
     "url2": "https://zupimages.net/up/24/40/vtvv.png",
-    "dead" : "https://zupimages.net/up/24/40/r94k.png"
+    "dead" : "https://zupimages.net/up/24/40/r94k.png",
+    "status" : "Alive"
   },
   {
     "name": "Maki Harukawa",
@@ -77,7 +86,8 @@
     "birthday": "2nd February",
     "url": "https://zupimages.net/up/24/38/shzr.png",
     "url2": "https://zupimages.net/up/24/40/7988.png",
-    "dead" : "https://zupimages.net/up/24/40/fo34.png"
+    "dead" : "https://zupimages.net/up/24/40/fo34.png",
+    "status" : "Alive"
   },
   {
     "name": "Miu Iruma",
@@ -85,7 +95,8 @@
     "birthday": "16th November",
     "url": "https://zupimages.net/up/24/38/gb2b.png",
     "url2": "https://zupimages.net/up/24/40/y888.png",
-    "dead" : "https://zupimages.net/up/24/40/eqv8.png"
+    "dead" : "https://zupimages.net/up/24/40/eqv8.png",
+    "status" : "Alive"
   },
   {
     "name": "Rantarô Amami",
@@ -93,7 +104,8 @@
     "birthday": "3rd October",
     "url": "https://zupimages.net/up/24/38/1pth.png",
     "url2": "https://zupimages.net/up/24/40/jhob.png",
-    "dead" : "https://zupimages.net/up/24/40/3fea.png"
+    "dead" : "https://zupimages.net/up/24/40/3fea.png",
+    "status" : "Alive"
   },
   {
     "name": "Ryôma Hoshi",
@@ -101,7 +113,8 @@
     "birthday": "1st July",
     "url": "https://zupimages.net/up/24/38/x6g8.png",
     "url2": "https://zupimages.net/up/24/40/91o5.png",
-    "dead" : "https://zupimages.net/up/24/40/5acw.png"
+    "dead" : "https://zupimages.net/up/24/40/5acw.png",
+    "status" : "Alive"
   },
   {
     "name": "Shûichi Saihara",
@@ -109,7 +122,8 @@
     "birthday": "7th September",
     "url": "https://zupimages.net/up/24/38/fxeg.png",
     "url2": "https://zupimages.net/up/24/40/44la.png",
-    "dead" : "https://zupimages.net/up/24/40/e8dd.png"
+    "dead" : "https://zupimages.net/up/24/40/e8dd.png",
+    "status" : "Alive"
   },
   {
     "name": "Tenko Chabashira",
@@ -117,7 +131,8 @@
     "birthday": "9th January",
     "url": "https://zupimages.net/up/24/38/p6zw.png",
     "url2": "https://zupimages.net/up/24/40/sz8s.png",
-    "dead" : "https://zupimages.net/up/24/40/j78f.png"
+    "dead" : "https://zupimages.net/up/24/40/j78f.png",
+    "status" : "Alive"
   },
   {
     "name": "Tsumugi Shirogane",
@@ -125,6 +140,7 @@
     "birthday": "15th August",
     "url": "https://zupimages.net/up/24/38/7bbt.png",
     "url2": "https://zupimages.net/up/24/40/nq9n.png",
-    "dead" : "https://zupimages.net/up/24/40/bd0l.png"
+    "dead" : "https://zupimages.net/up/24/40/bd0l.png",
+    "status" : "Alive"
   }
 ]
