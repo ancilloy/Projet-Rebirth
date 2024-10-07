@@ -36,10 +36,12 @@
             for (i = 0; i < dangandata.length; i++){
                 if (dangandata[i].status == "Dead") {
                     j++;
-                    Bodies.push(dangandata[i].name)
+                        Bodies.push(dangandata[i].name);
+                        document.getElementById(`danganImage_${i}`).src = dangandata[i].dead;
                 }
                 else {
-                    Students.push(dangandata[i].name)
+                    Students.push(dangandata[i].name);
+                    document.getElementById(`danganImage_${i}`).src = dangandata[i].url;
                 }
             }
             
@@ -130,6 +132,7 @@
 
             //Import Image + Defines undraggable
                 const danganImage = document.createElement('img');
+                danganImage.id = `danganImage_${index}`
                 danganImage.src = character.url;
                 danganImage.setAttribute('draggable', false);
 
@@ -146,7 +149,7 @@
 
                 function updateValue() {
                     if (checkbox.checked) {
-                        character.status = "Dead"
+                        character.status = "Dead";
                     } else {
                         character.status = "Alive";
                     }
@@ -179,6 +182,11 @@
         //Tsumugi : Sends to Electrolithe
             if (character.name === "Tsumugi Shirogane") {
                 document.getElementById('dylanbob').textContent = "\"Rip Tsumugi X Electrolithe\"";
+            }
+
+        //Korekiyo : Love
+            if (character.name === "Korekiyo Shingûji") {
+                document.getElementById('dylanbob').textContent = "\"Siblings by chance, lovers by choice.\"";
             }
 
         //All : Swap left image + Name in log
