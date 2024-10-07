@@ -168,6 +168,13 @@
     //Sprite Clicking Functions
         function handleImageClick(character, index) {
             let alreadyChanged = false;
+
+        //Angie : Kanae
+        if (character.name === "Angie Yonaga" && (character.status) === "Alive") {
+                document.getElementById('dylanbob').textContent = "\"Je suis Kanae... Et je tue des gens.\"";
+                alreadyChanged = true;
+            }
+
         //Himiko : Swaps background color
             if ((character.name) === "Himiko Yumeno" && (character.status) === "Alive") {
                 document.body.style.backgroundColor = randomColor(colormix);
@@ -182,15 +189,15 @@
                 alreadyChanged = true;
             }
 
-        //Tsumugi : Sends to Electrolithe
-            if (character.name === "Tsumugi Shirogane" && (character.status) === "Alive") {
-                document.getElementById('dylanbob').textContent = "\"Rip Tsumugi X Electrolithe\"";
+            //Korekiyo : Love UwU
+            if (character.name === "Korekiyo Shingûji" && (character.status) === "Alive") {
+                document.getElementById('dylanbob').textContent = "\"Siblings by chance, lovers by choice.\"";
                 alreadyChanged = true;
             }
 
-        //Korekiyo : Love UwU
-            if (character.name === "Korekiyo Shingûji" && (character.status) === "Alive") {
-                document.getElementById('dylanbob').textContent = "\"Siblings by chance, lovers by choice.\"";
+        //Tsumugi : Sends to Electrolithe
+            if (character.name === "Tsumugi Shirogane" && (character.status) === "Alive") {
+                document.getElementById('dylanbob').textContent = "\"Rip Tsumugi X Electrolithe\"";
                 alreadyChanged = true;
             }
 
