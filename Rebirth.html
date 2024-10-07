@@ -28,26 +28,80 @@
 
     //Counting Deaths
         function deadpeople() {
-            let j = 0
-            for (i = 0; i < 16; i++){
-                if(document.getElementById("Live_"+i).checked == true){
-                    j++
+            
+        //Counting the bodies
+            let j = 0;
+            let Bodies = [];
+            let Students = [];
+            for (i = 0; i < dangandata.length; i++){
+                if (dangandata[i].status == "Dead") {
+                    j++;
+                    Bodies.push(dangandata[i].name)
+                }
+                else {
+                    Students.push(dangandata[i].name)
                 }
             }
+            
         //Results
+            document.getElementById.dylanbob && document.getElementById.bobdylan
+        //No death
             if (j == 0) {
-                alert("À tous les étudiants. Aujourd'hui, personne n'est mort. Quel dommage.")
+                dylanbob.textContent = "Aujourd'hui, personne n'est mort. Ou peut-être hier, je ne sais plus. Tuez-vous s'il vous plaît."
             }
-            else if (j == 1) {
-                alert ("À tous les étudiants. Aujourd'hui, une personne est morte. Quelle chance.")
+        //One death
+            if (j == 1) {
+                dylanbob.textContent = "À tous les étudiants. Aujourd'hui, " + Bodies + " est mort. Tant mieux !"
             }
-            else if (j == 6) {
-                alert ("Au premier crépuscule, les six choisis par la clé seront sacrifiés.")
+        //Few deaths
+            if (j > 1) {
+            //Two deaths
+                if (j == 2) {
+                    formattedBodies = Bodies[0] + ", ainsi que de " + Bodies[1];
+                    dylanbob.textContent = "À tous les étudiants. Aujourd'hui, " + j + " personnes sont mortes. Il s'agit de " + formattedBodies
+                }
+            //Six deaths
+                else if (j == 6) {
+                    dylanbob.textContent = "Au premier crépuscule, les six choisis par la clé seront sacrifiés."
+                }
+            //Multiples deaths 
+                else {
+                formattedBodies = Bodies[0] + ", ainsi que de " + Bodies.slice(1, -1).join(', ') + ", et " + Bodies[Bodies.length - 1];
+                dylanbob.textContent = "À tous les étudiants. Aujourd'hui, " + j + " personnes sont mortes. Il s'agit de " + formattedBodies
+                }
             }
-            else {
-                alert("À tous les étudiants. Aujourd'hui, " + j + " personnes sont mortes. Ou peut-être hier, je ne sais plus.")
+        //Six or less Survivors
+            if (j > 9) {
+            //Easter Egg
+                if (Students[0] == "Korekiyo Shingûji" && Students[1] == "Maki Harukawa" && Students[2] == "Shûichi Saihara" && Students[3] == "Tenko Chabashira" && Students[4] == "Tsumugi Shirogane" ) {
+                    dylanbob.textContent = "Somehow, you feel like it makes sense."
+                }
+            //No Survivor
+                else if (Students.length == 0) {
+                    dylanbob.textContent = "Aujourd'hui, tout le monde est mort. Je ne sais même pas pourquoi j'en fais une annonce."
+                }
+            //One Survivor
+                else if (Students.length == 1) {
+                //Tsumugi Only Survivor
+                    if (Students[0] == "Tsumugi Shirogane") {
+                        dylanbob.textContent = "Just according to keikakku."
+                    }
+                //Any Only Survivor
+                    else {
+                    dylanbob.textContent = Students + ", tu es la dernière personne encore en vie. C'est un peu gênant, non ?"
+                    }
+                }
+            //More than one Survivor
+                else {
+                    let formattedStudents = Students.join(', ').replace(/, ([^,]*)$/);
+                    dylanbob.textContent = formattedStudents + ". Vous êtes les derniers survivants. La mort vous guète. Prenez garde."
+                }
+
+                dylanbob
             }
+            bobdylan.textContent = "- Mokonokuma"
         }
+
         
     //Get data from .JSON
         async function fetchData() {
@@ -88,7 +142,16 @@
                 const checkbox = document.createElement('input');
                 checkbox.type = 'checkbox';    
                 checkbox.id = `Live_${index}`;
-                
+                checkbox.addEventListener('change', updateValue);
+
+                function updateValue() {
+                    if (checkbox.checked) {
+                        character.status = "Dead"
+                    } else {
+                        character.status = "Alive";
+                    }
+                }
+                                
             //Cell Construction
                 cell.appendChild(danganImage);
                 cell.appendChild(document.createElement('br'));
@@ -122,7 +185,7 @@
             document.getElementById('danganleft').src = (character.url2);
             console.log('Vous avez cliqué sur : ' + (character.name));
             document.getElementById('bobdylan').textContent = "- " + (character.name);
-        }
+            }
 
         document.addEventListener('DOMContentLoaded', fetchData);
 
@@ -154,11 +217,3 @@
     </div>
 </body>
 </html>
-
-
-<!--Image floue pour Kokichi
-Gérer les tailles de chaque blocs
-- Miu trop grande
-- Tableau central trop à l'étroit puis trop intrusif si trop zoomé
-
--->
