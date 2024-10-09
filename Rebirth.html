@@ -30,80 +30,80 @@
         function deadpeople() {
             
         //Counting the bodies
-            let j = 0;
+            let deadnbr = 0;
             let Bodies = [];
             let Students = [];
-            for (i = 0; i < dangandata.length; i++){
+            for (loop1 = 0; loop1 < dangandata.length; loop1++){
             //Body manager
-                if (dangandata[i].status == "Dead") {
-                    j++;
-                        Bodies.push(dangandata[i].name);
-                        document.getElementById(`danganImage_${i}`).src = dangandata[i].dead;
+                if (dangandata[loop1].status == "Dead") {
+                    deadnbr++;
+                        Bodies.push(dangandata[loop1].name);
+                        document.getElementById(`danganImage_${loop1}`).src = dangandata[loop1].dead;
                 }
             //Student manager
                 else {
-                    Students.push(dangandata[i].name);
-                    document.getElementById(`danganImage_${i}`).src = dangandata[i].url;
+                    Students.push(dangandata[loop1].name);
+                    document.getElementById(`danganImage_${loop1}`).src = dangandata[loop1].url;
                 }
             }
             
         //Results
-            document.getElementById.dylanbob && document.getElementById.bobdylan
+            document.getElementById.quote && document.getElementById.author
         //No death
-            if (j == 0) {
-                dylanbob.textContent = "Aujourd'hui, personne n'est mort. Ou peut-être hier, je ne sais plus. Tuez-vous s'il vous plaît."
+            if (deadnbr == 0) {
+                quote.textContent = "Aujourd'hui, personne n'est mort. Ou peut-être hier, je ne sais plus. Tuez-vous s'il vous plaît."
             }
         //One death
-            if (j == 1) {
-                dylanbob.textContent = "À tous les étudiants. Aujourd'hui, " + Bodies + " est mort. Tant mieux !"
+            if (deadnbr == 1) {
+                quote.textContent = "À tous les étudiants. Aujourd'hui, " + Bodies + " est mort. Tant mieux !"
             }
         //Few deaths
-            if (j > 1) {
+            if (deadnbr > 1) {
             //Two deaths
-                if (j == 2) {
+                if (deadnbr == 2) {
                     formattedBodies = Bodies[0] + ", ainsi que de " + Bodies[1];
-                    dylanbob.textContent = "À tous les étudiants. Aujourd'hui, " + j + " personnes sont mortes. Il s'agit de " + formattedBodies
+                    quote.textContent = "À tous les étudiants. Aujourd'hui, " + deadnbr + " personnes sont mortes. Il s'agit de " + formattedBodies
                 }
             //Six deaths
-                else if (j == 6) {
-                    dylanbob.textContent = "Au premier crépuscule, les six choisis par la clé seront sacrifiés."
+                else if (deadnbr == 6) {
+                    quote.textContent = "Au premier crépuscule, les six choisis par la clé seront sacrifiés."
                 }
             //Multiples deaths 
                 else {
                 formattedBodies = Bodies[0] + ", ainsi que de " + Bodies.slice(1, -1).join(', ') + ", et " + Bodies[Bodies.length - 1];
-                dylanbob.textContent = "À tous les étudiants. Aujourd'hui, " + j + " personnes sont mortes. Il s'agit de " + formattedBodies
+                quote.textContent = "À tous les étudiants. Aujourd'hui, " + deadnbr + " personnes sont mortes. Il s'agit de " + formattedBodies
                 }
             }
         //Six or less Survivors
-            if (j > 9) {
+            if (deadnbr > 9) {
             //Easter Egg
                 if (Students[0] == "K1-B0" && Students[1] == "Korekiyo Shingûji" && Students[2] == "Maki Harukawa" && Students[3] == "Shûichi Saihara" && Students[4] == "Tenko Chabashira") {
-                    dylanbob.textContent = "Somehow, you feel like it makes sense."
+                    quote.textContent = "Somehow, you feel like it makes sense."
                 }
             //No Survivor
                 else if (Students.length == 0) {
-                    dylanbob.textContent = "Aujourd'hui, tout le monde est mort. Je ne sais même pas pourquoi j'en fais une annonce."
+                    quote.textContent = "Aujourd'hui, tout le monde est mort. Je ne sais même pas pourquoi j'en fais une annonce."
                 }
             //One Survivor
                 else if (Students.length == 1) {
                 //Tsumugi Only Survivor
                     if (Students[0] == "Tsumugi Shirogane") {
-                        dylanbob.textContent = "Just according to keikakku."
+                        quote.textContent = "Just according to keikakku."
                     }
                 //Any Only Survivor
                     else {
-                    dylanbob.textContent = Students + ", tu es la dernière personne encore en vie. C'est un peu gênant, non ?"
+                    quote.textContent = Students + ", tu es la dernière personne encore en vie. C'est un peu gênant, non ?"
                     }
                 }
             //More than one Survivor
                 else {
                     let formattedStudents = Students.join(', ');
-                    dylanbob.textContent = formattedStudents + ". Vous êtes les derniers survivants. La mort vous guète. Prenez garde."
+                    quote.textContent = formattedStudents + ". Vous êtes les derniers survivants. La mort vous guète. Prenez garde."
                 }
 
-                dylanbob
+                quote
             }
-            bobdylan.textContent = "- Mokonokuma"
+            author.textContent = "- Mokonokuma"
         }
 
     //Get data from .JSON
@@ -119,13 +119,13 @@
 
     //Display data from .JSON
         function displayData(dangandata) {
-            const dataList = document.getElementById('alpha');
+            const dataList = document.getElementById('danganTable');
             dataList.innerHTML = '';
 
             let row;
             dangandata.forEach((character, index) => {
             //Table Manager
-                let k = index;
+                let indexCopy = index;
                 if (index % 4 === 0) {
                     row = document.createElement('tr');
                     dataList.appendChild(row);
@@ -153,14 +153,14 @@
                 function updateValue() {
                     if (checkbox.checked) {
                         character.status = "Dead";
-                        document.getElementById(`danganImage_${k}`).src = dangandata[k].dead;
-                        if (danganleft.src == dangandata[k].url2) {
+                        document.getElementById(`danganImage_${indexCopy}`).src = dangandata[indexCopy].dead;
+                        if (danganleft.src == dangandata[indexCopy].url2) {
                             document.getElementById('danganleft').src = (character.dead2);
                         }
                     } else {
                         character.status = "Alive";
-                        document.getElementById(`danganImage_${k}`).src = dangandata[k].url;
-                        if (danganleft.src == dangandata[k].dead2) {
+                        document.getElementById(`danganImage_${indexCopy}`).src = dangandata[indexCopy].url;
+                        if (danganleft.src == dangandata[indexCopy].dead2) {
                             document.getElementById('danganleft').src = (character.url2);
                         }
                     }
@@ -180,48 +180,48 @@
 
         //Angie : Kanae
         if (character.name === "Angie Yonaga" && (character.status) === "Alive") {
-                document.getElementById('dylanbob').textContent = "\"Je suis Kanae... Et je tue des gens.\"";
+                document.getElementById('quote').textContent = "\"Je suis Kanae... Et je tue des gens.\"";
                 alreadyChanged = true;
             }
 
         //Himiko : Swaps background color
             if ((character.name) === "Himiko Yumeno" && (character.status) === "Alive") {
                 document.body.style.backgroundColor = randomColor(colormix);
-                document.getElementById('dylanbob').textContent = "\"Background color goes brrr\"";
+                document.getElementById('quote').textContent = "\"Background color goes brrr\"";
                 alreadyChanged = true;
             }
 
         //Kaede : Debussy (ça ressemble à Depussy, non ? Non...? Bon)
             if ((character.name) === "Kaede Akamatsu" && (character.status) === "Alive") {
                 maestro();
-                document.getElementById('dylanbob').textContent = "\"Je suis chanteur.\"";
+                document.getElementById('quote').textContent = "\"Je suis chanteur.\"";
                 alreadyChanged = true;
             }
 
             //Korekiyo : Love UwU
             if (character.name === "Korekiyo Shingûji" && (character.status) === "Alive") {
-                document.getElementById('dylanbob').textContent = "\"Siblings by chance, lovers by choice.\"";
+                document.getElementById('quote').textContent = "\"Siblings by chance, lovers by choice.\"";
                 alreadyChanged = true;
             }
 
         //Tsumugi : Sends to Electrolithe
             if (character.name === "Tsumugi Shirogane" && (character.status) === "Alive") {
-                document.getElementById('dylanbob').textContent = "\"Rip Tsumugi X Electrolithe\"";
+                document.getElementById('quote').textContent = "\"Rip Tsumugi X Electrolithe\"";
                 alreadyChanged = true;
             }
 
         //All : Swap left image + Name in log
             if ((character.status) === "Alive") {
                 if (alreadyChanged == false) {
-                    document.getElementById('dylanbob').textContent = "\"On vient pas de la street, nous ?\""
+                    document.getElementById('quote').textContent = "\"On vient pas de la street, nous ?\""
                 }
                 document.getElementById('danganleft').src = (character.url2);
-                document.getElementById('bobdylan').textContent = "- " + (character.name);
+                document.getElementById('author').textContent = "- " + (character.name);
             }
             else {
                 document.getElementById('danganleft').src = (character.dead2);
-                document.getElementById('dylanbob').textContent = "\"Regarde-moi, je suis " + character.name + ", je mange ton gâteau.";
-                document.getElementById('bobdylan').textContent = "- Mokonokuma"
+                document.getElementById('quote').textContent = "\"Regarde-moi, je suis " + character.name + ", je mange ton gâteau.";
+                document.getElementById('author').textContent = "- Mokonokuma"
             }
             console.log('Vous avez cliqué sur : ' + (character.name));
             }
@@ -241,7 +241,7 @@
         </div>
     <!--Block 2-->
         <div class="block table-block">
-            <table class="DanganTable" id="alpha" onload="displayData"></table></br>
+            <table id="danganTable" onload="displayData"></table></br>
             <input type="submit" value="Valider les morts" onClick="deadpeople(); return false;"/>
             <a href=electrolithe.html><button>Grotte Electrolithe</button></a>
         <!--Kaede does who the fuck knows what-->
@@ -249,8 +249,8 @@
         </div>
     <!--Block 3-->
         <div class="block empty-block">
-            <h1 id="dylanbob">"On vient pas de la street, nous ?"</h1>
-            <h2 id="bobdylan">- Nounours</h2>
+            <h1 id="quote">"On vient pas de la street, nous ?"</h1>
+            <h2 id="author">- Nounours</h2>
         </div>
     </div>
     </div>
