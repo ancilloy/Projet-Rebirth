@@ -29,14 +29,18 @@
             &ensp;<img src="rocher_flottant.png">
         </h2></center>
 
+        <b>Génération</b><select id="genSelect"></select>
+
         <table>
             <tr>
                 <th>Entrez les informations sur le Pokémon :</th>
+                <th>Pokémon</th>
                 <th>Nature</th>
                 <th>Caractéristique</th>
             </tr>
             <tr>
                 <th></th>
+                <th><select id="specieSelect" gen="0"></select></th>
                 <th><select id="natureSelect"></select></th>
                 <th><select id="caracSelect"></select></th>
             </tr>
@@ -74,33 +78,111 @@
         <br><br>
 
         <script>
-            fetch("https://ancilloy.github.io/Projet-Rebirth/pokedata.json")
-                .then(response => response.json())
-                .then(data => {
-                    natureSelect = document.getElementById('natureSelect');
-                    caracSelect  = document.getElementById('caracSelect');
+            genSelect = document.getElementById("genSelect");
+            for (i=3; i<=9; i++) {
+                genSelect.innerHTML += `<option value="${i}" onclick="updatePoke(${i});"${i==3 ? ' selected=true' : ''}>${i}</option>`;
+                /*
+                newOption = document.createElement('option');
+                newOption.innerHTML = `${i}`;
+                newOption.value = i;
+                newOption.onclick = `updatePoke(${i});`;
+                if (i==3) { newOption.selected = true; }
+                genSelect.appendChild(newOption);
+                */
+            }
 
-                    data.natures.forEach(nat => {
-                        newOption = document.createElement('option');
-                        newOption.innerHTML = nat.nom;
-                        newOption.value = nat.nom;
-                        natureSelect.appendChild(newOption);
-                    });
+            function fetchCaracteristics(url) {
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        caracSelect = document.getElementById('caracSelect');
 
-                    data.caracteristiques.forEach(car => {
-                        newOption = document.createElement('option');
-                        newOption.innerHTML = car.nom;
-                        newOption.value = car.nom;
-                        caracSelect.appendChild(newOption);
-                    });
-                });
+                        data.results.forEach(item => {
+                            fetch(item.url)
+                                .then(response => response.json())
+                                .then(data => {
+                                    newOption = document.createElement('option');
+                                    newOption.innerHTML = data.descriptions.find(elt => elt.language.name == 'fr').description;
+                                    newOption.value = data.id;
+                                    caracSelect.appendChild(newOption);
+                                });
+                        });
+                        if (data.next != null) { fetchCaracteristics(data.next); }
+                    })
+                    .catch(error => console.error('Erreur lors de l\'appel API :', error));
+            };
+            fetchCaracteristics("https://pokeapi.co/api/v2/characteristic");
+
+
+            function fetchNatures(url) {
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        natureSelect = document.getElementById('natureSelect');
+
+                        data.results.forEach(item => {
+                            fetch(item.url)
+                                .then(response => response.json())
+                                .then(data => {
+                                    newOption = document.createElement('option');
+                                    newOption.innerHTML = data.names.find(elt => elt.language.name == 'fr').name;
+                                    newOption.value = data.id;
+                                    natureSelect.appendChild(newOption);
+                                });
+                        });
+                        if (data.next != null) { fetchNatures(data.next); }
+                    })
+                    .catch(error => console.error('Erreur lors de l\'appel API :', error));
+            }
+            fetchNatures("https://pokeapi.co/api/v2/nature");
+
+            async function fetchPokemon(url) {
+                await fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        specieSelect = document.getElementById('specieSelect');
+
+                        data.forEach(item => {
+                            newPokeOption = document.createElement('option');
+                            newPokeOption.innerHTML = item.name.fr;
+                            newPokeOption.value = item.name.fr
+                                .replace(" d'", "/")
+                                .replace(" de ", "/")
+                                .replace("♀", "-f")
+                                .replace("♂", "-m")
+                                .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // suppression des accents
+                                .toLowerCase();
+                            specieSelect.appendChild(newPokeOption);
+                        });
+                        if (data.next != null) { fetchNatures(data.next); }
+                    })
+                    .catch(error => console.error('Erreur lors de l\'appel API :', error));
+            }
+            async function updatePoke(newGen) {
+                specieSelect = document.getElementById('specieSelect');
+                oldGen = parseInt(specieSelect.getAttribute("gen"));
+                if (newGen < oldGen) {
+                    specieSelect.innerHTML = "";
+                    oldGen = 0;
+                }
+                for (n=oldGen+1; n<=newGen; n++) {
+                    await fetchPokemon(`https://tyradex.vercel.app/api/v1/gen/${n}`);
+                }
+                specieSelect.setAttribute("gen", newGen);
+            }
+            updatePoke(3);
+
 
             function process() {
-                selectedNature = document.getElementById('natureSelect').selectedOptions[0].value;
-                selectedCarac  = document.getElementById('caracSelect').selectedOptions[0].value;
+                specieSelect = document.getElementById("specieSelect");
 
-                document.getElementById('processBlock').innerHTML = `<b>Nature selectionnée :</b> ${selectedNature}<br>` +
-                                                                    `<b>Caractéristique selectionnée :</b> ${selectedCarac}<br>`;
+                for (option of specieSelect.children) {
+                    fetch(`https://tyradex.vercel.app/api/v1/pokemon/${option.value}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.status==404) { console.log(option.outerHTML); }
+                        })
+                }
             }
 
             function newRow() {
