@@ -125,6 +125,7 @@
             let row;
             dangandata.forEach((character, index) => {
             //Table Manager
+                let k = index;
                 if (index % 4 === 0) {
                     row = document.createElement('tr');
                     dataList.appendChild(row);
@@ -152,8 +153,16 @@
                 function updateValue() {
                     if (checkbox.checked) {
                         character.status = "Dead";
+                        document.getElementById(`danganImage_${k}`).src = dangandata[k].dead;
+                        if (danganleft.src == dangandata[k].url2) {
+                            document.getElementById('danganleft').src = (character.dead2);
+                        }
                     } else {
                         character.status = "Alive";
+                        document.getElementById(`danganImage_${k}`).src = dangandata[k].url;
+                        if (danganleft.src == dangandata[k].dead2) {
+                            document.getElementById('danganleft').src = (character.url2);
+                        }
                     }
                 }
                                 
@@ -205,9 +214,14 @@
             if ((character.status) === "Alive") {
                 if (alreadyChanged == false) {
                     document.getElementById('dylanbob').textContent = "\"On vient pas de la street, nous ?\""
-                }            
+                }
                 document.getElementById('danganleft').src = (character.url2);
                 document.getElementById('bobdylan').textContent = "- " + (character.name);
+            }
+            else {
+                document.getElementById('danganleft').src = (character.dead2);
+                document.getElementById('dylanbob').textContent = "\"Regarde-moi, je suis " + character.name + ", je mange ton gâteau.";
+                document.getElementById('bobdylan').textContent = "- Mokonokuma"
             }
             console.log('Vous avez cliqué sur : ' + (character.name));
             }
