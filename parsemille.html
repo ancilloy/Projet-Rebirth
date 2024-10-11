@@ -85,7 +85,8 @@
                         .then(response => response.json())
                         .then(data => {
                             sprite = document.getElementById(`poketab-row-${n}-sprite`);
-                            sprite.innerHTML = `<img src="${ data.sprites.front_default }">`;
+                            sprite.innerHTML = `<img src="${ data.sprites.front_default }" onClick="maestro(${n});">` +
+                                               `<audio id="poketab-row-${n}-cry" src="${ data.cries.latest }" preload="auto"></audio>`;
 
                             allstats = ['hp', 'attack', 'defense', 'special-attack', 'special-defense', 'speed'];
 
@@ -134,11 +135,15 @@
                         fetchPokeSpecies(item.pokemon.name, n);
 
                         name_en = document.getElementById(`poketab-row-${n}-name-en`);
-                        n = capitalize(item.pokemon.name);
-                        name_en.innerHTML = `<a href="https://bulbapedia.bulbagarden.net/wiki/${n}_(Pok%C3%A9mon)">${n}</a>`;
+                        name = capitalize(item.pokemon.name);
+                        name_en.innerHTML = `<a href="https://bulbapedia.bulbagarden.net/wiki/${name}_(Pok%C3%A9mon)">${name}</a>`;
 
                         n += 1;
                     });
+                }
+
+                function maestro(n) {
+                    document.getElementById(`poketab-row-${n}-cry`).play();
                 }
         </script>
     </body>
