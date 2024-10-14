@@ -167,6 +167,17 @@
                 }
                 for (n=oldGen+1; n<=newGen; n++) {
                     await fetchPokemon(`https://tyradex.vercel.app/api/v1/gen/${n}`);
+                    await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
+                        .then(response => response.json())
+                        .then(data => {
+                            data.autres_pokemon[n].forEach(item => {
+                                newPokeOption = document.createElement('option');
+                                newPokeOption.innerHTML = item.name.fr;
+                                newPokeOption.value = item.name.fr;
+                                specieSelect.appendChild(newPokeOption);
+                            }
+                            )
+                        })
                 }
                 specieSelect.setAttribute("gen", newGen);
             }
