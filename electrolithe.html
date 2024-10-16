@@ -42,12 +42,15 @@
                 <th></th>
                 <th><select id="specieSelect" gen="0"></select></th>
                 <th><select id="natureSelect"></select></th>
-                <th><select id="caracSelect"></select></th>
+                <th><select id="caracSelect">
+                    <option value="-1" selected=true>(non renseigné)</option>
+                </select></th>
             </tr>
         </table>
         <table>
             <thead>
                 <tr>
+                    <th>Stade évolutif</th>
                     <th>Niveau</th>
                     <th>PV</th>
                     <th>Attaque</th>
@@ -60,6 +63,7 @@
             </thead>
             <tbody id="stat-table-body">
                 <tr id="row-1">
+                    <th><select id="row-1-stade"></select></th>
                     <th><input id="row-1-niveau"      type="number" min="1" max="100"/></th>
                     <th><input id="row-1-pv"          type="number" min="1" max="999"/></th>
                     <th><input id="row-1-attaque"     type="number" min="1" max="999"/></th>
@@ -78,18 +82,49 @@
         <br><br>
 
         <script>
+            document.getElementById("specieSelect").onchange = pokemon_list_ener;
             genSelect = document.getElementById("genSelect");
             for (i=3; i<=9; i++) {
-                genSelect.innerHTML += `<option value="${i}" onclick="updatePoke(${i});"${i==3 ? ' selected=true' : ''}>${i}</option>`;
+                genSelect.innerHTML += `<option value="${i}" onclick="updatePokeList(${i});"${i==3 ? ' selected=true' : ''}>${i}</option>`;
                 /*
                 newOption = document.createElement('option');
                 newOption.innerHTML = `${i}`;
                 newOption.value = i;
-                newOption.onclick = `updatePoke(${i});`;
+                newOption.onclick = `updatePokeList(${i});`;
                 if (i==3) { newOption.selected = true; }
                 genSelect.appendChild(newOption);
                 */
             }
+
+            function pokemon_list_ener() {
+                statTable = document.getElementById("stat-table-body");
+                n = statTable.childElementCount;
+                rows = [];
+                for (i=1; i<=n; i++) { rows.push(i); }
+                updateStade(rows, this.value);
+                console.log(this.value);
+            }
+
+            function updateStade(rows, pokeName) {
+                fetch(`https://tyradex.vercel.app/api/v1/pokemon/${pokeName}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        innerSelect = "";
+                        if (data.evolution.pre != null) {
+                            data.evolution.pre.forEach(item => {
+                                innerSelect += `<option value="${formatName(item.name)}">${item.name}</option>`;
+                            });
+                        }
+                        innerSelect += `<option value="${pokeName}" selected=true>${data.name.fr}</option>`;
+
+                        rows.forEach(n => {
+                            document.getElementById(`row-${n}-stade`).innerHTML = innerSelect;
+                        });
+                });
+            }
+            updateStade([1], 'bulbizarre');
+
+
 
             function fetchCaracteristics(url) {
                 fetch(url)
@@ -113,7 +148,6 @@
             };
             fetchCaracteristics("https://pokeapi.co/api/v2/characteristic");
 
-
             function fetchNatures(url) {
                 fetch(url)
                     .then(response => response.json())
@@ -136,6 +170,18 @@
             }
             fetchNatures("https://pokeapi.co/api/v2/nature");
 
+
+
+            function formatName(name) {
+                return name
+                    .replace(" d'", "/")
+                    .replace(" de ", "/")
+                    .replace("♀", "-f") // Saloperie de Nidorans,
+                    .replace("♂", "-m") // ce check est là juste pour eux
+                    .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // suppression des accents
+                    .toLowerCase();
+            }
+
             async function fetchPokemon(url) {
                 await fetch(url)
                     .then(response => response.json())
@@ -145,20 +191,17 @@
                         data.forEach(item => {
                             newPokeOption = document.createElement('option');
                             newPokeOption.innerHTML = item.name.fr;
-                            newPokeOption.value = item.name.fr
-                                .replace(" d'", "/")
-                                .replace(" de ", "/")
-                                .replace("♀", "-f")
-                                .replace("♂", "-m")
-                                .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // suppression des accents
-                                .toLowerCase();
+                            newPokeOption.value = formatName(item.name.fr);
                             specieSelect.appendChild(newPokeOption);
                         });
                         if (data.next != null) { fetchNatures(data.next); }
                     })
                     .catch(error => console.error('Erreur lors de l\'appel API :', error));
             }
-            async function updatePoke(newGen) {
+
+
+
+            async function updatePokeList(newGen) {
                 specieSelect = document.getElementById('specieSelect');
                 oldGen = parseInt(specieSelect.getAttribute("gen"));
                 if (newGen < oldGen) {
@@ -181,20 +224,13 @@
                 }
                 specieSelect.setAttribute("gen", newGen);
             }
-            updatePoke(3);
+            updatePokeList(3);
 
 
-            function process() {
-                specieSelect = document.getElementById("specieSelect");
 
-                for (option of specieSelect.children) {
-                    fetch(`https://tyradex.vercel.app/api/v1/pokemon/${option.value}`)
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.status==404) { console.log(option.outerHTML); }
-                        })
-                }
-            }
+            function process() {}
+
+
 
             function newRow() {
                 statTable = document.getElementById("stat-table-body");
@@ -202,7 +238,8 @@
 
                 tr = document.createElement("tr");
                 tr.id = `row-${n}`;
-                tr.innerHTML = `<th><input id="row-${n}-niveau"      type="number" min="1" max="100"/></th>` +
+                tr.innerHTML = `<th><select id="row-${n}-stade"></select></th>` +
+                    `<th><input id="row-${n}-niveau"      type="number" min="1" max="100"/></th>` +
                     `<th><input id="row-${n}-pv"          type="number" min="1" max="999"/></th>` +
                     `<th><input id="row-${n}-attaque"     type="number" min="1" max="999"/></th>` +
                     `<th><input id="row-${n}-defense"     type="number" min="1" max="999"/></th>` +
@@ -212,10 +249,14 @@
                     `<th><button id="row-${n}-remover" onclick="removeRow(${n});">Supprimer</button></th>`;
 
                 statTable.appendChild(tr);
+                currentPokeName = document.getElementById('specieSelect').selectedOptions[0].value;
+                console.log(currentPokeName);
+                updateStade([n], currentPokeName);
             }
 
             function renameRow(src, dst) {
                 document.getElementById(`row-${src}`).id             = `row-${dst}`;
+                document.getElementById(`row-${src}-stade`).id       = `row-${dst}-stade`;
                 document.getElementById(`row-${src}-niveau`).id      = `row-${dst}-niveau`;
                 document.getElementById(`row-${src}-pv`).id          = `row-${dst}-pv`;
                 document.getElementById(`row-${src}-attaque`).id     = `row-${dst}-attaque`;
