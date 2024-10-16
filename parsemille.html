@@ -39,6 +39,7 @@
         </table></center>
 
         <script>
+            document.getElementById("areaSelect").onchange = areaList_ener;
             fetch('https://pokeapi.co/api/v2/location-area?limit=1054')
                 .then(response => response.json())
                 .then(data => {
@@ -48,11 +49,16 @@
                         newOption.innerHTML = item.name;
                         newOption.value = item.name;
                         if (item.name == 'chargestone-cave-1f') { newOption.selected = true; }
-                        newOption.addEventListener('click', () => { reloadList(item.name); });
+                        //newOption.addEventListener('click', () => { reloadList(item.name); });
                         picklist.appendChild(newOption);
                     })
                 });
             reloadList('chargestone-cave-1f');
+
+            function areaList_ener() {
+                //console.log(this.value);
+                reloadList(this.value);
+            }
 
             function reloadList(locationName) {
                 table = document.getElementById('poketab');
@@ -76,70 +82,75 @@
                     .catch(error => console.error('Erreur lors de l\'appel API :', error));
             }
 
-                function capitalize(mot) {
-                    return mot.charAt(0).toUpperCase() + mot.slice(1);
-                }
+            function capitalize(mot) {
+                return mot.charAt(0).toUpperCase() + mot.slice(1);
+            }
 
-                function fetchPokemon(name, n) {
-                    return fetch('https://pokeapi.co/api/v2/pokemon/' + name)
-                        .then(response => response.json())
-                        .then(data => {
-                            sprite = document.getElementById(`poketab-row-${n}-sprite`);
-                            sprite.innerHTML = `<img src="${ data.sprites.front_default }">`;
+            function fetchPokemon(name, n) {
+                return fetch('https://pokeapi.co/api/v2/pokemon/' + name)
+                    .then(response => response.json())
+                    .then(data => {
+                        sprite = document.getElementById(`poketab-row-${n}-sprite`);
+                        sprite.innerHTML = `<img src="${ data.sprites.front_default }" onClick="maestro(${n});">` +
+                                            `<audio id="poketab-row-${n}-cry" src="${ data.cries.latest }" preload="auto"></audio>`;
 
-                            allstats = ['hp', 'attack', 'defense', 'special-attack', 'special-defense', 'speed'];
+                        allstats = ['hp', 'attack', 'defense', 'special-attack', 'special-defense', 'speed'];
 
-                            allstats.forEach(stati => {
-                                elt = document.getElementById(`poketab-row-${n}-${stati}`);
-                                elt.innerHTML = `${ data.stats.find(elt => elt.stat.name == stati).base_stat }`;
-                            })
-
+                        allstats.forEach(stati => {
+                            elt = document.getElementById(`poketab-row-${n}-${stati}`);
+                            elt.innerHTML = `${ data.stats.find(elt => elt.stat.name == stati).base_stat }`;
                         })
-                        .catch(error => console.error('Erreur lors de l\'appel API :', error));
-                }
 
-                function fetchPokeSpecies(name, n) {
-                    return fetch('https://pokeapi.co/api/v2/pokemon-species/' + name)
-                        .then(response => response.json())
-                        .then(data => {
-                            name_fr = document.getElementById(`poketab-row-${n}-name-fr`);
-                            n = data.names.find(elt => elt.language.name == 'fr').name;
-                            name_fr.innerHTML = `<a href="https://www.pokepedia.fr/${n}">${n}</a>`;
-                        })
-                        .catch(error => console.error('Erreur lors de l\'appel API :', error));
-                }
+                    })
+                    .catch(error => console.error('Erreur lors de l\'appel API :', error));
+            }
 
-                // Fonction pour insérer les données dans la page
-                function parcoursListePoke(data) {
-                    const table = document.getElementById('poketab');
+            function fetchPokeSpecies(name, n) {
+                return fetch('https://pokeapi.co/api/v2/pokemon-species/' + name)
+                    .then(response => response.json())
+                    .then(data => {
+                        name_fr = document.getElementById(`poketab-row-${n}-name-fr`);
+                        n = data.names.find(elt => elt.language.name == 'fr').name;
+                        name_fr.innerHTML = `<a href="https://www.pokepedia.fr/${n}">${n}</a>`;
+                    })
+                    .catch(error => console.error('Erreur lors de l\'appel API :', error));
+            }
 
-                    n = 1;
+            // Fonction pour insérer les données dans la page
+            function parcoursListePoke(data) {
+                const table = document.getElementById('poketab');
 
-                    // Supposons que les données sont un tableau d'objets
-                    data.forEach(item => {
+                n = 1;
 
-                        const row = document.createElement('tr');
-                        row.innerHTML = `<th id="poketab-row-${n}-sprite"></th>` +
-                                        `<th id="poketab-row-${n}-name-fr"></th>` +
-                                        `<th id="poketab-row-${n}-name-en"></th>` +
-                                        `<th id="poketab-row-${n}-hp"></th>` +
-                                        `<th id="poketab-row-${n}-attack"></th>` +
-                                        `<th id="poketab-row-${n}-defense"></th>` +
-                                        `<th id="poketab-row-${n}-special-attack"></th>` +
-                                        `<th id="poketab-row-${n}-special-defense"></th>` +
-                                        `<th id="poketab-row-${n}-speed"></th>`;
-                        table.appendChild(row);
+                // Supposons que les données sont un tableau d'objets
+                data.forEach(item => {
 
-                        fetchPokemon(item.pokemon.name, n);
-                        fetchPokeSpecies(item.pokemon.name, n);
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<th id="poketab-row-${n}-sprite"></th>` +
+                                    `<th id="poketab-row-${n}-name-fr"></th>` +
+                                    `<th id="poketab-row-${n}-name-en"></th>` +
+                                    `<th id="poketab-row-${n}-hp"></th>` +
+                                    `<th id="poketab-row-${n}-attack"></th>` +
+                                    `<th id="poketab-row-${n}-defense"></th>` +
+                                    `<th id="poketab-row-${n}-special-attack"></th>` +
+                                    `<th id="poketab-row-${n}-special-defense"></th>` +
+                                    `<th id="poketab-row-${n}-speed"></th>`;
+                    table.appendChild(row);
 
-                        name_en = document.getElementById(`poketab-row-${n}-name-en`);
-                        n = capitalize(item.pokemon.name);
-                        name_en.innerHTML = `<a href="https://bulbapedia.bulbagarden.net/wiki/${n}_(Pok%C3%A9mon)">${n}</a>`;
+                    fetchPokemon(item.pokemon.name, n);
+                    fetchPokeSpecies(item.pokemon.name, n);
 
-                        n += 1;
-                    });
-                }
+                    name_en = document.getElementById(`poketab-row-${n}-name-en`);
+                    name = capitalize(item.pokemon.name);
+                    name_en.innerHTML = `<a href="https://bulbapedia.bulbagarden.net/wiki/${name}_(Pok%C3%A9mon)">${name}</a>`;
+
+                    n += 1;
+                });
+            }
+
+            function maestro(n) {
+                document.getElementById(`poketab-row-${n}-cry`).play();
+            }
         </script>
     </body>
 </html>
