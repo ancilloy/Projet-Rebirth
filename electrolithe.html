@@ -110,7 +110,7 @@
                     .then(response => response.json())
                     .then(data => {
                         innerSelect = "";
-                        if (data.evolution.pre != null) {
+                        if (data.evolution != null && data.evolution.pre != null) {
                             data.evolution.pre.forEach(item => {
                                 innerSelect += `<option value="${formatName(item.name)}">${item.name}</option>`;
                             });
