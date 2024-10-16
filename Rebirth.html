@@ -168,7 +168,6 @@
                                 
             //Cell Construction
                 cell.appendChild(danganImage);
-                cell.appendChild(document.createElement('br'));
                 cell.appendChild(checkbox);
                 row.appendChild(cell);
             });
@@ -179,7 +178,7 @@
             let alreadyChanged = false;
 
         //Angie : Kanae
-        if (character.name === "Angie Yonaga" && (character.status) === "Alive") {
+            if (character.name === "Angie Yonaga" && (character.status) === "Alive") {
                 document.getElementById('quote').textContent = "\"Je suis Kanae... Et je tue des gens.\"";
                 alreadyChanged = true;
             }
@@ -191,6 +190,12 @@
                 alreadyChanged = true;
             }
 
+        //K1-B0 : Catchphrase
+            if ((character.name) === "K1-B0" && (character.status) === "Alive") {
+                document.getElementById('quote').textContent = "\"Calme-toi, Winrar. Décompresse un peu.\"";
+                alreadyChanged = true;
+            }
+
         //Kaede : Debussy (ça ressemble à Depussy, non ? Non...? Bon)
             if ((character.name) === "Kaede Akamatsu" && (character.status) === "Alive") {
                 maestro();
@@ -198,7 +203,7 @@
                 alreadyChanged = true;
             }
 
-            //Korekiyo : Love UwU
+        //Korekiyo : Love UwU
             if (character.name === "Korekiyo Shingûji" && (character.status) === "Alive") {
                 document.getElementById('quote').textContent = "\"Siblings by chance, lovers by choice.\"";
                 alreadyChanged = true;
@@ -232,25 +237,29 @@
 </head>
 <body>
     <div class="container2">
-        <h1 id="titre"><u>Project Rebirth</u></h1>
+        <p class="titre"><u>Project Rebirth</u></p>
     </div>
-    <div class="container">
-        <div class="block image-block">
+    <div class="flex-container">
+        <div class="block left">
     <!--Block 1-->
             <img id="danganleft" class="characterimage" alt="Clique sur un perso stp...">
         </div>
     <!--Block 2-->
-        <div class="block table-block">
-            <table id="danganTable" onload="displayData"></table></br>
+        <div class="block center">
+            <table id="danganTable" onload="displayData"></table>
             <input type="submit" value="Valider les morts" onClick="deadpeople(); return false;"/>
             <a href=electrolithe.html><button>Grotte Electrolithe</button></a>
         <!--Kaede does who the fuck knows what-->
             <audio id="audio-player" src="Debussy - Clair de Lune.mp3" preload="auto"></audio>
         </div>
     <!--Block 3-->
-        <div class="block empty-block">
-            <h1 id="quote">"On vient pas de la street, nous ?"</h1>
-            <h2 id="author">- Nounours</h2>
+        <div class="block right">
+            <div>
+                <p id="quote">"On vient pas de la street, nous ?"</p>
+            </div>
+            <div>
+                <p id="author">- Nounours</p>                
+            </div>
         </div>
     </div>
     </div>
