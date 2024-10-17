@@ -9,6 +9,70 @@
 <!--JaajaScript-->
     <script>
 
+    //Chef's kiss
+        let Selected = [];
+
+    //Selected Shuffle
+        function Shuffle() {
+        
+        let Shuffled = [];
+                for (o = 0; o < Selected.length; o++) {
+//                    console.log(o + ' < ' + Selected.length + ' - ONE');
+                    let i = 0;
+                    while (i < Selected.length) {
+                        let done = false;
+//                            console.log(i + ' < ' + Selected.length + ' - BIS')
+                            let rdmDigit = Math.floor(Math.random() * Selected.length);
+                            let j = 0;
+                            while (j !== 17) {   
+//                                console.log(rdmDigit + ' == ' + Shuffled[j])                          
+                                if (Shuffled[j] === undefined) {
+//                                    console.log('Undefined, then we push');
+                                    Shuffled.push(rdmDigit);
+                                    j = 17;
+                                    done = true;
+                                }
+                                else if (rdmDigit == Shuffled[j]) {
+                                    k = false;
+//                                    console.log('k is now set on ' + k);
+                                    j = 17;
+                                }
+                                else {
+//                                    console.log('go next');
+                                    j++;
+                                }
+                            }
+                            if (done == true) {
+                                i = Selected.length;
+                            }
+                            else if (k !== false) {
+                                console.log(rdmDigit);
+                                i++;
+                            }
+                        
+                    }
+                }
+                ShuffledTrue = [];
+                p = 0
+                console.log(Selected);
+                while (p < Shuffled.length) {
+                    if (Selected[Shuffled[p]].name == "K1"){
+                        ShuffledTrue.push(Selected[Shuffled[p]].name + "-" + Selected[Shuffled[p]].lname);
+                    }
+                    else {
+                        ShuffledTrue.push(Selected[Shuffled[p]].name);
+                    }
+                    p++;
+                }
+                console.log(ShuffledTrue);
+        }
+
+    //Random Digit
+        function RandomDigit() {
+            let rdmDigit = Math.floor(Math.random() * 10);
+            return rdmDigit;
+        }
+
     //Kaede Music
         function maestro() {
             var audio = document.getElementById("audio-player");
@@ -37,18 +101,29 @@
             //Body manager
                 if (dangandata[loop1].status == "Dead") {
                     deadnbr++;
-                        Bodies.push(dangandata[loop1].name);
+                        if (dangandata[loop1].name == "K1"){
+                            Bodies.push(dangandata[loop1].name + "-" + dangandata[loop1].lname)
+                        }
+                        else {
+                            Bodies.push(dangandata[loop1].name);
+                        }
                         document.getElementById(`danganImage_${loop1}`).src = dangandata[loop1].dead;
                 }
             //Student manager
                 else {
-                    Students.push(dangandata[loop1].name);
+                    if (dangandata[loop1].name == "K1"){
+                            Students.push(dangandata[loop1].name + "-" + dangandata[loop1].lname)
+                        }
+                        else {
+                            Students.push(dangandata[loop1].name);
+                        }
                     document.getElementById(`danganImage_${loop1}`).src = dangandata[loop1].url;
                 }
             }
             
         //Results
-            document.getElementById.quote && document.getElementById.author
+            document.getElementById.quote && document.getElementById.author;
+            console.log(Selected);
         //No death
             if (deadnbr == 0) {
                 quote.textContent = "Aujourd'hui, personne n'est mort. Ou peut-être hier, je ne sais plus. Tuez-vous s'il vous plaît."
@@ -77,7 +152,7 @@
         //Six or less Survivors
             if (deadnbr > 9) {
             //Easter Egg
-                if (Students[0] == "K1-B0" && Students[1] == "Korekiyo Shingûji" && Students[2] == "Maki Harukawa" && Students[3] == "Shûichi Saihara" && Students[4] == "Tenko Chabashira") {
+                if (Students[0] == "K1" && Students[1] == "Korekiyo" && Students[2] == "Maki" && Students[3] == "Shûichi" && Students[4] == "Tenko") {
                     quote.textContent = "Somehow, you feel like it makes sense."
                 }
             //No Survivor
@@ -87,7 +162,7 @@
             //One Survivor
                 else if (Students.length == 1) {
                 //Tsumugi Only Survivor
-                    if (Students[0] == "Tsumugi Shirogane") {
+                    if (Students[0] == "Tsumugi") {
                         quote.textContent = "Just according to keikakku."
                     }
                 //Any Only Survivor
@@ -152,12 +227,23 @@
             //Change Status
                 function updateValue() {
                     if (checkbox.checked) {
+
+                        Selected.push(dangandata[indexCopy]);
+
+
                         character.status = "Dead";
                         document.getElementById(`danganImage_${indexCopy}`).src = dangandata[indexCopy].dead;
                         if (danganleft.src == dangandata[indexCopy].url2) {
                             document.getElementById('danganleft').src = (character.dead2);
                         }
                     } else {
+
+                        for (loop2 = 0; loop2 < Selected.length; loop2++) {
+                            if (Selected[loop2].name == dangandata[indexCopy].name) {
+                                Selected.splice(loop2, 1);
+                            }
+                        }
+
                         character.status = "Alive";
                         document.getElementById(`danganImage_${indexCopy}`).src = dangandata[indexCopy].url;
                         if (danganleft.src == dangandata[indexCopy].dead2) {
@@ -178,58 +264,73 @@
             let alreadyChanged = false;
 
         //Angie : Kanae
-            if (character.name === "Angie Yonaga" && (character.status) === "Alive") {
+            if (character.name === "Angie" && (character.status) === "Alive") {
                 document.getElementById('quote').textContent = "\"Je suis Kanae... Et je tue des gens.\"";
                 alreadyChanged = true;
             }
 
         //Himiko : Swaps background color
-            if ((character.name) === "Himiko Yumeno" && (character.status) === "Alive") {
+            if ((character.name) === "Himiko" && (character.status) === "Alive") {
                 document.body.style.backgroundColor = randomColor(colormix);
                 document.getElementById('quote').textContent = "\"Background color goes brrr\"";
                 alreadyChanged = true;
             }
 
-        //K1-B0 : Catchphrase
-            if ((character.name) === "K1-B0" && (character.status) === "Alive") {
-                document.getElementById('quote').textContent = "\"Calme-toi, Winrar. Décompresse un peu.\"";
+        //K1 B0 : Catchphrase
+            if ((character.name) === "K1" && (character.status) === "Alive") {
+                document.getElementById('quote').textContent = "\"On m'appelle pas.\"";
                 alreadyChanged = true;
             }
 
         //Kaede : Debussy (ça ressemble à Depussy, non ? Non...? Bon)
-            if ((character.name) === "Kaede Akamatsu" && (character.status) === "Alive") {
+            if ((character.name) === "Kaede" && (character.status) === "Alive") {
                 maestro();
                 document.getElementById('quote').textContent = "\"Je suis chanteur.\"";
                 alreadyChanged = true;
             }
 
         //Korekiyo : Love UwU
-            if (character.name === "Korekiyo Shingûji" && (character.status) === "Alive") {
+            if (character.name === "Korekiyo" && (character.status) === "Alive") {
                 document.getElementById('quote').textContent = "\"Siblings by chance, lovers by choice.\"";
                 alreadyChanged = true;
             }
 
+        //Miu Iruma : Killin' time
+        if (character.name === "Miu") {
+                Shuffle();
+                // && (character.status) === "Alive"
+            }
+
         //Tsumugi : Sends to Electrolithe
-            if (character.name === "Tsumugi Shirogane" && (character.status) === "Alive") {
+            if (character.name === "Tsumugi" && (character.status) === "Alive") {
                 document.getElementById('quote').textContent = "\"Rip Tsumugi X Electrolithe\"";
                 alreadyChanged = true;
             }
 
         //All : Swap left image + Name in log
             if ((character.status) === "Alive") {
+                document.getElementById('danganleft').src = (character.url2);
                 if (alreadyChanged == false) {
                     document.getElementById('quote').textContent = "\"On vient pas de la street, nous ?\""
                 }
-                document.getElementById('danganleft').src = (character.url2);
-                document.getElementById('author').textContent = "- " + (character.name);
+                document.getElementById('author').textContent = "- " + (character.name) + " " + (character.lname);
+                if (character.name == "K1") {
+                    document.getElementById('author').textContent = "- " + (character.name) + "-" + (character.lname);
+
+                }
             }
             else {
                 document.getElementById('danganleft').src = (character.dead2);
-                document.getElementById('quote').textContent = "\"Regarde-moi, je suis " + character.name + ", je mange ton gâteau.";
+                if (character.name !== "K1") {                    
+                    document.getElementById('quote').textContent = "\"Regarde-moi, je suis " + character.name + ", je mange ton gâteau.";
+
+                }
+                else {
+                    document.getElementById('quote').textContent = "\"Regarde-moi, je suis " + character.name + "-" + character.lname + ", je mange ton gâteau.";
+                }
                 document.getElementById('author').textContent = "- Mokonokuma"
             }
-            console.log('Vous avez cliqué sur : ' + (character.name));
-            }
+        }
 
         document.addEventListener('DOMContentLoaded', fetchData);
 
