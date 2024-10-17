@@ -42,7 +42,7 @@
                 <th></th>
                 <th><select id="specieSelect" gen="0"></select></th>
                 <th><select id="natureSelect"></select></th>
-                <th><select id="caracSelect">
+                <th><select id="caractSelect">
                     <option value="-1" selected=true>(non renseigné)</option>
                 </select></th>
             </tr>
@@ -82,6 +82,8 @@
         <br><br>
 
         <script>
+            allstats = ['hp', 'attack', 'defense', 'special-attack', 'special-defense', 'speed'];
+
             document.getElementById("specieSelect").onchange = pokemon_list_ener;
             genSelect = document.getElementById("genSelect");
             for (i=3; i<=9; i++) {
@@ -100,7 +102,6 @@
                 statTable = document.getElementById("stat-table-body");
                 n = statTable.childElementCount;
                 updateStade(range(1, n+1), this.value);
-                console.log(this.value);
             }
 
             function updateStade(rows, pokeName) {
@@ -151,7 +152,7 @@
                 fetch(url)
                     .then(response => response.json())
                     .then(data => {
-                        caracSelect = document.getElementById('caracSelect');
+                        caractSelect = document.getElementById('caractSelect');
 
                         data.results.forEach(item => {
                             fetch(item.url)
@@ -159,8 +160,8 @@
                                 .then(data => {
                                     newOption = document.createElement('option');
                                     newOption.innerHTML = data.descriptions.find(elt => elt.language.name == 'fr').description;
-                                    newOption.value = data.id;
-                                    caracSelect.appendChild(newOption);
+                                    newOption.value = data.highest_stat.name + ':' + data.gene_modulo;
+                                    caractSelect.appendChild(newOption);
                                 });
                         });
                         if (data.next != null) { fetchCaracteristics(data.next); }
@@ -179,9 +180,15 @@
                             fetch(item.url)
                                 .then(response => response.json())
                                 .then(data => {
+                                    val = ["*", "*", "*", "*", "*"];
+                                    if (data.increased_stat != null) {
+                                        val[ allstats.findIndex(item => item==data.increased_stat.name)-1 ] = "+";
+                                        val[ allstats.findIndex(item => item==data.decreased_stat.name)-1 ] = "-";
+                                    }
+
                                     newOption = document.createElement('option');
                                     newOption.innerHTML = data.names.find(elt => elt.language.name == 'fr').name;
-                                    newOption.value = data.id;
+                                    newOption.value = val.join('');
                                     natureSelect.appendChild(newOption);
                                 });
                         });
@@ -215,7 +222,6 @@
                             newPokeOption.value = formatName(item.name.fr);
                             specieSelect.appendChild(newPokeOption);
                         });
-                        if (data.next != null) { fetchNatures(data.next); }
                     })
                     .catch(error => console.error('Erreur lors de l\'appel API :', error));
             }
@@ -241,9 +247,8 @@
                                 newPokeOption.innerHTML = item.name.fr;
                                 newPokeOption.value = `local:${n}/${item.name.fr}`;
                                 specieSelect.appendChild(newPokeOption);
-                            }
-                            )
-                        })
+                            });
+                        });
                 }
                 specieSelect.setAttribute("gen", newGen);
             }
@@ -251,7 +256,16 @@
 
 
 
-            function process() {}
+            function process() {
+                specie = document.getElementById('specieSelect').selectedOptions[0].value;
+                console.log(`Pokémon choisi : ${specie}`);
+
+                nature = document.getElementById('natureSelect').selectedOptions[0];
+                console.log(`Nature : ${nature.innerHTML} ( ${nature.value} )`);
+
+                caract = document.getElementById('caractSelect').selectedOptions[0];
+                console.log(`Caractéristique : ${caract.innerHTML} ( ${caract.value} )`);
+            }
 
 
 
@@ -273,7 +287,6 @@
 
                 statTable.appendChild(tr);
                 currentPokeName = document.getElementById('specieSelect').selectedOptions[0].value;
-                console.log(currentPokeName);
                 updateStade([n], currentPokeName);
             }
 
