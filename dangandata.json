@@ -1,6 +1,7 @@
 [
   {
-    "name": "Angie Yonaga",
+    "name": "Angie",
+    "lname": "Yonaga",
     "height": 157,
     "birthday": "18th April",
     "url": "https://zupimages.net/up/24/38/28l4.png",
@@ -10,7 +11,8 @@
     "status" : "Alive"
   },
   {
-    "name": "Gonta Gokuhara",
+    "name": "Gonta",
+    "lname": "Gokuhara",
     "height": 198,
     "birthday": "23rd January",
     "url": "https://zupimages.net/up/24/38/y36c.png",
@@ -20,7 +22,8 @@
     "status" : "Alive"
   },
   {
-    "name": "Himiko Yumeno",
+    "name": "Himiko",
+    "lname": "Yumeno",
     "height": 150,
     "birthday": "3rd December",
     "url": "https://zupimages.net/up/24/38/2829.png",
@@ -30,7 +33,8 @@
     "status" : "Alive"
   },
   {
-    "name": "K1-B0",
+    "name": "K1",
+    "lname": "B0",
     "height": 160,
     "birthday": "29 October",
     "url": "https://zupimages.net/up/24/38/n66n.png",
@@ -40,7 +44,8 @@
     "status" : "Alive"
   },
   {
-    "name": "Kaede Akamatsu",
+    "name": "Kaede",
+    "lname": "Akamatsu",
     "height": 167,
     "birthday": "26th March",
     "url": "https://zupimages.net/up/24/38/sime.png",
@@ -50,7 +55,8 @@
     "status" : "Alive"
   },
   {
-    "name": "Kaito Momota",
+    "name": "Kaito",
+    "lname": "Momota",
     "height": 184,
     "birthday": "12th April",
     "url": "https://zupimages.net/up/24/38/psg2.png",
@@ -60,7 +66,8 @@
     "status" : "Alive"
   },
   {
-    "name": "Kirumi Tôjô",
+    "name": "Kirumi",
+    "lname": "Tôjô",
     "height": 176,
     "birthday": "10th May",
     "url": "https://zupimages.net/up/24/38/z23p.png",
@@ -70,7 +77,8 @@
     "status" : "Alive"
   },
   {
-    "name": "Kokichi Ôma",
+    "name": "Kokichi",
+    "lname": "Ôma",
     "height": 156,
     "birthday": "21st June",
     "url": "https://zupimages.net/up/24/38/l89a.png",
@@ -80,7 +88,8 @@
     "status" : "Alive"
   },
   {
-    "name": "Korekiyo Shingûji",
+    "name": "Korekiyo",
+    "lname": "Shingûji",
     "height": 188,
     "birthday": "31st July",
     "url": "https://zupimages.net/up/24/38/e8z9.png",
@@ -90,7 +99,8 @@
     "status" : "Alive"
   },
   {
-    "name": "Maki Harukawa",
+    "name": "Maki",
+    "lname": "Harukawa",
     "height": 162,
     "birthday": "2nd February",
     "url": "https://zupimages.net/up/24/38/shzr.png",
@@ -100,7 +110,8 @@
     "status" : "Alive"
   },
   {
-    "name": "Miu Iruma",
+    "name": "Miu",
+    "lname": "Iruma",
     "height": 173,
     "birthday": "16th November",
     "url": "https://zupimages.net/up/24/38/gb2b.png",
@@ -110,7 +121,8 @@
     "status" : "Alive"
   },
   {
-    "name": "Rantarô Amami",
+    "name": "Rantarô",
+    "lname": "Amami",
     "height": 179,
     "birthday": "3rd October",
     "url": "https://zupimages.net/up/24/38/1pth.png",
@@ -120,7 +132,8 @@
     "status" : "Alive"
   },
   {
-    "name": "Ryôma Hoshi",
+    "name": "Ryôma",
+    "lname": "Hoshi",
     "height": 105,
     "birthday": "1st July",
     "url": "https://zupimages.net/up/24/38/x6g8.png",
@@ -130,7 +143,8 @@
     "status" : "Alive"
   },
   {
-    "name": "Shûichi Saihara",
+    "name": "Shûichi",
+    "lname": "Saihara",
     "height": 171,
     "birthday": "7th September",
     "url": "https://zupimages.net/up/24/38/fxeg.png",
@@ -140,7 +154,8 @@
     "status" : "Alive"
   },
   {
-    "name": "Tenko Chabashira",
+    "name": "Tenko",
+    "lname": "Chabashira",
     "height": 165,
     "birthday": "9th January",
     "url": "https://zupimages.net/up/24/38/p6zw.png",
@@ -150,7 +165,8 @@
     "status" : "Alive"
   },
   {
-    "name": "Tsumugi Shirogane",
+    "name": "Tsumugi",
+    "lname": "Shirogane",
     "height": 174,
     "birthday": "15th August",
     "url": "https://zupimages.net/up/24/38/7bbt.png",
