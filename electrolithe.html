@@ -194,12 +194,11 @@
 
 
             function formatName(name) {
+                if (name=="Mime Jr.") { return "439"; }
                 return name
-                    .replace(" d'", "/")
-                    .replace(" de ", "/")
-                    .replace("♀", "-f") // Saloperie de Nidorans,
-                    .replace("♂", "-m") // ce check est là juste pour eux
-                    .replace(". ", ".") // et ça, c'est pour M. Mime et M. Glaquette
+                    .replace(" d'", "/").replace(" de ", "/") // Pour les formes régionales
+                    .replace("♀", "-f").replace("♂", "-m") // Pour les Nidorans
+                    .replace(". ", ".") // Pour M. Mime et M. Glaquette
                     .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // suppression des accents
                     .toLowerCase();
             }
