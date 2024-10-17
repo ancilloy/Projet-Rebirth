@@ -106,21 +106,44 @@
             }
 
             function updateStade(rows, pokeName) {
-                fetch(`https://tyradex.vercel.app/api/v1/pokemon/${pokeName}`)
+
+                if (pokeName.substr(0, 6) == 'local:') {
+                    splitName = pokeName.substr(6).split('/');
+                    gen = parseInt(splitName[0]);
+                    trueName = splitName[1];
+                    fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
                     .then(response => response.json())
                     .then(data => {
+                        poke = data.autres_pokemon[gen].find(elt => elt.name.fr == trueName);
                         innerSelect = "";
-                        if (data.evolution != null && data.evolution.pre != null) {
-                            data.evolution.pre.forEach(item => {
-                                innerSelect += `<option value="${formatName(item.name)}">${item.name}</option>`;
+                        if (poke.evolution != null && poke.evolution.pre != null) {
+                            poke.evolution.pre.forEach(item => {
+                                innerSelect += `<option value="${item.path}">${item.name}</option>`;
                             });
                         }
-                        innerSelect += `<option value="${pokeName}" selected=true>${data.name.fr}</option>`;
+                        innerSelect += `<option value="${pokeName}" selected=true>${trueName}</option>`;
 
                         rows.forEach(n => {
                             document.getElementById(`row-${n}-stade`).innerHTML = innerSelect;
                         });
-                });
+                    });
+                } else {
+                    fetch(`https://tyradex.vercel.app/api/v1/pokemon/${pokeName}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            innerSelect = "";
+                            if (data.evolution != null && data.evolution.pre != null) {
+                                data.evolution.pre.forEach(item => {
+                                    innerSelect += `<option value="${formatName(item.name)}">${item.name}</option>`;
+                                });
+                            }
+                            innerSelect += `<option value="${pokeName}" selected=true>${data.name.fr}</option>`;
+
+                            rows.forEach(n => {
+                                document.getElementById(`row-${n}-stade`).innerHTML = innerSelect;
+                            });
+                    });
+                }
             }
             updateStade([1], 'bulbizarre');
 
@@ -216,7 +239,7 @@
                             data.autres_pokemon[n].forEach(item => {
                                 newPokeOption = document.createElement('option');
                                 newPokeOption.innerHTML = item.name.fr;
-                                newPokeOption.value = item.name.fr;
+                                newPokeOption.value = `local:${n}/${item.name.fr}`;
                                 specieSelect.appendChild(newPokeOption);
                             }
                             )
