@@ -86,22 +86,20 @@
             genSelect = document.getElementById("genSelect");
             for (i=3; i<=9; i++) {
                 genSelect.innerHTML += `<option value="${i}" onclick="updatePokeList(${i});"${i==3 ? ' selected=true' : ''}>${i}</option>`;
-                /*
-                newOption = document.createElement('option');
-                newOption.innerHTML = `${i}`;
-                newOption.value = i;
-                newOption.onclick = `updatePokeList(${i});`;
-                if (i==3) { newOption.selected = true; }
-                genSelect.appendChild(newOption);
-                */
+            }
+
+
+
+            function range(min, max, step=1) {
+                res = [];
+                for (i = min; i<max; i+=step) { res.push(i); }
+                return res;
             }
 
             function pokemon_list_ener() {
                 statTable = document.getElementById("stat-table-body");
                 n = statTable.childElementCount;
-                rows = [];
-                for (i=1; i<=n; i++) { rows.push(i); }
-                updateStade(rows, this.value);
+                updateStade(range(1, n+1), this.value);
                 console.log(this.value);
             }
 
@@ -201,6 +199,7 @@
                     .replace(" de ", "/")
                     .replace("♀", "-f") // Saloperie de Nidorans,
                     .replace("♂", "-m") // ce check est là juste pour eux
+                    .replace(". ", ".") // et ça, c'est pour M. Mime et M. Glaquette
                     .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // suppression des accents
                     .toLowerCase();
             }
@@ -230,6 +229,8 @@
                 if (newGen < oldGen) {
                     specieSelect.innerHTML = "";
                     oldGen = 0;
+
+                    updateStade(range(1, document.getElementById("stat-table-body").childElementCount+1), 'bulbizarre');
                 }
                 for (n=oldGen+1; n<=newGen; n++) {
                     await fetchPokemon(`https://tyradex.vercel.app/api/v1/gen/${n}`);
