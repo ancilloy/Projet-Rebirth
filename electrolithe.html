@@ -42,12 +42,15 @@
                 <th></th>
                 <th><select id="specieSelect" gen="0"></select></th>
                 <th><select id="natureSelect"></select></th>
-                <th><select id="caracSelect"></select></th>
+                <th><select id="caracSelect">
+                    <option value="-1" selected=true>(non renseigné)</option>
+                </select></th>
             </tr>
         </table>
         <table>
             <thead>
                 <tr>
+                    <th>Stade évolutif</th>
                     <th>Niveau</th>
                     <th>PV</th>
                     <th>Attaque</th>
@@ -60,6 +63,7 @@
             </thead>
             <tbody id="stat-table-body">
                 <tr id="row-1">
+                    <th><select id="row-1-stade"></select></th>
                     <th><input id="row-1-niveau"      type="number" min="1" max="100"/></th>
                     <th><input id="row-1-pv"          type="number" min="1" max="999"/></th>
                     <th><input id="row-1-attaque"     type="number" min="1" max="999"/></th>
@@ -78,18 +82,70 @@
         <br><br>
 
         <script>
+            document.getElementById("specieSelect").onchange = pokemon_list_ener;
             genSelect = document.getElementById("genSelect");
             for (i=3; i<=9; i++) {
-                genSelect.innerHTML += `<option value="${i}" onclick="updatePoke(${i});"${i==3 ? ' selected=true' : ''}>${i}</option>`;
-                /*
-                newOption = document.createElement('option');
-                newOption.innerHTML = `${i}`;
-                newOption.value = i;
-                newOption.onclick = `updatePoke(${i});`;
-                if (i==3) { newOption.selected = true; }
-                genSelect.appendChild(newOption);
-                */
+                genSelect.innerHTML += `<option value="${i}" onclick="updatePokeList(${i});"${i==3 ? ' selected=true' : ''}>${i}</option>`;
             }
+
+
+
+            function range(min, max, step=1) {
+                res = [];
+                for (i = min; i<max; i+=step) { res.push(i); }
+                return res;
+            }
+
+            function pokemon_list_ener() {
+                statTable = document.getElementById("stat-table-body");
+                n = statTable.childElementCount;
+                updateStade(range(1, n+1), this.value);
+                console.log(this.value);
+            }
+
+            function updateStade(rows, pokeName) {
+
+                if (pokeName.substr(0, 6) == 'local:') {
+                    splitName = pokeName.substr(6).split('/');
+                    gen = parseInt(splitName[0]);
+                    trueName = splitName[1];
+                    fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        poke = data.autres_pokemon[gen].find(elt => elt.name.fr == trueName);
+                        innerSelect = "";
+                        if (poke.evolution != null && poke.evolution.pre != null) {
+                            poke.evolution.pre.forEach(item => {
+                                innerSelect += `<option value="${item.path}">${item.name}</option>`;
+                            });
+                        }
+                        innerSelect += `<option value="${pokeName}" selected=true>${trueName}</option>`;
+
+                        rows.forEach(n => {
+                            document.getElementById(`row-${n}-stade`).innerHTML = innerSelect;
+                        });
+                    });
+                } else {
+                    fetch(`https://tyradex.vercel.app/api/v1/pokemon/${pokeName}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            innerSelect = "";
+                            if (data.evolution != null && data.evolution.pre != null) {
+                                data.evolution.pre.forEach(item => {
+                                    innerSelect += `<option value="${formatName(item.name)}">${item.name}</option>`;
+                                });
+                            }
+                            innerSelect += `<option value="${pokeName}" selected=true>${data.name.fr}</option>`;
+
+                            rows.forEach(n => {
+                                document.getElementById(`row-${n}-stade`).innerHTML = innerSelect;
+                            });
+                    });
+                }
+            }
+            updateStade([1], 'bulbizarre');
+
+
 
             function fetchCaracteristics(url) {
                 fetch(url)
@@ -113,7 +169,6 @@
             };
             fetchCaracteristics("https://pokeapi.co/api/v2/characteristic");
 
-
             function fetchNatures(url) {
                 fetch(url)
                     .then(response => response.json())
@@ -136,6 +191,18 @@
             }
             fetchNatures("https://pokeapi.co/api/v2/nature");
 
+
+
+            function formatName(name) {
+                if (name=="Mime Jr.") { return "439"; }
+                return name
+                    .replace(" d'", "/").replace(" de ", "/") // Pour les formes régionales
+                    .replace("♀", "-f").replace("♂", "-m") // Pour les Nidorans
+                    .replace(". ", ".") // Pour M. Mime et M. Glaquette
+                    .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // suppression des accents
+                    .toLowerCase();
+            }
+
             async function fetchPokemon(url) {
                 await fetch(url)
                     .then(response => response.json())
@@ -145,25 +212,24 @@
                         data.forEach(item => {
                             newPokeOption = document.createElement('option');
                             newPokeOption.innerHTML = item.name.fr;
-                            newPokeOption.value = item.name.fr
-                                .replace(" d'", "/")
-                                .replace(" de ", "/")
-                                .replace("♀", "-f")
-                                .replace("♂", "-m")
-                                .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // suppression des accents
-                                .toLowerCase();
+                            newPokeOption.value = formatName(item.name.fr);
                             specieSelect.appendChild(newPokeOption);
                         });
                         if (data.next != null) { fetchNatures(data.next); }
                     })
                     .catch(error => console.error('Erreur lors de l\'appel API :', error));
             }
-            async function updatePoke(newGen) {
+
+
+
+            async function updatePokeList(newGen) {
                 specieSelect = document.getElementById('specieSelect');
                 oldGen = parseInt(specieSelect.getAttribute("gen"));
                 if (newGen < oldGen) {
                     specieSelect.innerHTML = "";
                     oldGen = 0;
+
+                    updateStade(range(1, document.getElementById("stat-table-body").childElementCount+1), 'bulbizarre');
                 }
                 for (n=oldGen+1; n<=newGen; n++) {
                     await fetchPokemon(`https://tyradex.vercel.app/api/v1/gen/${n}`);
@@ -173,7 +239,7 @@
                             data.autres_pokemon[n].forEach(item => {
                                 newPokeOption = document.createElement('option');
                                 newPokeOption.innerHTML = item.name.fr;
-                                newPokeOption.value = item.name.fr;
+                                newPokeOption.value = `local:${n}/${item.name.fr}`;
                                 specieSelect.appendChild(newPokeOption);
                             }
                             )
@@ -181,20 +247,13 @@
                 }
                 specieSelect.setAttribute("gen", newGen);
             }
-            updatePoke(3);
+            updatePokeList(3);
 
 
-            function process() {
-                specieSelect = document.getElementById("specieSelect");
 
-                for (option of specieSelect.children) {
-                    fetch(`https://tyradex.vercel.app/api/v1/pokemon/${option.value}`)
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.status==404) { console.log(option.outerHTML); }
-                        })
-                }
-            }
+            function process() {}
+
+
 
             function newRow() {
                 statTable = document.getElementById("stat-table-body");
@@ -202,7 +261,8 @@
 
                 tr = document.createElement("tr");
                 tr.id = `row-${n}`;
-                tr.innerHTML = `<th><input id="row-${n}-niveau"      type="number" min="1" max="100"/></th>` +
+                tr.innerHTML = `<th><select id="row-${n}-stade"></select></th>` +
+                    `<th><input id="row-${n}-niveau"      type="number" min="1" max="100"/></th>` +
                     `<th><input id="row-${n}-pv"          type="number" min="1" max="999"/></th>` +
                     `<th><input id="row-${n}-attaque"     type="number" min="1" max="999"/></th>` +
                     `<th><input id="row-${n}-defense"     type="number" min="1" max="999"/></th>` +
@@ -212,10 +272,14 @@
                     `<th><button id="row-${n}-remover" onclick="removeRow(${n});">Supprimer</button></th>`;
 
                 statTable.appendChild(tr);
+                currentPokeName = document.getElementById('specieSelect').selectedOptions[0].value;
+                console.log(currentPokeName);
+                updateStade([n], currentPokeName);
             }
 
             function renameRow(src, dst) {
                 document.getElementById(`row-${src}`).id             = `row-${dst}`;
+                document.getElementById(`row-${src}-stade`).id       = `row-${dst}-stade`;
                 document.getElementById(`row-${src}-niveau`).id      = `row-${dst}-niveau`;
                 document.getElementById(`row-${src}-pv`).id          = `row-${dst}-pv`;
                 document.getElementById(`row-${src}-attaque`).id     = `row-${dst}-attaque`;

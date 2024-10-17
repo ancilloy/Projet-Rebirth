@@ -15,7 +15,8 @@
                     "spe_atk": 180,
                     "spe_def": 20,
                     "vit": 150
-                }
+                },
+                "evolution" : null
             }, {
                 "name": {
                     "fr": "Deoxys Défense"
@@ -27,7 +28,8 @@
                     "spe_atk": 70,
                     "spe_def": 160,
                     "vit": 90
-                }
+                },
+                "evolution" : null
             }, {
                 "name": {
                     "fr": "Deoxys Vitesse"
@@ -39,7 +41,8 @@
                     "spe_atk": 95,
                     "spe_def": 90,
                     "vit": 180
-                }
+                },
+                "evolution" : null
             }
         ],
         [
@@ -54,6 +57,14 @@
                     "spe_atk": 59,
                     "spe_def": 85,
                     "vit": 36
+                },
+                "evolution" : {
+                    "pre": [
+                        {
+                            "name": "Cheniti",
+                            "path": "cheniti"
+                        }
+                    ]
                 }
             }, {
                 "name": {
@@ -66,6 +77,14 @@
                     "spe_atk": 69,
                     "spe_def": 95,
                     "vit": 36
+                },
+                "evolution" : {
+                    "pre": [
+                        {
+                            "name": "Cheniti",
+                            "path": "cheniti"
+                        }
+                    ]
                 }
             }, {
                 "name": {
@@ -78,7 +97,8 @@
                     "spe_atk": 105,
                     "spe_def": 107,
                     "vit": 86
-                }
+                },
+                "evolution" : null
             }, {
                 "name": {
                     "fr": "Giratina Originel"
@@ -90,7 +110,8 @@
                     "spe_atk": 120,
                     "spe_def": 100,
                     "vit": 90
-                }
+                },
+                "evolution" : null
             }, {
                 "name": {
                     "fr": "Shaymin Céleste"
@@ -102,7 +123,8 @@
                     "spe_atk": 120,
                     "spe_def": 75,
                     "vit": 127
-                }
+                },
+                "evolution" : null
             }
         ],
         [
@@ -117,7 +139,8 @@
                     "spe_atk": 110,
                     "spe_def": 90,
                     "vit": 121
-                }
+                },
+                "evolution" : null
             }, {
                 "name": {
                     "fr": "Fulguris Totémique"
@@ -129,7 +152,8 @@
                     "spe_atk": 145,
                     "spe_def": 80,
                     "vit": 101
-                }
+                },
+                "evolution" : null
             }, {
                 "name": {
                     "fr": "Démétéros Totémique"
@@ -141,7 +165,8 @@
                     "spe_atk": 115,
                     "spe_def": 80,
                     "vit": 101
-                }
+                },
+                "evolution" : null
             }, {
                 "name": {
                     "fr": "Kyurem Blanc"
@@ -153,7 +178,8 @@
                     "spe_atk": 170,
                     "spe_def": 100,
                     "vit": 95
-                }
+                },
+                "evolution" : null
             }, {
                 "name": {
                     "fr": "Kyurem Noir"
@@ -165,7 +191,8 @@
                     "spe_atk": 120,
                     "spe_def": 90,
                     "vit": 95
-                }
+                },
+                "evolution" : null
             }
         ],
         [
@@ -180,6 +207,16 @@
                     "spe_atk": 44,
                     "spe_def": 55,
                     "vit": 56
+                },
+                "evolution": {
+                    "pre": null,
+                    "next": [
+                        {
+                            "name": "Banshitrouye Mini",
+                            "path": "local:6/Banshitrouye Mini"
+                        }
+                    ],
+                    "mega": null
                 }
             }, {
                 "name": {
@@ -192,6 +229,16 @@
                     "spe_atk": 44,
                     "spe_def": 55,
                     "vit": 46
+                },
+                "evolution": {
+                    "pre": null,
+                    "next": [
+                        {
+                            "name": "Banshitrouye Maxi",
+                            "path": "local:6/Banshitrouye Maxi"
+                        }
+                    ],
+                    "mega": null
                 }
             }, {
                 "name": {
@@ -204,6 +251,16 @@
                     "spe_atk": 44,
                     "spe_def": 55,
                     "vit": 41
+                },
+                "evolution": {
+                    "pre": null,
+                    "next": [
+                        {
+                            "name": "Banshitrouye Ultra",
+                            "path": "local:6/Banshitrouye Ultra"
+                        }
+                    ],
+                    "mega": null
                 }
             }, {
                 "name": {
@@ -216,6 +273,16 @@
                     "spe_atk": 58,
                     "spe_def": 75,
                     "vit": 99
+                },
+                "evolution": {
+                    "pre": [
+                        {
+                            "name": "Pitrouille Mini",
+                            "path": "local:6/Pitrouille Mini"
+                        }
+                    ],
+                    "next": null,
+                    "mega": null
                 }
             }, {
                 "name": {
@@ -228,6 +295,16 @@
                     "spe_atk": 58,
                     "spe_def": 75,
                     "vit": 69
+                },
+                "evolution": {
+                    "pre": [
+                        {
+                            "name": "Pitrouille Maxi",
+                            "path": "local:6/Pitrouille Maxi"
+                        }
+                    ],
+                    "next": null,
+                    "mega": null
                 }
             }, {
                 "name": {
@@ -240,6 +317,16 @@
                     "spe_atk": 58,
                     "spe_def": 75,
                     "vit": 54
+                },
+                "evolution": {
+                    "pre": [
+                        {
+                            "name": "Pitrouille Ultra",
+                            "path": "local:6/Pitrouille Ultra"
+                        }
+                    ],
+                    "next": null,
+                    "mega": null
                 }
             }, {
                 "name": {
@@ -252,7 +339,8 @@
                     "spe_atk": 170,
                     "spe_def": 130,
                     "vit": 80
-                }
+                },
+                "evolution" : null
             }
         ],
         [
@@ -267,7 +355,8 @@
                     "spe_atk": 61,
                     "spe_def": 85,
                     "vit": 115
-                }
+                },
+                "evolution" : null
             }, {
                 "name": {
                     "fr": "Lougaroc Nocturne"
@@ -279,6 +368,16 @@
                     "spe_atk": 55,
                     "spe_def": 75,
                     "vit": 82
+                },
+                "evolution": {
+                    "pre": [
+                        {
+                            "name": "Rocabot",
+                            "path": "rocabot"
+                        }
+                    ],
+                    "next": null,
+                    "mega": null
                 }
             }, {
                 "name": {
@@ -291,6 +390,16 @@
                     "spe_atk": 55,
                     "spe_def": 65,
                     "vit": 110
+                },
+                "evolution": {
+                    "pre": [
+                        {
+                            "name": "Rocabot",
+                            "path": "rocabot"
+                        }
+                    ],
+                    "next": null,
+                    "mega": null
                 }
             }, {
                 "name": {
@@ -303,7 +412,8 @@
                     "spe_atk": 113,
                     "spe_def": 109,
                     "vit": 77
-                }
+                },
+                "evolution" : null
             }, {
                 "name": {
                     "fr": "Necrozma Ailes de l'Aurore"
@@ -315,7 +425,8 @@
                     "spe_atk": 157,
                     "spe_def": 127,
                     "vit": 77
-                }
+                },
+                "evolution" : null
             }
         ],
         [
@@ -330,7 +441,8 @@
                     "spe_atk": 95,
                     "spe_def": 105,
                     "vit": 85
-                }
+                },
+                "evolution" : null
             }, {
                 "name": {
                     "fr": "Sylveroy Cavalier du Froid"
@@ -342,7 +454,8 @@
                     "spe_atk": 85,
                     "spe_def": 130,
                     "vit": 50
-                }
+                },
+                "evolution" : null
             }, {
                 "name": {
                     "fr": "Sylveroy Cavalier d'Effroi"
@@ -354,7 +467,8 @@
                     "spe_atk": 165,
                     "spe_def": 100,
                     "vit": 150
-                }
+                },
+                "evolution" : null
             }, {
                 "name": {
                     "fr": "Paragruel femelle"
@@ -366,6 +480,16 @@
                     "spe_atk": 100,
                     "spe_def": 75,
                     "vit": 78
+                },
+                "evolution": {
+                    "pre": [
+                        {
+                            "name": "Bargantua",
+                            "path": "bargantua"
+                        }
+                    ],
+                    "next": null,
+                    "mega": null
                 }
             }, {
                 "name": {
@@ -378,7 +502,8 @@
                     "spe_atk": 150,
                     "spe_def": 120,
                     "vit": 90
-                }
+                },
+                "evolution" : null
             }, {
                 "name": {
                     "fr": "Palkia Originel"
@@ -390,7 +515,8 @@
                     "spe_atk": 150,
                     "spe_def": 120,
                     "vit": 120
-                }
+                },
+                "evolution" : null
             }, {
                 "name": {
                     "fr": "Amovénus Totémique"
@@ -402,7 +528,8 @@
                     "spe_atk": 135,
                     "spe_def": 100,
                     "vit": 46
-                }
+                },
+                "evolution" : null
             }
         ],
         [
@@ -417,6 +544,16 @@
                     "spe_atk": 59,
                     "spe_def": 80,
                     "vit": 65
+                },
+                "evolution": {
+                    "pre": [
+                        {
+                            "name": "Gourmelet",
+                            "path": "gourmelet"
+                        }
+                    ],
+                    "next": null,
+                    "mega": null
                 }
             }, {
                 "name": {
@@ -429,6 +566,16 @@
                     "spe_atk": 75,
                     "spe_def": 45,
                     "vit": 80
+                },
+                "evolution": {
+                    "pre": null,
+                    "next": [
+                        {
+                            "name": "Gromago",
+                            "path": "gromago"
+                        }
+                    ],
+                    "mega": null
                 }
             }, {
                 "name": {
@@ -441,7 +588,8 @@
                     "spe_atk": 135,
                     "spe_def": 65,
                     "vit": 52
-                }
+                },
+                "evolution" : null
             }
         ]
     ]
