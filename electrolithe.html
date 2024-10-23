@@ -81,6 +81,8 @@
         <div id="processBlock"></div>
         <br><br>
 
+        <script src="statcalc.js"></script>
+
         <script>
             allstats = ['hp', 'attack', 'defense', 'special-attack', 'special-defense', 'speed'];
 
@@ -265,6 +267,8 @@
 
                 caract = document.getElementById('caractSelect').selectedOptions[0];
                 console.log(`Caractéristique : ${caract.innerHTML} ( ${caract.value} )`);
+
+                console.log(`PV de Bleuette : ${hp_stat(70, 20, 5, 28)}`);
             }
 
 
