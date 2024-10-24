@@ -24,6 +24,30 @@ let datapoints = [
             { stat :  33, base :  45, iv :  7, ev :   0, nature: 1   },
             { stat :  48, base :  68, iv :  6, ev :  39, nature: 1   }
         ]
+    },
+    {
+        name : "Michon",
+        lvl : 53,
+        hp : { stat :  190, base : 110, iv : 12, ev :  35 },
+        other_stats : [
+            { stat : 162, base : 123, iv : 21, ev : 125, nature: 1   },
+            { stat :  94, base :  65, iv : 22, ev :  64, nature: 1   },
+            { stat : 131, base : 100, iv : 27, ev :  44, nature: 1   },
+            { stat :  85, base :  65, iv : 17, ev :  17, nature: 1   },
+            { stat :  89, base :  65, iv :  7, ev :  91, nature: 1   }
+        ]
+    },
+    {
+        name : "Link",
+        lvl : 81,
+        hp : { stat : 228, base :  68, iv : 30, ev :  18 },
+        other_stats : [
+            { stat : 215, base : 125, iv :  6, ev :  17, nature: 1   },
+            { stat : 170, base :  65, iv : 11, ev : 255, nature: 1   },
+            { stat : 136, base :  65, iv : 22, ev :  40, nature: 1   },
+            { stat : 203, base : 115, iv : 14, ev :   6, nature: 1   },
+            { stat : 169, base :  80, iv :  0, ev : 174, nature: 1   }
+        ]
     }
 ];
 
