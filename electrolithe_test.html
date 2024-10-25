@@ -166,9 +166,21 @@
                 datapointsSelect.appendChild(newOption);
             }
 
-            function datapoints_list_ener() { displayTable(this.value); }
+            function datapoints_list_ener() { displayTables(this.value); }
             datapointsSelect.onchange = datapoints_list_ener;
-            displayTable(0);
+            displayTables(0);
+
+            function inputEV_listener() {
+                idSplit = this.id.split(':');
+                pokeId = parseInt(idSplit[2]);
+                poke = datapoints[pokeId];
+                stat = idSplit[1];
+                statData = (stat=="hp") ? poke.hp : poke.other_stats[parseInt(stat)];
+                statData.ev = parseInt(this.value);
+                statData.stat = (stat=="hp") ? hp_stat(statData.base, statData.iv, statData.ev, poke.lvl) : other_stat(statData.base, statData.iv, statData.ev, poke.lvl, statData.nature);
+                if (stat=="hp") { displayTableHP(pokeId); }
+                else            { displayTableOther(pokeId, parseInt(stat)); }
+            }
 
             function process() {
                 processBlock = document.getElementById("processBlock");
@@ -273,10 +285,12 @@
                 }
             }
 
-            function displayTable(n) {
+
+
+            function displayTables(pokeId) {
                 processBlock = document.getElementById("processBlock");
-                processBlock.innerHTML = "";
-                poke = datapoints[n];
+                processBlock.innerHTML = ""; // Emptying the content of the process block to refill it with new data
+                poke = datapoints[pokeId];
 
                 header = document.createElement("h2");
                 header.innerHTML = `${poke.name} (lvl ${poke.lvl})`;
@@ -286,7 +300,77 @@
                 subHeader.innerHTML = `HP (base = ${poke.hp.base} ; stat = ${poke.hp.stat})`;
                 processBlock.appendChild(subHeader);
 
+                inputTab = document.createElement("table");
+
+                tr1 = document.createElement("tr");
+                tr1.innerHTML = "<th>EV</th>";
+                inputTab.appendChild(tr1);
+
+                tr2 = document.createElement("tr");
+                th2A = document.createElement("th");
+
+                inputEV = document.createElement("input");
+                inputEV.id = `inputEV:hp:${pokeId}`;
+                inputEV.type = "number";
+                inputEV.min = 0;
+                inputEV.max = 255;
+                inputEV.step = 4;
+                inputEV.value = poke.hp.ev;
+                inputEV.onchange = inputEV_listener;
+
+                th2A.appendChild(inputEV);
+                tr2.appendChild(th2A);
+                inputTab.appendChild(tr2);
+
+                processBlock.appendChild(inputTab);
+
                 statCalcTable = document.createElement("table");
+                statCalcTable.id = `statCalcTable_hp`;
+                processBlock.appendChild(statCalcTable);
+                displayTableHP(pokeId);
+
+                for (k=0; k<5; k++) {
+                    statData = poke.other_stats[k];
+
+                    subHeader = document.createElement("h3");
+                    subHeader.innerHTML = `${allstats[k+1]} (base = ${statData.base} ; nature_modificator = ${statData.nature})`;
+                    processBlock.appendChild(subHeader);
+
+                    inputTab = document.createElement("table");
+
+                    tr1 = document.createElement("tr");
+                    tr1.innerHTML = "<th>EV</th>";
+                    inputTab.appendChild(tr1);
+
+                    tr2 = document.createElement("tr");
+                    th2A = document.createElement("th");
+
+                    inputEV = document.createElement("input");
+                    inputEV.id = `inputEV:${k}:${pokeId}`;
+                    inputEV.type = "number";
+                    inputEV.min = 0;
+                    inputEV.max = 255;
+                    inputEV.step = 4;
+                    inputEV.value = statData.ev;
+                    inputEV.onchange = inputEV_listener;
+
+                    th2A.appendChild(inputEV);
+                    tr2.appendChild(th2A);
+                    inputTab.appendChild(tr2);
+
+                    processBlock.appendChild(inputTab);
+
+                    statCalcTable = document.createElement("table");
+                    statCalcTable.id = `statCalcTable_${allstats[k+1]}`;
+                    processBlock.appendChild(statCalcTable);
+                    displayTableOther(pokeId, k);
+                };
+            }
+
+            function displayTableHP(pokeId) {
+                poke = datapoints[pokeId];
+                statCalcTable = document.getElementById("statCalcTable_hp");
+                statCalcTable.innerHTML = "";
 
                 statCalcTableHead = document.createElement("thead");
                 tr = document.createElement("tr");
@@ -331,62 +415,57 @@
                 }
 
                 statCalcTable.appendChild(statCalcTableBody);
-                processBlock.appendChild(statCalcTable);
+            }
 
-                for (k=0; k<5; k++) {
-                    statData = poke.other_stats[k];
+            function displayTableOther(pokeId, statId) {
+                statCalcTable = document.getElementById(`statCalcTable_${allstats[statId+1]}`);
+                poke = datapoints[pokeId];
+                statData = poke.other_stats[statId];
+                statCalcTable.innerHTML = "";
 
-                    subHeader = document.createElement("h3");
-                    subHeader.innerHTML = `${allstats[k+1]} (base = ${statData.base} ; stat = ${statData.stat} ; nature_modificator = ${statData.nature})`;
-                    processBlock.appendChild(subHeader);
-
-                    statCalcTable = document.createElement("table");
-
-                    statCalcTableHead = document.createElement("thead");
-                    tr = document.createElement("tr");
+                statCalcTableHead = document.createElement("thead");
+                tr = document.createElement("tr");
+                th = document.createElement("th");
+                th.innerHTML = "EV \\ IV";
+                tr.appendChild(th);
+                for (iv=0; iv<32; iv++) {
                     th = document.createElement("th");
-                    th.innerHTML = "EV \\ IV";
+                    th.innerHTML = `${iv}`;
                     tr.appendChild(th);
-                    for (iv=0; iv<32; iv++) {
-                        th = document.createElement("th");
-                        th.innerHTML = `${iv}`;
-                        tr.appendChild(th);
-                    }
-                    statCalcTableHead.appendChild(tr);
-                    statCalcTable.appendChild(statCalcTableHead);
+                }
+                statCalcTableHead.appendChild(tr);
+                statCalcTable.appendChild(statCalcTableHead);
 
 
 
-                    statCalcTableBody = document.createElement("tbody");
-                    rows = [];
+                statCalcTableBody = document.createElement("tbody");
+                rows = [];
+
+                for (ev4=0; ev4*4 < 256; ev4++) {
+                    rows.push( document.createElement("tr") );
+                    statCalcTableBody.appendChild(rows[ev4]);
+
+                    th = document.createElement("th");
+                    th.innerHTML = `${ev4*4}`;
+                    rows[ev4].appendChild(th);
+                }
+
+                for (iv=0; iv<32; iv++) {
+                    let c_stat_frame = other_frame(statData.stat, statData.base, iv, poke.lvl, statData.nature);
 
                     for (ev4=0; ev4*4 < 256; ev4++) {
-                        rows.push( document.createElement("tr") );
-                        statCalcTableBody.appendChild(rows[ev4]);
-
                         th = document.createElement("th");
-                        th.innerHTML = `${ev4*4}`;
+                        stat = other_stat(statData.base, iv, ev4*4, poke.lvl, statData.nature);
+                        //th.outerHTML = `<th${(stat == poke.hp.stat) ? ' class="exact"' : ""}>${stat}</th>`;
+                        th.innerHTML = `${stat}`;
+                        th.className = ((stat == statData.stat) ? "green-text" : "red-text") + " " +
+                                    ((c_stat_frame.lower <= ev4*4 && ev4*4 < c_stat_frame.upper) ? "green-bg" : "red-bg");
                         rows[ev4].appendChild(th);
                     }
 
-                    for (iv=0; iv<32; iv++) {
-                        let c_stat_frame = other_frame(statData.stat, statData.base, iv, poke.lvl, statData.nature);
+                }
 
-                        for (ev4=0; ev4*4 < 256; ev4++) {
-                            th = document.createElement("th");
-                            stat = other_stat(statData.base, iv, ev4*4, poke.lvl, statData.nature);
-                            //th.outerHTML = `<th${(stat == poke.hp.stat) ? ' class="exact"' : ""}>${stat}</th>`;
-                            th.innerHTML = `${stat}`;
-                            th.className = ((stat == statData.stat) ? "green-text" : "red-text") + " " +
-                                        ((c_stat_frame.lower <= ev4*4 && ev4*4 < c_stat_frame.upper) ? "green-bg" : "red-bg");
-                            rows[ev4].appendChild(th);
-                        }
-
-                    }
-
-                    statCalcTable.appendChild(statCalcTableBody);
-                    processBlock.appendChild(statCalcTable);
-                };
+                statCalcTable.appendChild(statCalcTableBody);
             }
 
         </script>
