@@ -1,5 +1,5 @@
 {
-    "puissance_cachee" : [
+    "pc" : [
         { "type" : "Ténèbres",   "effet" : "111111" },
         { "type" : "Dragon",     "effet" : "???111" },
         { "type" : "Glace",      "effet" : "???11?" },
