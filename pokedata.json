@@ -1,4 +1,22 @@
 {
+    "puissance_cachee" : [
+        { "type" : "Ténèbres",   "effet" : "111111" },
+        { "type" : "Dragon",     "effet" : "???111" },
+        { "type" : "Glace",      "effet" : "???11?" },
+        { "type" : "Psy",        "effet" : "???110" },
+        { "type" : "Électrique", "effet" : "????1?" },
+        { "type" : "Plante",     "effet" : "???011" },
+        { "type" : "Eau",        "effet" : "???01?" },
+        { "type" : "Feu",        "effet" : "???010" },
+        { "type" : "Acier",      "effet" : "??????" },
+        { "type" : "Spectre",    "effet" : "???101" },
+        { "type" : "Insecte",    "effet" : "???10?" },
+        { "type" : "Roche",      "effet" : "???100" },
+        { "type" : "Sol",        "effet" : "????0?" },
+        { "type" : "Poison",     "effet" : "???001" },
+        { "type" : "Vol",        "effet" : "???00?" },
+        { "type" : "Combat",     "effet" : "???000" }
+    ],
     "autres_pokemon" : [
         null,
         [],
