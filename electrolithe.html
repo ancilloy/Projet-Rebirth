@@ -37,6 +37,7 @@
                 <th>Pokémon</th>
                 <th>Nature</th>
                 <th>Caractéristique</th>
+                <th>Type Puissance Cachée</th>
             </tr>
             <tr>
                 <th></th>
@@ -44,6 +45,9 @@
                 <th><select id="natureSelect"></select></th>
                 <th><select id="caractSelect">
                     <option value="-1" selected=true>(non renseigné)</option>
+                </select></th>
+                <th><select id="pcSelect">
+                    <option value="??????" selected=true>(non renseigné)</option>
                 </select></th>
             </tr>
         </table>
@@ -113,21 +117,22 @@
                     gen = parseInt(splitName[0]);
                     trueName = splitName[1];
                     fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
-                    .then(response => response.json())
-                    .then(data => {
-                        poke = data.autres_pokemon[gen].find(elt => elt.name.fr == trueName);
-                        innerSelect = "";
-                        if (poke.evolution != null && poke.evolution.pre != null) {
-                            poke.evolution.pre.forEach(item => {
-                                innerSelect += `<option value="${item.path}">${item.name}</option>`;
+                        .then(response => response.json())
+                        .then(data => {
+                            poke = data.autres_pokemon[gen].find(elt => elt.name.fr == trueName);
+                            innerSelect = "";
+                            if (poke.evolution != null && poke.evolution.pre != null) {
+                                poke.evolution.pre.forEach(item => {
+                                    innerSelect += `<option value="${item.path}">${item.name}</option>`;
+                                });
+                            }
+                            innerSelect += `<option value="${pokeName}" selected=true>${trueName}</option>`;
+
+                            rows.forEach(n => {
+                                document.getElementById(`row-${n}-stade`).innerHTML = innerSelect;
                             });
                         }
-                        innerSelect += `<option value="${pokeName}" selected=true>${trueName}</option>`;
-
-                        rows.forEach(n => {
-                            document.getElementById(`row-${n}-stade`).innerHTML = innerSelect;
-                        });
-                    });
+                    );
                 } else {
                     fetch(`https://tyradex.vercel.app/api/v1/pokemon/${pokeName}`)
                         .then(response => response.json())
@@ -150,27 +155,6 @@
 
 
 
-            function fetchCaracteristics(url) {
-                fetch(url)
-                    .then(response => response.json())
-                    .then(data => {
-                        caractSelect = document.getElementById('caractSelect');
-
-                        data.results.forEach(item => {
-                            fetch(item.url)
-                                .then(response => response.json())
-                                .then(data => {
-                                    newOption = document.createElement('option');
-                                    newOption.innerHTML = data.descriptions.find(elt => elt.language.name == 'fr').description;
-                                    newOption.value = data.highest_stat.name + ':' + data.gene_modulo;
-                                    caractSelect.appendChild(newOption);
-                                });
-                        });
-                        if (data.next != null) { fetchCaracteristics(data.next); }
-                    })
-                    .catch(error => console.error('Erreur lors de l\'appel API :', error));
-            };
-            fetchCaracteristics("https://pokeapi.co/api/v2/characteristic");
 
             function fetchNatures(url) {
                 fetch(url)
@@ -199,6 +183,41 @@
                     .catch(error => console.error('Erreur lors de l\'appel API :', error));
             }
             fetchNatures("https://pokeapi.co/api/v2/nature");
+
+            function fetchCaracteristics(url) {
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        caractSelect = document.getElementById('caractSelect');
+
+                        data.results.forEach(item => {
+                            fetch(item.url)
+                                .then(response => response.json())
+                                .then(data => {
+                                    newOption = document.createElement('option');
+                                    newOption.innerHTML = data.descriptions.find(elt => elt.language.name == 'fr').description;
+                                    newOption.value = data.highest_stat.name + ':' + data.gene_modulo;
+                                    caractSelect.appendChild(newOption);
+                                });
+                        });
+                        if (data.next != null) { fetchCaracteristics(data.next); }
+                    })
+                    .catch(error => console.error('Erreur lors de l\'appel API :', error));
+            };
+            fetchCaracteristics("https://pokeapi.co/api/v2/characteristic");
+
+            genSelect = document.getElementById("pcSelect");
+            fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
+                .then(response => response.json())
+                .then(data => {
+                    data.pc.forEach(item => {
+                        newOption = document.createElement('option');
+                        newOption.innerHTML = item.type;
+                        newOption.value = item.effet;
+                        pcSelect.appendChild(newOption);
+                    });
+                }
+            );
 
 
 
@@ -267,6 +286,9 @@
 
                 caract = document.getElementById('caractSelect').selectedOptions[0];
                 console.log(`Caractéristique : ${caract.innerHTML} ( ${caract.value} )`);
+
+                pc = document.getElementById('pcSelect').selectedOptions[0];
+                console.log(`Type PC : ${pc.innerHTML} ( ${pc.value} )`);
 
                 console.log(`PV de Bleuette : ${hp_stat(70, 20, 5, 28)}`);
             }
