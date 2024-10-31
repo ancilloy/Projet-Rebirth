@@ -44,7 +44,7 @@
                 <th><select id="specieSelect" gen="0"></select></th>
                 <th><select id="natureSelect"></select></th>
                 <th><select id="caractSelect">
-                    <option value="-1" selected=true>(non renseigné)</option>
+                    <option value="none" selected=true>(non renseigné)</option>
                 </select></th>
                 <th><select id="pcSelect">
                     <option value="??????" selected=true>(non renseigné)</option>
@@ -86,10 +86,7 @@
         <br><br>
 
         <script src="statcalc.js"></script>
-
         <script>
-            allstats = ['hp', 'attack', 'defense', 'special-attack', 'special-defense', 'speed'];
-
             document.getElementById("specieSelect").onchange = pokemon_list_ener;
             genSelect = document.getElementById("genSelect");
             for (i=3; i<=9; i++) {
@@ -98,58 +95,49 @@
 
 
 
-            function range(min, max, step=1) {
-                res = [];
-                for (i = min; i<max; i+=step) { res.push(i); }
-                return res;
-            }
-
             function pokemon_list_ener() {
                 statTable = document.getElementById("stat-table-body");
                 n = statTable.childElementCount;
                 updateStade(range(1, n+1), this.value);
             }
 
-            function updateStade(rows, pokeName) {
-
+            // Récupère les données d'un Pokémon donné, et y applique une fonction donnée
+            function fetchPokemonData(pokeName, func) {
                 if (pokeName.substr(0, 6) == 'local:') {
                     splitName = pokeName.substr(6).split('/');
                     gen = parseInt(splitName[0]);
                     trueName = splitName[1];
-                    fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
+                    return fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
                         .then(response => response.json())
                         .then(data => {
                             poke = data.autres_pokemon[gen].find(elt => elt.name.fr == trueName);
-                            innerSelect = "";
-                            if (poke.evolution != null && poke.evolution.pre != null) {
-                                poke.evolution.pre.forEach(item => {
-                                    innerSelect += `<option value="${item.path}">${item.name}</option>`;
-                                });
-                            }
-                            innerSelect += `<option value="${pokeName}" selected=true>${trueName}</option>`;
-
-                            rows.forEach(n => {
-                                document.getElementById(`row-${n}-stade`).innerHTML = innerSelect;
-                            });
+                            return func(poke);
                         }
                     );
                 } else {
-                    fetch(`https://tyradex.vercel.app/api/v1/pokemon/${pokeName}`)
+                    return fetch(`https://tyradex.vercel.app/api/v1/pokemon/${pokeName}`)
                         .then(response => response.json())
                         .then(data => {
-                            innerSelect = "";
-                            if (data.evolution != null && data.evolution.pre != null) {
-                                data.evolution.pre.forEach(item => {
-                                    innerSelect += `<option value="${formatName(item.name)}">${item.name}</option>`;
-                                });
-                            }
-                            innerSelect += `<option value="${pokeName}" selected=true>${data.name.fr}</option>`;
-
-                            rows.forEach(n => {
-                                document.getElementById(`row-${n}-stade`).innerHTML = innerSelect;
-                            });
+                            return func(data);
                     });
                 }
+            }
+
+            function updateStade(rows, pokeName) {
+                fetchPokemonData(pokeName, (poke) => {
+                    innerSelect = "";
+                    if (poke.evolution != null && poke.evolution.pre != null) {
+                        poke.evolution.pre.forEach(item => {
+                            let path = (item.path!=null) ? item.path : formatName(item.name);
+                            innerSelect += `<option value="${path}">${item.name}</option>`;
+                        });
+                    }
+                    innerSelect += `<option value="${pokeName}" selected=true>${poke.name.fr}</option>`;
+
+                    rows.forEach(n => {
+                        document.getElementById(`row-${n}-stade`).innerHTML = innerSelect;
+                    });
+                });
             }
             updateStade([1], 'bulbizarre');
 
@@ -277,20 +265,74 @@
 
 
 
-            function process() {
+            async function process() {
                 specie = document.getElementById('specieSelect').selectedOptions[0].value;
                 console.log(`Pokémon choisi : ${specie}`);
 
-                nature = document.getElementById('natureSelect').selectedOptions[0];
-                console.log(`Nature : ${nature.innerHTML} ( ${nature.value} )`);
+                natureElt = document.getElementById('natureSelect').selectedOptions[0];
+                nature = [null];
+                for (let i = 0; i<5; i++) {
+                    let c = natureElt.value.charAt(i);
+                    nature.push((c=='+') ? 1.1 : ((c=='-') ? 0.9 : 1));
+                }
+                console.log(`Nature : ${natureElt.innerHTML} ( ${nature} )`);
 
-                caract = document.getElementById('caractSelect').selectedOptions[0];
-                console.log(`Caractéristique : ${caract.innerHTML} ( ${caract.value} )`);
+                caracElt = document.getElementById('caractSelect').selectedOptions[0];
+                if (caracElt.value == "none") {
+                    carac = null;
+                    console.log(`Caractéristique : non renseignée`);
+                } else {
+                    caracSplit = caracElt.value.split(':');
+                    carac = { statNo : allstats.indexOf(caracSplit[0]), modulo : parseInt(caracSplit[1]) };
+                    console.log(`Caractéristique : ${caracElt.innerHTML}`);
+                    console.log(carac);
+                }
+
+                totalSummaries = document.getElementById("stat-table-body").childElementCount;
+                statMatrix = [];
+                bstMatrix = [];
+                bstMap = new Map();
+                for (let i=1; i<=totalSummaries; i++) {
+                    stadeName = document.getElementById(`row-${i}-stade`).selectedOptions[0].value;
+                    if (bstMap.has(stadeName)) {
+                        bstMatrix.push(bstMap.get(stadeName));
+                    } else {
+                        bst = await fetchBaseStats(stadeName);
+                        bstMap.set(stadeName, bst);
+                        bstMatrix.push(bst);
+                    }
+
+                    statMatrix.push([
+                        parseInt(document.getElementById(`row-${i}-pv`)         .value),
+                        parseInt(document.getElementById(`row-${i}-attaque`)    .value),
+                        parseInt(document.getElementById(`row-${i}-defense`)    .value),
+                        parseInt(document.getElementById(`row-${i}-attaque-spe`).value),
+                        parseInt(document.getElementById(`row-${i}-defense-spe`).value),
+                        parseInt(document.getElementById(`row-${i}-vitesse`)    .value),
+                        parseInt(document.getElementById(`row-${i}-niveau`)     .value)
+                    ]);
+                }
+                console.log(`Base stats :`);
+                console.log(bstMatrix);
+                console.log(`Stats renseignées :`);
+                console.log(statMatrix);
 
                 pc = document.getElementById('pcSelect').selectedOptions[0];
                 console.log(`Type PC : ${pc.innerHTML} ( ${pc.value} )`);
 
-                console.log(`PV de Bleuette : ${hp_stat(70, 20, 5, 28)}`);
+                console.log(`Résultat final :`);
+                console.log(processing(statMatrix, bstMatrix, nature, carac, pc.value));
+            }
+
+            async function fetchBaseStats(pokeName) {
+                return await fetchPokemonData(pokeName, (poke) => {
+                    if (poke.stats == null) {
+                        console.log("Le bug de mort là...");
+                        console.log(pokeName);
+                        console.log(poke);
+                    }
+                    return [poke.stats.hp, poke.stats.atk, poke.stats.def, poke.stats.spe_atk, poke.stats.spe_def, poke.stats.vit];
+                });
             }
 
 

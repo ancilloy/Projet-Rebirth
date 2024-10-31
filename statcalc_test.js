@@ -59,8 +59,8 @@ datapoints.forEach(poke => {
         console.log(`Valeur calculée : ${c_hp}`);
     }
 
-    let c_hp_frame = hp_frame(poke.hp.stat, poke.hp.base, poke.hp.iv, poke.lvl);
-    if (c_hp_frame.lower > poke.hp.ev || c_hp_frame.upper <= poke.hp.ev) {
+    let c_hp_frame = hp_frame(poke.hp.stat, poke.hp.base, poke.lvl);
+    if (c_hp_frame.lower > Math.floor(poke.hp.ev/4)+poke.hp.iv || c_hp_frame.upper < Math.floor(poke.hp.ev/4)+poke.hp.iv) {
         console.log(`Erreur dans le calcul de la frame de PV de ${poke.name} au niveau ${poke.lvl}.`);
         console.log(poke.hp);
         console.log(`Frame calculée :`);
@@ -75,8 +75,8 @@ datapoints.forEach(poke => {
             console.log(`Valeur calculée : ${c_stat}`);
         }
 
-        let c_stat_frame = other_frame(s.stat, s.base, s.iv, poke.lvl, s.nature);
-        if (c_stat_frame.lower > s.ev || c_stat_frame.upper <= s.ev) {
+        let c_stat_frame = other_frame(s.stat, s.base, poke.lvl, s.nature);
+        if (c_stat_frame.lower > Math.floor(s.ev/4)+s.iv || c_stat_frame.upper < Math.floor(s.ev/4)+s.iv) {
             console.log(`Erreur dans le calcul de la frame de stat de ${poke.name} au niveau ${poke.lvl}.`);
             console.log(s);
             console.log(`Frame calculée :`);

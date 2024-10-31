@@ -422,15 +422,14 @@
                 }
 
                 for (iv=0; iv<32; iv++) {
-                    let c_hp_frame = hp_frame(poke.hp.stat, poke.hp.base, iv, poke.lvl);
+                    let c_hp_frame = hp_frame(poke.hp.stat, poke.hp.base, poke.lvl);
 
                     for (ev4=0; ev4*4 < 256; ev4++) {
                         th = document.createElement("th");
                         stat = hp_stat(poke.hp.base, iv, ev4*4, poke.lvl);
-                        //th.outerHTML = `<th${(stat == poke.hp.stat) ? ' class="exact"' : ""}>${stat}</th>`;
                         th.innerHTML = `${stat}`;
-                        th.className = ((stat == poke.hp.stat) ? "green-text" : "red-text") + " " +
-                                        ((c_hp_frame.lower <= ev4*4 && ev4*4 < c_hp_frame.upper) ? "green-bg" : "red-bg");
+                        th.className = ((stat == poke.hp.stat) ? "green" : "red") + "-text " +
+                                        ((c_hp_frame.lower <= ev4+iv && ev4+iv <= c_hp_frame.upper) ? "green" : "red") + "-bg";
                         rows[ev4].appendChild(th);
                     }
 
@@ -473,15 +472,14 @@
                 }
 
                 for (iv=0; iv<32; iv++) {
-                    let c_stat_frame = other_frame(statData.stat, statData.base, iv, poke.lvl, statData.nature);
+                    let c_stat_frame = other_frame(statData.stat, statData.base, poke.lvl, statData.nature);
 
                     for (ev4=0; ev4*4 < 256; ev4++) {
                         th = document.createElement("th");
                         stat = other_stat(statData.base, iv, ev4*4, poke.lvl, statData.nature);
-                        //th.outerHTML = `<th${(stat == poke.hp.stat) ? ' class="exact"' : ""}>${stat}</th>`;
                         th.innerHTML = `${stat}`;
-                        th.className = ((stat == statData.stat) ? "green-text" : "red-text") + " " +
-                                    ((c_stat_frame.lower <= ev4*4 && ev4*4 < c_stat_frame.upper) ? "green-bg" : "red-bg");
+                        th.className = ((stat == statData.stat) ? "green" : "red") + "-text " +
+                                        ((c_stat_frame.lower <= ev4+iv && ev4+iv <= c_stat_frame.upper) ? "green" : "red") + "-bg";
                         rows[ev4].appendChild(th);
                     }
 
