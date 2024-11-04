@@ -37,13 +37,17 @@
                 <th>Pokémon</th>
                 <th>Nature</th>
                 <th>Caractéristique</th>
+                <th>Type Puissance Cachée</th>
             </tr>
             <tr>
                 <th></th>
                 <th><select id="specieSelect" gen="0"></select></th>
                 <th><select id="natureSelect"></select></th>
-                <th><select id="caracSelect">
-                    <option value="-1" selected=true>(non renseigné)</option>
+                <th><select id="caractSelect">
+                    <option value="none" selected=true>(non renseigné)</option>
+                </select></th>
+                <th><select id="pcSelect">
+                    <option value="??????" selected=true>(non renseigné)</option>
                 </select></th>
             </tr>
         </table>
@@ -81,6 +85,7 @@
         <div id="processBlock"></div>
         <br><br>
 
+        <script src="statcalc.js"></script>
         <script>
             document.getElementById("specieSelect").onchange = pokemon_list_ener;
             genSelect = document.getElementById("genSelect");
@@ -90,84 +95,54 @@
 
 
 
-            function range(min, max, step=1) {
-                res = [];
-                for (i = min; i<max; i+=step) { res.push(i); }
-                return res;
-            }
-
             function pokemon_list_ener() {
                 statTable = document.getElementById("stat-table-body");
                 n = statTable.childElementCount;
                 updateStade(range(1, n+1), this.value);
-                console.log(this.value);
             }
 
-            function updateStade(rows, pokeName) {
-
+            // Récupère les données d'un Pokémon donné, et y applique une fonction donnée
+            function fetchPokemonData(pokeName, func) {
                 if (pokeName.substr(0, 6) == 'local:') {
                     splitName = pokeName.substr(6).split('/');
                     gen = parseInt(splitName[0]);
                     trueName = splitName[1];
-                    fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
-                    .then(response => response.json())
-                    .then(data => {
-                        poke = data.autres_pokemon[gen].find(elt => elt.name.fr == trueName);
-                        innerSelect = "";
-                        if (poke.evolution != null && poke.evolution.pre != null) {
-                            poke.evolution.pre.forEach(item => {
-                                innerSelect += `<option value="${item.path}">${item.name}</option>`;
-                            });
-                        }
-                        innerSelect += `<option value="${pokeName}" selected=true>${trueName}</option>`;
-
-                        rows.forEach(n => {
-                            document.getElementById(`row-${n}-stade`).innerHTML = innerSelect;
-                        });
-                    });
-                } else {
-                    fetch(`https://tyradex.vercel.app/api/v1/pokemon/${pokeName}`)
+                    return fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
                         .then(response => response.json())
                         .then(data => {
-                            innerSelect = "";
-                            if (data.evolution != null && data.evolution.pre != null) {
-                                data.evolution.pre.forEach(item => {
-                                    innerSelect += `<option value="${formatName(item.name)}">${item.name}</option>`;
-                                });
-                            }
-                            innerSelect += `<option value="${pokeName}" selected=true>${data.name.fr}</option>`;
-
-                            rows.forEach(n => {
-                                document.getElementById(`row-${n}-stade`).innerHTML = innerSelect;
-                            });
+                            poke = data.autres_pokemon[gen].find(elt => elt.name.fr == trueName);
+                            return func(poke);
+                        }
+                    );
+                } else {
+                    return fetch(`https://tyradex.vercel.app/api/v1/pokemon/${pokeName}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            return func(data);
                     });
                 }
+            }
+
+            function updateStade(rows, pokeName) {
+                fetchPokemonData(pokeName, (poke) => {
+                    innerSelect = "";
+                    if (poke.evolution != null && poke.evolution.pre != null) {
+                        poke.evolution.pre.forEach(item => {
+                            let path = (item.path!=null) ? item.path : formatName(item.name);
+                            innerSelect += `<option value="${path}">${item.name}</option>`;
+                        });
+                    }
+                    innerSelect += `<option value="${pokeName}" selected=true>${poke.name.fr}</option>`;
+
+                    rows.forEach(n => {
+                        document.getElementById(`row-${n}-stade`).innerHTML = innerSelect;
+                    });
+                });
             }
             updateStade([1], 'bulbizarre');
 
 
 
-            function fetchCaracteristics(url) {
-                fetch(url)
-                    .then(response => response.json())
-                    .then(data => {
-                        caracSelect = document.getElementById('caracSelect');
-
-                        data.results.forEach(item => {
-                            fetch(item.url)
-                                .then(response => response.json())
-                                .then(data => {
-                                    newOption = document.createElement('option');
-                                    newOption.innerHTML = data.descriptions.find(elt => elt.language.name == 'fr').description;
-                                    newOption.value = data.id;
-                                    caracSelect.appendChild(newOption);
-                                });
-                        });
-                        if (data.next != null) { fetchCaracteristics(data.next); }
-                    })
-                    .catch(error => console.error('Erreur lors de l\'appel API :', error));
-            };
-            fetchCaracteristics("https://pokeapi.co/api/v2/characteristic");
 
             function fetchNatures(url) {
                 fetch(url)
@@ -179,9 +154,15 @@
                             fetch(item.url)
                                 .then(response => response.json())
                                 .then(data => {
+                                    val = ["*", "*", "*", "*", "*"];
+                                    if (data.increased_stat != null) {
+                                        val[ allstats.findIndex(item => item==data.increased_stat.name)-1 ] = "+";
+                                        val[ allstats.findIndex(item => item==data.decreased_stat.name)-1 ] = "-";
+                                    }
+
                                     newOption = document.createElement('option');
                                     newOption.innerHTML = data.names.find(elt => elt.language.name == 'fr').name;
-                                    newOption.value = data.id;
+                                    newOption.value = val.join('');
                                     natureSelect.appendChild(newOption);
                                 });
                         });
@@ -190,6 +171,41 @@
                     .catch(error => console.error('Erreur lors de l\'appel API :', error));
             }
             fetchNatures("https://pokeapi.co/api/v2/nature");
+
+            function fetchCaracteristics(url) {
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        caractSelect = document.getElementById('caractSelect');
+
+                        data.results.forEach(item => {
+                            fetch(item.url)
+                                .then(response => response.json())
+                                .then(data => {
+                                    newOption = document.createElement('option');
+                                    newOption.innerHTML = data.descriptions.find(elt => elt.language.name == 'fr').description;
+                                    newOption.value = data.highest_stat.name + ':' + data.gene_modulo;
+                                    caractSelect.appendChild(newOption);
+                                });
+                        });
+                        if (data.next != null) { fetchCaracteristics(data.next); }
+                    })
+                    .catch(error => console.error('Erreur lors de l\'appel API :', error));
+            };
+            fetchCaracteristics("https://pokeapi.co/api/v2/characteristic");
+
+            genSelect = document.getElementById("pcSelect");
+            fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
+                .then(response => response.json())
+                .then(data => {
+                    data.pc.forEach(item => {
+                        newOption = document.createElement('option');
+                        newOption.innerHTML = item.type;
+                        newOption.value = item.effet;
+                        pcSelect.appendChild(newOption);
+                    });
+                }
+            );
 
 
 
@@ -215,7 +231,6 @@
                             newPokeOption.value = formatName(item.name.fr);
                             specieSelect.appendChild(newPokeOption);
                         });
-                        if (data.next != null) { fetchNatures(data.next); }
                     })
                     .catch(error => console.error('Erreur lors de l\'appel API :', error));
             }
@@ -241,9 +256,8 @@
                                 newPokeOption.innerHTML = item.name.fr;
                                 newPokeOption.value = `local:${n}/${item.name.fr}`;
                                 specieSelect.appendChild(newPokeOption);
-                            }
-                            )
-                        })
+                            });
+                        });
                 }
                 specieSelect.setAttribute("gen", newGen);
             }
@@ -251,7 +265,75 @@
 
 
 
-            function process() {}
+            async function process() {
+                specie = document.getElementById('specieSelect').selectedOptions[0].value;
+                console.log(`Pokémon choisi : ${specie}`);
+
+                natureElt = document.getElementById('natureSelect').selectedOptions[0];
+                nature = [null];
+                for (let i = 0; i<5; i++) {
+                    let c = natureElt.value.charAt(i);
+                    nature.push((c=='+') ? 1.1 : ((c=='-') ? 0.9 : 1));
+                }
+                console.log(`Nature : ${natureElt.innerHTML} ( ${nature} )`);
+
+                caracElt = document.getElementById('caractSelect').selectedOptions[0];
+                if (caracElt.value == "none") {
+                    carac = null;
+                    console.log(`Caractéristique : non renseignée`);
+                } else {
+                    caracSplit = caracElt.value.split(':');
+                    carac = { statNo : allstats.indexOf(caracSplit[0]), modulo : parseInt(caracSplit[1]) };
+                    console.log(`Caractéristique : ${caracElt.innerHTML}`);
+                    console.log(carac);
+                }
+
+                totalSummaries = document.getElementById("stat-table-body").childElementCount;
+                statMatrix = [];
+                bstMatrix = [];
+                bstMap = new Map();
+                for (let i=1; i<=totalSummaries; i++) {
+                    stadeName = document.getElementById(`row-${i}-stade`).selectedOptions[0].value;
+                    if (bstMap.has(stadeName)) {
+                        bstMatrix.push(bstMap.get(stadeName));
+                    } else {
+                        bst = await fetchBaseStats(stadeName);
+                        bstMap.set(stadeName, bst);
+                        bstMatrix.push(bst);
+                    }
+
+                    statMatrix.push([
+                        parseInt(document.getElementById(`row-${i}-pv`)         .value),
+                        parseInt(document.getElementById(`row-${i}-attaque`)    .value),
+                        parseInt(document.getElementById(`row-${i}-defense`)    .value),
+                        parseInt(document.getElementById(`row-${i}-attaque-spe`).value),
+                        parseInt(document.getElementById(`row-${i}-defense-spe`).value),
+                        parseInt(document.getElementById(`row-${i}-vitesse`)    .value),
+                        parseInt(document.getElementById(`row-${i}-niveau`)     .value)
+                    ]);
+                }
+                console.log(`Base stats :`);
+                console.log(bstMatrix);
+                console.log(`Stats renseignées :`);
+                console.log(statMatrix);
+
+                pc = document.getElementById('pcSelect').selectedOptions[0];
+                console.log(`Type PC : ${pc.innerHTML} ( ${pc.value} )`);
+
+                console.log(`Résultat final :`);
+                console.log(processing(statMatrix, bstMatrix, nature, carac, pc.value));
+            }
+
+            async function fetchBaseStats(pokeName) {
+                return await fetchPokemonData(pokeName, (poke) => {
+                    if (poke.stats == null) {
+                        console.log("Le bug de mort là...");
+                        console.log(pokeName);
+                        console.log(poke);
+                    }
+                    return [poke.stats.hp, poke.stats.atk, poke.stats.def, poke.stats.spe_atk, poke.stats.spe_def, poke.stats.vit];
+                });
+            }
 
 
 
@@ -273,7 +355,6 @@
 
                 statTable.appendChild(tr);
                 currentPokeName = document.getElementById('specieSelect').selectedOptions[0].value;
-                console.log(currentPokeName);
                 updateStade([n], currentPokeName);
             }
 
