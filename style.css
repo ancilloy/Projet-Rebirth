@@ -1,3 +1,11 @@
+#coucou {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  max-height: 40px;
+  width: auto;
+}
+
 .container2 > p {
   font-family: cursive;
   font-size: 2rem;
@@ -69,4 +77,32 @@ table img:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+li {
+  display : inline;
+}
+
+#sacrificeTable {
+  background-color: plum;
+}
+
+#sacrificeTable2 {
+  background-color: cyan;
+}
+
+#sacrificeTable3 {
+  background-color: greenyellow;
+}
+
+#sacrificeTable4 {
+  background-color: yellow;
+}
+
+#sacrificeTable5 {
+  background-color: orange;
+}
+
+#sacrificeTable6 {
+  background-color: red;
 }
