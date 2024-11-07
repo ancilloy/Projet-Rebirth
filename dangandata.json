@@ -2,6 +2,7 @@
   {
     "name": "Angie",
     "lname": "Yonaga",
+    "ultimate": "Artist",
     "height": 157,
     "birthday": "18th April",
     "url": "https://zupimages.net/up/24/38/28l4.png",
@@ -13,6 +14,7 @@
   {
     "name": "Gonta",
     "lname": "Gokuhara",
+    "ultimate": "Entomologist",
     "height": 198,
     "birthday": "23rd January",
     "url": "https://zupimages.net/up/24/38/y36c.png",
@@ -24,6 +26,7 @@
   {
     "name": "Himiko",
     "lname": "Yumeno",
+    "ultimate": "Magician",
     "height": 150,
     "birthday": "3rd December",
     "url": "https://zupimages.net/up/24/38/2829.png",
@@ -35,6 +38,7 @@
   {
     "name": "K1",
     "lname": "B0",
+    "ultimate": "Robot",
     "height": 160,
     "birthday": "29 October",
     "url": "https://zupimages.net/up/24/38/n66n.png",
@@ -46,6 +50,7 @@
   {
     "name": "Kaede",
     "lname": "Akamatsu",
+    "ultimate": "Pianist",
     "height": 167,
     "birthday": "26th March",
     "url": "https://zupimages.net/up/24/38/sime.png",
@@ -57,6 +62,7 @@
   {
     "name": "Kaito",
     "lname": "Momota",
+    "ultimate": "Astronaut",
     "height": 184,
     "birthday": "12th April",
     "url": "https://zupimages.net/up/24/38/psg2.png",
@@ -68,6 +74,7 @@
   {
     "name": "Kirumi",
     "lname": "Tôjô",
+    "ultimate": "Maid",
     "height": 176,
     "birthday": "10th May",
     "url": "https://zupimages.net/up/24/38/z23p.png",
@@ -79,6 +86,7 @@
   {
     "name": "Kokichi",
     "lname": "Ôma",
+    "ultimate": "Supreme Leader",
     "height": 156,
     "birthday": "21st June",
     "url": "https://zupimages.net/up/24/38/l89a.png",
@@ -90,6 +98,7 @@
   {
     "name": "Korekiyo",
     "lname": "Shingûji",
+    "ultimate": "Anthropologist",
     "height": 188,
     "birthday": "31st July",
     "url": "https://zupimages.net/up/24/38/e8z9.png",
@@ -101,6 +110,7 @@
   {
     "name": "Maki",
     "lname": "Harukawa",
+    "ultimate": "Child Caregiver",
     "height": 162,
     "birthday": "2nd February",
     "url": "https://zupimages.net/up/24/38/shzr.png",
@@ -112,6 +122,7 @@
   {
     "name": "Miu",
     "lname": "Iruma",
+    "ultimate": "Inventor",
     "height": 173,
     "birthday": "16th November",
     "url": "https://zupimages.net/up/24/38/gb2b.png",
@@ -123,6 +134,7 @@
   {
     "name": "Rantarô",
     "lname": "Amami",
+    "ultimate": "???",
     "height": 179,
     "birthday": "3rd October",
     "url": "https://zupimages.net/up/24/38/1pth.png",
@@ -134,6 +146,7 @@
   {
     "name": "Ryôma",
     "lname": "Hoshi",
+    "ultimate": "Tennis Pro",
     "height": 105,
     "birthday": "1st July",
     "url": "https://zupimages.net/up/24/38/x6g8.png",
@@ -145,6 +158,7 @@
   {
     "name": "Shûichi",
     "lname": "Saihara",
+    "ultimate": "Detective",
     "height": 171,
     "birthday": "7th September",
     "url": "https://zupimages.net/up/24/38/fxeg.png",
@@ -156,6 +170,7 @@
   {
     "name": "Tenko",
     "lname": "Chabashira",
+    "ultimate": "Aikido Master",
     "height": 165,
     "birthday": "9th January",
     "url": "https://zupimages.net/up/24/38/p6zw.png",
@@ -167,6 +182,7 @@
   {
     "name": "Tsumugi",
     "lname": "Shirogane",
+    "ultimate": "Cosplayer",
     "height": 174,
     "birthday": "15th August",
     "url": "https://zupimages.net/up/24/38/7bbt.png",
