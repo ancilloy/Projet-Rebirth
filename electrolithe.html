@@ -26,7 +26,7 @@
         <center><h2>
             <img src="rocher_flottant.png">&ensp;
             Bienvenue dans la Grotte Electrolithe
-            &ensp;<img src="rocher_flottant.png">
+            &ensp;<img src="rocher_flottant.png" onclick="rotateSummaries();">
         </h2></center>
 
         <b>Génération</b><select id="genSelect"></select>
@@ -93,16 +93,127 @@
                 genSelect.innerHTML += `<option value="${i}" onclick="updatePokeList(${i});"${i==3 ? ' selected=true' : ''}>${i}</option>`;
             }
 
+            summaries = [
+                {
+                    gen: "5",
+                    specie: "moyade",
+                    nature: "***-+",
+                    caract: "defense:1",
+                    typePC: "???100",
+                    stats: [
+                        {
+                            stade:"moyade",
+                            niveau: 52,
+                            pv:  172,
+                            atk: 80,
+                            def: 93,
+                            asp: 108,
+                            dsp: 109,
+                            vit: 86
+                        }
+                    ]
+                },
+                {
+                    gen: "5",
+                    specie: "siderella",
+                    nature: "*+**-",
+                    caract: "defense:3",
+                    typePC: "????0?",
+                    stats: [
+                        {
+                            stade:"scrutella",
+                            niveau: 27,
+                            pv:  61,
+                            atk: 26,
+                            def: 42,
+                            asp: 39,
+                            dsp: 40,
+                            vit: 30
+                        },
+                        {
+                            stade:"scrutella",
+                            niveau: 31,
+                            pv:  70,
+                            atk: 31,
+                            def: 48,
+                            asp: 44,
+                            dsp: 45,
+                            vit: 35
+                        },
+                        {
+                            stade:"mesmerella",
+                            niveau: 37,
+                            pv:  93,
+                            atk: 49,
+                            def: 75,
+                            asp: 66,
+                            dsp: 68,
+                            vit: 49
+                        },
+                        {
+                            stade:"mesmerella",
+                            niveau: 38,
+                            pv:  96,
+                            atk: 51,
+                            def: 78,
+                            asp: 68,
+                            dsp: 70,
+                            vit: 51
+                        },
+                        {
+                            stade:"siderella",
+                            niveau: 43,
+                            pv:  116,
+                            atk: 69,
+                            def: 111,
+                            asp: 94,
+                            dsp: 100,
+                            vit: 66
+                        },
+                        {
+                            stade:"siderella",
+                            niveau: 52,
+                            pv:  144,
+                            atk: 85,
+                            def: 134,
+                            asp: 113,
+                            dsp: 120,
+                            vit: 80
+                        }
+                    ]
+                },
+                {
+                    gen: "5",
+                    specie: "zeblitz",
+                    nature: "-*+**",
+                    caract: "special-defense:2",
+                    typePC: "111111",
+                    stats: [
+                        {
+                            stade:"zeblitz",
+                            niveau: 52,
+                            pv:  154,
+                            atk: 104,
+                            def: 72,
+                            asp: 99,
+                            dsp: 84,
+                            vit: 151
+                        }
+                    ]
+                }
+            ];
 
 
-            function pokemon_list_ener() {
+
+
+            async function pokemon_list_ener() {
                 statTable = document.getElementById("stat-table-body");
                 n = statTable.childElementCount;
-                updateStade(range(1, n+1), this.value);
+                await updateStade(range(1, n+1), this.value);
             }
 
             // Récupère les données d'un Pokémon donné, et y applique une fonction donnée
-            function fetchPokemonData(pokeName, func) {
+            async function fetchPokemonData(pokeName, func) {
                 if (pokeName.substr(0, 6) == 'local:') {
                     splitName = pokeName.substr(6).split('/');
                     gen = parseInt(splitName[0]);
@@ -123,8 +234,8 @@
                 }
             }
 
-            function updateStade(rows, pokeName) {
-                fetchPokemonData(pokeName, (poke) => {
+            async function updateStade(rows, pokeName) {
+                await fetchPokemonData(pokeName, (poke) => {
                     innerSelect = "";
                     if (poke.evolution != null && poke.evolution.pre != null) {
                         poke.evolution.pre.forEach(item => {
@@ -321,7 +432,19 @@
                 console.log(`Type PC : ${pc.innerHTML} ( ${pc.value} )`);
 
                 console.log(`Résultat final :`);
-                console.log(processing(statMatrix, bstMatrix, nature, carac, pc.value));
+                possibleIVs = processing(statMatrix, bstMatrix, nature, carac, pc.value);
+                console.log(possibleIVs);
+                finalSummary = statMatrix[statMatrix.length-1];
+                finalBst = bstMatrix[bstMatrix.length-1];
+                results = selectIVs(possibleIVs, finalSummary, finalBst, nature);
+                console.log(results);
+
+                console.log("Recalculs :");
+                for (let statNo=0; statNo<6; statNo++) {
+                    console.log(`\t- ${allstats[statNo]} : ${(statNo==0) ?
+                                hp_stat(   finalBst[statNo], results[statNo].iv, results[statNo].ev, finalSummary[6]) :
+                                other_stat(finalBst[statNo], results[statNo].iv, results[statNo].ev, finalSummary[6], nature[statNo])}`);
+                }
             }
 
             async function fetchBaseStats(pokeName) {
@@ -337,7 +460,7 @@
 
 
 
-            function newRow() {
+            async function newRow() {
                 statTable = document.getElementById("stat-table-body");
                 n = statTable.childElementCount + 1;
 
@@ -355,7 +478,7 @@
 
                 statTable.appendChild(tr);
                 currentPokeName = document.getElementById('specieSelect').selectedOptions[0].value;
-                updateStade([n], currentPokeName);
+                await updateStade([n], currentPokeName);
             }
 
             function renameRow(src, dst) {
@@ -379,6 +502,43 @@
                 for (j=i+1; j<n; j++) {
                     renameRow(j, j-1);
                 }
+            }
+
+            async function loadSummary(data) {
+                genSelect = document.getElementById("genSelect");
+                if (genSelect.value != data.gen) {
+                    genSelect.value = data.gen;
+                    await updatePokeList(data.gen);
+                }
+
+                specieSelect = document.getElementById("specieSelect");
+                specieSelect.value = data.specie;
+                await specieSelect.onchange();
+
+                document.getElementById("natureSelect").value = data.nature;
+                document.getElementById("caractSelect").value = data.caract;
+                document.getElementById("pcSelect"    ).value = data.typePC;
+
+                while (document.getElementById("stat-table-body").childElementCount < data.stats.length) { await newRow(); }
+                while (document.getElementById("stat-table-body").childElementCount > data.stats.length) { await removeRow(document.getElementById("stat-table-body").childElementCount); }
+
+                for(let i=1; i<=data.stats.length; i++) {
+                    let smry = data.stats[i-1];
+                    document.getElementById(`row-${i}-stade`).value       = smry.stade;
+                    document.getElementById(`row-${i}-niveau`).value      = smry.niveau;
+                    document.getElementById(`row-${i}-pv`).value          = smry.pv;
+                    document.getElementById(`row-${i}-attaque`).value     = smry.atk;
+                    document.getElementById(`row-${i}-defense`).value     = smry.def;
+                    document.getElementById(`row-${i}-attaque-spe`).value = smry.asp;
+                    document.getElementById(`row-${i}-defense-spe`).value = smry.dsp;
+                    document.getElementById(`row-${i}-vitesse`).value     = smry.vit;
+                }
+            }
+
+            nextSummary = 0;
+            function rotateSummaries() {
+                loadSummary(summaries[nextSummary]);
+                nextSummary = (nextSummary + 1) % summaries.length;
             }
         </script>
 

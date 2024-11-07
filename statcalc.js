@@ -34,6 +34,12 @@ function other_frame(stat, base, lvl, nature) { // calculates a frame for   iv +
     return frm;
 }
 
+function random_matching_ev(frm, iv) {
+    min = (frm.lower - iv)*4;
+    max = (frm.upper - iv)*4 + 3;
+    return min + Math.floor((max - min)*Math.random());
+}
+
 
 function range(min, max, step=1) {
     if (max==null) { return range(0, min, step); }
@@ -49,56 +55,97 @@ function range(min, max, step=1) {
 // carac : object { statNo, modulo } or null if not given
 function processing(statMatrix, bstMatrix, nature, carac, hpTxt) {
     // Initializing the list of potential IVs
+    console.log("Initializing the list of potential IVs");
     possibleIVs = [];
     for (let i=0; i<6; i++) { possibleIVs.push(range(32)); }
+    console.log(possibleIVs);
 
     // Filter values depending on characteristics
     if (carac != null) {
+        console.log("Filter values depending on characteristics");
         possibleIVs[carac.statNo] = possibleIVs[carac.statNo].filter(iv => (iv % 5) == carac.modulo);
+        console.log(possibleIVs);
     }
 
     // Filter values depending on HP type
+    console.log("Filter values depending on HP type");
     for (let statNo = 0; statNo < 6; statNo++) {
         if (hpTxt.charAt(statNo) != "?") {
             modulo = parseInt(hpTxt.charAt(statNo));
             possibleIVs[statNo] = possibleIVs[statNo].filter(iv => (iv % 2) == modulo);
         }
     }
+    console.log(possibleIVs);
 
     // Filter values depending on given stats
+    console.log("Filter values depending on given stats");
     for (let summaryNo = 0; summaryNo < statMatrix.length; summaryNo++) {
+        console.log(`HP stat ${statMatrix[summaryNo][0]} at level ${statMatrix[summaryNo][6]}`);
         hpFrm = hp_frame(statMatrix[summaryNo][0], bstMatrix[summaryNo][0], /* level : */ statMatrix[summaryNo][6]);
+        console.log(hpFrm);
 
         // Getting the minimum possible IV value for this stat (mostly usable in the first summary), and filtering accordingly
-        minIV = hpFrm.upper;
+        minIV = hpFrm.lower - 63;
         if (possibleIVs[0][0                        ] < minIV) { possibleIVs[0] = possibleIVs[0].filter(iv => iv >= minIV); }
 
         // Same with the maximum possible IV value (mostly usable in the last summaries)
-        maxIV = hpFrm.lower - 63;
+        maxIV = hpFrm.upper;
         if (possibleIVs[0][possibleIVs[0].length - 1] > maxIV) { possibleIVs[0] = possibleIVs[0].filter(iv => iv <= maxIV); }
+
+        console.log(possibleIVs);
 
 
         for (let statNo = 1; statNo < 6; statNo++) {
+            console.log(`${allstats[statNo]} stat ${statMatrix[summaryNo][0]} at level ${statMatrix[summaryNo][6]}`);
             statFrm = other_frame(statMatrix[summaryNo][statNo], bstMatrix[summaryNo][statNo], /* level : */ statMatrix[summaryNo][6], nature[statNo]);
 
             // Getting the minimum possible IV value for this stat (mostly usable in the first summary), and filtering accordingly
-            minIV = statFrm.upper;
+            minIV = statFrm.lower - 63;
             if (possibleIVs[statNo][0                             ] < minIV) { possibleIVs[statNo] = possibleIVs[statNo].filter(iv => iv >= minIV); }
 
             // Same with the maximum possible IV value (mostly usable in the last summaries)
-            maxIV = statFrm.lower - 63;
+            maxIV = statFrm.upper;
             if (possibleIVs[statNo][possibleIVs[statNo].length - 1] > maxIV) { possibleIVs[statNo] = possibleIVs[statNo].filter(iv => iv <= maxIV); }
+
+            console.log(possibleIVs);
         }
     }
 
     if (carac!=null) {
+        console.log("Filter values depending on characteristics - round 2");
         maxVal = possibleIVs[carac.statNo][possibleIVs[carac.statNo].length - 1];
         for (let statNo = 0; statNo < 6; statNo++) {
             possibleIVs[statNo] = possibleIVs[statNo].filter(iv => iv <= maxVal);
         }
+        console.log(possibleIVs);
     }
 
     return possibleIVs;
+}
+
+function biased_draw(l) {
+    // Draws a random element from the list, with a strong bias towards the end of the list
+    let i = l.length - 1;;
+    while(i>0 && Math.random()>=0.5 ) { i--; }
+    return l[i];
+}
+
+function draw_test(size=10) {
+    C = [];
+    for (i=0; i<size; i++) { C.push(0); }
+    rng = range(size);
+    for (i=0; i<10000; i++) { C[biased_draw(rng)]++; }
+    return C;
+}
+
+function selectIVs(possibleIVs, stats, bsts, nature) {
+    results = [];
+    for (let statNo=0; statNo<6; statNo++) {
+        let iv = biased_draw(possibleIVs[statNo]);
+        let frm = (statNo==0) ? hp_frame(stats[statNo], bsts[statNo], stats[6]) : other_frame(stats[statNo], bsts[statNo], stats[6], nature[statNo]);
+        results.push({ iv: iv, ev: random_matching_ev(frm, iv) });
+    }
+    return results;
 }
 
 //export { hp_stat, hp_frame, other_stat, other_frame };
