@@ -35,8 +35,8 @@ function other_frame(stat, base, lvl, nature) { // calculates a frame for   iv +
 }
 
 function random_matching_ev(frm, iv) {
-    min = (frm.lower - iv)*4;
-    max = (frm.upper - iv)*4 + 3;
+    min = Math.min(0  , (frm.lower - iv)*4);
+    max = Math.max(255, (frm.upper - iv)*4 + 3);
     return min + Math.floor((max - min)*Math.random());
 }
 
@@ -82,7 +82,6 @@ function processing(statMatrix, bstMatrix, nature, carac, hpTxt) {
     for (let summaryNo = 0; summaryNo < statMatrix.length; summaryNo++) {
         console.log(`HP stat ${statMatrix[summaryNo][0]} at level ${statMatrix[summaryNo][6]}`);
         hpFrm = hp_frame(statMatrix[summaryNo][0], bstMatrix[summaryNo][0], /* level : */ statMatrix[summaryNo][6]);
-        console.log(hpFrm);
 
         // Getting the minimum possible IV value for this stat (mostly usable in the first summary), and filtering accordingly
         minIV = hpFrm.lower - 63;
@@ -96,8 +95,9 @@ function processing(statMatrix, bstMatrix, nature, carac, hpTxt) {
 
 
         for (let statNo = 1; statNo < 6; statNo++) {
-            console.log(`${allstats[statNo]} stat ${statMatrix[summaryNo][0]} at level ${statMatrix[summaryNo][6]}`);
+            console.log(`${allstats[statNo]} stat ${statMatrix[summaryNo][statNo]} at level ${statMatrix[summaryNo][6]}`);
             statFrm = other_frame(statMatrix[summaryNo][statNo], bstMatrix[summaryNo][statNo], /* level : */ statMatrix[summaryNo][6], nature[statNo]);
+            console.log(statFrm);
 
             // Getting the minimum possible IV value for this stat (mostly usable in the first summary), and filtering accordingly
             minIV = statFrm.lower - 63;
@@ -138,7 +138,15 @@ function draw_test(size=10) {
     return C;
 }
 
+function sum(l) {
+    let s = 0;
+    l.forEach(x => { s+=x; });
+    return s;
+}
+
 function selectIVs(possibleIVs, stats, bsts, nature) {
+    results = [];
+    while (results==[] || sum(results)>510)
     results = [];
     for (let statNo=0; statNo<6; statNo++) {
         let iv = biased_draw(possibleIVs[statNo]);

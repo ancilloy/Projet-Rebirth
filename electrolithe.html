@@ -51,6 +51,10 @@
                 </select></th>
             </tr>
         </table>
+        <br><br>
+        Il peut y avoir des erreurs dans les stats de base des Pokémon. En cas de problème, n'hésitez pas à vérifier les données ci-dessous et à les modifier, puis à relancer le calculateur.
+        <table id="bstEditor"></table>
+        <br><br>
         <table>
             <thead>
                 <tr>
@@ -207,10 +211,15 @@
 
 
             async function pokemon_list_ener() {
+                onPokemonPick(this.value);
+            }
+            async function onPokemonPick(pokeName) {
+                await updateBstEditor(pokeName);
                 statTable = document.getElementById("stat-table-body");
                 n = statTable.childElementCount;
-                await updateStade(range(1, n+1), this.value);
+                await updateStade(range(1, n+1), pokeName);
             }
+            onPokemonPick("bulbizarre");
 
             // Récupère les données d'un Pokémon donné, et y applique une fonction donnée
             async function fetchPokemonData(pokeName, func) {
@@ -250,7 +259,6 @@
                     });
                 });
             }
-            updateStade([1], 'bulbizarre');
 
 
 
@@ -408,7 +416,10 @@
                     if (bstMap.has(stadeName)) {
                         bstMatrix.push(bstMap.get(stadeName));
                     } else {
-                        bst = await fetchBaseStats(stadeName);
+                        bst = [];
+                        for (let statNo=0; statNo<6; statNo++) {
+                            bst.push( parseInt( document.getElementById(`bst-${stadeName}-${allstats[statNo]}`).value ) );
+                        }
                         bstMap.set(stadeName, bst);
                         bstMatrix.push(bst);
                     }
@@ -445,17 +456,6 @@
                                 hp_stat(   finalBst[statNo], results[statNo].iv, results[statNo].ev, finalSummary[6]) :
                                 other_stat(finalBst[statNo], results[statNo].iv, results[statNo].ev, finalSummary[6], nature[statNo])}`);
                 }
-            }
-
-            async function fetchBaseStats(pokeName) {
-                return await fetchPokemonData(pokeName, (poke) => {
-                    if (poke.stats == null) {
-                        console.log("Le bug de mort là...");
-                        console.log(pokeName);
-                        console.log(poke);
-                    }
-                    return [poke.stats.hp, poke.stats.atk, poke.stats.def, poke.stats.spe_atk, poke.stats.spe_def, poke.stats.vit];
-                });
             }
 
 
@@ -539,6 +539,50 @@
             function rotateSummaries() {
                 loadSummary(summaries[nextSummary]);
                 nextSummary = (nextSummary + 1) % summaries.length;
+            }
+
+            async function createBstEditorRow(pokedata, pokeName) {
+                let bstEditor = document.getElementById("bstEditor");
+                let editRow = document.createElement("tr");
+
+                let nameCell = document.createElement("th");
+                nameCell.innerHTML = pokedata.name.fr;
+                editRow.appendChild(nameCell);
+                /*
+                let spriteCell = document.createElement("th");
+                spriteCell.innerHTML = `<img src="${pokedata.sprites.regular}">`;
+                editRow.appendChild(spriteCell);
+                */
+                statFields = ["hp", "atk", "def", "spe_atk", "spe_def", "vit"];
+                for (let i=0; i<6; i++) {
+                    let statCell = document.createElement("th");
+
+                    let statEditor = document.createElement("input");
+                    statEditor.id = `bst-${pokeName}-${allstats[i]}`;
+                    statEditor.type = "number";
+                    statEditor.min = 1; statEditor.max = 999;
+                    statEditor.value = pokedata.stats[statFields[i]];
+                    statCell.appendChild(statEditor);
+
+                    editRow.appendChild(statCell);
+                }
+                bstEditor.appendChild(editRow);
+            }
+
+            async function updateBstEditor(pokeName) {
+                let bstEditor = document.getElementById("bstEditor");
+                bstEditor.innerHTML = "<tr><th>Stade évolutif</th><th>PV</th><th>Attaque</th><th>Défense</th><th>Attaque spéciale</th><th>Défense spéciale</th><th>Vitesse</th></tr>";
+                await fetchPokemonData(pokeName, async poke => {
+                    if (poke.evolution != null && poke.evolution.pre != null) {
+                        for (const item of poke.evolution.pre) {
+                            let path = (item.path!=null) ? item.path : formatName(item.name);
+                            await fetchPokemonData(path, async (preevo) => {
+                                await createBstEditorRow(preevo, path); // Premiers appels
+                            });
+                        };
+                    }
+                    await createBstEditorRow(poke, pokeName); // Appel final
+                });
             }
         </script>
 
