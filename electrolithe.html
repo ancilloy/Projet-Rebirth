@@ -60,6 +60,7 @@
                 <tr>
                     <th>Stade évolutif</th>
                     <th>Niveau</th>
+                    <th>|</th>
                     <th>PV</th>
                     <th>Attaque</th>
                     <th>Défense</th>
@@ -73,6 +74,7 @@
                 <tr id="row-1">
                     <th><select id="row-1-stade"></select></th>
                     <th><input id="row-1-niveau"      type="number" min="1" max="100"/></th>
+                    <th>|</th>
                     <th><input id="row-1-pv"          type="number" min="1" max="999"/></th>
                     <th><input id="row-1-attaque"     type="number" min="1" max="999"/></th>
                     <th><input id="row-1-defense"     type="number" min="1" max="999"/></th>
@@ -91,12 +93,16 @@
 
         <script src="statcalc.js"></script>
         <script>
+            // Setting the Pokemon specie list change listener
             document.getElementById("specieSelect").onchange = pokemon_list_ener;
+
+            // Initializing the gen select picklist
             genSelect = document.getElementById("genSelect");
             for (i=3; i<=9; i++) {
                 genSelect.innerHTML += `<option value="${i}" onclick="updatePokeList(${i});"${i==3 ? ' selected=true' : ''}>${i}</option>`;
             }
 
+            // Prewritten summaries for testing purposes
             summaries = [
                 {
                     gen: "5",
@@ -184,6 +190,10 @@
                             dsp: 120,
                             vit: 80
                         }
+                    ],
+                    statModif : [
+                        {stade: "scrutella", stat: "special-attack" , newValue: 55 },
+                        {stade: "scrutella", stat: "special-defense", newValue: 65 }
                     ]
                 },
                 {
@@ -210,20 +220,25 @@
 
 
 
+            // Functions for handling Pokemon change
             async function pokemon_list_ener() {
                 onPokemonPick(this.value);
             }
+            // Cette fonction est séparée pour pouvoir l'appeler à d'autres endroits du code.
             async function onPokemonPick(pokeName) {
                 await updateBstEditor(pokeName);
-                statTable = document.getElementById("stat-table-body");
-                n = statTable.childElementCount;
+                n = document.getElementById("stat-table-body").childElementCount;
                 await updateStade(range(1, n+1), pokeName);
             }
             onPokemonPick("bulbizarre");
 
-            // Récupère les données d'un Pokémon donné, et y applique une fonction donnée
+
+
+
+            // Récupère les données d'un Pokémon donné dans l'API, et y applique une fonction donnée
             async function fetchPokemonData(pokeName, func) {
-                if (pokeName.substr(0, 6) == 'local:') {
+                // Depending on the cases, we might need to look in the API or in the local JSON
+                if (pokeName.substr(0, 6) == 'local:') { // Local JSON
                     splitName = pokeName.substr(6).split('/');
                     gen = parseInt(splitName[0]);
                     trueName = splitName[1];
@@ -234,7 +249,7 @@
                             return func(poke);
                         }
                     );
-                } else {
+                } else { // API
                     return fetch(`https://tyradex.vercel.app/api/v1/pokemon/${pokeName}`)
                         .then(response => response.json())
                         .then(data => {
@@ -243,6 +258,9 @@
                 }
             }
 
+
+
+            // Update the evolution stage picklists
             async function updateStade(rows, pokeName) {
                 await fetchPokemonData(pokeName, (poke) => {
                     innerSelect = "";
@@ -262,7 +280,7 @@
 
 
 
-
+            // Fetching natures from PokeAPI
             function fetchNatures(url) {
                 fetch(url)
                     .then(response => response.json())
@@ -291,6 +309,7 @@
             }
             fetchNatures("https://pokeapi.co/api/v2/nature");
 
+            // Fetching characteristics from PokeAPI
             function fetchCaracteristics(url) {
                 fetch(url)
                     .then(response => response.json())
@@ -328,6 +347,7 @@
 
 
 
+            // Turns a Pokemon name into the name required to access the API
             function formatName(name) {
                 if (name=="Mime Jr.") { return "439"; }
                 return name
@@ -338,7 +358,8 @@
                     .toLowerCase();
             }
 
-            async function fetchPokemon(url) {
+            // Reads from the API the list of all Pokemon from a generation with the given url
+            async function fetchPokemonSpeciesList(url) {
                 await fetch(url)
                     .then(response => response.json())
                     .then(data => {
@@ -356,6 +377,7 @@
 
 
 
+            // Updates the list of species, when the gen has been changed
             async function updatePokeList(newGen) {
                 specieSelect = document.getElementById('specieSelect');
                 oldGen = parseInt(specieSelect.getAttribute("gen"));
@@ -366,7 +388,7 @@
                     updateStade(range(1, document.getElementById("stat-table-body").childElementCount+1), 'bulbizarre');
                 }
                 for (n=oldGen+1; n<=newGen; n++) {
-                    await fetchPokemon(`https://tyradex.vercel.app/api/v1/gen/${n}`);
+                    await fetchPokemonSpeciesList(`https://tyradex.vercel.app/api/v1/gen/${n}`);
                     await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
                         .then(response => response.json())
                         .then(data => {
@@ -384,6 +406,7 @@
 
 
 
+            // Cette fonction est un meme à ce stade. Elle fait des trucs, je crois.
             async function process() {
                 specie = document.getElementById('specieSelect').selectedOptions[0].value;
                 console.log(`Pokémon choisi : ${specie}`);
@@ -460,6 +483,7 @@
 
 
 
+            // Ajoute une ligne dans le tableau d'entrée des stats
             async function newRow() {
                 statTable = document.getElementById("stat-table-body");
                 n = statTable.childElementCount + 1;
@@ -468,6 +492,7 @@
                 tr.id = `row-${n}`;
                 tr.innerHTML = `<th><select id="row-${n}-stade"></select></th>` +
                     `<th><input id="row-${n}-niveau"      type="number" min="1" max="100"/></th>` +
+                    "<th>|</th>" +
                     `<th><input id="row-${n}-pv"          type="number" min="1" max="999"/></th>` +
                     `<th><input id="row-${n}-attaque"     type="number" min="1" max="999"/></th>` +
                     `<th><input id="row-${n}-defense"     type="number" min="1" max="999"/></th>` +
@@ -481,6 +506,7 @@
                 await updateStade([n], currentPokeName);
             }
 
+            // Modifie les ID d'une ligne du tableau
             function renameRow(src, dst) {
                 document.getElementById(`row-${src}`).id             = `row-${dst}`;
                 document.getElementById(`row-${src}-stade`).id       = `row-${dst}-stade`;
@@ -496,6 +522,7 @@
                 remover.outerHTML = `<th><button id="row-${dst}-remover" onclick="removeRow(${dst});">Supprimer</button></th>`;
             }
 
+            // Supprime une ligne du tableau
             function removeRow(i) {
                 n = document.getElementById("stat-table-body").childElementCount + 1;
                 document.getElementById(`row-${i}`).remove();
@@ -504,6 +531,10 @@
                 }
             }
 
+
+
+
+            // Charge un résumé de la liste des résumés pré-écrits
             async function loadSummary(data) {
                 genSelect = document.getElementById("genSelect");
                 if (genSelect.value != data.gen) {
@@ -533,14 +564,24 @@
                     document.getElementById(`row-${i}-defense-spe`).value = smry.dsp;
                     document.getElementById(`row-${i}-vitesse`).value     = smry.vit;
                 }
+
+                if (data.statModif != null) {
+                    data.statModif.forEach(item => {
+                        document.getElementById(`bst-${item.stade}-${item.stat}`).value = item.newValue;
+                    });
+                }
             }
 
             nextSummary = 0;
+            // Passe au résumé suivant
             function rotateSummaries() {
                 loadSummary(summaries[nextSummary]);
                 nextSummary = (nextSummary + 1) % summaries.length;
             }
 
+
+
+            // Crée une ligne du tableau d'édition des base stats
             async function createBstEditorRow(pokedata, pokeName) {
                 let bstEditor = document.getElementById("bstEditor");
                 let editRow = document.createElement("tr");
@@ -548,11 +589,13 @@
                 let nameCell = document.createElement("th");
                 nameCell.innerHTML = pokedata.name.fr;
                 editRow.appendChild(nameCell);
-                /*
+                //*
                 let spriteCell = document.createElement("th");
-                spriteCell.innerHTML = `<img src="${pokedata.sprites.regular}">`;
+                let imgSize = 64;
+                let imgPath = (pokedata.sprites != null) ? pokedata.sprites.regular : "https://archives.bulbagarden.net/media/upload/a/a1/Substitute_artwork.png";
+                spriteCell.innerHTML = `<img src="${imgPath}" width="${imgSize}px" height="${imgSize}px">`;
                 editRow.appendChild(spriteCell);
-                */
+                //*/
                 statFields = ["hp", "atk", "def", "spe_atk", "spe_def", "vit"];
                 for (let i=0; i<6; i++) {
                     let statCell = document.createElement("th");
@@ -569,9 +612,10 @@
                 bstEditor.appendChild(editRow);
             }
 
+            // Met à jour l'éditeur de base stats
             async function updateBstEditor(pokeName) {
                 let bstEditor = document.getElementById("bstEditor");
-                bstEditor.innerHTML = "<tr><th>Stade évolutif</th><th>PV</th><th>Attaque</th><th>Défense</th><th>Attaque spéciale</th><th>Défense spéciale</th><th>Vitesse</th></tr>";
+                bstEditor.innerHTML = "<tr><th>Stade évolutif</th><th>Sprite</th><th>PV</th><th>Attaque</th><th>Défense</th><th>Attaque spéciale</th><th>Défense spéciale</th><th>Vitesse</th></tr>";
                 await fetchPokemonData(pokeName, async poke => {
                     if (poke.evolution != null && poke.evolution.pre != null) {
                         for (const item of poke.evolution.pre) {
