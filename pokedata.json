@@ -34,7 +34,10 @@
                     "spe_def": 20,
                     "vit": 150
                 },
-                "evolution" : null
+                "evolution" : null,
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/d/d5/HOME0386A.png"
+                }
             }, {
                 "name": {
                     "fr": "Deoxys Défense"
@@ -47,7 +50,10 @@
                     "spe_def": 160,
                     "vit": 90
                 },
-                "evolution" : null
+                "evolution" : null,
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/0/05/HOME0386D.png"
+                }
             }, {
                 "name": {
                     "fr": "Deoxys Vitesse"
@@ -60,7 +66,10 @@
                     "spe_def": 90,
                     "vit": 180
                 },
-                "evolution" : null
+                "evolution" : null,
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/e/e3/HOME0386S.png"
+                }
             }
         ],
         [
@@ -83,6 +92,9 @@
                             "path": "cheniti"
                         }
                     ]
+                },
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/4/47/HOME0413G.png"
                 }
             }, {
                 "name": {
@@ -103,6 +115,9 @@
                             "path": "cheniti"
                         }
                     ]
+                },
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/f/fd/HOME0413S.png"
                 }
             }, {
                 "name": {
@@ -116,7 +131,10 @@
                     "spe_def": 107,
                     "vit": 86
                 },
-                "evolution" : null
+                "evolution" : null,
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/0/0d/HOME0479W.png"
+                }
             }, {
                 "name": {
                     "fr": "Giratina Originel"
@@ -129,7 +147,10 @@
                     "spe_def": 100,
                     "vit": 90
                 },
-                "evolution" : null
+                "evolution" : null,
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/4/4a/HOME0487O.png"
+                }
             }, {
                 "name": {
                     "fr": "Shaymin Céleste"
@@ -142,7 +163,10 @@
                     "spe_def": 75,
                     "vit": 127
                 },
-                "evolution" : null
+                "evolution" : null,
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/f/f9/HOME0492S.png"
+                }
             }
         ],
         [
@@ -158,7 +182,10 @@
                     "spe_def": 90,
                     "vit": 121
                 },
-                "evolution" : null
+                "evolution" : null,
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/7/71/HOME0641T.png"
+                }
             }, {
                 "name": {
                     "fr": "Fulguris Totémique"
@@ -171,7 +198,10 @@
                     "spe_def": 80,
                     "vit": 101
                 },
-                "evolution" : null
+                "evolution" : null,
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/2/2a/HOME0642T.png"
+                }
             }, {
                 "name": {
                     "fr": "Démétéros Totémique"
@@ -184,7 +214,10 @@
                     "spe_def": 80,
                     "vit": 101
                 },
-                "evolution" : null
+                "evolution" : null,
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/d/dc/HOME0645T.png"
+                }
             }, {
                 "name": {
                     "fr": "Kyurem Blanc"
@@ -197,7 +230,10 @@
                     "spe_def": 100,
                     "vit": 95
                 },
-                "evolution" : null
+                "evolution" : null,
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/2/26/HOME0646W.png"
+                }
             }, {
                 "name": {
                     "fr": "Kyurem Noir"
@@ -210,7 +246,10 @@
                     "spe_def": 90,
                     "vit": 95
                 },
-                "evolution" : null
+                "evolution" : null,
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/6/6a/HOME0646B.png"
+                }
             }
         ],
         [
@@ -235,6 +274,9 @@
                         }
                     ],
                     "mega": null
+                },
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/d/d5/HOME0710Sm.png"
                 }
             }, {
                 "name": {
@@ -257,6 +299,9 @@
                         }
                     ],
                     "mega": null
+                },
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/9/9d/HOME0710La.png"
                 }
             }, {
                 "name": {
@@ -279,6 +324,9 @@
                         }
                     ],
                     "mega": null
+                },
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/d/da/HOME0710Su.png"
                 }
             }, {
                 "name": {
@@ -301,6 +349,9 @@
                     ],
                     "next": null,
                     "mega": null
+                },
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/7/76/HOME0711Sm.png"
                 }
             }, {
                 "name": {
@@ -323,6 +374,9 @@
                     ],
                     "next": null,
                     "mega": null
+                },
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/6/6d/HOME0711La.png"
                 }
             }, {
                 "name": {
@@ -345,6 +399,9 @@
                     ],
                     "next": null,
                     "mega": null
+                },
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/3/36/HOME0711Su.png"
                 }
             }, {
                 "name": {
@@ -358,7 +415,10 @@
                     "spe_def": 130,
                     "vit": 80
                 },
-                "evolution" : null
+                "evolution" : null,
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/7/7f/HOME0720U.png"
+                }
             }
         ],
         [
@@ -374,7 +434,10 @@
                     "spe_def": 85,
                     "vit": 115
                 },
-                "evolution" : null
+                "evolution" : null,
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/7/7e/HOME0718T.png"
+                }
             }, {
                 "name": {
                     "fr": "Lougaroc Nocturne"
@@ -396,6 +459,9 @@
                     ],
                     "next": null,
                     "mega": null
+                },
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/d/d3/HOME0745Mn.png"
                 }
             }, {
                 "name": {
@@ -418,6 +484,9 @@
                     ],
                     "next": null,
                     "mega": null
+                },
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/0/0c/HOME0745D.png"
                 }
             }, {
                 "name": {
@@ -431,7 +500,10 @@
                     "spe_def": 109,
                     "vit": 77
                 },
-                "evolution" : null
+                "evolution" : null,
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/0/06/HOME0800DM.png"
+                }
             }, {
                 "name": {
                     "fr": "Necrozma Ailes de l'Aurore"
@@ -444,7 +516,10 @@
                     "spe_def": 127,
                     "vit": 77
                 },
-                "evolution" : null
+                "evolution" : null,
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/5/5b/HOME0800DW.png"
+                }
             }
         ],
         [
@@ -460,7 +535,10 @@
                     "spe_def": 105,
                     "vit": 85
                 },
-                "evolution" : null
+                "evolution" : null,
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/9/98/HOME0876_f.png"
+                }
             }, {
                 "name": {
                     "fr": "Sylveroy Cavalier du Froid"
@@ -473,7 +551,10 @@
                     "spe_def": 130,
                     "vit": 50
                 },
-                "evolution" : null
+                "evolution" : null,
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/b/b7/HOME0898I.png"
+                }
             }, {
                 "name": {
                     "fr": "Sylveroy Cavalier d'Effroi"
@@ -486,7 +567,10 @@
                     "spe_def": 100,
                     "vit": 150
                 },
-                "evolution" : null
+                "evolution" : null,
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/4/43/HOME0898S.png"
+                }
             }, {
                 "name": {
                     "fr": "Paragruel femelle"
@@ -508,6 +592,9 @@
                     ],
                     "next": null,
                     "mega": null
+                },
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/2/25/HOME0902_f.png"
                 }
             }, {
                 "name": {
@@ -521,7 +608,10 @@
                     "spe_def": 120,
                     "vit": 90
                 },
-                "evolution" : null
+                "evolution" : null,
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/f/fe/HOME0483O.png"
+                }
             }, {
                 "name": {
                     "fr": "Palkia Originel"
@@ -534,7 +624,10 @@
                     "spe_def": 120,
                     "vit": 120
                 },
-                "evolution" : null
+                "evolution" : null,
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/f/f2/HOME0484O.png"
+                }
             }, {
                 "name": {
                     "fr": "Amovénus Totémique"
@@ -547,7 +640,10 @@
                     "spe_def": 100,
                     "vit": 46
                 },
-                "evolution" : null
+                "evolution" : null,
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/f/fc/HOME0905T.png"
+                }
             }
         ],
         [
@@ -572,6 +668,9 @@
                     ],
                     "next": null,
                     "mega": null
+                },
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/8/87/HOME0916_f.png"
                 }
             }, {
                 "name": {
@@ -594,6 +693,9 @@
                         }
                     ],
                     "mega": null
+                },
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/f/f2/HOME0999R.png"
                 }
             }, {
                 "name": {
@@ -607,7 +709,10 @@
                     "spe_def": 65,
                     "vit": 52
                 },
-                "evolution" : null
+                "evolution" : null,
+                "sprites" : {
+                    "regular" : "https://archives.bulbagarden.net/media/upload/8/82/HOME0901B.png"
+                }
             }
         ]
     ]
