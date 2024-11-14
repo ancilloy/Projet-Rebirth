@@ -581,6 +581,24 @@
 
 
 
+            // Va chercher les updates de base stats
+            async function applyBaseStatsChanges(pokeName, gen) {
+                console.log(pokeName, gen);
+                if (gen < 9) {
+                    await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
+                        .then(response => response.json())
+                        .then(data => {
+                            for (let g=9; g>gen; g--) {
+                                let changes = data.bstChanges[g].filter(item => (item.pokemon == pokeName));
+                                console.log(changes);
+                                for (let i=0; i<changes.length; i++) {
+                                    document.getElementById(`bst-${pokeName}-${changes[i].stat}`).value = changes[i].oldVal;
+                                }
+                            }
+                    });
+                }
+            }
+
             // Crée une ligne du tableau d'édition des base stats
             async function createBstEditorRow(pokedata, pokeName) {
                 let bstEditor = document.getElementById("bstEditor");
@@ -616,6 +634,7 @@
             async function updateBstEditor(pokeName) {
                 let bstEditor = document.getElementById("bstEditor");
                 bstEditor.innerHTML = "<tr><th>Stade évolutif</th><th>Sprite</th><th>PV</th><th>Attaque</th><th>Défense</th><th>Attaque spéciale</th><th>Défense spéciale</th><th>Vitesse</th></tr>";
+                let gen = parseInt(document.getElementById("genSelect").value);
                 await fetchPokemonData(pokeName, async poke => {
                     if (poke.evolution != null && poke.evolution.pre != null) {
                         for (const item of poke.evolution.pre) {
@@ -623,9 +642,11 @@
                             await fetchPokemonData(path, async (preevo) => {
                                 await createBstEditorRow(preevo, path); // Premiers appels
                             });
+                            applyBaseStatsChanges(path, gen);
                         };
                     }
                     await createBstEditorRow(poke, pokeName); // Appel final
+                    applyBaseStatsChanges(pokeName, gen);
                 });
             }
         </script>
