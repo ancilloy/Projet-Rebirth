@@ -35,8 +35,8 @@ function other_frame(stat, base, lvl, nature) { // calculates a frame for   iv +
 }
 
 function random_matching_ev(frm, iv) {
-    min = Math.min(0  , (frm.lower - iv)*4);
-    max = Math.max(255, (frm.upper - iv)*4 + 3);
+    min = Math.max(0  , (frm.lower - iv)*4    );
+    max = Math.min(255, (frm.upper - iv)*4 + 3);
     return min + Math.floor((max - min)*Math.random());
 }
 
@@ -50,38 +50,38 @@ function range(min, max, step=1) {
 }
 
 // statMatrix : list of lists of [hp, atk, def, asp, dsp, spe, lvl]
-// bstMatrix : list of lists of base stats for every stage of statMatrix
+// bstMap : map associating every stage name with its bst
 // nature : list of length 6, giving each stat its multiplier
 // carac : object { statNo, modulo } or null if not given
-function processing(statMatrix, bstMatrix, nature, carac, hpTxt) {
+function processing(statMatrix, bstMap, nature, carac, hpTxt) {
     // Initializing the list of potential IVs
-    console.log("Initializing the list of potential IVs");
+    //console.log("Initializing the list of potential IVs");
     possibleIVs = [];
     for (let i=0; i<6; i++) { possibleIVs.push(range(32)); }
-    console.log(possibleIVs);
+    //console.log(possibleIVs);
 
     // Filter values depending on characteristics
     if (carac != null) {
-        console.log("Filter values depending on characteristics");
+        //console.log("Filter values depending on characteristics");
         possibleIVs[carac.statNo] = possibleIVs[carac.statNo].filter(iv => (iv % 5) == carac.modulo);
-        console.log(possibleIVs);
+        //console.log(possibleIVs);
     }
 
     // Filter values depending on HP type
-    console.log("Filter values depending on HP type");
+    //console.log("Filter values depending on HP type");
     for (let statNo = 0; statNo < 6; statNo++) {
         if (hpTxt.charAt(statNo) != "?") {
             modulo = parseInt(hpTxt.charAt(statNo));
             possibleIVs[statNo] = possibleIVs[statNo].filter(iv => (iv % 2) == modulo);
         }
     }
-    console.log(possibleIVs);
+    //console.log(possibleIVs);
 
     // Filter values depending on given stats
-    console.log("Filter values depending on given stats");
+    //console.log("Filter values depending on given stats");
     for (let summaryNo = 0; summaryNo < statMatrix.length; summaryNo++) {
-        console.log(`HP stat ${statMatrix[summaryNo][0]} at level ${statMatrix[summaryNo][6]}`);
-        hpFrm = hp_frame(statMatrix[summaryNo][0], bstMatrix[summaryNo][0], /* level : */ statMatrix[summaryNo][6]);
+        //console.log(`HP stat ${statMatrix[summaryNo][0]} at level ${statMatrix[summaryNo][6]}`);
+        hpFrm = hp_frame(statMatrix[summaryNo][0], bstMap.get(statMatrix[summaryNo][7])[0], /* level : */ statMatrix[summaryNo][6]);
 
         // Getting the minimum possible IV value for this stat (mostly usable in the first summary), and filtering accordingly
         minIV = hpFrm.lower - 63;
@@ -91,13 +91,13 @@ function processing(statMatrix, bstMatrix, nature, carac, hpTxt) {
         maxIV = hpFrm.upper;
         if (possibleIVs[0][possibleIVs[0].length - 1] > maxIV) { possibleIVs[0] = possibleIVs[0].filter(iv => iv <= maxIV); }
 
-        console.log(possibleIVs);
+        //console.log(possibleIVs);
 
 
         for (let statNo = 1; statNo < 6; statNo++) {
-            console.log(`${allstats[statNo]} stat ${statMatrix[summaryNo][statNo]} at level ${statMatrix[summaryNo][6]}`);
-            statFrm = other_frame(statMatrix[summaryNo][statNo], bstMatrix[summaryNo][statNo], /* level : */ statMatrix[summaryNo][6], nature[statNo]);
-            console.log(statFrm);
+            //console.log(`${allstats[statNo]} stat ${statMatrix[summaryNo][statNo]} at level ${statMatrix[summaryNo][6]}`);
+            statFrm = other_frame(statMatrix[summaryNo][statNo], bstMap.get(statMatrix[summaryNo][7])[statNo], /* level : */ statMatrix[summaryNo][6], nature[statNo]);
+            //console.log(statFrm);
 
             // Getting the minimum possible IV value for this stat (mostly usable in the first summary), and filtering accordingly
             minIV = statFrm.lower - 63;
@@ -107,17 +107,17 @@ function processing(statMatrix, bstMatrix, nature, carac, hpTxt) {
             maxIV = statFrm.upper;
             if (possibleIVs[statNo][possibleIVs[statNo].length - 1] > maxIV) { possibleIVs[statNo] = possibleIVs[statNo].filter(iv => iv <= maxIV); }
 
-            console.log(possibleIVs);
+            //console.log(possibleIVs);
         }
     }
 
     if (carac!=null) {
-        console.log("Filter values depending on characteristics - round 2");
+        //console.log("Filter values depending on characteristics - round 2");
         maxVal = possibleIVs[carac.statNo][possibleIVs[carac.statNo].length - 1];
         for (let statNo = 0; statNo < 6; statNo++) {
             possibleIVs[statNo] = possibleIVs[statNo].filter(iv => iv <= maxVal);
         }
-        console.log(possibleIVs);
+        //console.log(possibleIVs);
     }
 
     return possibleIVs;

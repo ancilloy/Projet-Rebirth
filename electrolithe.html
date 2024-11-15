@@ -409,7 +409,7 @@
             // Cette fonction est un meme à ce stade. Elle fait des trucs, je crois.
             async function process() {
                 specie = document.getElementById('specieSelect').selectedOptions[0].value;
-                console.log(`Pokémon choisi : ${specie}`);
+                //console.log(`Pokémon choisi : ${specie}`);
 
                 natureElt = document.getElementById('natureSelect').selectedOptions[0];
                 nature = [null];
@@ -417,34 +417,30 @@
                     let c = natureElt.value.charAt(i);
                     nature.push((c=='+') ? 1.1 : ((c=='-') ? 0.9 : 1));
                 }
-                console.log(`Nature : ${natureElt.innerHTML} ( ${nature} )`);
+                //console.log(`Nature : ${natureElt.innerHTML} ( ${nature} )`);
 
                 caracElt = document.getElementById('caractSelect').selectedOptions[0];
                 if (caracElt.value == "none") {
                     carac = null;
-                    console.log(`Caractéristique : non renseignée`);
+                    //console.log(`Caractéristique : non renseignée`);
                 } else {
                     caracSplit = caracElt.value.split(':');
                     carac = { statNo : allstats.indexOf(caracSplit[0]), modulo : parseInt(caracSplit[1]) };
-                    console.log(`Caractéristique : ${caracElt.innerHTML}`);
-                    console.log(carac);
+                    //console.log(`Caractéristique : ${caracElt.innerHTML}`);
+                    //console.log(carac);
                 }
 
                 totalSummaries = document.getElementById("stat-table-body").childElementCount;
                 statMatrix = [];
-                bstMatrix = [];
                 bstMap = new Map();
                 for (let i=1; i<=totalSummaries; i++) {
                     stadeName = document.getElementById(`row-${i}-stade`).selectedOptions[0].value;
-                    if (bstMap.has(stadeName)) {
-                        bstMatrix.push(bstMap.get(stadeName));
-                    } else {
+                    if (!bstMap.has(stadeName)) {
                         bst = [];
                         for (let statNo=0; statNo<6; statNo++) {
                             bst.push( parseInt( document.getElementById(`bst-${stadeName}-${allstats[statNo]}`).value ) );
                         }
                         bstMap.set(stadeName, bst);
-                        bstMatrix.push(bst);
                     }
 
                     statMatrix.push([
@@ -454,31 +450,44 @@
                         parseInt(document.getElementById(`row-${i}-attaque-spe`).value),
                         parseInt(document.getElementById(`row-${i}-defense-spe`).value),
                         parseInt(document.getElementById(`row-${i}-vitesse`)    .value),
-                        parseInt(document.getElementById(`row-${i}-niveau`)     .value)
+                        parseInt(document.getElementById(`row-${i}-niveau`)     .value),
+                                 document.getElementById(`row-${i}-stade`)      .value
                     ]);
                 }
+                statMatrix.sort((a, b) => a[6] - b[6]);
+                /*
                 console.log(`Base stats :`);
-                console.log(bstMatrix);
+                console.log(bstMap);
                 console.log(`Stats renseignées :`);
                 console.log(statMatrix);
+                //*/
 
                 pc = document.getElementById('pcSelect').selectedOptions[0];
-                console.log(`Type PC : ${pc.innerHTML} ( ${pc.value} )`);
+                //console.log(`Type PC : ${pc.innerHTML} ( ${pc.value} )`);
 
-                console.log(`Résultat final :`);
-                possibleIVs = processing(statMatrix, bstMatrix, nature, carac, pc.value);
-                console.log(possibleIVs);
+                //console.log(`Résultat final :`);
+                possibleIVs = processing(statMatrix, bstMap, nature, carac, pc.value);
+                //console.log(possibleIVs);
                 finalSummary = statMatrix[statMatrix.length-1];
-                finalBst = bstMatrix[bstMatrix.length-1];
+                finalBst = bstMap.get(finalSummary[7]);
                 results = selectIVs(possibleIVs, finalSummary, finalBst, nature);
-                console.log(results);
+                //console.log(results);
 
-                console.log("Recalculs :");
+                processBlock = document.getElementById("processBlock");
+                processBlock.innerHTML = "";
+                resultsTable = document.createElement("table");
+                resultsTableHeader = document.createElement("tr");
+                resultsTableHeader.innerHTML = "<th>Stat</th><th>Possible IVs</th><th>Chosen IV</th><th>Chosen EV</th><th>Recalculated stat</th>";
+                resultsTable.appendChild(resultsTableHeader);
                 for (let statNo=0; statNo<6; statNo++) {
-                    console.log(`\t- ${allstats[statNo]} : ${(statNo==0) ?
+                    resultsRow = document.createElement("tr");
+                    resultsRow.innerHTML = `<th>${allstats[statNo]}</th><th>${possibleIVs[statNo]}</th><th>${results[statNo].iv}</th><th>${results[statNo].ev}</th><th>${(statNo==0) ?
                                 hp_stat(   finalBst[statNo], results[statNo].iv, results[statNo].ev, finalSummary[6]) :
-                                other_stat(finalBst[statNo], results[statNo].iv, results[statNo].ev, finalSummary[6], nature[statNo])}`);
+                                other_stat(finalBst[statNo], results[statNo].iv, results[statNo].ev, finalSummary[6], nature[statNo])}</th>`;
+                    resultsTable.appendChild(resultsRow);
                 }
+                processBlock.appendChild(resultsTable);
+
             }
 
 
@@ -583,14 +592,12 @@
 
             // Va chercher les updates de base stats
             async function applyBaseStatsChanges(pokeName, gen) {
-                console.log(pokeName, gen);
                 if (gen < 9) {
                     await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
                         .then(response => response.json())
                         .then(data => {
                             for (let g=9; g>gen; g--) {
                                 let changes = data.bstChanges[g].filter(item => (item.pokemon == pokeName));
-                                console.log(changes);
                                 for (let i=0; i<changes.length; i++) {
                                     document.getElementById(`bst-${pokeName}-${changes[i].stat}`).value = changes[i].oldVal;
                                 }
