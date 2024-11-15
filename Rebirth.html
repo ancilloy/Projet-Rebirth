@@ -34,8 +34,8 @@
 
         //Random Color
             function randomColor() {
-                let colormix = "#"+((1<<24)*Math.random()|0).toString(16)
-                return colormix
+                let colormix = "#"+((1<<24)*Math.random()|0).toString(16).padStart(6, "0");
+                return colormix;
             }
 
 
@@ -56,6 +56,7 @@
     //Medium functions
         //Selected shuffle
             function shuffle() {
+                console.log(selected);
                 let shuffled = [];
                 let i = 0;
                 while (i < selected.length) {
@@ -166,9 +167,10 @@
                 }
             }
 
+            
 
         //Display data from .JSON
-            function displayData(dangandata) {
+        function displayData(dangandata) {
                 const dataList = document.getElementById('danganTable');
                 dataList.innerHTML = '';
 
@@ -195,33 +197,10 @@
                     const checkbox = document.createElement('input');
                     checkbox.type = 'checkbox'; 
                     checkbox.id = `Live_${index}`;
-                    checkbox.addEventListener('change', updateValue);
+                    checkbox.addEventListener('change', () => updateValue(indexCopy));
 
-                //Change Status
-                    function updateValue() {
-                        if (checkbox.checked) {
-                            selected.push(dangandata[indexCopy]);
 
-                            character.status = "Dead";
-                            document.getElementById(`danganImage_${indexCopy}`).src = dangandata[indexCopy].dead;
-                            if (danganleft.src == dangandata[indexCopy].url2) {
-                                document.getElementById('danganleft').src = (character.dead2);
-                            }
-                        } else {
-                            for (loop2 = 0; loop2 < selected.length; loop2++) {
-                                if (selected[loop2].name == dangandata[indexCopy].name) {
-                                    selected.splice(loop2, 1);
-                                }
-                            }
 
-                            character.status = "Alive";
-                            document.getElementById(`danganImage_${indexCopy}`).src = dangandata[indexCopy].url;
-                            if (danganleft.src == dangandata[indexCopy].dead2) {
-                                document.getElementById('danganleft').src = (character.url2);
-                            }
-                        }
-                    }
-                                    
                 //Cell Construction
                     cell.appendChild(danganImage);
                     cell.appendChild(checkbox);
@@ -230,9 +209,41 @@
             }
 
 
+        function updateValue(indexCopy){
+            if (dangandata[indexCopy].status == "Alive"){
+                
+                updateValueAlive(indexCopy);
+            }
+            else {
+                updateValueDead(indexCopy);
+            }
+        }
+
+            function updateValueAlive(indexCopy){
+                document.getElementById(`danganImage_${indexCopy}`).src = dangandata[indexCopy].dead;
+                if (danganleft.src == dangandata[indexCopy].url2) {
+                    document.getElementById('danganleft').src = (dangandata[indexCopy].dead2);
+                }
+                dangandata[indexCopy].status = "Dead";
+                selected.push(dangandata[indexCopy]);
+            }
+
+            function updateValueDead(indexCopy){
+                document.getElementById(`danganImage_${indexCopy}`).src = dangandata[indexCopy].url;
+                if (danganleft.src == dangandata[indexCopy].dead2) {
+                    document.getElementById('danganleft').src = (dangandata[indexCopy].url2);
+                }
+                dangandata[indexCopy].status = "Alive";
+                const index = selected.findIndex(obj => obj.name && obj.name.includes(dangandata[indexCopy].name));
+                if (index !== -1) {
+                    selected.splice(index, 1);
+                }
+                console.log("Après suppression :", selected);
+            }
+
 
         //Sprite Clicking Functions
-            function handleImageClick(character, index) {
+            function handleImageClick(character, indexCopy) {
                 let alreadyChanged = false;
 
             //Angie : Kanae
@@ -246,9 +257,6 @@
                     document.body.style.backgroundColor = randomColor(colormix);
                     document.getElementById('quote').textContent = "\"Ptdr la meuf est vieille. (Joyeuse journée de la naissance, par le ch'min)\"";
                     alreadyChanged = true;
-                    const audio2 = document.getElementById('audio-player2');
-                    audio2.currentTime = 0;
-                    audio2.play();
                 }
 
             //K1 B0 : Catchphrase
@@ -264,10 +272,9 @@
                     alreadyChanged = true;
                 }
 
-            //Korekiyo : Love UwU
+            //Kokichi : Death UwU
             if (character.name === "Kokichi" && (character.status) === "Alive") {
-                    betaTest();
-                    document.getElementById('quote').textContent = "\"Die. Die ! DIE !!!\"";
+                    document.getElementById('quote').textContent = "\"Imagine faire 6.\"";
                     alreadyChanged = true;
                 }
 
@@ -378,8 +385,21 @@
             }
 
         function betaTest() {
-            selected = dangandata;
+            const checkboxes = document.querySelectorAll('#danganTable input[type="checkbox"]');
+            
+            const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+            checkboxes.forEach(checkbox => checkbox.checked = !allChecked);
+            if (allChecked == true) {
+                for (let indexCopyMagnetMegaTron = 0; indexCopyMagnetMegaTron<16; indexCopyMagnetMegaTron++){
+                    updateValueDead(indexCopyMagnetMegaTron);
+                }
+                selected = [];
+            } else {
+                for (let indexCopyMagnetMegaTron = 0; indexCopyMagnetMegaTron<16; indexCopyMagnetMegaTron++){
+                    updateValueAlive(indexCopyMagnetMegaTron);
+                }
         }
+    }
 
         document.addEventListener('DOMContentLoaded', fetchData);
     </script>
@@ -407,9 +427,10 @@
                 <table id="danganTable" onload="displayData()"></table>
                 <input type="submit" value="Valider les morts" onClick="deadPeople(); return false;"/>
                 <a href=electrolithe.html><button>Grotte Electrolithe</button></a>
+                <input type="submit" value="Oopsie" onClick="betaTest(); return false;"/>
             <!--Kaede does who the fuck knows what-->
                 <audio id="audio-player" src="Debussy - Clair de Lune.mp3" preload="auto"></audio>
-                <audio id="audio-player2" src="HB.mp3" preload="auto"></audio>
+<!--                <audio id="audio-player2" src="HB.mp3" preload="auto"></audio>-->
             </div>
         <!--Block 3-->
             <div class="block right">
@@ -447,3 +468,10 @@
 
 </body>
 </html>
+
+
+
+<!--
+Oopsie button ajouts :
+-> Adapter Selected.
+-->
