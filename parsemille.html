@@ -8,19 +8,33 @@
             }
 
             table {
-                color: #ffffff;
+                color: #000;
                 overflow: hidden;
                 border: 1px solid #000000;
-                background-image: url('piste.png');
+                border-collapse: collapse;
+                background-color: #ccc;
             }
 
-            th {
+            th, td {
                 padding: 5px;
                 border: 1px solid #000000;
             }
 
+            th {
+                background-color: #555;
+                color: #fff;
+            }
+
             a {
-                color: #ffffff;
+                color: inherit;
+            }
+
+            tr:nth-child(even) {
+                background-color: #bbb;
+            }
+
+            tr:hover {
+                background-color: #ddd;
             }
         </style>
     </head>
@@ -126,15 +140,15 @@
                 data.forEach(item => {
 
                     const row = document.createElement('tr');
-                    row.innerHTML = `<th id="poketab-row-${n}-sprite"></th>` +
-                                    `<th id="poketab-row-${n}-name-fr"></th>` +
-                                    `<th id="poketab-row-${n}-name-en"></th>` +
-                                    `<th id="poketab-row-${n}-hp"></th>` +
-                                    `<th id="poketab-row-${n}-attack"></th>` +
-                                    `<th id="poketab-row-${n}-defense"></th>` +
-                                    `<th id="poketab-row-${n}-special-attack"></th>` +
-                                    `<th id="poketab-row-${n}-special-defense"></th>` +
-                                    `<th id="poketab-row-${n}-speed"></th>`;
+                    row.innerHTML = `<td id="poketab-row-${n}-sprite"></td>` +
+                                    `<td id="poketab-row-${n}-name-fr"></td>` +
+                                    `<td id="poketab-row-${n}-name-en"></td>` +
+                                    `<td id="poketab-row-${n}-hp"></td>` +
+                                    `<td id="poketab-row-${n}-attack"></td>` +
+                                    `<td id="poketab-row-${n}-defense"></td>` +
+                                    `<td id="poketab-row-${n}-special-attack"></td>` +
+                                    `<td id="poketab-row-${n}-special-defense"></td>` +
+                                    `<td id="poketab-row-${n}-speed"></td>`;
                     table.appendChild(row);
 
                     fetchPokemon(item.pokemon.name, n);
