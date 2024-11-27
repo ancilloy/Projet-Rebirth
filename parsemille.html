@@ -7,34 +7,70 @@
                 background-color: #88e0b8;
             }
 
-            table {
-                color: #000;
-                overflow: hidden;
-                border: 1px solid #000000;
-                border-collapse: collapse;
-                background-color: #ccc;
-            }
-
-            th, td {
-                padding: 5px;
-                border: 1px solid #000000;
-            }
-
-            th {
-                background-color: #555;
-                color: #fff;
-            }
-
             a {
                 color: inherit;
             }
 
-            tr:nth-child(even) {
+            .dropdown {
+                position: relative;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                top: 0%;
+                left: 100%;
+                background-color: #aaa;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            table.main {
+                color: #000;
+                overflow: visible;
+                background-color: #ccc;
+                margin: auto;
+                margin-bottom: 100px;
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            th, td {
+                padding: 5px 20px;
+                margin: 0;
+            }
+
+            table.main > thead > tr > th {
+                color: #fff;
+                background-color: #555;
+                text-align: left;
+            }
+
+            table.main > tbody > tr:nth-child(even) {
                 background-color: #bbb;
             }
 
-            tr:hover {
+            table.main > tbody > tr:hover {
                 background-color: #ddd;
+            }
+
+            table.stat td.header {
+                background-color: #666;
+                color: #fff;
+                white-space: nowrap;
+                border: 1px solid #000;
+            }
+
+            table.stat td.value {
+                background-color: #aaa;
+                color: #000;
+                border: 1px solid #000;
             }
         </style>
     </head>
@@ -49,8 +85,10 @@
         <select id="areaSelect"></select>
 
         <br><br>
-        <center><table id="poketab">
-        </table></center>
+        <table class="main">
+            <thead id="poketab-head"></thead>
+            <tbody id="poketab-body"></thead>
+        </table>
 
         <script>
             document.getElementById("areaSelect").onchange = areaList_ener;
@@ -75,17 +113,11 @@
             }
 
             function reloadList(locationName) {
-                table = document.getElementById('poketab');
-                table.innerHTML = '<tr>' +
-                    '<th>Sprite</th>' +
-                    '<th>Nom</th>' +
-                    '<th>Nom anglais</th>' +
-                    '<th>PV</th>' +
-                    '<th>Attaque</th>' +
-                    '<th>Défense</th>' +
-                    '<th>Attaque spéciale</th>' +
-                    '<th>Défense spéciale</th>' +
-                    '<th>Vitesse</th>' +
+                tableHead = document.getElementById('poketab-head');
+                tableHead.innerHTML = '<tr>' +
+                        '<th>Sprite</th>' +
+                        '<th>Nom</th>' +
+                        '<th>Nom anglais</th>' +
                     '</tr>';
                 fetch('https://pokeapi.co/api/v2/location-area/' + locationName)
                     .then(response => response.json())
@@ -109,11 +141,15 @@
                                             `<audio id="poketab-row-${n}-cry" src="${ data.cries.latest }" preload="auto"></audio>`;
 
                         allstats = ['hp', 'attack', 'defense', 'special-attack', 'special-defense', 'speed'];
+                        let total = 0;
 
                         allstats.forEach(stati => {
                             elt = document.getElementById(`poketab-row-${n}-${stati}`);
-                            elt.innerHTML = `${ data.stats.find(elt => elt.stat.name == stati).base_stat }`;
-                        })
+                            let stat = data.stats.find(elt => elt.stat.name == stati).base_stat;
+                            elt.innerHTML = stat;
+                            total += stat;
+                        });
+                        document.getElementById(`poketab-row-${n}-bst`).innerHTML = total;
 
                     })
                     .catch(error => console.error('Erreur lors de l\'appel API :', error));
@@ -132,24 +168,41 @@
 
             // Fonction pour insérer les données dans la page
             function parcoursListePoke(data) {
-                const table = document.getElementById('poketab');
+                const tableBody = document.getElementById('poketab-body');
+                tableBody.innerHTML = "";
 
                 n = 1;
 
                 // Supposons que les données sont un tableau d'objets
                 data.forEach(item => {
 
-                    const row = document.createElement('tr');
-                    row.innerHTML = `<td id="poketab-row-${n}-sprite"></td>` +
-                                    `<td id="poketab-row-${n}-name-fr"></td>` +
-                                    `<td id="poketab-row-${n}-name-en"></td>` +
-                                    `<td id="poketab-row-${n}-hp"></td>` +
-                                    `<td id="poketab-row-${n}-attack"></td>` +
-                                    `<td id="poketab-row-${n}-defense"></td>` +
-                                    `<td id="poketab-row-${n}-special-attack"></td>` +
-                                    `<td id="poketab-row-${n}-special-defense"></td>` +
-                                    `<td id="poketab-row-${n}-speed"></td>`;
-                    table.appendChild(row);
+                    let row = document.createElement('tr');
+                    row.className = "dropdown";
+
+                    let sprite = document.createElement("td");
+                    sprite.id = `poketab-row-${n}-sprite`;
+                    row.appendChild(sprite);
+
+                    let name_fr = document.createElement("td");
+                    name_fr.id = `poketab-row-${n}-name-fr`;
+                    row.appendChild(name_fr);
+
+                    let name_en = document.createElement("td");
+                    name_en.id = `poketab-row-${n}-name-en`;
+                    row.appendChild(name_en);
+
+                    let dropstat = document.createElement("table");
+                    dropstat.className = "dropdown-content stat";
+                    dropstat.innerHTML = `<tr><td class="header">PV</td>              <td id="poketab-row-${n}-hp"              class="value"></td></tr>` +
+                                         `<tr><td class="header">Attaque</td>         <td id="poketab-row-${n}-attack"          class="value"></td></tr>` +
+                                         `<tr><td class="header">Défense</td>         <td id="poketab-row-${n}-defense"         class="value"></td></tr>` +
+                                         `<tr><td class="header">Attaque spéciale</td><td id="poketab-row-${n}-special-attack"  class="value"></td></tr>` +
+                                         `<tr><td class="header">Défense spéciale</td><td id="poketab-row-${n}-special-defense" class="value"></td></tr>` +
+                                         `<tr><td class="header">Vitesse</td>         <td id="poketab-row-${n}-speed"           class="value"></td></tr>` +
+                                         `<tr><td class="header">Total</td>           <td id="poketab-row-${n}-bst"             class="value"></td></tr>`;
+                    row.appendChild(dropstat);
+
+                    tableBody.appendChild(row);
 
                     fetchPokemon(item.pokemon.name, n);
                     fetchPokeSpecies(item.pokemon.name, n);
