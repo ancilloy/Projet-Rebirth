@@ -101,19 +101,19 @@
 
             @keyframes jump_tier1 {
                 0%   {bottom: 0;}
-                50%  {bottom: 25%;}
+                50%  {bottom: 20%;}
                 100% {bottom: 0;}
             }
 
             @keyframes jump_tier2 {
                 0%   {bottom: 0;}
-                50%  {bottom: 50%;}
+                50%  {bottom: 45%;}
                 100% {bottom: 0;}
             }
 
             @keyframes jump_tier3 {
                 0%   {bottom: 0;}
-                50%  {bottom: 75%;}
+                50%  {bottom: 80%;}
                 100% {bottom: 0;}
             }
 
@@ -240,7 +240,7 @@
                     .then(response => response.json())
                     .then(data => {
                         sprite = document.getElementById(`poketab-row-${n}-spritecell`);
-                        let weight = (["diglett", "dugtrio"].includes(data.species.name)) ? -1 : data.weight;
+                        let weight = (["diglett", "dugtrio"].includes(data.species.name)) ? -1 : data.weight / 10;
                         sprite.innerHTML = `<img id=poketab-row-${n}-sprite src="${ data.sprites.front_default }" class="jumpy" onClick="yipee(${n}, ${weight});">` +
                                             `<audio id="poketab-row-${n}-cry" src="${ data.cries.latest }" preload="auto"></audio>`;
 
