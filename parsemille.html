@@ -99,9 +99,21 @@
                 padding: 5px;
             }
 
-            @keyframes jump {
+            @keyframes jump_tier1 {
+                0%   {bottom: 0;}
+                50%  {bottom: 25%;}
+                100% {bottom: 0;}
+            }
+
+            @keyframes jump_tier2 {
                 0%   {bottom: 0;}
                 50%  {bottom: 50%;}
+                100% {bottom: 0;}
+            }
+
+            @keyframes jump_tier3 {
+                0%   {bottom: 0;}
+                50%  {bottom: 75%;}
                 100% {bottom: 0;}
             }
 
@@ -117,8 +129,18 @@
                 left: 0%;
             }
 
-            .in_jump {
-                animation-name: jump;
+            .in_jump_tier1 {
+                animation-name: jump_tier1;
+                animation-duration: 0.75s;
+            }
+
+            .in_jump_tier2 {
+                animation-name: jump_tier2;
+                animation-duration: 0.75s;
+            }
+
+            .in_jump_tier3 {
+                animation-name: jump_tier3;
                 animation-duration: 0.75s;
             }
         </style>
@@ -218,7 +240,8 @@
                     .then(response => response.json())
                     .then(data => {
                         sprite = document.getElementById(`poketab-row-${n}-spritecell`);
-                        sprite.innerHTML = `<img id=poketab-row-${n}-sprite src="${ data.sprites.front_default }" class="jumpy" onClick="yipee(${n});">` +
+                        let weight = (["diglett", "dugtrio"].includes(data.species.name)) ? -1 : data.weight;
+                        sprite.innerHTML = `<img id=poketab-row-${n}-sprite src="${ data.sprites.front_default }" class="jumpy" onClick="yipee(${n}, ${weight});">` +
                                             `<audio id="poketab-row-${n}-cry" src="${ data.cries.latest }" preload="auto"></audio>`;
 
                         allstats = ['hp', 'attack', 'defense', 'special-attack', 'special-defense', 'speed'];
@@ -297,13 +320,16 @@
                 });
             }
 
-            function yipee(n) {
+            function yipee(n, weight) {
                 document.getElementById(`poketab-row-${n}-cry`).play();
                 let sprite = document.getElementById(`poketab-row-${n}-sprite`);
-                sprite.classList.add("in_jump");
-                setTimeout(function(){
-                    sprite.classList.remove("in_jump");
-                }, 750);
+                if (weight > 0) {
+                let tier = (weight >= 150) ? 1 : ((weight >= 50) ? 2 : 3);
+                    sprite.classList.add(`in_jump_tier${tier}`);
+                    setTimeout(function(){
+                        sprite.classList.remove(`in_jump_tier${tier}`);
+                    }, 750);
+                }
             }
         </script>
     </body>
