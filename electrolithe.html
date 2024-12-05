@@ -32,6 +32,71 @@
             th {
                 padding: 5px;
             }
+
+            .pushy {
+                cursor: pointer;
+                box-shadow: 0 4px #999;
+            }
+
+            /*.pushy:hover {
+                background-color: #3e8e41;
+            }*/
+
+            .pushy:active {
+              box-shadow: 0 2px #666;
+              transform: translateY(2px);
+            }
+
+            @keyframes kk_slidin {
+                0%   {left: 100%;}
+                100% {left: 40%;}
+            }
+
+            #zack_slider {
+                border: 1px solid;
+                border-color: black #577586 black black;
+                background-color: #577586;
+
+                width: 60%;
+                padding: 5px;
+
+                position: absolute;
+                z-index: 1;
+            }
+
+            .base {
+                left: 100%;
+            }
+
+            .hidden {
+                left: 100%;
+                animation-name: kk_slidin;
+                animation-duration: 1s;
+                animation-direction: reverse;
+            }
+
+            .visible {
+                left: 40%;
+                animation-name: kk_slidin;
+                animation-duration: 1s;
+            }
+
+            .depasseur {
+                border: solid 1px;
+                border-color: black #577586 black black;
+                border-radius: 5px 0 0 5px;
+                background-color: inherit;
+                cursor: pointer;
+
+                writing-mode: vertical-rl;
+                padding: 5px 2px;
+                font-weight: bold;
+
+                position: absolute;
+                z-index: 1;
+                right: 100%;
+                top: 4px;
+            }
         </style>
         <link rel="shortcut icon" type="image/x-icon" href="electrolithe.ico" />
     </head>
@@ -65,10 +130,11 @@
                 </select></th>
             </tr>
         </table>
-        <br><br>
-        Il peut y avoir des erreurs dans les stats de base des Pokémon. En cas de problème, n'hésitez pas à vérifier les données ci-dessous et à les modifier, puis à relancer le calculateur.
-        <table id="bstEditor"></table>
-        <br><br>
+        <div id="zack_slider" class="base">
+            Il peut y avoir des erreurs dans les stats de base des Pokémon. En cas de problème, n'hésitez pas à vérifier les données ci-dessous et à les modifier, puis à relancer le calculateur.
+            <table id="bstEditor"></table>
+            <div class="depasseur" onclick="slide();">Base stats</div>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -99,9 +165,9 @@
                 </tr>
             </tbody>
         </table>
-        <button onclick="newRow();">+ Ajouter une ligne</button>
+        <button onclick="newRow();" class="pushy">+ Ajouter une ligne</button>
         <br><br>
-        <center><input type="submit" value="Process" onClick="process(); return false;"/></center>
+        <center><input class="pushy" type="submit" value="Process" onClick="process(); return false;"/></center>
         <div id="processBlock"></div>
         <br><br>
 
@@ -522,7 +588,7 @@
                     `<th><input id="row-${n}-attaque-spe" type="number" min="1" max="999"/></th>` +
                     `<th><input id="row-${n}-defense-spe" type="number" min="1" max="999"/></th>` +
                     `<th><input id="row-${n}-vitesse"     type="number" min="1" max="999"/></th>` +
-                    `<th><button id="row-${n}-remover" onclick="removeRow(${n});">Supprimer</button></th>`;
+                    `<th><button id="row-${n}-remover" class="pushy" onclick="removeRow(${n});">Supprimer</button></th>`;
 
                 statTable.appendChild(tr);
                 currentPokeName = document.getElementById('specieSelect').selectedOptions[0].value;
@@ -542,7 +608,7 @@
                 document.getElementById(`row-${src}-vitesse`).id     = `row-${dst}-vitesse`;
 
                 remover = document.getElementById(`row-${src}-remover`);
-                remover.outerHTML = `<th><button id="row-${dst}-remover" onclick="removeRow(${dst});">Supprimer</button></th>`;
+                remover.outerHTML = `<th><button id="row-${dst}-remover" class="pushy" onclick="removeRow(${dst});">Supprimer</button></th>`;
             }
 
             // Supprime une ligne du tableau
@@ -669,6 +735,21 @@
                     await createBstEditorRow(poke, pokeName); // Appel final
                     applyBaseStatsChanges(pokeName, gen);
                 });
+            }
+
+            function slide() {
+                let zack = document.getElementById("zack_slider");
+
+                if (zack.className.includes("visible")) {
+                    zack.classList.remove("visible");
+                    void zack.offsetWidth; // Provoque un recalcul pour réinitialiser l'animation
+                    zack.className = "hidden";
+                } else {
+                    // Forcer la réinitialisation de l'animation
+                    zack.classList.remove("hidden");
+                    void zack.offsetWidth; // Provoque un recalcul pour réinitialiser l'animation
+                    zack.className = "visible";
+                }
             }
         </script>
 

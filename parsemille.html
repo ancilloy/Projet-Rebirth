@@ -129,17 +129,17 @@
                 left: 0%;
             }
 
-            .in_jump_tier1 {
+            .furious_jumper1 {
                 animation-name: jump_tier1;
                 animation-duration: 0.75s;
             }
 
-            .in_jump_tier2 {
+            .furious_jumper2 {
                 animation-name: jump_tier2;
                 animation-duration: 0.75s;
             }
 
-            .in_jump_tier3 {
+            .furious_jumper3 {
                 animation-name: jump_tier3;
                 animation-duration: 0.75s;
             }
@@ -325,9 +325,9 @@
                 let sprite = document.getElementById(`poketab-row-${n}-sprite`);
                 if (weight > 0) {
                 let tier = (weight >= 150) ? 1 : ((weight >= 50) ? 2 : 3);
-                    sprite.classList.add(`in_jump_tier${tier}`);
+                    sprite.classList.add(`furious_jumper${tier}`);
                     setTimeout(function(){
-                        sprite.classList.remove(`in_jump_tier${tier}`);
+                        sprite.classList.remove(`furious_jumper${tier}`);
                     }, 750);
                 }
             }
