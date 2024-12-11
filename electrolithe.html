@@ -7,6 +7,7 @@
                 background-image: url('https://archives.bulbagarden.net/media/upload/b/b6/BW_Chargestone_Cave_Tile.png');
                 background-size: 34px 34px;
                 color: #00aeff;
+                overflow-x: hidden;
             }
 
             div.header {
@@ -58,6 +59,7 @@
                 background-color: #577586;
 
                 width: 60%;
+                min-height: 100px; /* Pour éviter que le dépasseur ne se déforme lors du changement. */
                 padding: 5px;
 
                 position: absolute;
@@ -71,14 +73,16 @@
             .hidden {
                 left: 100%;
                 animation-name: kk_slidin;
-                animation-duration: 1s;
+                animation-duration: .8s;
+                animation-timing-function: ease-in;
                 animation-direction: reverse;
             }
 
             .visible {
                 left: 40%;
                 animation-name: kk_slidin;
-                animation-duration: 1s;
+                animation-duration: .8s;
+                animation-timing-function: ease-out;
             }
 
             .depasseur {
@@ -98,6 +102,9 @@
                 top: 4px;
             }
         </style>
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+        <!-- Setting the icon of the page -->
         <link rel="shortcut icon" type="image/x-icon" href="electrolithe.ico" />
     </head>
 
@@ -133,12 +140,13 @@
         <div id="zack_slider" class="base">
             Il peut y avoir des erreurs dans les stats de base des Pokémon. En cas de problème, n'hésitez pas à vérifier les données ci-dessous et à les modifier, puis à relancer le calculateur.
             <table id="bstEditor"></table>
-            <div class="depasseur" onclick="slide();">Base stats</div>
+            <div class="depasseur" onclick="slide();">Base stats <i class='fas fa-angle-double-up'></i></div>
         </div>
         <table>
             <thead>
                 <tr>
                     <th>Stade évolutif</th>
+                    <th>Sprite</th>
                     <th>Niveau</th>
                     <th>|</th>
                     <th>PV</th>
@@ -153,6 +161,7 @@
             <tbody id="stat-table-body">
                 <tr id="row-1">
                     <th><select id="row-1-stade"></select></th>
+                    <th id="row-1-spritecell"></th>
                     <th><input id="row-1-niveau"      type="number" min="1" max="100"/></th>
                     <th>|</th>
                     <th><input id="row-1-pv"          type="number" min="1" max="999"/></th>
@@ -178,7 +187,7 @@
 
             // Initializing the gen select picklist
             genSelect = document.getElementById("genSelect");
-            for (i=3; i<=9; i++) {
+            for (let i=3; i<=9; i++) {
                 genSelect.innerHTML += `<option value="${i}" onclick="updatePokeList(${i});"${i==3 ? ' selected=true' : ''}>${i}</option>`;
             }
 
@@ -302,13 +311,16 @@
 
             // Functions for handling Pokemon change
             async function pokemon_list_ener() {
-                onPokemonPick(this.value);
+                await onPokemonPick(this.value);
             }
             // Cette fonction est séparée pour pouvoir l'appeler à d'autres endroits du code.
             async function onPokemonPick(pokeName) {
+                console.log("flag before updateBstEditor");
                 await updateBstEditor(pokeName);
-                n = document.getElementById("stat-table-body").childElementCount;
+                console.log("flag before updateStade");
+                let n = document.getElementById("stat-table-body").childElementCount;
                 await updateStade(range(1, n+1), pokeName);
+                console.log("flag after updateStade");
             }
             onPokemonPick("bulbizarre");
 
@@ -322,19 +334,17 @@
                     splitName = pokeName.substr(6).split('/');
                     gen = parseInt(splitName[0]);
                     trueName = splitName[1];
-                    return fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
-                        .then(response => response.json())
-                        .then(data => {
-                            poke = data.autres_pokemon[gen].find(elt => elt.name.fr == trueName);
-                            return func(poke);
-                        }
-                    );
+
+                    let response = await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json');
+                    let data = await response.json();
+                    let poke = data.autres_pokemon[gen].find(elt => elt.name.fr === trueName);
+                    return await func(poke);
                 } else { // API
-                    return fetch(`https://tyradex.vercel.app/api/v1/pokemon/${pokeName}`)
-                        .then(response => response.json())
-                        .then(data => {
-                            return func(data);
-                    });
+                    let response = await fetch(`https://tyradex.vercel.app/api/v1/pokemon/${pokeName}`);
+                    let data = await response.json();
+
+                    // Appel explicite et attente de `func`
+                    return await func(data);
                 }
             }
 
@@ -342,11 +352,13 @@
 
             // Update the evolution stage picklists
             async function updateStade(rows, pokeName) {
+                console.log(`- flag during updateStade: before fetchPokemonData(${pokeName})`);
                 await fetchPokemonData(pokeName, (poke) => {
                     innerSelect = "";
                     if (poke.evolution != null && poke.evolution.pre != null) {
                         poke.evolution.pre.forEach(item => {
                             let path = (item.path!=null) ? item.path : formatName(item.name);
+                            console.log(`- - flag during updateStade: during fetchPokemonData(${pokeName}): checking ${path}`);
                             innerSelect += `<option value="${path}">${item.name}</option>`;
                         });
                     }
@@ -354,22 +366,39 @@
 
                     rows.forEach(n => {
                         document.getElementById(`row-${n}-stade`).innerHTML = innerSelect;
+                        updateSprite(n, pokeName);
                     });
                 });
+                console.log(`- flag during updateStade: after fetchPokemonData(${pokeName})`);
             }
+
+            function updateSprite(row, stade) {
+                console.log(row, stade);
+                let spriteCell = document.getElementById(`row-${row}-spritecell`);
+                spriteCell.innerHTML = "";
+
+                let newSprite = document.getElementById(`sprite-${stade}`).cloneNode();
+                newSprite.id = null;
+                spriteCell.appendChild(newSprite);
+            }
+
+            function stadeChangeListener() {
+                updateSprite( this.id.split('-')[1], this.value );
+            }
+            document.getElementById("row-1-stade").onchange = stadeChangeListener;
 
 
 
             // Fetching natures from PokeAPI
             function fetchNatures(url) {
                 fetch(url)
-                    .then(response => response.json())
+                    .then(async response => await response.json())
                     .then(data => {
                         natureSelect = document.getElementById('natureSelect');
 
                         data.results.forEach(item => {
                             fetch(item.url)
-                                .then(response => response.json())
+                                .then(async response => await response.json())
                                 .then(data => {
                                     val = ["*", "*", "*", "*", "*"];
                                     if (data.increased_stat != null) {
@@ -392,13 +421,13 @@
             // Fetching characteristics from PokeAPI
             function fetchCaracteristics(url) {
                 fetch(url)
-                    .then(response => response.json())
+                    .then(async response => await response.json())
                     .then(data => {
                         caractSelect = document.getElementById('caractSelect');
 
                         data.results.forEach(item => {
                             fetch(item.url)
-                                .then(response => response.json())
+                                .then(async response => await response.json())
                                 .then(data => {
                                     newOption = document.createElement('option');
                                     newOption.innerHTML = data.descriptions.find(elt => elt.language.name == 'fr').description;
@@ -414,7 +443,7 @@
 
             genSelect = document.getElementById("pcSelect");
             fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
-                .then(response => response.json())
+                .then(async response => await response.json())
                 .then(data => {
                     data.pc.forEach(item => {
                         newOption = document.createElement('option');
@@ -441,7 +470,7 @@
             // Reads from the API the list of all Pokemon from a generation with the given url
             async function fetchPokemonSpeciesList(url) {
                 await fetch(url)
-                    .then(response => response.json())
+                    .then(async response => await response.json())
                     .then(data => {
                         specieSelect = document.getElementById('specieSelect');
 
@@ -465,12 +494,13 @@
                     specieSelect.innerHTML = "";
                     oldGen = 0;
 
+                    await updateBstEditor('bulbizarre');
                     updateStade(range(1, document.getElementById("stat-table-body").childElementCount+1), 'bulbizarre');
                 }
                 for (n=oldGen+1; n<=newGen; n++) {
                     await fetchPokemonSpeciesList(`https://tyradex.vercel.app/api/v1/gen/${n}`);
                     await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
-                        .then(response => response.json())
+                        .then(async response => await response.json())
                         .then(data => {
                             data.autres_pokemon[n].forEach(item => {
                                 newPokeOption = document.createElement('option');
@@ -580,6 +610,7 @@
                 tr = document.createElement("tr");
                 tr.id = `row-${n}`;
                 tr.innerHTML = `<th><select id="row-${n}-stade"></select></th>` +
+                    `<th id="row-${n}-spritecell"></th>` +
                     `<th><input id="row-${n}-niveau"      type="number" min="1" max="100"/></th>` +
                     "<th>|</th>" +
                     `<th><input id="row-${n}-pv"          type="number" min="1" max="999"/></th>` +
@@ -591,6 +622,7 @@
                     `<th><button id="row-${n}-remover" class="pushy" onclick="removeRow(${n});">Supprimer</button></th>`;
 
                 statTable.appendChild(tr);
+                document.getElementById(`row-${n}-stade`).onchange = stadeChangeListener;
                 currentPokeName = document.getElementById('specieSelect').selectedOptions[0].value;
                 await updateStade([n], currentPokeName);
             }
@@ -599,6 +631,7 @@
             function renameRow(src, dst) {
                 document.getElementById(`row-${src}`).id             = `row-${dst}`;
                 document.getElementById(`row-${src}-stade`).id       = `row-${dst}-stade`;
+                document.getElementById(`row-${src}-spritecell`).id  = `row-${dst}-spritecell`;
                 document.getElementById(`row-${src}-niveau`).id      = `row-${dst}-niveau`;
                 document.getElementById(`row-${src}-pv`).id          = `row-${dst}-pv`;
                 document.getElementById(`row-${src}-attaque`).id     = `row-${dst}-attaque`;
@@ -644,7 +677,11 @@
 
                 for(let i=1; i<=data.stats.length; i++) {
                     let smry = data.stats[i-1];
-                    document.getElementById(`row-${i}-stade`).value       = smry.stade;
+
+                    let stade = document.getElementById(`row-${i}-stade`)
+                    stade.value       = smry.stade;
+                    stade.onchange();
+
                     document.getElementById(`row-${i}-niveau`).value      = smry.niveau;
                     document.getElementById(`row-${i}-pv`).value          = smry.pv;
                     document.getElementById(`row-${i}-attaque`).value     = smry.atk;
@@ -673,8 +710,18 @@
             // Va chercher les updates de base stats
             async function applyBaseStatsChanges(pokeName, gen) {
                 if (gen < 9) {
+                    let response = await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json');
+                    let data = await response.json();
+                    for (let g=9; g>gen; g--) {
+                        let changes = data.bstChanges[g].filter(item => item.pokemon === pokeName);
+                        for (let i=0; i<changes.length; i++) {
+                            document.getElementById(`bst-${pokeName}-${changes[i].stat}`).value = changes[i].oldVal;
+                        }
+                    }
+
+
                     await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
-                        .then(response => response.json())
+                        .then(async response => await response.json())
                         .then(data => {
                             for (let g=9; g>gen; g--) {
                                 let changes = data.bstChanges[g].filter(item => (item.pokemon == pokeName));
@@ -687,7 +734,7 @@
             }
 
             // Crée une ligne du tableau d'édition des base stats
-            async function createBstEditorRow(pokedata, pokeName) {
+            function createBstEditorRow(pokedata, pokeName) {
                 let bstEditor = document.getElementById("bstEditor");
                 let editRow = document.createElement("tr");
 
@@ -698,7 +745,7 @@
                 let spriteCell = document.createElement("th");
                 let imgSize = 64;
                 let imgPath = (pokedata.sprites != null) ? pokedata.sprites.regular : "https://archives.bulbagarden.net/media/upload/a/a1/Substitute_artwork.png";
-                spriteCell.innerHTML = `<img src="${imgPath}" width="${imgSize}px" height="${imgSize}px">`;
+                spriteCell.innerHTML = `<img id="sprite-${pokeName}" src="${imgPath}" width="${imgSize}px" height="${imgSize}px">`;
                 editRow.appendChild(spriteCell);
                 //*/
                 statFields = ["hp", "atk", "def", "spe_atk", "spe_def", "vit"];
@@ -722,19 +769,24 @@
                 let bstEditor = document.getElementById("bstEditor");
                 bstEditor.innerHTML = "<tr><th>Stade évolutif</th><th>Sprite</th><th>PV</th><th>Attaque</th><th>Défense</th><th>Attaque spéciale</th><th>Défense spéciale</th><th>Vitesse</th></tr>";
                 let gen = parseInt(document.getElementById("genSelect").value);
+                console.log(`- flag updateBstEditor:before fetchPokemonData(${pokeName})`);
                 await fetchPokemonData(pokeName, async poke => {
                     if (poke.evolution != null && poke.evolution.pre != null) {
-                        for (const item of poke.evolution.pre) {
+                        for (let item of poke.evolution.pre) {
                             let path = (item.path!=null) ? item.path : formatName(item.name);
+                            console.log(`- - flag updateBstEditor: fetchPokemonData(${pokeName}):before fetchPokemonData(${path})`);
                             await fetchPokemonData(path, async (preevo) => {
-                                await createBstEditorRow(preevo, path); // Premiers appels
+                                console.log(`- - - flag updateBstEditor: fetchPokemonData(${pokeName}):during fetchPokemonData(${path})`);
+                                createBstEditorRow(preevo, path); // Premiers appels
                             });
-                            applyBaseStatsChanges(path, gen);
+                            console.log(`- - flag updateBstEditor: fetchPokemonData(${pokeName}):after fetchPokemonData(${path})`);
+                            await applyBaseStatsChanges(path, gen);
                         };
                     }
-                    await createBstEditorRow(poke, pokeName); // Appel final
-                    applyBaseStatsChanges(pokeName, gen);
+                    createBstEditorRow(poke, pokeName); // Appel final
+                    await applyBaseStatsChanges(pokeName, gen);
                 });
+                console.log("- flag updateBstEditor:after fetchPokemonData");
             }
 
             function slide() {
