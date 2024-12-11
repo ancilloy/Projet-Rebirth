@@ -108,28 +108,14 @@
                 -webkit-user-select: none; /* Safari */
                 -ms-user-select: none; /* IE 10 and IE 11 */
                 user-select: none; /* Standard syntax */
-              }
-
-            @keyframes arrowtate {
-                0%   { transform: rotate(  0turn); }
-                100% { transform: rotate(0.5turn); }
-            }
-
-            .arrowbase {
-                transform: rotate(0.5turn);
             }
 
             .leftward {
                 transform: rotate(0.5turn);
-                animation-name: arrowtate;
-                animation-duration: .8s;
             }
 
             .rightward {
                 transform: rotate(0turn);
-                animation-name: arrowtate;
-                animation-duration: .8s;
-                animation-direction: reverse;
             }
         </style>
 
@@ -169,7 +155,7 @@
         <div id="zack_slider" class="slider_base">
             Il peut y avoir des erreurs dans les stats de base des Pokémon. En cas de problème, n'hésitez pas à vérifier les données ci-dessous et à les modifier, puis à relancer le calculateur.
             <table id="bstEditor"></table>
-            <div class="depasseur prevent-select" onclick="slide();">Base stats <span id="slide_arrow" class="material-symbols-outlined arrowbase">keyboard_double_arrow_up</span></div>
+            <div class="depasseur prevent-select" onclick="slide();">Base stats <span id="slide_arrow" class="material-symbols-outlined leftward">keyboard_double_arrow_up</span></div>
         </div>
         <table>
             <thead>
@@ -821,11 +807,7 @@
                 }
 
                 let arrow = document.getElementById("slide_arrow");
-                if        (arrow.classList.contains("arrowbase")) {
-                    arrow.classList.remove("arrowbase");
-                    void arrow.offsetWidth;
-                    arrow.classList.add("rightward");
-                } else if (arrow.classList.contains("rightward")) {
+                if (arrow.classList.contains("rightward")) {
                     arrow.classList.remove("rightward");
                     void arrow.offsetWidth;
                     arrow.classList.add("leftward");
