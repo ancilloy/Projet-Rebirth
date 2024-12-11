@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <title>Grotte Electrolithe</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=keyboard_double_arrow_up"/>
         <style>
             body {
                 background-image: url('https://archives.bulbagarden.net/media/upload/b/b6/BW_Chargestone_Cave_Tile.png');
@@ -58,15 +59,16 @@
                 border-color: black #577586 black black;
                 background-color: #577586;
 
+                box-sizing: border-box;
                 width: 60%;
-                min-height: 100px; /* Pour éviter que le dépasseur ne se déforme lors du changement. */
+                min-height: 125px; /* Pour éviter que le dépasseur ne se déforme lors du changement. */
                 padding: 5px;
 
                 position: absolute;
                 z-index: 1;
             }
 
-            .base {
+            .slider_base {
                 left: 100%;
             }
 
@@ -101,8 +103,35 @@
                 right: 100%;
                 top: 4px;
             }
+
+            .prevent-select {
+                -webkit-user-select: none; /* Safari */
+                -ms-user-select: none; /* IE 10 and IE 11 */
+                user-select: none; /* Standard syntax */
+              }
+
+            @keyframes arrowtate {
+                0%   { transform: rotate(  0turn); }
+                100% { transform: rotate(0.5turn); }
+            }
+
+            .arrowbase {
+                transform: rotate(0.5turn);
+            }
+
+            .leftward {
+                transform: rotate(0.5turn);
+                animation-name: arrowtate;
+                animation-duration: .8s;
+            }
+
+            .rightward {
+                transform: rotate(0turn);
+                animation-name: arrowtate;
+                animation-duration: .8s;
+                animation-direction: reverse;
+            }
         </style>
-        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
         <!-- Setting the icon of the page -->
         <link rel="shortcut icon" type="image/x-icon" href="electrolithe.ico" />
@@ -137,10 +166,10 @@
                 </select></th>
             </tr>
         </table>
-        <div id="zack_slider" class="base">
+        <div id="zack_slider" class="slider_base">
             Il peut y avoir des erreurs dans les stats de base des Pokémon. En cas de problème, n'hésitez pas à vérifier les données ci-dessous et à les modifier, puis à relancer le calculateur.
             <table id="bstEditor"></table>
-            <div class="depasseur" onclick="slide();">Base stats <i class='fas fa-angle-double-up'></i></div>
+            <div class="depasseur prevent-select" onclick="slide();">Base stats <span id="slide_arrow" class="material-symbols-outlined arrowbase">keyboard_double_arrow_up</span></div>
         </div>
         <table>
             <thead>
@@ -315,12 +344,9 @@
             }
             // Cette fonction est séparée pour pouvoir l'appeler à d'autres endroits du code.
             async function onPokemonPick(pokeName) {
-                console.log("flag before updateBstEditor");
                 await updateBstEditor(pokeName);
-                console.log("flag before updateStade");
                 let n = document.getElementById("stat-table-body").childElementCount;
                 await updateStade(range(1, n+1), pokeName);
-                console.log("flag after updateStade");
             }
             onPokemonPick("bulbizarre");
 
@@ -352,13 +378,11 @@
 
             // Update the evolution stage picklists
             async function updateStade(rows, pokeName) {
-                console.log(`- flag during updateStade: before fetchPokemonData(${pokeName})`);
                 await fetchPokemonData(pokeName, (poke) => {
                     innerSelect = "";
                     if (poke.evolution != null && poke.evolution.pre != null) {
                         poke.evolution.pre.forEach(item => {
                             let path = (item.path!=null) ? item.path : formatName(item.name);
-                            console.log(`- - flag during updateStade: during fetchPokemonData(${pokeName}): checking ${path}`);
                             innerSelect += `<option value="${path}">${item.name}</option>`;
                         });
                     }
@@ -369,11 +393,9 @@
                         updateSprite(n, pokeName);
                     });
                 });
-                console.log(`- flag during updateStade: after fetchPokemonData(${pokeName})`);
             }
 
             function updateSprite(row, stade) {
-                console.log(row, stade);
                 let spriteCell = document.getElementById(`row-${row}-spritecell`);
                 spriteCell.innerHTML = "";
 
@@ -769,24 +791,19 @@
                 let bstEditor = document.getElementById("bstEditor");
                 bstEditor.innerHTML = "<tr><th>Stade évolutif</th><th>Sprite</th><th>PV</th><th>Attaque</th><th>Défense</th><th>Attaque spéciale</th><th>Défense spéciale</th><th>Vitesse</th></tr>";
                 let gen = parseInt(document.getElementById("genSelect").value);
-                console.log(`- flag updateBstEditor:before fetchPokemonData(${pokeName})`);
                 await fetchPokemonData(pokeName, async poke => {
                     if (poke.evolution != null && poke.evolution.pre != null) {
                         for (let item of poke.evolution.pre) {
                             let path = (item.path!=null) ? item.path : formatName(item.name);
-                            console.log(`- - flag updateBstEditor: fetchPokemonData(${pokeName}):before fetchPokemonData(${path})`);
                             await fetchPokemonData(path, async (preevo) => {
-                                console.log(`- - - flag updateBstEditor: fetchPokemonData(${pokeName}):during fetchPokemonData(${path})`);
                                 createBstEditorRow(preevo, path); // Premiers appels
                             });
-                            console.log(`- - flag updateBstEditor: fetchPokemonData(${pokeName}):after fetchPokemonData(${path})`);
                             await applyBaseStatsChanges(path, gen);
                         };
                     }
                     createBstEditorRow(poke, pokeName); // Appel final
                     await applyBaseStatsChanges(pokeName, gen);
                 });
-                console.log("- flag updateBstEditor:after fetchPokemonData");
             }
 
             function slide() {
@@ -801,6 +818,21 @@
                     zack.classList.remove("hidden");
                     void zack.offsetWidth; // Provoque un recalcul pour réinitialiser l'animation
                     zack.className = "visible";
+                }
+
+                let arrow = document.getElementById("slide_arrow");
+                if        (arrow.classList.contains("arrowbase")) {
+                    arrow.classList.remove("arrowbase");
+                    void arrow.offsetWidth;
+                    arrow.classList.add("rightward");
+                } else if (arrow.classList.contains("rightward")) {
+                    arrow.classList.remove("rightward");
+                    void arrow.offsetWidth;
+                    arrow.classList.add("leftward");
+                } else if (arrow.classList.contains("leftward")) {
+                    arrow.classList.remove("leftward");
+                    void arrow.offsetWidth;
+                    arrow.classList.add("rightward");
                 }
             }
         </script>
