@@ -38,6 +38,7 @@
             .pushy {
                 cursor: pointer;
                 box-shadow: 0 4px #999;
+                margin-bottom: 7px;
             }
 
             /*.pushy:hover {
@@ -117,6 +118,23 @@
             .rightward {
                 transform: rotate(0turn);
             }
+
+            .error {
+                background-color: rgb(255, 124, 124);
+            }
+
+            .errorMessage {
+                color: rgb(176, 0, 0);
+                border: 2px solid #00aeff;
+                background-color: rgb(255, 124, 124);
+                padding: 5px;
+                margin: auto;
+                width: 95%;
+            }
+
+            .not-displayed {
+                display: none;
+            }
         </style>
 
         <!-- Setting the icon of the page -->
@@ -193,6 +211,17 @@
         <br><br>
         <center><input class="pushy" type="submit" value="Process" onClick="process(); return false;"/></center>
         <div id="processBlock"></div>
+        <div id="blankErrorBlock" class="errorMessage not-displayed">
+            Erreur : veuillez remplir tous les champs à l'écran avant de valider.
+        </div>
+        <div id="valueErrorBlock" class="errorMessage not-displayed">
+            Erreur : aucune valeur ne correspond aux données renseignées. Pour régler ce problème :
+            <ul>
+                <li>Vérifiez bien les données que vous avez entrées.</li>
+                <li>Il peut y avoir une erreur dans les stats de base du Pokémon de l'API. Cliquez sur le panneau base stats sur la droite de l'écran, et vérifiez que les stats correspondent à celles renseignées sur Poképédia et Bulbapedia. En cas d'erreur, vous pouvez les modifier directement et relancer le calculateur.</li>
+                <li>Au pire du pire, contactez moi lol.</li>
+            </ul>
+        </div>
         <br><br>
 
         <script src="statcalc.js"></script>
@@ -213,7 +242,7 @@
                     specie: "moyade",
                     nature: "***-+",
                     caract: "defense:1",
-                    typePC: "???100",
+                    typePC: "???100:17:20",
                     stats: [
                         {
                             stade:"moyade",
@@ -232,7 +261,7 @@
                     specie: "siderella",
                     nature: "*+**-",
                     caract: "defense:3",
-                    typePC: "????0?",
+                    typePC: "????0?:13:16",
                     stats: [
                         {
                             stade:"scrutella",
@@ -305,7 +334,7 @@
                     specie: "zeblitz",
                     nature: "-*+**",
                     caract: "special-defense:2",
-                    typePC: "111111",
+                    typePC: "111111:63:63",
                     stats: [
                         {
                             stade:"zeblitz",
@@ -456,7 +485,7 @@
                     data.pc.forEach(item => {
                         newOption = document.createElement('option');
                         newOption.innerHTML = item.type;
-                        newOption.value = item.effet;
+                        newOption.value = `${item.effet_garanti}:${item.minVal}:${item.maxVal}`;
                         pcSelect.appendChild(newOption);
                     });
                 }
@@ -524,55 +553,78 @@
 
 
 
+
+            function bin6(n) {
+                res = n.toString(2);
+                while (res.length < 6) { res = "0" + res; }
+                return res;
+            }
+
             // Cette fonction est un meme à ce stade. Elle fait des trucs, je crois.
             async function process() {
-                specie = document.getElementById('specieSelect').selectedOptions[0].value;
+                let processBlock = document.getElementById("processBlock");
+                let valueErrorBlock = document.getElementById("valueErrorBlock");
+                let blankErrorBlock = document.getElementById("blankErrorBlock");
+
+                let specie = document.getElementById('specieSelect').value;
                 //console.log(`Pokémon choisi : ${specie}`);
 
-                natureElt = document.getElementById('natureSelect').selectedOptions[0];
-                nature = [null];
+                let natureElt = document.getElementById('natureSelect').selectedOptions[0];
+                let nature = [null];
                 for (let i = 0; i<5; i++) {
                     let c = natureElt.value.charAt(i);
                     nature.push((c=='+') ? 1.1 : ((c=='-') ? 0.9 : 1));
                 }
                 //console.log(`Nature : ${natureElt.innerHTML} ( ${nature} )`);
 
-                caracElt = document.getElementById('caractSelect').selectedOptions[0];
-                if (caracElt.value == "none") {
-                    carac = null;
-                    //console.log(`Caractéristique : non renseignée`);
-                } else {
-                    caracSplit = caracElt.value.split(':');
-                    carac = { statNo : allstats.indexOf(caracSplit[0]), modulo : parseInt(caracSplit[1]) };
+                let carac = null;
+                let caracElt = document.getElementById('caractSelect').selectedOptions[0];
+                if (caracElt.value != "none") {
+                    let caracSplit = caracElt.value.split(':');
+                    let carac = { statNo : allstats.indexOf(caracSplit[0]), modulo : parseInt(caracSplit[1]) };
                     //console.log(`Caractéristique : ${caracElt.innerHTML}`);
                     //console.log(carac);
                 }
 
-                totalSummaries = document.getElementById("stat-table-body").childElementCount;
-                statMatrix = [];
-                bstMap = new Map();
+                let totalSummaries = document.getElementById("stat-table-body").childElementCount;
+                let statMatrix = [];
+                let bstMap = new Map();
+                let failure = false;
                 for (let i=1; i<=totalSummaries; i++) {
-                    stadeName = document.getElementById(`row-${i}-stade`).selectedOptions[0].value;
+                    let stadeName = document.getElementById(`row-${i}-stade`).selectedOptions[0].value;
                     if (!bstMap.has(stadeName)) {
-                        bst = [];
+                        let bst = [];
                         for (let statNo=0; statNo<6; statNo++) {
                             bst.push( parseInt( document.getElementById(`bst-${stadeName}-${allstats[statNo]}`).value ) );
                         }
                         bstMap.set(stadeName, bst);
                     }
 
-                    statMatrix.push([
-                        parseInt(document.getElementById(`row-${i}-pv`)         .value),
-                        parseInt(document.getElementById(`row-${i}-attaque`)    .value),
-                        parseInt(document.getElementById(`row-${i}-defense`)    .value),
-                        parseInt(document.getElementById(`row-${i}-attaque-spe`).value),
-                        parseInt(document.getElementById(`row-${i}-defense-spe`).value),
-                        parseInt(document.getElementById(`row-${i}-vitesse`)    .value),
-                        parseInt(document.getElementById(`row-${i}-niveau`)     .value),
-                                 document.getElementById(`row-${i}-stade`)      .value
-                    ]);
+                    let newLine = [];
+                    for (let id of [`row-${i}-pv`, `row-${i}-attaque`, `row-${i}-defense`, `row-${i}-attaque-spe`,
+                                    `row-${i}-defense-spe`, `row-${i}-vitesse`, `row-${i}-niveau`]) {
+                        let elt = document.getElementById(id);
+                        let val = elt.value;
+                        if (val=="") {
+                            failure = true;
+                            elt.className = "error";
+                            newLine.push(null);
+                        } else {
+                            elt.className = "";
+                            newLine.push( parseInt(val) );
+                        }
+                    }
+
+                    newLine.push(document.getElementById(`row-${i}-stade`).value);
+                    statMatrix.push(newLine);
                 }
-                statMatrix.sort((a, b) => a[6] - b[6]);
+                if (failure) {
+                    valueErrorBlock.classList.add("not-displayed");
+                    blankErrorBlock.classList.remove("not-displayed");
+                    processBlock.classList.add("not-displayed");
+                    return;
+                }
+                statMatrix = statMatrix.sort((a, b) => a[6] - b[6]);
                 /*
                 console.log(`Base stats :`);
                 console.log(bstMap);
@@ -580,18 +632,56 @@
                 console.log(statMatrix);
                 //*/
 
-                pc = document.getElementById('pcSelect').selectedOptions[0];
-                //console.log(`Type PC : ${pc.innerHTML} ( ${pc.value} )`);
+                let pcElt = document.getElementById('pcSelect').selectedOptions[0];
+                let pcSplit = pcElt.value.split(":");
+                let pcFilter = null;
+                if (pcSplit.length == 3) {
+                    let pcMin = parseInt(pcSplit[1]);
+                    let pcMax = parseInt(pcSplit[2]);
+                    pcFilter = [];
+                    for (let n=pcMin; n<=pcMax; n++) {
+                        let binary = bin6(n);
+                        let row = [];
+                        row.push( parseInt(binary.charAt(5)) ); // hp
+                        row.push( parseInt(binary.charAt(4)) ); // atk
+                        row.push( parseInt(binary.charAt(3)) ); // def
+                        row.push( parseInt(binary.charAt(1)) ); // sp atk
+                        row.push( parseInt(binary.charAt(0)) ); // sp def
+                        row.push( parseInt(binary.charAt(2)) ); // speed
+                        pcFilter.push(row);
+                    }
+                }
+                /*
+                console.log(`Type PC : ${pcElt.innerHTML} ( ${pcElt.value} )`);
+                console.log("PC filter :");
+                console.log(pcFilter);
+                //*/
 
                 //console.log(`Résultat final :`);
-                possibleIVs = processing(statMatrix, bstMap, nature, carac, pc.value);
-                //console.log(possibleIVs);
+                let possibleIVs_base = processing(statMatrix, bstMap, nature, carac, pcSplit[0]);
+                if (possibleIVs_base.some(l => l.length==0)) {
+                    valueErrorBlock.classList.remove("not-displayed");
+                    blankErrorBlock.classList.add("not-displayed");
+                    processBlock.classList.add("not-displayed");
+                    return;
+                }
+                //console.log(possibleIVs_base);
                 finalSummary = statMatrix[statMatrix.length-1];
                 finalBst = bstMap.get(finalSummary[7]);
-                results = selectIVs(possibleIVs, finalSummary, finalBst, nature);
+                results = selectIVs(possibleIVs_base, finalSummary, finalBst, nature, pcFilter);
                 //console.log(results);
+                if (results==null) {
+                    valueErrorBlock.classList.remove("not-displayed");
+                    blankErrorBlock.classList.add("not-displayed");
+                    processBlock.classList.add("not-displayed");
+                    return;
+                }
 
-                processBlock = document.getElementById("processBlock");
+                processBlock.classList.remove("not-displayed");
+                blankErrorBlock.classList.add("not-displayed");
+                valueErrorBlock.classList.add("not-displayed");
+
+                processBlock.className = "";
                 processBlock.innerHTML = "";
                 resultsTable = document.createElement("table");
                 resultsTableHeader = document.createElement("tr");
@@ -599,12 +689,19 @@
                 resultsTable.appendChild(resultsTableHeader);
                 for (let statNo=0; statNo<6; statNo++) {
                     resultsRow = document.createElement("tr");
-                    resultsRow.innerHTML = `<th>${allstats[statNo]}</th><th>${possibleIVs[statNo]}</th><th>${results[statNo].iv}</th><th>${results[statNo].ev}</th><th>${(statNo==0) ?
+                    resultsRow.innerHTML = `<th>${allstats[statNo]}</th><th>${possibleIVs_base[statNo]}</th><th>${results[statNo].iv}</th><th>${results[statNo].ev}</th><th>${(statNo==0) ?
                                 hp_stat(   finalBst[statNo], results[statNo].iv, results[statNo].ev, finalSummary[6]) :
                                 other_stat(finalBst[statNo], results[statNo].iv, results[statNo].ev, finalSummary[6], nature[statNo])}</th>`;
                     resultsTable.appendChild(resultsRow);
                 }
                 processBlock.appendChild(resultsTable);
+                let pcNumber = (results[4].iv %2)*32 +
+                                (results[3].iv %2)*16 +
+                                (results[5].iv %2)*8 +
+                                (results[2].iv %2)*4 +
+                                (results[1].iv %2)*2 +
+                                (results[0].iv %2)*1;
+                processBlock.innerHTML += `\nValeur PC : ${pcNumber}.`;
 
             }
 
