@@ -11,14 +11,22 @@
 
     //Déclarations
         //shuffle
-            let selected = [];
-            let shuffledTrue = [];
+            let selection = [];
+            let shuffled = [];
         //randomColor
             let colormix = "";
         //switching
+            let nowpage = 1;
             let state = false;
-            var fantomA = document.getElementsByClassName("Alpha");
-            var fantomB = document.getElementsByClassName("Beta");
+            let finalCast = [];
+            var pageAlpha = document.getElementsByClassName("Alpha");
+            var pageBeta = document.getElementsByClassName("Beta");
+        //passage    
+            let passageSwitchPage = 0;
+            let passageRevealing = -1;
+        //tools
+            let alreadyDisplayed = [];
+
 
 
     
@@ -54,101 +62,100 @@
 
 
     //Medium functions
-        //Selected shuffle
+        //selection shuffle
             function shuffle() {
-                console.log(selected);
-                let shuffled = [];
+                let shuffledOrder = [];
                 let i = 0;
-                while (i < selected.length) {
-                    let rdmDigit = Math.floor(Math.random() * selected.length);
-                    if (!shuffled.includes(rdmDigit)) {
-                        shuffled.push(rdmDigit);
+                while (i < selection.length) {
+                    let rdmDigit = Math.floor(Math.random() * selection.length);
+                    if (!shuffledOrder.includes(rdmDigit)) {
+                        shuffledOrder.push(rdmDigit);
                         i++;
                     }
                 }
-                let shuffledTrue = shuffled.map(index => selected[index]);
-                return shuffledTrue;
+                let shuffled = shuffledOrder.map(index => selection[index]);
+                return shuffled;
             }
 
 
         //Counting Deaths
             function deadPeople() {
                 
-                let deadnbr = 0;
-                let Bodies = [];
-                let Students = [];
+                let bodies_Nbr = 0;
+                let bodies = [];
+                let students = [];
 
                 dangandata.forEach((data, index) => {
                     const isDead = data.status === "Dead";
                     const name = data.name === "K1" ? `${data.name}-${data.lname}` : data.name;
                     
                     if (isDead) {
-                        deadnbr++;
-                        Bodies.push(name);
+                        bodies_Nbr++;
+                        bodies.push(name);
                         document.getElementById(`danganImage_${index}`).src = data.dead;
                     } else {
-                        Students.push(name);
+                        students.push(name);
                         document.getElementById(`danganImage_${index}`).src = data.url;
                     }
-                    results(deadnbr, Bodies, Students);
+                    results(bodies_Nbr, bodies, students);
                 });
             }
 
             
         //Tell Alive/Dead
-            function results(deadnbr, Bodies, Students) {
+            function results(bodies_Nbr, bodies, students) {
                 
                 document.getElementById.quote && document.getElementById.author;
             //No death
-                if (deadnbr == 0) {
+                if (bodies_Nbr == 0) {
                     quote.textContent = "Aujourd'hui, personne n'est mort. Ou peut-être hier, je ne sais plus. Tuez-vous s'il vous plaît."
                 }
             //One death
-                else if (deadnbr == 1) {
-                    quote.textContent = "À tous les étudiants. Aujourd'hui, " + Bodies + " est mort. Tant mieux !"
+                else if (bodies_Nbr == 1) {
+                    quote.textContent = "À tous les étudiants. Aujourd'hui, " + bodies + " est mort. Tant mieux !"
                 }
             //Few deaths
-                else if (deadnbr < 10) {
+                else if (bodies_Nbr < 10) {
                 //Two deaths
-                    if (deadnbr == 2) {
-                        formattedBodies = Bodies[0] + ", ainsi que de " + Bodies[1];
-                        quote.textContent = "À tous les étudiants. Aujourd'hui, " + deadnbr + " personnes sont mortes. Il s'agit de " + formattedBodies
+                    if (bodies_Nbr == 2) {
+                        bodiesAlt = bodies[0] + ", ainsi que de " + bodies[1];
+                        quote.textContent = "À tous les étudiants. Aujourd'hui, " + bodies_Nbr + " personnes sont mortes. Il s'agit de " + bodiesAlt
                     }
                 //Six deaths
-                    else if (deadnbr == 6) {
+                    else if (bodies_Nbr == 6) {
                         quote.textContent = "Au premier crépuscule, les six choisis par la clé seront sacrifiés."
                     }
                 //Multiples deaths 
                     else {
-                    formattedBodies = Bodies[0] + ", ainsi que de " + Bodies.slice(1, -1).join(', ') + ", et " + Bodies[Bodies.length - 1];
-                    quote.textContent = "À tous les étudiants. Aujourd'hui, " + deadnbr + " personnes sont mortes. Il s'agit de " + formattedBodies
+                    bodiesAlt = bodies[0] + ", ainsi que de " + bodies.slice(1, -1).join(', ') + ", et " + bodies[bodies.length - 1];
+                    quote.textContent = "À tous les étudiants. Aujourd'hui, " + bodies_Nbr + " personnes sont mortes. Il s'agit de " + bodiesAlt
                     }
                 }
             //Six or less Survivors
                 else {
                 //Easter Egg
-                    if (Students[0] == "K1" && Students[1] == "Korekiyo" && Students[2] == "Maki" && Students[3] == "Shûichi" && Students[4] == "Tenko") {
+                    if (students[0] == "K1" && students[1] == "Korekiyo" && students[2] == "Maki" && students[3] == "Shûichi" && students[4] == "Tenko") {
                         quote.textContent = "Somehow, you feel like it makes sense."
                     }
                 //No Survivor
-                    else if (Students.length == 0) {
+                    else if (students.length == 0) {
                         quote.textContent = "Aujourd'hui, tout le monde est mort. Je ne sais même pas pourquoi j'en fais une annonce."
                     }
                 //One Survivor
-                    else if (Students.length == 1) {
+                    else if (students.length == 1) {
                     //Tsumugi Only Survivor
-                        if (Students[0] == "Tsumugi") {
+                        if (students[0] == "Tsumugi") {
                             quote.textContent = "Just according to keikakku."
                         }
                     //Any Only Survivor
                         else {
-                        quote.textContent = Students + ", tu es la dernière personne encore en vie. C'est un peu gênant, non ?"
+                        quote.textContent = students + ", tu es la dernière personne encore en vie. C'est un peu gênant, non ?"
                         }
                     }
                 //More than one Survivor
                     else {
-                        let formattedStudents = Students.join(', ');
-                        quote.textContent = formattedStudents + ". Vous êtes les derniers survivants. La mort vous guète. Prenez garde."
+                        let studentsAlt = students.join(', ');
+                        quote.textContent = studentsAlt + ". Vous êtes les derniers survivants. La mort vous guète. Prenez garde."
                     }
                 }
                 author.textContent = "- Mokonokuma"
@@ -212,76 +219,75 @@
         function updateValue(indexCopy){
             if (dangandata[indexCopy].status == "Alive"){
                 
-                updateValueAlive(indexCopy);
+                AliveToDead(indexCopy);
             }
             else {
-                updateValueDead(indexCopy);
+                DeadToAlive(indexCopy);
             }
         }
 
-            function updateValueAlive(indexCopy){
+            function AliveToDead(indexCopy){
                 document.getElementById(`danganImage_${indexCopy}`).src = dangandata[indexCopy].dead;
                 if (danganleft.src == dangandata[indexCopy].url2) {
                     document.getElementById('danganleft').src = (dangandata[indexCopy].dead2);
                 }
                 dangandata[indexCopy].status = "Dead";
-                selected.push(dangandata[indexCopy]);
+                selection.push(dangandata[indexCopy]);
             }
 
-            function updateValueDead(indexCopy){
+            function DeadToAlive(indexCopy){
                 document.getElementById(`danganImage_${indexCopy}`).src = dangandata[indexCopy].url;
                 if (danganleft.src == dangandata[indexCopy].dead2) {
                     document.getElementById('danganleft').src = (dangandata[indexCopy].url2);
                 }
                 dangandata[indexCopy].status = "Alive";
-                const index = selected.findIndex(obj => obj.name && obj.name.includes(dangandata[indexCopy].name));
+                const index = selection.findIndex(obj => obj.name && obj.name.includes(dangandata[indexCopy].name));
                 if (index !== -1) {
-                    selected.splice(index, 1);
+                    selection.splice(index, 1);
                 }
-                console.log("Après suppression :", selected);
             }
 
 
         //Sprite Clicking Functions
             function handleImageClick(character, indexCopy) {
-                let alreadyChanged = false;
+                let changed = false;
 
             //Angie : Kanae
                 if (character.name === "Angie" && (character.status) === "Alive") {
                     document.getElementById('quote').textContent = "\"Je suis Kanae... Et je tue des gens.\"";
-                    alreadyChanged = true;
+                    changed = true;
                 }
 
             //Himiko : Swaps background color
                 if ((character.name) === "Himiko" && (character.status) === "Alive") {
                     document.body.style.backgroundColor = randomColor(colormix);
                     document.getElementById('quote').textContent = "\"Ptdr la meuf est vieille. (Joyeuse journée de la naissance, par le ch'min)\"";
-                    alreadyChanged = true;
+                    changed = true;
                 }
 
             //K1 B0 : Catchphrase
                 if ((character.name) === "K1" && (character.status) === "Alive") {
                     document.getElementById('quote').textContent = "\"On m'appelle pas.\"";
-                    alreadyChanged = true;
+                    changed = true;
                 }
 
-            //Kaede : Debussy (ça ressemble à Depussy, non ? Non...? Bon)
+            //Kaede : Debussy
                 if ((character.name) === "Kaede" && (character.status) === "Alive") {
                     maestro();
                     document.getElementById('quote').textContent = "\"Je suis chanteur.\"";
-                    alreadyChanged = true;
+                    changed = true;
                 }
 
             //Kokichi : Death UwU
             if (character.name === "Kokichi" && (character.status) === "Alive") {
                     document.getElementById('quote').textContent = "\"Imagine faire 6.\"";
-                    alreadyChanged = true;
+                    changed = true;
                 }
 
             //Korekiyo : Love UwU
                 if (character.name === "Korekiyo" && (character.status) === "Alive") {
                     document.getElementById('quote').textContent = "\"Siblings by chance, lovers by choice.\"";
-                    alreadyChanged = true;
+                    changed = true;
                 }
 
             //Miu Iruma : Killin' time
@@ -292,13 +298,13 @@
             //Tsumugi : Sends to Electrolithe
                 if (character.name === "Tsumugi" && (character.status) === "Alive") {
                     document.getElementById('quote').textContent = "\"Rip Tsumugi X Electrolithe\"";
-                    alreadyChanged = true;
+                    changed = true;
                 }
 
             //All (Alive) : Swap left image + Right texts
                 if ((character.status) === "Alive") {
                     document.getElementById('danganleft').src = (character.url2);
-                    if (alreadyChanged == false) {
+                    if (changed == false) {
                         document.getElementById('quote').textContent = "\"On vient pas de la street, nous ?\""
                     }
                     document.getElementById('author').textContent = "- " + (character.name) + " " + (character.lname);
@@ -324,79 +330,160 @@
 
 
         //Switching pages
-            function switching() {
+            function switchPage() {
+                nowpage++
+                if (nowpage >= 2){
+                    nowpage = 0;
+                }
+
+
                 state = !state;
+                finalCast = shuffle();
+
+                passageSwitchPage++;
+                passageRevealing = -1;
+                if (passageSwitchPage%2 == 1) {
+                    finalCast = [];
+                    revealing ();
+                }
+                else {
+                    passageSwitchPage = 0;
+                }
                 
-                const displayA = state ? "block" : "none";
-                const displayB = state ? "none" : "block";
+                const showNo = state ? "block" : "none";
+                const showYes = state ? "none" : "block";
                 
-                for (let i = 0; i < fantomA.length; i++) {
-                    fantomA[i].style.display = displayA;
+                for (let i = 0; i < pageAlpha.length; i++) {
+                    pageAlpha[i].style.display = showNo;
                 }
-                for (let i = 0; i < fantomB.length; i++) {
-                    fantomB[i].style.display = displayB;
+                for (let i = 0; i < pageBeta.length; i++) {
+                    pageBeta[i].style.display = showYes;
                 }
-                if (state == false) {
-                    tostestas();
-                }
-                console.log(state);
             }
 
-            function tostestas() {
-                let finalCast = shuffle();
 
-                const table1 = document.getElementById('sacrificeTable');
-                const table2 = document.getElementById('sacrificeTable2');
-                const table3 = document.getElementById('sacrificeTable3');
-                const table4 = document.getElementById('sacrificeTable4');
-                const table5 = document.getElementById('sacrificeTable5');
-                const table6 = document.getElementById('sacrificeTable6');
-                table1.innerHTML = '';
-                table2.innerHTML = '';
-                table3.innerHTML = '';
-                table4.innerHTML = '';
-                table5.innerHTML = '';
-                table6.innerHTML = '';
 
-                let row;
-                finalCast.forEach((character, index) => {
-                    let dataList;
-                    if (index < 2) {
-                        dataList = table1;
-                    } else if (index < 4) {
-                        dataList = table2;
-                    } else if (index < 7) {
-                        dataList = table3;
-                    } else if (index < 9) {
-                        dataList = table4;
-                    } else if (index < 11) {
-                        dataList = table5;
-                    } else {
-                        dataList = table6;
-                    }
 
-                    const listItem = document.createElement('li');
-                    const danganImage = document.createElement('img');
-                    danganImage.src = character.url;
-                    danganImage.setAttribute('draggable', false);
-                    listItem.appendChild(danganImage);
-                    dataList.appendChild(listItem);
+            
+            function revealing() {
+                if (nowpage == 1){
+                passageRevealing++;
+                    
+                    const tables = [
+                    document.getElementById('sacrificeTable'),
+                    document.getElementById('sacrificeTable2'),
+                    document.getElementById('sacrificeTable3'),
+                    document.getElementById('sacrificeTable4'),
+                    document.getElementById('sacrificeTable5'),
+                    document.getElementById('sacrificeTable6')
+                ];
+
+                tables.forEach((table) => {
+                    table.innerHTML = '';
+                    const topRow = document.createElement('div');
+                    topRow.className = 'top-row';
+                    const bottomRow = document.createElement('div');
+                    bottomRow.className = 'bottom-row';
+
+                    table.appendChild(topRow);
+                    table.appendChild(bottomRow);
                 });
+
+
+
+                if (passageRevealing%16 !== 0 || passageRevealing == 0) {
+                    console.log(passageRevealing);
+                    alreadyDisplayed.push(finalCast[passageRevealing]);
+                    alreadyDisplayed.forEach((character, index) => {
+                        let tableIndex;
+                        if (index < 2) {
+                            tableIndex = 0;
+                        } else if (index < 4) {
+                            tableIndex = 1;
+                        } else if (index < 7) {
+                            tableIndex = 2;
+                        } else if (index < 9) {
+                            tableIndex = 3;
+                        } else if (index < 11) {
+                            tableIndex = 4;
+                        } else {
+                            tableIndex = 5;
+                        }
+
+                        const table = tables[tableIndex];
+                        const topRow = table.querySelector('.top-row');
+                        const bottomRow = table.querySelector('.bottom-row');
+
+                        const listItem = document.createElement('li');
+                        const danganImage = document.createElement('img');
+                        danganImage.src = character.url;
+                        danganImage.setAttribute('draggable', false);
+                        listItem.appendChild(danganImage);
+
+                        if (topRow.childNodes.length === 0) {
+                            topRow.appendChild(listItem);
+                        } else {
+                            bottomRow.appendChild(listItem);
+                        }
+                        });
+
+                    }
+                    else {
+                        passageRevealing = -1;
+                        alreadyDisplayed = [];
+                        emptyhaha = [];
+                        emptyhaha.forEach((character, index) => {
+                        let tableIndex;
+                        if (index < 2) {
+                            tableIndex = 0;
+                        } else if (index < 4) {
+                            tableIndex = 1;
+                        } else if (index < 7) {
+                            tableIndex = 2;
+                        } else if (index < 9) {
+                            tableIndex = 3;
+                        } else if (index < 11) {
+                            tableIndex = 4;
+                        } else {
+                            tableIndex = 5;
+                        }
+
+                        const table = tables[tableIndex];
+                        const topRow = table.querySelector('.top-row');
+                        const bottomRow = table.querySelector('.bottom-row');
+
+                        const listItem = document.createElement('li');
+                        const danganImage = document.createElement('img');
+                        danganImage.src = character.url;
+                        danganImage.setAttribute('draggable', false);
+                        listItem.appendChild(danganImage);
+
+                        if (topRow.childNodes.length === 0) {
+                            topRow.appendChild(listItem);
+                        } else {
+                            bottomRow.appendChild(listItem);
+                        }
+                        });
+                    }
+                }
             }
 
-        function betaTest() {
+
+        function selectAll() {
             const checkboxes = document.querySelectorAll('#danganTable input[type="checkbox"]');
             
             const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
             checkboxes.forEach(checkbox => checkbox.checked = !allChecked);
             if (allChecked == true) {
-                for (let indexCopyMagnetMegaTron = 0; indexCopyMagnetMegaTron<16; indexCopyMagnetMegaTron++){
-                    updateValueDead(indexCopyMagnetMegaTron);
+                for (let index = 0; index<16; index++){
+                    DeadToAlive(index);
                 }
-                selected = [];
+                selection = [];
             } else {
-                for (let indexCopyMagnetMegaTron = 0; indexCopyMagnetMegaTron<16; indexCopyMagnetMegaTron++){
-                    updateValueAlive(indexCopyMagnetMegaTron);
+                for (let index = 0; index<16; index++){
+                    if (dangandata[index].status == "Alive") {
+                        AliveToDead(index);
+                    }
                 }
         }
     }
@@ -404,15 +491,14 @@
         document.addEventListener('DOMContentLoaded', fetchData);
     </script>
 </head>
-<body onload="switching()">
+<body onload="switchPage()">
 
 <!--Cedrick Pagx-->
 <div class="Charpenti">
-    <img id="coucou" src="Switch.png" draggable="false" onclick="switching()">
+    <img id="switchlogo" src="Switch.png" draggable="false" onclick="switchPage()">
 </div>
 
 <!--Page 1-->
-
     <div class="Alpha">
         <div class="container2">
             <p class="titre"><u>Project Rebirth</u></p>
@@ -427,7 +513,7 @@
                 <table id="danganTable" onload="displayData()"></table>
                 <input type="submit" value="Valider les morts" onClick="deadPeople(); return false;"/>
                 <a href=electrolithe.html><button>Grotte Electrolithe</button></a>
-                <input type="submit" value="Oopsie" onClick="betaTest(); return false;"/>
+                <input type="submit" value="Everyone" onClick="selectAll(); return false;"/>
             <!--Kaede does who the fuck knows what-->
                 <audio id="audio-player" src="Debussy - Clair de Lune.mp3" preload="auto"></audio>
 <!--                <audio id="audio-player2" src="HB.mp3" preload="auto"></audio>-->
@@ -447,31 +533,16 @@
 
 
 <!--Page 2-->
-
     <div class="Beta">
-        <div class="beta_testa">
-            <div id="sacrificeTable">
-            </div>
-            <div id="sacrificeTable2">
-            </div>
-            <div id="sacrificeTable3">
-            </div>
-            <div id="sacrificeTable4">
-            </div>
-            <div id="sacrificeTable5">
-            </div>
-            <div id="sacrificeTable6">
-            </div>
+        <button id="americain" type="submit" onclick="revealing()">Switch-A</button>
+        <div class="beta">
+                <div id="sacrificeTable"></div>
+                <div id="sacrificeTable2"></div>
+                <div id="sacrificeTable3"></div>
+                <div id="sacrificeTable4"></div>
+                <div id="sacrificeTable5"></div>
+                <div id="sacrificeTable6"></div>
         </div>
     </div>
-
-
 </body>
 </html>
-
-
-
-<!--
-Oopsie button ajouts :
--> Adapter Selected.
--->
