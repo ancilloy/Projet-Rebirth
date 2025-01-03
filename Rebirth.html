@@ -348,6 +348,8 @@
                 }
                 else {
                     passageSwitchPage = 0;
+                    passageRevealing = 11;
+                    revealing();
                 }
                 
                 const showNo = state ? "block" : "none";
@@ -367,105 +369,78 @@
             
             function revealing() {
                 if (nowpage == 1){
-                passageRevealing++;
-                    
+                    passageRevealing++;
+
                     const tables = [
-                    document.getElementById('sacrificeTable'),
-                    document.getElementById('sacrificeTable2'),
-                    document.getElementById('sacrificeTable3'),
-                    document.getElementById('sacrificeTable4'),
-                    document.getElementById('sacrificeTable5'),
-                    document.getElementById('sacrificeTable6')
-                ];
+                        document.getElementById('sacrificeTable'),
+                        document.getElementById('sacrificeTable2'),
+                        document.getElementById('sacrificeTable3'),
+                        document.getElementById('sacrificeTable4'),
+                        document.getElementById('sacrificeTable5'),
+                        document.getElementById('sacrificeTable6')
+                    ];
 
-                tables.forEach((table) => {
-                    table.innerHTML = '';
-                    const topRow = document.createElement('div');
-                    topRow.className = 'top-row';
-                    const bottomRow = document.createElement('div');
-                    bottomRow.className = 'bottom-row';
+                    tables.forEach((table) => {
+                        table.innerHTML = '';
+                        const topRow = document.createElement('div');
+                        topRow.className = 'top-row';
+                        const bottomRow = document.createElement('div');
+                        bottomRow.className = 'bottom-row';
 
-                    table.appendChild(topRow);
-                    table.appendChild(bottomRow);
-                });
+                        table.appendChild(topRow);
+                        table.appendChild(bottomRow);
+                    });
 
-
-
-                if (passageRevealing%16 !== 0 || passageRevealing == 0) {
-                    console.log(passageRevealing);
-                    alreadyDisplayed.push(finalCast[passageRevealing]);
-                    alreadyDisplayed.forEach((character, index) => {
-                        let tableIndex;
-                        if (index < 2) {
-                            tableIndex = 0;
-                        } else if (index < 4) {
-                            tableIndex = 1;
-                        } else if (index < 7) {
-                            tableIndex = 2;
-                        } else if (index < 9) {
-                            tableIndex = 3;
-                        } else if (index < 11) {
-                            tableIndex = 4;
-                        } else {
-                            tableIndex = 5;
-                        }
-
-                        const table = tables[tableIndex];
-                        const topRow = table.querySelector('.top-row');
-                        const bottomRow = table.querySelector('.bottom-row');
-
-                        const listItem = document.createElement('li');
-                        const danganImage = document.createElement('img');
-                        danganImage.src = character.url;
-                        danganImage.setAttribute('draggable', false);
-                        listItem.appendChild(danganImage);
-
-                        if (topRow.childNodes.length === 0) {
-                            topRow.appendChild(listItem);
-                        } else {
-                            bottomRow.appendChild(listItem);
-                        }
-                        });
-
+                    if (passageRevealing < 11 || passageRevealing == 0) {
+                        console.log (passageRevealing+"%11 = " + passageRevealing%11)
+                        alreadyDisplayed.push(finalCast[passageRevealing]);
+                        ultraReveal(tables, alreadyDisplayed);
+                    }
+                    else if (passageRevealing == 11) {
+                        alreadyDisplayed = finalCast;
+                        ultraReveal(tables, alreadyDisplayed);
                     }
                     else {
                         passageRevealing = -1;
                         alreadyDisplayed = [];
-                        emptyhaha = [];
-                        emptyhaha.forEach((character, index) => {
-                        let tableIndex;
-                        if (index < 2) {
-                            tableIndex = 0;
-                        } else if (index < 4) {
-                            tableIndex = 1;
-                        } else if (index < 7) {
-                            tableIndex = 2;
-                        } else if (index < 9) {
-                            tableIndex = 3;
-                        } else if (index < 11) {
-                            tableIndex = 4;
-                        } else {
-                            tableIndex = 5;
-                        }
-
-                        const table = tables[tableIndex];
-                        const topRow = table.querySelector('.top-row');
-                        const bottomRow = table.querySelector('.bottom-row');
-
-                        const listItem = document.createElement('li');
-                        const danganImage = document.createElement('img');
-                        danganImage.src = character.url;
-                        danganImage.setAttribute('draggable', false);
-                        listItem.appendChild(danganImage);
-
-                        if (topRow.childNodes.length === 0) {
-                            topRow.appendChild(listItem);
-                        } else {
-                            bottomRow.appendChild(listItem);
-                        }
-                        });
+                        ultraReveal(tables, alreadyDisplayed);
                     }
                 }
+            }
+
+            function ultraReveal(tables, showFinalCast) {
+                showFinalCast.forEach((character, index) => {
+                    let tableIndex;
+                    if (index < 2) {
+                        tableIndex = 0;
+                    } else if (index < 4) {
+                        tableIndex = 1;
+                    } else if (index < 7) {
+                        tableIndex = 2;
+                    } else if (index < 9) {
+                        tableIndex = 3;
+                    } else if (index < 11) {
+                        tableIndex = 4;
+                    } else {
+                        tableIndex = 5;
+                    }
+
+                    const table = tables[tableIndex];
+                    const topRow = table.querySelector('.top-row');
+                    const bottomRow = table.querySelector('.bottom-row');
+
+                    const listItem = document.createElement('li');
+                    const danganImage = document.createElement('img');
+                    danganImage.src = character.url;
+                    danganImage.setAttribute('draggable', false);
+                    listItem.appendChild(danganImage);
+
+                    if (topRow.childNodes.length === 0) {
+                        topRow.appendChild(listItem);
+                    } else {
+                        bottomRow.appendChild(listItem);
+                    }
+                    });
             }
 
 
