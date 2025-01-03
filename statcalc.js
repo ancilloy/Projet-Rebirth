@@ -1,4 +1,5 @@
 allstats = ['hp', 'attack', 'defense', 'special-attack', 'special-defense', 'speed'];
+statnames = ["PV", "Attaque", "Défense", "Attaque spéciale", "Défense spéciale", "Vitesse"]
 
 function hp_stat(base, iv, ev, lvl) {
     return Math.floor( (2*base + iv + Math.floor(ev/4) ) * lvl / 100 ) + lvl + 10;

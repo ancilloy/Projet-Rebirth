@@ -2,13 +2,14 @@
 <html lang="en">
     <head>
         <title>Grotte Electrolithe</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=keyboard_double_arrow_up"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
         <style>
             body {
                 background-image: url('https://archives.bulbagarden.net/media/upload/b/b6/BW_Chargestone_Cave_Tile.png');
                 background-size: 34px 34px;
                 color: #00aeff;
                 overflow-x: hidden;
+                overflow-y: scroll;
             }
 
             div.header {
@@ -25,10 +26,6 @@
             img[src="rocher_flottant.png"] {
                 padding: 0;
                 vertical-align: middle;
-            }
-
-            table {
-                overflow: hidden;
             }
 
             th {
@@ -48,6 +45,10 @@
             .pushy:active {
               box-shadow: 0 2px #666;
               transform: translateY(2px);
+            }
+
+            .material-symbols-outlined {
+                font-size: inherit;
             }
 
             @keyframes kk_slidin {
@@ -135,6 +136,62 @@
             .not-displayed {
                 display: none;
             }
+
+            .spoiler {
+                background-color: #577586;
+                border: 1px solid #333;
+                border-radius: 5px;
+            }
+
+            .spoiler_header {
+                color: #222;
+                font-weight: bold;
+                text-align: center;
+                vertical-align: middle;
+                cursor: pointer;
+                padding: 5px;
+            }
+
+            .spoiler_content {
+                border: 1px solid #aaa;
+                border-radius: 3px;
+                margin: 4px;
+                padding: 3px;
+                overflow-x: scroll;
+            }
+
+            table.details {
+                border: 1px solid #aaa;
+                width: auto;
+            }
+
+            table.details th, table.details td {
+                border: 1px solid #aaa;
+                border-radius: 3px;
+                vertical-align: middle;
+                min-width:  50px;
+                min-height: 50px;
+                font-weight: bold;
+            }
+
+            p.ev {
+                font-size: 8px;
+                color: #555;
+                text-wrap: nowrap;
+                margin: 3px 0px;
+            }
+
+            .red {
+                color: #d00;
+                background-color: #f99;
+                padding: 2px;
+            }
+
+            .green {
+                color: #0d0;
+                background-color: #9f9;
+                padding: 2px;
+            }
         </style>
 
         <!-- Setting the icon of the page -->
@@ -209,8 +266,18 @@
         </table>
         <button onclick="newRow();" class="pushy">+ Ajouter une ligne</button>
         <br><br>
+
         <center><input class="pushy" type="submit" value="Process" onClick="process(); return false;"/></center>
-        <div id="processBlock"></div>
+        <div id="processBlock" class="not-displayed">
+            <div class="spoiler">
+                <div class="spoiler_header prevent-select" onclick="spoiler('detailedResults');">
+                    <span id="detailedResults_icon1" class="material-symbols-outlined">add</span>
+                    Détails
+                    <span id="detailedResults_icon2" class="material-symbols-outlined">add</span>
+                </div>
+                <div id="detailedResults" class="spoiler_content not-displayed"></div>
+            </div>
+        </div>
         <div id="blankErrorBlock" class="errorMessage not-displayed">
             Erreur : veuillez remplir tous les champs à l'écran avant de valider.
         </div>
@@ -681,27 +748,36 @@
                 blankErrorBlock.classList.add("not-displayed");
                 valueErrorBlock.classList.add("not-displayed");
 
-                processBlock.className = "";
-                processBlock.innerHTML = "";
+                let detailsBlock = document.getElementById("detailedResults");
+
+                detailsBlock.innerHTML = "";
+
                 resultsTable = document.createElement("table");
+                resultsTable.className = "details";
                 resultsTableHeader = document.createElement("tr");
-                resultsTableHeader.innerHTML = "<th>Stat</th><th>Possible IVs</th><th>Chosen IV</th><th>Chosen EV</th><th>Recalculated stat</th>";
+                resultsTableHeader.innerHTML = `<th>Stat</th><th colspan="32">IV possibles</th>`;
                 resultsTable.appendChild(resultsTableHeader);
                 for (let statNo=0; statNo<6; statNo++) {
                     resultsRow = document.createElement("tr");
-                    resultsRow.innerHTML = `<th>${allstats[statNo]}</th><th>${possibleIVs_base[statNo]}</th><th>${results[statNo].iv}</th><th>${results[statNo].ev}</th><th>${(statNo==0) ?
-                                hp_stat(   finalBst[statNo], results[statNo].iv, results[statNo].ev, finalSummary[6]) :
-                                other_stat(finalBst[statNo], results[statNo].iv, results[statNo].ev, finalSummary[6], nature[statNo])}</th>`;
+                    resultsRow.innerHTML = `<th>${statnames[statNo]}</th>`;
+                    for (let n=0; n<32; n++) {
+                        if (possibleIVs_base[statNo].includes(n)) {
+                            let frm = (statNo==0) ? hp_frame(finalSummary[statNo], finalBst[statNo], finalSummary[6]) : other_frame(finalSummary[statNo], finalBst[statNo], finalSummary[6], nature[statNo]);
+                            resultsRow.innerHTML += `<th class="green">${n}<p class="ev">EV : ${Math.max(0, (frm.lower - n)*4)} - ${Math.min(255, (frm.upper - n)*4 + 3)}</p></th>`;
+                        } else {
+                            resultsRow.innerHTML += `<th class="red"></th>`;
+                        }
+                    }
                     resultsTable.appendChild(resultsRow);
                 }
-                processBlock.appendChild(resultsTable);
+                detailsBlock.appendChild(resultsTable);
                 let pcNumber = (results[4].iv %2)*32 +
                                 (results[3].iv %2)*16 +
                                 (results[5].iv %2)*8 +
                                 (results[2].iv %2)*4 +
                                 (results[1].iv %2)*2 +
                                 (results[0].iv %2)*1;
-                processBlock.innerHTML += `\nValeur PC : ${pcNumber}.`;
+                detailsBlock.innerHTML += `\nValeur PC : ${pcNumber}.`;
 
             }
 
@@ -912,6 +988,20 @@
                     arrow.classList.remove("leftward");
                     void arrow.offsetWidth;
                     arrow.classList.add("rightward");
+                }
+            }
+
+            function spoiler(blockId) {
+                let spoilerBlock = document.getElementById(blockId);
+                let icon1 = document.getElementById(blockId + "_icon1");
+                let icon2 = document.getElementById(blockId + "_icon2");
+
+                if (spoilerBlock.className.includes("not-displayed")) { // spoiler_opened spoiler_closed
+                    spoilerBlock.classList.remove("not-displayed");
+                    icon1.innerHTML = "remove"; icon2.innerHTML = "remove";
+                } else {
+                    spoilerBlock.classList.add("not-displayed");
+                    icon1.innerHTML = "add";    icon2.innerHTML = "add";
                 }
             }
         </script>
