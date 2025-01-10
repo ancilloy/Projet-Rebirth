@@ -109,10 +109,10 @@ function processing(statMatrix, bstMap, nature, carac, hpTxt) {
     return possibleIVs;
 }
 
-function biased_draw(l) {
+function biased_draw(l, bias=0.5) {
     // Draws a random element from the list, with a strong bias towards the end of the list
     let i = l.length - 1;;
-    while(i>0 && Math.random()>=0.5 ) { i--; }
+    while(i>0 && Math.random()>=bias ) { i--; }
     return l[i];
 }
 
@@ -130,12 +130,12 @@ function sum_attr(l, attr) {
     return s;
 }
 
-function selectIVs(possibleIVs_base, stats, bsts, nature, pcFilter) {
-    let results = [];
+function selectIVs(possibleIVs_base, stats, bsts, nature, pcFilter, carac) {
+    let results = [null, null, null, null, null, null];
     let iterationCount = 0;
     // The selection is repeated if the total of EVs exceeds 510
-    while (results.length==0 || sum_attr(results, "ev")>510) {
-        results = [];
+    while (results.includes(null) || sum_attr(results, "ev")>510) {
+        results = [null, null, null, null, null, null];
 
 
         // Emergency handle, if a solution hasn't been found after 5 tries
@@ -144,14 +144,16 @@ function selectIVs(possibleIVs_base, stats, bsts, nature, pcFilter) {
         }
 
 
-        // If there are no Hidden Power constraints, we just use the full possible IVs pool.
-        let possibleIVs = possibleIVs_base;
-        if (pcFilter!=null) {
+        let possibleIVs;
+        if (pcFilter==null) {
+            // If there are no Hidden Power constraints, we just use the full possible IVs pool.
+            possibleIVs = possibleIVs_base
+        } else {
 
             // The pcFilter lists all possible values for the binary number that decides Hidden Power type, bits sorted in stat order
 
             // Take a copy of the possible IVs pool
-            possibleIVs = possibleIVs_base;
+            possibleIVs = [];
             // Shuffling the filter, to avoid getting the same value all the time
             let shuffledFilter = pcFilter.sort((a,b) => 0.5 - Math.random());
             // Flag checking if we found a fitting filter
@@ -161,7 +163,7 @@ function selectIVs(possibleIVs_base, stats, bsts, nature, pcFilter) {
             for (let filterLine of shuffledFilter) {
                 for (let statNo=0; statNo<6; statNo++) {
                     // Filter the values to fit the filter
-                    possibleIVs[statNo] = possibleIVs[statNo].filter((x) => (x%2)==filterLine[statNo]);
+                    possibleIVs.push( possibleIVs_base[statNo].filter((x) => (x%2)==filterLine[statNo]) );
                 }
 
                 // If all stat have possible values, then we can stop this step
@@ -175,11 +177,26 @@ function selectIVs(possibleIVs_base, stats, bsts, nature, pcFilter) {
                 return null;
             }
         }
-        for (let statNo=0; statNo<6; statNo++) {
-            let ivPool = possibleIVs[statNo];
-            let iv = biased_draw(ivPool);
+
+        let order = range(6);
+        if (carac!=null) {
+            order[0]            = carac.statNo;
+            order[carac.statNo] = 0;
+        }
+
+        for (let statNo of order) {
+            let ivPool;
+            if (carac==null || statNo==carac.statNo) {
+                ivPool = possibleIVs[statNo];
+            } else {
+                ivPool = possibleIVs[statNo].filter(iv => iv<=results[carac.statNo].iv);
+                if (ivPool.length==0) { break; }
+            }
+
+            // For the highest stat, we have an even higher bias towards higher values (expecially since there are 4 times less)
+            let iv = biased_draw(ivPool, bias=((carac!=null && statNo==carac.statNo) ? 0.75 : 0.5));
             let frm = (statNo==0) ? hp_frame(stats[statNo], bsts[statNo], stats[6]) : other_frame(stats[statNo], bsts[statNo], stats[6], nature[statNo]);
-            results.push({ iv: iv, ev: random_matching_ev(frm, iv) });
+            results[statNo] = { iv: iv, ev: random_matching_ev(frm, iv) };
         }
         iterationCount++;
     }

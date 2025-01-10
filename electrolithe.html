@@ -12,6 +12,13 @@
                 overflow-y: scroll;
             }
 
+
+
+
+
+
+            /* Header */
+
             div.header {
                 text-align: center;
                 margin-bottom: 20px;
@@ -28,9 +35,10 @@
                 vertical-align: middle;
             }
 
-            th {
-                padding: 5px;
-            }
+
+
+
+            /* Pushy buttons */
 
             .pushy {
                 cursor: pointer;
@@ -47,9 +55,19 @@
               transform: translateY(2px);
             }
 
+
+
+
+            /* Icons */
+
             .material-symbols-outlined {
                 font-size: inherit;
             }
+
+
+
+
+            /* Slider */
 
             @keyframes kk_slidin {
                 0%   {left: 100%;}
@@ -58,7 +76,7 @@
 
             #zack_slider {
                 border: 1px solid;
-                border-color: black #577586 black black;
+                border-color: #333 #577586 #333 #333;
                 background-color: #577586;
 
                 box-sizing: border-box;
@@ -91,7 +109,7 @@
 
             .depasseur {
                 border: solid 1px;
-                border-color: black #577586 black black;
+                border-color: #333 #577586 #333 #333;
                 border-radius: 5px 0 0 5px;
                 background-color: inherit;
                 cursor: pointer;
@@ -120,6 +138,11 @@
                 transform: rotate(0turn);
             }
 
+
+
+
+            /* Error message blocks */
+
             .error {
                 background-color: rgb(255, 124, 124);
             }
@@ -136,6 +159,11 @@
             .not-displayed {
                 display: none;
             }
+
+
+
+
+            /* Spoiler */
 
             .spoiler {
                 background-color: #577586;
@@ -159,6 +187,15 @@
                 padding: 3px;
                 overflow-x: scroll;
             }
+
+
+
+
+            th {
+                padding: 5px;
+            }
+
+            /* Details table */
 
             table.details {
                 border: 1px solid #aaa;
@@ -191,6 +228,77 @@
                 color: #0d0;
                 background-color: #9f9;
                 padding: 2px;
+            }
+
+
+
+
+            /* Results table */
+
+            table.results {
+                border: 1px solid #333;
+                background-color: #577586;
+                border-spacing: 5px;
+                margin: auto;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+            }
+
+            table.results th, table.results td {
+                border: 1px solid;
+                border-color: #90dfd8 #406360 #406360 #90dfd8;
+                background-color: #578682;
+                vertical-align: middle;
+                padding: 5px;
+                margin: 5px;
+                border-radius: 5px;
+            }
+
+
+
+
+            /* Export */
+
+            .export {
+                position: relative;
+
+                border-radius: 5px;
+
+                background-color: #578682;
+                border: 1px solid #406360;
+
+                width: 60%;
+                margin: auto;
+            }
+
+            .export > #copyButton {
+                position: absolute;
+                top: 0%;
+                right: 0%;
+
+                padding: 5px;
+                border-radius: 0 5px;
+                cursor: pointer;
+
+                background-color: #9aefe8;
+                color: #578682;
+                border: 1px solid #406360;
+
+                width: 100px;
+                text-align: center;
+                font-weight: bold;
+            }
+
+            .export > #copyButton.triggered {
+                background-color: #578682;
+                color: #9aefe8;
+            }
+
+            #export {
+                margin: 10px;
+                padding: 0;
+                font-family: monaco, Consolas, Lucida Console, monospace;
             }
         </style>
 
@@ -276,6 +384,11 @@
                     <span id="detailedResults_icon2" class="material-symbols-outlined">add</span>
                 </div>
                 <div id="detailedResults" class="spoiler_content not-displayed"></div>
+            </div>
+            <div id="resultsBlock"></div>
+            <div class="export">
+                <button id="copyButton" class="prevent-select" onclick="copyExport();">Copier</button>
+                <p id="export">Lorem ipsum dolorem sic hamet</p>
             </div>
         </div>
         <div id="blankErrorBlock" class="errorMessage not-displayed">
@@ -633,7 +746,8 @@
                 let valueErrorBlock = document.getElementById("valueErrorBlock");
                 let blankErrorBlock = document.getElementById("blankErrorBlock");
 
-                let specie = document.getElementById('specieSelect').value;
+                let specieSelect = document.getElementById('specieSelect');
+                let specie = specieSelect.value;
                 //console.log(`Pokémon choisi : ${specie}`);
 
                 let natureElt = document.getElementById('natureSelect').selectedOptions[0];
@@ -648,7 +762,7 @@
                 let caracElt = document.getElementById('caractSelect').selectedOptions[0];
                 if (caracElt.value != "none") {
                     let caracSplit = caracElt.value.split(':');
-                    let carac = { statNo : allstats.indexOf(caracSplit[0]), modulo : parseInt(caracSplit[1]) };
+                    carac = { statNo : allstats.indexOf(caracSplit[0]), modulo : parseInt(caracSplit[1]) };
                     //console.log(`Caractéristique : ${caracElt.innerHTML}`);
                     //console.log(carac);
                 }
@@ -735,7 +849,7 @@
                 //console.log(possibleIVs_base);
                 finalSummary = statMatrix[statMatrix.length-1];
                 finalBst = bstMap.get(finalSummary[7]);
-                results = selectIVs(possibleIVs_base, finalSummary, finalBst, nature, pcFilter);
+                results = selectIVs(possibleIVs_base, finalSummary, finalBst, nature, pcFilter, carac);
                 //console.log(results);
                 if (results==null) {
                     valueErrorBlock.classList.remove("not-displayed");
@@ -749,35 +863,55 @@
                 valueErrorBlock.classList.add("not-displayed");
 
                 let detailsBlock = document.getElementById("detailedResults");
-
                 detailsBlock.innerHTML = "";
 
-                resultsTable = document.createElement("table");
-                resultsTable.className = "details";
-                resultsTableHeader = document.createElement("tr");
-                resultsTableHeader.innerHTML = `<th>Stat</th><th colspan="32">IV possibles</th>`;
-                resultsTable.appendChild(resultsTableHeader);
+                let detailsTable = document.createElement("table");
+                detailsTable.className = "details";
+
+                let detailsTableHeader = document.createElement("tr");
+                detailsTableHeader.innerHTML = `<th>Stat</th><th colspan="32">IV possibles</th>`;
+                detailsTable.appendChild(detailsTableHeader);
+
                 for (let statNo=0; statNo<6; statNo++) {
-                    resultsRow = document.createElement("tr");
-                    resultsRow.innerHTML = `<th>${statnames[statNo]}</th>`;
+                    let detailsRow = document.createElement("tr");
+                    detailsRow.innerHTML = `<th>${statnames[statNo]}</th>`;
                     for (let n=0; n<32; n++) {
                         if (possibleIVs_base[statNo].includes(n)) {
                             let frm = (statNo==0) ? hp_frame(finalSummary[statNo], finalBst[statNo], finalSummary[6]) : other_frame(finalSummary[statNo], finalBst[statNo], finalSummary[6], nature[statNo]);
-                            resultsRow.innerHTML += `<th class="green">${n}<p class="ev">EV : ${Math.max(0, (frm.lower - n)*4)} - ${Math.min(255, (frm.upper - n)*4 + 3)}</p></th>`;
+                            detailsRow.innerHTML += `<th class="green">${n}<p class="ev">EV : ${Math.max(0, (frm.lower - n)*4)} - ${Math.min(255, (frm.upper - n)*4 + 3)}</p></th>`;
                         } else {
-                            resultsRow.innerHTML += `<th class="red"></th>`;
+                            detailsRow.innerHTML += `<th class="red"></th>`;
                         }
                     }
-                    resultsTable.appendChild(resultsRow);
+                    detailsTable.appendChild(detailsRow);
                 }
-                detailsBlock.appendChild(resultsTable);
-                let pcNumber = (results[4].iv %2)*32 +
+                detailsBlock.appendChild(detailsTable);
+
+                let pcNumber =  (results[4].iv %2)*32 +
                                 (results[3].iv %2)*16 +
-                                (results[5].iv %2)*8 +
-                                (results[2].iv %2)*4 +
-                                (results[1].iv %2)*2 +
-                                (results[0].iv %2)*1;
-                detailsBlock.innerHTML += `\nValeur PC : ${pcNumber}.`;
+                                (results[5].iv %2)*8  +
+                                (results[2].iv %2)*4  +
+                                (results[1].iv %2)*2  +
+                                (results[0].iv %2)*1  ;
+                detailsBlock.innerHTML += `<br>Valeur PC : ${pcNumber}.`;
+
+                let resultsBlock = document.getElementById("resultsBlock");
+                resultsBlock.innerHTML = "";
+
+                let resultsTable = document.createElement("table");
+                resultsTable.className = "results";
+                resultsTable.innerHTML = "<thead><tr><th>Stat</th><th>IV</th><th>EV</th></tr></thead>";
+
+                let resultsTableBody = document.createElement("tbody");
+                for (let statNo=0; statNo<6; statNo++) {
+                    let r = results[statNo];
+                    resultsTableBody.innerHTML += `<tr><td>${statnames[statNo]}</td><td>${r.iv}</td><td>${r.ev}</td></tr>`;
+                }
+
+                resultsTable.appendChild(resultsTableBody);
+                resultsBlock.appendChild(resultsTable);
+
+                showdown(specieSelect.selectedOptions[0].innerHTML, natureElt.innerHTML, results);
 
             }
 
@@ -1003,6 +1137,38 @@
                     spoilerBlock.classList.add("not-displayed");
                     icon1.innerHTML = "add";    icon2.innerHTML = "add";
                 }
+            }
+
+            function showdown(engName, engNature, results) {
+                let exp = `${engName}<br>EVs:`;
+
+                let shortstats = ["HP", "Atk", "Def", "SpA", "SpD", "Spe"];
+
+                for (let statNo=0; statNo<6; statNo++) {
+                    exp += ` ${results[statNo].ev} ${shortstats[statNo]}`;
+                    if (statNo<5) { exp += " /" }
+                }
+
+                exp += `<br>${engNature} Nature<br>IVs:`;
+
+                for (let statNo=0; statNo<6; statNo++) {
+                    exp += ` ${results[statNo].iv} ${shortstats[statNo]}`;
+                    if (statNo<5) { exp += " /" }
+                }
+
+                document.getElementById("export").innerHTML = exp;
+            }
+
+            function copyExport() {
+                navigator.clipboard.writeText(document.getElementById("export").innerHTML.replaceAll("<br>", "\n"));
+
+                let copyButton = document.getElementById("copyButton");
+                copyButton.classList.add("triggered");
+                copyButton.innerHTML = "Copié";
+                setTimeout(() => {
+                    copyButton.classList.remove("triggered");
+                    copyButton.innerHTML = "Copier";
+                }, 1000);
             }
         </script>
 
