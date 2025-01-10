@@ -5,11 +5,23 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
         <style>
             body {
-                background-image: url('https://archives.bulbagarden.net/media/upload/b/b6/BW_Chargestone_Cave_Tile.png');
-                background-size: 34px 34px;
-                color: #00aeff;
+                background-image: url('electroblur.png');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-attachment: fixed;
+
                 overflow-x: hidden;
                 overflow-y: scroll;
+            }
+
+            .main {
+                color: #00aeff;
+                background-color: #48608099;
+                border: 1px solid #333;
+                width: 90%;
+                margin: auto;
+                padding: 5px;
             }
 
 
@@ -307,871 +319,873 @@
     </head>
 
     <body>
-        <div class="header">
-            <img src="rocher_flottant.png">
-            <h2>Bienvenue dans la Grotte Electrolithe</h2>
-            <img src="rocher_flottant.png" onclick="rotateSummaries();">
-        </div>
+        <div class="main">
+            <div class="header">
+                <img src="rocher_flottant.png">
+                <h2>Bienvenue dans la Grotte Electrolithe</h2>
+                <img src="rocher_flottant.png" onclick="rotateSummaries();">
+            </div>
 
-        <b>Génération</b><select id="genSelect"></select>
+            <b>Génération</b><select id="genSelect"></select>
 
-        <table>
-            <tr>
-                <th>Entrez les informations sur le Pokémon :</th>
-                <th>Pokémon</th>
-                <th>Nature</th>
-                <th>Caractéristique</th>
-                <th>Type Puissance Cachée</th>
-            </tr>
-            <tr>
-                <th></th>
-                <th><select id="specieSelect" gen="0"></select></th>
-                <th><select id="natureSelect"></select></th>
-                <th><select id="caractSelect">
-                    <option value="none" selected=true>(non renseigné)</option>
-                </select></th>
-                <th><select id="pcSelect">
-                    <option value="??????" selected=true>(non renseigné)</option>
-                </select></th>
-            </tr>
-        </table>
-        <div id="zack_slider" class="slider_base">
-            Il peut y avoir des erreurs dans les stats de base des Pokémon. En cas de problème, n'hésitez pas à vérifier les données ci-dessous et à les modifier, puis à relancer le calculateur.
-            <table id="bstEditor"></table>
-            <div class="depasseur prevent-select" onclick="slide();">Base stats <span id="slide_arrow" class="material-symbols-outlined leftward">keyboard_double_arrow_up</span></div>
-        </div>
-        <table>
-            <thead>
+            <table>
                 <tr>
-                    <th>Stade évolutif</th>
-                    <th>Sprite</th>
-                    <th>Niveau</th>
-                    <th>|</th>
-                    <th>PV</th>
-                    <th>Attaque</th>
-                    <th>Défense</th>
-                    <th>Attaque spéciale</th>
-                    <th>Défense spéciale</th>
-                    <th>Vitesse</th>
-                    <th></th>
+                    <th>Entrez les informations sur le Pokémon :</th>
+                    <th>Pokémon</th>
+                    <th>Nature</th>
+                    <th>Caractéristique</th>
+                    <th>Type Puissance Cachée</th>
                 </tr>
-            </thead>
-            <tbody id="stat-table-body">
-                <tr id="row-1">
-                    <th><select id="row-1-stade"></select></th>
-                    <th id="row-1-spritecell"></th>
-                    <th><input id="row-1-niveau"      type="number" min="1" max="100"/></th>
-                    <th>|</th>
-                    <th><input id="row-1-pv"          type="number" min="1" max="999"/></th>
-                    <th><input id="row-1-attaque"     type="number" min="1" max="999"/></th>
-                    <th><input id="row-1-defense"     type="number" min="1" max="999"/></th>
-                    <th><input id="row-1-attaque-spe" type="number" min="1" max="999"/></th>
-                    <th><input id="row-1-defense-spe" type="number" min="1" max="999"/></th>
-                    <th><input id="row-1-vitesse"     type="number" min="1" max="999"/></th>
+                <tr>
                     <th></th>
+                    <th><select id="specieSelect" gen="0"></select></th>
+                    <th><select id="natureSelect"></select></th>
+                    <th><select id="caractSelect">
+                        <option value="none" selected=true>(non renseigné)</option>
+                    </select></th>
+                    <th><select id="pcSelect">
+                        <option value="??????" selected=true>(non renseigné)</option>
+                    </select></th>
                 </tr>
-            </tbody>
-        </table>
-        <button onclick="newRow();" class="pushy">+ Ajouter une ligne</button>
-        <br><br>
+            </table>
+            <div id="zack_slider" class="slider_base">
+                Il peut y avoir des erreurs dans les stats de base des Pokémon. En cas de problème, n'hésitez pas à vérifier les données ci-dessous et à les modifier, puis à relancer le calculateur.
+                <table id="bstEditor"></table>
+                <div class="depasseur prevent-select" onclick="slide();">Base stats <span id="slide_arrow" class="material-symbols-outlined leftward">keyboard_double_arrow_up</span></div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stade évolutif</th>
+                        <th>Sprite</th>
+                        <th>Niveau</th>
+                        <th>|</th>
+                        <th>PV</th>
+                        <th>Attaque</th>
+                        <th>Défense</th>
+                        <th>Attaque spéciale</th>
+                        <th>Défense spéciale</th>
+                        <th>Vitesse</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="stat-table-body">
+                    <tr id="row-1">
+                        <th><select id="row-1-stade"></select></th>
+                        <th id="row-1-spritecell"></th>
+                        <th><input id="row-1-niveau"      type="number" min="1" max="100"/></th>
+                        <th>|</th>
+                        <th><input id="row-1-pv"          type="number" min="1" max="999"/></th>
+                        <th><input id="row-1-attaque"     type="number" min="1" max="999"/></th>
+                        <th><input id="row-1-defense"     type="number" min="1" max="999"/></th>
+                        <th><input id="row-1-attaque-spe" type="number" min="1" max="999"/></th>
+                        <th><input id="row-1-defense-spe" type="number" min="1" max="999"/></th>
+                        <th><input id="row-1-vitesse"     type="number" min="1" max="999"/></th>
+                        <th></th>
+                    </tr>
+                </tbody>
+            </table>
+            <button onclick="newRow();" class="pushy">+ Ajouter une ligne</button>
+            <br><br>
 
-        <center><input class="pushy" type="submit" value="Process" onClick="process(); return false;"/></center>
-        <div id="processBlock" class="not-displayed">
-            <div class="spoiler">
-                <div class="spoiler_header prevent-select" onclick="spoiler('detailedResults');">
-                    <span id="detailedResults_icon1" class="material-symbols-outlined">add</span>
-                    Détails
-                    <span id="detailedResults_icon2" class="material-symbols-outlined">add</span>
+            <center><input class="pushy" type="submit" value="Process" onClick="process(); return false;"/></center>
+            <div id="processBlock" class="not-displayed">
+                <div class="spoiler">
+                    <div class="spoiler_header prevent-select" onclick="spoiler('detailedResults');">
+                        <span id="detailedResults_icon1" class="material-symbols-outlined">add</span>
+                        Détails
+                        <span id="detailedResults_icon2" class="material-symbols-outlined">add</span>
+                    </div>
+                    <div id="detailedResults" class="spoiler_content not-displayed"></div>
                 </div>
-                <div id="detailedResults" class="spoiler_content not-displayed"></div>
+                <div id="resultsBlock"></div>
+                <div class="export">
+                    <button id="copyButton" class="prevent-select" onclick="copyExport();">Copier</button>
+                    <p id="export">Lorem ipsum dolorem sic hamet</p>
+                </div>
             </div>
-            <div id="resultsBlock"></div>
-            <div class="export">
-                <button id="copyButton" class="prevent-select" onclick="copyExport();">Copier</button>
-                <p id="export">Lorem ipsum dolorem sic hamet</p>
+            <div id="blankErrorBlock" class="errorMessage not-displayed">
+                Erreur : veuillez remplir tous les champs à l'écran avant de valider.
             </div>
-        </div>
-        <div id="blankErrorBlock" class="errorMessage not-displayed">
-            Erreur : veuillez remplir tous les champs à l'écran avant de valider.
-        </div>
-        <div id="valueErrorBlock" class="errorMessage not-displayed">
-            Erreur : aucune valeur ne correspond aux données renseignées. Pour régler ce problème :
-            <ul>
-                <li>Vérifiez bien les données que vous avez entrées.</li>
-                <li>Il peut y avoir une erreur dans les stats de base du Pokémon de l'API. Cliquez sur le panneau base stats sur la droite de l'écran, et vérifiez que les stats correspondent à celles renseignées sur Poképédia et Bulbapedia. En cas d'erreur, vous pouvez les modifier directement et relancer le calculateur.</li>
-                <li>Au pire du pire, contactez moi lol.</li>
-            </ul>
-        </div>
-        <br><br>
+            <div id="valueErrorBlock" class="errorMessage not-displayed">
+                Erreur : aucune valeur ne correspond aux données renseignées. Pour régler ce problème :
+                <ul>
+                    <li>Vérifiez bien les données que vous avez entrées.</li>
+                    <li>Il peut y avoir une erreur dans les stats de base du Pokémon de l'API. Cliquez sur le panneau base stats sur la droite de l'écran, et vérifiez que les stats correspondent à celles renseignées sur Poképédia et Bulbapedia. En cas d'erreur, vous pouvez les modifier directement et relancer le calculateur.</li>
+                    <li>Au pire du pire, contactez moi lol.</li>
+                </ul>
+            </div>
+            <br><br>
 
-        <script src="statcalc.js"></script>
-        <script>
-            // Setting the Pokemon specie list change listener
-            document.getElementById("specieSelect").onchange = pokemon_list_ener;
+            <script src="statcalc.js"></script>
+            <script>
+                // Setting the Pokemon specie list change listener
+                document.getElementById("specieSelect").onchange = pokemon_list_ener;
 
-            // Initializing the gen select picklist
-            genSelect = document.getElementById("genSelect");
-            for (let i=3; i<=9; i++) {
-                genSelect.innerHTML += `<option value="${i}" onclick="updatePokeList(${i});"${i==3 ? ' selected=true' : ''}>${i}</option>`;
-            }
-
-            // Prewritten summaries for testing purposes
-            summaries = [
-                {
-                    gen: "5",
-                    specie: "moyade",
-                    nature: "***-+",
-                    caract: "defense:1",
-                    typePC: "???100:17:20",
-                    stats: [
-                        {
-                            stade:"moyade",
-                            niveau: 52,
-                            pv:  172,
-                            atk: 80,
-                            def: 93,
-                            asp: 108,
-                            dsp: 109,
-                            vit: 86
-                        }
-                    ]
-                },
-                {
-                    gen: "5",
-                    specie: "siderella",
-                    nature: "*+**-",
-                    caract: "defense:3",
-                    typePC: "????0?:13:16",
-                    stats: [
-                        {
-                            stade:"scrutella",
-                            niveau: 27,
-                            pv:  61,
-                            atk: 26,
-                            def: 42,
-                            asp: 39,
-                            dsp: 40,
-                            vit: 30
-                        },
-                        {
-                            stade:"scrutella",
-                            niveau: 31,
-                            pv:  70,
-                            atk: 31,
-                            def: 48,
-                            asp: 44,
-                            dsp: 45,
-                            vit: 35
-                        },
-                        {
-                            stade:"mesmerella",
-                            niveau: 37,
-                            pv:  93,
-                            atk: 49,
-                            def: 75,
-                            asp: 66,
-                            dsp: 68,
-                            vit: 49
-                        },
-                        {
-                            stade:"mesmerella",
-                            niveau: 38,
-                            pv:  96,
-                            atk: 51,
-                            def: 78,
-                            asp: 68,
-                            dsp: 70,
-                            vit: 51
-                        },
-                        {
-                            stade:"siderella",
-                            niveau: 43,
-                            pv:  116,
-                            atk: 69,
-                            def: 111,
-                            asp: 94,
-                            dsp: 100,
-                            vit: 66
-                        },
-                        {
-                            stade:"siderella",
-                            niveau: 52,
-                            pv:  144,
-                            atk: 85,
-                            def: 134,
-                            asp: 113,
-                            dsp: 120,
-                            vit: 80
-                        }
-                    ],
-                    statModif : [
-                        {stade: "scrutella", stat: "special-attack" , newValue: 55 },
-                        {stade: "scrutella", stat: "special-defense", newValue: 65 }
-                    ]
-                },
-                {
-                    gen: "5",
-                    specie: "zeblitz",
-                    nature: "-*+**",
-                    caract: "special-defense:2",
-                    typePC: "111111:63:63",
-                    stats: [
-                        {
-                            stade:"zeblitz",
-                            niveau: 52,
-                            pv:  154,
-                            atk: 104,
-                            def: 72,
-                            asp: 99,
-                            dsp: 84,
-                            vit: 151
-                        }
-                    ]
+                // Initializing the gen select picklist
+                genSelect = document.getElementById("genSelect");
+                for (let i=3; i<=9; i++) {
+                    genSelect.innerHTML += `<option value="${i}" onclick="updatePokeList(${i});"${i==3 ? ' selected=true' : ''}>${i}</option>`;
                 }
-            ];
 
-
-
-
-            // Functions for handling Pokemon change
-            async function pokemon_list_ener() {
-                await onPokemonPick(this.value);
-            }
-            // Cette fonction est séparée pour pouvoir l'appeler à d'autres endroits du code.
-            async function onPokemonPick(pokeName) {
-                await updateBstEditor(pokeName);
-                let n = document.getElementById("stat-table-body").childElementCount;
-                await updateStade(range(1, n+1), pokeName);
-            }
-            onPokemonPick("bulbizarre");
-
-
-
-
-            // Récupère les données d'un Pokémon donné dans l'API, et y applique une fonction donnée
-            async function fetchPokemonData(pokeName, func) {
-                // Depending on the cases, we might need to look in the API or in the local JSON
-                if (pokeName.substr(0, 6) == 'local:') { // Local JSON
-                    splitName = pokeName.substr(6).split('/');
-                    gen = parseInt(splitName[0]);
-                    trueName = splitName[1];
-
-                    let response = await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json');
-                    let data = await response.json();
-                    let poke = data.autres_pokemon[gen].find(elt => elt.name.fr === trueName);
-                    return await func(poke);
-                } else { // API
-                    let response = await fetch(`https://tyradex.vercel.app/api/v1/pokemon/${pokeName}`);
-                    let data = await response.json();
-
-                    // Appel explicite et attente de `func`
-                    return await func(data);
-                }
-            }
-
-
-
-            // Update the evolution stage picklists
-            async function updateStade(rows, pokeName) {
-                await fetchPokemonData(pokeName, (poke) => {
-                    innerSelect = "";
-                    if (poke.evolution != null && poke.evolution.pre != null) {
-                        poke.evolution.pre.forEach(item => {
-                            let path = (item.path!=null) ? item.path : formatName(item.name);
-                            innerSelect += `<option value="${path}">${item.name}</option>`;
-                        });
+                // Prewritten summaries for testing purposes
+                summaries = [
+                    {
+                        gen: "5",
+                        specie: "moyade",
+                        nature: "***-+",
+                        caract: "defense:1",
+                        typePC: "???100:17:20",
+                        stats: [
+                            {
+                                stade:"moyade",
+                                niveau: 52,
+                                pv:  172,
+                                atk: 80,
+                                def: 93,
+                                asp: 108,
+                                dsp: 109,
+                                vit: 86
+                            }
+                        ]
+                    },
+                    {
+                        gen: "5",
+                        specie: "siderella",
+                        nature: "*+**-",
+                        caract: "defense:3",
+                        typePC: "????0?:13:16",
+                        stats: [
+                            {
+                                stade:"scrutella",
+                                niveau: 27,
+                                pv:  61,
+                                atk: 26,
+                                def: 42,
+                                asp: 39,
+                                dsp: 40,
+                                vit: 30
+                            },
+                            {
+                                stade:"scrutella",
+                                niveau: 31,
+                                pv:  70,
+                                atk: 31,
+                                def: 48,
+                                asp: 44,
+                                dsp: 45,
+                                vit: 35
+                            },
+                            {
+                                stade:"mesmerella",
+                                niveau: 37,
+                                pv:  93,
+                                atk: 49,
+                                def: 75,
+                                asp: 66,
+                                dsp: 68,
+                                vit: 49
+                            },
+                            {
+                                stade:"mesmerella",
+                                niveau: 38,
+                                pv:  96,
+                                atk: 51,
+                                def: 78,
+                                asp: 68,
+                                dsp: 70,
+                                vit: 51
+                            },
+                            {
+                                stade:"siderella",
+                                niveau: 43,
+                                pv:  116,
+                                atk: 69,
+                                def: 111,
+                                asp: 94,
+                                dsp: 100,
+                                vit: 66
+                            },
+                            {
+                                stade:"siderella",
+                                niveau: 52,
+                                pv:  144,
+                                atk: 85,
+                                def: 134,
+                                asp: 113,
+                                dsp: 120,
+                                vit: 80
+                            }
+                        ],
+                        statModif : [
+                            {stade: "scrutella", stat: "special-attack" , newValue: 55 },
+                            {stade: "scrutella", stat: "special-defense", newValue: 65 }
+                        ]
+                    },
+                    {
+                        gen: "5",
+                        specie: "zeblitz",
+                        nature: "-*+**",
+                        caract: "special-defense:2",
+                        typePC: "111111:63:63",
+                        stats: [
+                            {
+                                stade:"zeblitz",
+                                niveau: 52,
+                                pv:  154,
+                                atk: 104,
+                                def: 72,
+                                asp: 99,
+                                dsp: 84,
+                                vit: 151
+                            }
+                        ]
                     }
-                    innerSelect += `<option value="${pokeName}" selected=true>${poke.name.fr}</option>`;
-
-                    rows.forEach(n => {
-                        document.getElementById(`row-${n}-stade`).innerHTML = innerSelect;
-                        updateSprite(n, pokeName);
-                    });
-                });
-            }
-
-            function updateSprite(row, stade) {
-                let spriteCell = document.getElementById(`row-${row}-spritecell`);
-                spriteCell.innerHTML = "";
-
-                let newSprite = document.getElementById(`sprite-${stade}`).cloneNode();
-                newSprite.id = null;
-                spriteCell.appendChild(newSprite);
-            }
-
-            function stadeChangeListener() {
-                updateSprite( this.id.split('-')[1], this.value );
-            }
-            document.getElementById("row-1-stade").onchange = stadeChangeListener;
+                ];
 
 
 
-            // Fetching natures from PokeAPI
-            function fetchNatures(url) {
-                fetch(url)
-                    .then(async response => await response.json())
-                    .then(data => {
-                        natureSelect = document.getElementById('natureSelect');
 
-                        data.results.forEach(item => {
-                            fetch(item.url)
-                                .then(async response => await response.json())
-                                .then(data => {
-                                    val = ["*", "*", "*", "*", "*"];
-                                    if (data.increased_stat != null) {
-                                        val[ allstats.findIndex(item => item==data.increased_stat.name)-1 ] = "+";
-                                        val[ allstats.findIndex(item => item==data.decreased_stat.name)-1 ] = "-";
-                                    }
+                // Functions for handling Pokemon change
+                async function pokemon_list_ener() {
+                    await onPokemonPick(this.value);
+                }
+                // Cette fonction est séparée pour pouvoir l'appeler à d'autres endroits du code.
+                async function onPokemonPick(pokeName) {
+                    await updateBstEditor(pokeName);
+                    let n = document.getElementById("stat-table-body").childElementCount;
+                    await updateStade(range(1, n+1), pokeName);
+                }
+                onPokemonPick("bulbizarre");
 
-                                    newOption = document.createElement('option');
-                                    newOption.innerHTML = data.names.find(elt => elt.language.name == 'fr').name;
-                                    newOption.value = val.join('');
-                                    natureSelect.appendChild(newOption);
-                                });
+
+
+
+                // Récupère les données d'un Pokémon donné dans l'API, et y applique une fonction donnée
+                async function fetchPokemonData(pokeName, func) {
+                    // Depending on the cases, we might need to look in the API or in the local JSON
+                    if (pokeName.substr(0, 6) == 'local:') { // Local JSON
+                        splitName = pokeName.substr(6).split('/');
+                        gen = parseInt(splitName[0]);
+                        trueName = splitName[1];
+
+                        let response = await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json');
+                        let data = await response.json();
+                        let poke = data.autres_pokemon[gen].find(elt => elt.name.fr === trueName);
+                        return await func(poke);
+                    } else { // API
+                        let response = await fetch(`https://tyradex.vercel.app/api/v1/pokemon/${pokeName}`);
+                        let data = await response.json();
+
+                        // Appel explicite et attente de `func`
+                        return await func(data);
+                    }
+                }
+
+
+
+                // Update the evolution stage picklists
+                async function updateStade(rows, pokeName) {
+                    await fetchPokemonData(pokeName, (poke) => {
+                        innerSelect = "";
+                        if (poke.evolution != null && poke.evolution.pre != null) {
+                            poke.evolution.pre.forEach(item => {
+                                let path = (item.path!=null) ? item.path : formatName(item.name);
+                                innerSelect += `<option value="${path}">${item.name}</option>`;
+                            });
+                        }
+                        innerSelect += `<option value="${pokeName}" selected=true>${poke.name.fr}</option>`;
+
+                        rows.forEach(n => {
+                            document.getElementById(`row-${n}-stade`).innerHTML = innerSelect;
+                            updateSprite(n, pokeName);
                         });
-                        if (data.next != null) { fetchNatures(data.next); }
-                    })
-                    .catch(error => console.error('Erreur lors de l\'appel API :', error));
-            }
-            fetchNatures("https://pokeapi.co/api/v2/nature");
-
-            // Fetching characteristics from PokeAPI
-            function fetchCaracteristics(url) {
-                fetch(url)
-                    .then(async response => await response.json())
-                    .then(data => {
-                        caractSelect = document.getElementById('caractSelect');
-
-                        data.results.forEach(item => {
-                            fetch(item.url)
-                                .then(async response => await response.json())
-                                .then(data => {
-                                    newOption = document.createElement('option');
-                                    newOption.innerHTML = data.descriptions.find(elt => elt.language.name == 'fr').description;
-                                    newOption.value = data.highest_stat.name + ':' + data.gene_modulo;
-                                    caractSelect.appendChild(newOption);
-                                });
-                        });
-                        if (data.next != null) { fetchCaracteristics(data.next); }
-                    })
-                    .catch(error => console.error('Erreur lors de l\'appel API :', error));
-            };
-            fetchCaracteristics("https://pokeapi.co/api/v2/characteristic");
-
-            genSelect = document.getElementById("pcSelect");
-            fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
-                .then(async response => await response.json())
-                .then(data => {
-                    data.pc.forEach(item => {
-                        newOption = document.createElement('option');
-                        newOption.innerHTML = item.type;
-                        newOption.value = `${item.effet_garanti}:${item.minVal}:${item.maxVal}`;
-                        pcSelect.appendChild(newOption);
                     });
                 }
-            );
 
+                function updateSprite(row, stade) {
+                    let spriteCell = document.getElementById(`row-${row}-spritecell`);
+                    spriteCell.innerHTML = "";
 
-
-            // Turns a Pokemon name into the name required to access the API
-            function formatName(name) {
-                if (name=="Mime Jr.") { return "439"; }
-                return name
-                    .replace(" d'", "/").replace(" de ", "/") // Pour les formes régionales
-                    .replace("♀", "-f").replace("♂", "-m") // Pour les Nidorans
-                    .replace(". ", ".") // Pour M. Mime et M. Glaquette
-                    .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // suppression des accents
-                    .toLowerCase();
-            }
-
-            // Reads from the API the list of all Pokemon from a generation with the given url
-            async function fetchPokemonSpeciesList(url) {
-                await fetch(url)
-                    .then(async response => await response.json())
-                    .then(data => {
-                        specieSelect = document.getElementById('specieSelect');
-
-                        data.forEach(item => {
-                            newPokeOption = document.createElement('option');
-                            newPokeOption.innerHTML = item.name.fr;
-                            newPokeOption.value = formatName(item.name.fr);
-                            specieSelect.appendChild(newPokeOption);
-                        });
-                    })
-                    .catch(error => console.error('Erreur lors de l\'appel API :', error));
-            }
-
-
-
-            // Updates the list of species, when the gen has been changed
-            async function updatePokeList(newGen) {
-                specieSelect = document.getElementById('specieSelect');
-                oldGen = parseInt(specieSelect.getAttribute("gen"));
-                if (newGen < oldGen) {
-                    specieSelect.innerHTML = "";
-                    oldGen = 0;
-
-                    await updateBstEditor('bulbizarre');
-                    updateStade(range(1, document.getElementById("stat-table-body").childElementCount+1), 'bulbizarre');
+                    let newSprite = document.getElementById(`sprite-${stade}`).cloneNode();
+                    newSprite.id = null;
+                    spriteCell.appendChild(newSprite);
                 }
-                for (n=oldGen+1; n<=newGen; n++) {
-                    await fetchPokemonSpeciesList(`https://tyradex.vercel.app/api/v1/gen/${n}`);
-                    await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
+
+                function stadeChangeListener() {
+                    updateSprite( this.id.split('-')[1], this.value );
+                }
+                document.getElementById("row-1-stade").onchange = stadeChangeListener;
+
+
+
+                // Fetching natures from PokeAPI
+                function fetchNatures(url) {
+                    fetch(url)
                         .then(async response => await response.json())
                         .then(data => {
-                            data.autres_pokemon[n].forEach(item => {
+                            natureSelect = document.getElementById('natureSelect');
+
+                            data.results.forEach(item => {
+                                fetch(item.url)
+                                    .then(async response => await response.json())
+                                    .then(data => {
+                                        val = ["*", "*", "*", "*", "*"];
+                                        if (data.increased_stat != null) {
+                                            val[ allstats.findIndex(item => item==data.increased_stat.name)-1 ] = "+";
+                                            val[ allstats.findIndex(item => item==data.decreased_stat.name)-1 ] = "-";
+                                        }
+
+                                        newOption = document.createElement('option');
+                                        newOption.innerHTML = data.names.find(elt => elt.language.name == 'fr').name;
+                                        newOption.value = val.join('');
+                                        natureSelect.appendChild(newOption);
+                                    });
+                            });
+                            if (data.next != null) { fetchNatures(data.next); }
+                        })
+                        .catch(error => console.error('Erreur lors de l\'appel API :', error));
+                }
+                fetchNatures("https://pokeapi.co/api/v2/nature");
+
+                // Fetching characteristics from PokeAPI
+                function fetchCaracteristics(url) {
+                    fetch(url)
+                        .then(async response => await response.json())
+                        .then(data => {
+                            caractSelect = document.getElementById('caractSelect');
+
+                            data.results.forEach(item => {
+                                fetch(item.url)
+                                    .then(async response => await response.json())
+                                    .then(data => {
+                                        newOption = document.createElement('option');
+                                        newOption.innerHTML = data.descriptions.find(elt => elt.language.name == 'fr').description;
+                                        newOption.value = data.highest_stat.name + ':' + data.gene_modulo;
+                                        caractSelect.appendChild(newOption);
+                                    });
+                            });
+                            if (data.next != null) { fetchCaracteristics(data.next); }
+                        })
+                        .catch(error => console.error('Erreur lors de l\'appel API :', error));
+                };
+                fetchCaracteristics("https://pokeapi.co/api/v2/characteristic");
+
+                genSelect = document.getElementById("pcSelect");
+                fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
+                    .then(async response => await response.json())
+                    .then(data => {
+                        data.pc.forEach(item => {
+                            newOption = document.createElement('option');
+                            newOption.innerHTML = item.type;
+                            newOption.value = `${item.effet_garanti}:${item.minVal}:${item.maxVal}`;
+                            pcSelect.appendChild(newOption);
+                        });
+                    }
+                );
+
+
+
+                // Turns a Pokemon name into the name required to access the API
+                function formatName(name) {
+                    if (name=="Mime Jr.") { return "439"; }
+                    return name
+                        .replace(" d'", "/").replace(" de ", "/") // Pour les formes régionales
+                        .replace("♀", "-f").replace("♂", "-m") // Pour les Nidorans
+                        .replace(". ", ".") // Pour M. Mime et M. Glaquette
+                        .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // suppression des accents
+                        .toLowerCase();
+                }
+
+                // Reads from the API the list of all Pokemon from a generation with the given url
+                async function fetchPokemonSpeciesList(url) {
+                    await fetch(url)
+                        .then(async response => await response.json())
+                        .then(data => {
+                            specieSelect = document.getElementById('specieSelect');
+
+                            data.forEach(item => {
                                 newPokeOption = document.createElement('option');
                                 newPokeOption.innerHTML = item.name.fr;
-                                newPokeOption.value = `local:${n}/${item.name.fr}`;
+                                newPokeOption.value = formatName(item.name.fr);
                                 specieSelect.appendChild(newPokeOption);
                             });
-                        });
-                }
-                specieSelect.setAttribute("gen", newGen);
-            }
-            updatePokeList(3);
-
-
-
-
-            function bin6(n) {
-                res = n.toString(2);
-                while (res.length < 6) { res = "0" + res; }
-                return res;
-            }
-
-            // Cette fonction est un meme à ce stade. Elle fait des trucs, je crois.
-            async function process() {
-                let processBlock = document.getElementById("processBlock");
-                let valueErrorBlock = document.getElementById("valueErrorBlock");
-                let blankErrorBlock = document.getElementById("blankErrorBlock");
-
-                let specieSelect = document.getElementById('specieSelect');
-                let specie = specieSelect.value;
-                //console.log(`Pokémon choisi : ${specie}`);
-
-                let natureElt = document.getElementById('natureSelect').selectedOptions[0];
-                let nature = [null];
-                for (let i = 0; i<5; i++) {
-                    let c = natureElt.value.charAt(i);
-                    nature.push((c=='+') ? 1.1 : ((c=='-') ? 0.9 : 1));
-                }
-                //console.log(`Nature : ${natureElt.innerHTML} ( ${nature} )`);
-
-                let carac = null;
-                let caracElt = document.getElementById('caractSelect').selectedOptions[0];
-                if (caracElt.value != "none") {
-                    let caracSplit = caracElt.value.split(':');
-                    carac = { statNo : allstats.indexOf(caracSplit[0]), modulo : parseInt(caracSplit[1]) };
-                    //console.log(`Caractéristique : ${caracElt.innerHTML}`);
-                    //console.log(carac);
+                        })
+                        .catch(error => console.error('Erreur lors de l\'appel API :', error));
                 }
 
-                let totalSummaries = document.getElementById("stat-table-body").childElementCount;
-                let statMatrix = [];
-                let bstMap = new Map();
-                let failure = false;
-                for (let i=1; i<=totalSummaries; i++) {
-                    let stadeName = document.getElementById(`row-${i}-stade`).selectedOptions[0].value;
-                    if (!bstMap.has(stadeName)) {
-                        let bst = [];
-                        for (let statNo=0; statNo<6; statNo++) {
-                            bst.push( parseInt( document.getElementById(`bst-${stadeName}-${allstats[statNo]}`).value ) );
-                        }
-                        bstMap.set(stadeName, bst);
+
+
+                // Updates the list of species, when the gen has been changed
+                async function updatePokeList(newGen) {
+                    specieSelect = document.getElementById('specieSelect');
+                    oldGen = parseInt(specieSelect.getAttribute("gen"));
+                    if (newGen < oldGen) {
+                        specieSelect.innerHTML = "";
+                        oldGen = 0;
+
+                        await updateBstEditor('bulbizarre');
+                        updateStade(range(1, document.getElementById("stat-table-body").childElementCount+1), 'bulbizarre');
                     }
-
-                    let newLine = [];
-                    for (let id of [`row-${i}-pv`, `row-${i}-attaque`, `row-${i}-defense`, `row-${i}-attaque-spe`,
-                                    `row-${i}-defense-spe`, `row-${i}-vitesse`, `row-${i}-niveau`]) {
-                        let elt = document.getElementById(id);
-                        let val = elt.value;
-                        if (val=="") {
-                            failure = true;
-                            elt.className = "error";
-                            newLine.push(null);
-                        } else {
-                            elt.className = "";
-                            newLine.push( parseInt(val) );
-                        }
-                    }
-
-                    newLine.push(document.getElementById(`row-${i}-stade`).value);
-                    statMatrix.push(newLine);
-                }
-                if (failure) {
-                    valueErrorBlock.classList.add("not-displayed");
-                    blankErrorBlock.classList.remove("not-displayed");
-                    processBlock.classList.add("not-displayed");
-                    return;
-                }
-                statMatrix = statMatrix.sort((a, b) => a[6] - b[6]);
-                /*
-                console.log(`Base stats :`);
-                console.log(bstMap);
-                console.log(`Stats renseignées :`);
-                console.log(statMatrix);
-                //*/
-
-                let pcElt = document.getElementById('pcSelect').selectedOptions[0];
-                let pcSplit = pcElt.value.split(":");
-                let pcFilter = null;
-                if (pcSplit.length == 3) {
-                    let pcMin = parseInt(pcSplit[1]);
-                    let pcMax = parseInt(pcSplit[2]);
-                    pcFilter = [];
-                    for (let n=pcMin; n<=pcMax; n++) {
-                        let binary = bin6(n);
-                        let row = [];
-                        row.push( parseInt(binary.charAt(5)) ); // hp
-                        row.push( parseInt(binary.charAt(4)) ); // atk
-                        row.push( parseInt(binary.charAt(3)) ); // def
-                        row.push( parseInt(binary.charAt(1)) ); // sp atk
-                        row.push( parseInt(binary.charAt(0)) ); // sp def
-                        row.push( parseInt(binary.charAt(2)) ); // speed
-                        pcFilter.push(row);
-                    }
-                }
-                /*
-                console.log(`Type PC : ${pcElt.innerHTML} ( ${pcElt.value} )`);
-                console.log("PC filter :");
-                console.log(pcFilter);
-                //*/
-
-                //console.log(`Résultat final :`);
-                let possibleIVs_base = processing(statMatrix, bstMap, nature, carac, pcSplit[0]);
-                if (possibleIVs_base.some(l => l.length==0)) {
-                    valueErrorBlock.classList.remove("not-displayed");
-                    blankErrorBlock.classList.add("not-displayed");
-                    processBlock.classList.add("not-displayed");
-                    return;
-                }
-                //console.log(possibleIVs_base);
-                finalSummary = statMatrix[statMatrix.length-1];
-                finalBst = bstMap.get(finalSummary[7]);
-                results = selectIVs(possibleIVs_base, finalSummary, finalBst, nature, pcFilter, carac);
-                //console.log(results);
-                if (results==null) {
-                    valueErrorBlock.classList.remove("not-displayed");
-                    blankErrorBlock.classList.add("not-displayed");
-                    processBlock.classList.add("not-displayed");
-                    return;
-                }
-
-                processBlock.classList.remove("not-displayed");
-                blankErrorBlock.classList.add("not-displayed");
-                valueErrorBlock.classList.add("not-displayed");
-
-                let detailsBlock = document.getElementById("detailedResults");
-                detailsBlock.innerHTML = "";
-
-                let detailsTable = document.createElement("table");
-                detailsTable.className = "details";
-
-                let detailsTableHeader = document.createElement("tr");
-                detailsTableHeader.innerHTML = `<th>Stat</th><th colspan="32">IV possibles</th>`;
-                detailsTable.appendChild(detailsTableHeader);
-
-                for (let statNo=0; statNo<6; statNo++) {
-                    let detailsRow = document.createElement("tr");
-                    detailsRow.innerHTML = `<th>${statnames[statNo]}</th>`;
-                    for (let n=0; n<32; n++) {
-                        if (possibleIVs_base[statNo].includes(n)) {
-                            let frm = (statNo==0) ? hp_frame(finalSummary[statNo], finalBst[statNo], finalSummary[6]) : other_frame(finalSummary[statNo], finalBst[statNo], finalSummary[6], nature[statNo]);
-                            detailsRow.innerHTML += `<th class="green">${n}<p class="ev">EV : ${Math.max(0, (frm.lower - n)*4)} - ${Math.min(255, (frm.upper - n)*4 + 3)}</p></th>`;
-                        } else {
-                            detailsRow.innerHTML += `<th class="red"></th>`;
-                        }
-                    }
-                    detailsTable.appendChild(detailsRow);
-                }
-                detailsBlock.appendChild(detailsTable);
-
-                let pcNumber =  (results[4].iv %2)*32 +
-                                (results[3].iv %2)*16 +
-                                (results[5].iv %2)*8  +
-                                (results[2].iv %2)*4  +
-                                (results[1].iv %2)*2  +
-                                (results[0].iv %2)*1  ;
-                detailsBlock.innerHTML += `<br>Valeur PC : ${pcNumber}.`;
-
-                let resultsBlock = document.getElementById("resultsBlock");
-                resultsBlock.innerHTML = "";
-
-                let resultsTable = document.createElement("table");
-                resultsTable.className = "results";
-                resultsTable.innerHTML = "<thead><tr><th>Stat</th><th>IV</th><th>EV</th></tr></thead>";
-
-                let resultsTableBody = document.createElement("tbody");
-                for (let statNo=0; statNo<6; statNo++) {
-                    let r = results[statNo];
-                    resultsTableBody.innerHTML += `<tr><td>${statnames[statNo]}</td><td>${r.iv}</td><td>${r.ev}</td></tr>`;
-                }
-
-                resultsTable.appendChild(resultsTableBody);
-                resultsBlock.appendChild(resultsTable);
-
-                showdown(specieSelect.selectedOptions[0].innerHTML, natureElt.innerHTML, results);
-
-            }
-
-
-
-            // Ajoute une ligne dans le tableau d'entrée des stats
-            async function newRow() {
-                statTable = document.getElementById("stat-table-body");
-                n = statTable.childElementCount + 1;
-
-                tr = document.createElement("tr");
-                tr.id = `row-${n}`;
-                tr.innerHTML = `<th><select id="row-${n}-stade"></select></th>` +
-                    `<th id="row-${n}-spritecell"></th>` +
-                    `<th><input id="row-${n}-niveau"      type="number" min="1" max="100"/></th>` +
-                    "<th>|</th>" +
-                    `<th><input id="row-${n}-pv"          type="number" min="1" max="999"/></th>` +
-                    `<th><input id="row-${n}-attaque"     type="number" min="1" max="999"/></th>` +
-                    `<th><input id="row-${n}-defense"     type="number" min="1" max="999"/></th>` +
-                    `<th><input id="row-${n}-attaque-spe" type="number" min="1" max="999"/></th>` +
-                    `<th><input id="row-${n}-defense-spe" type="number" min="1" max="999"/></th>` +
-                    `<th><input id="row-${n}-vitesse"     type="number" min="1" max="999"/></th>` +
-                    `<th><button id="row-${n}-remover" class="pushy" onclick="removeRow(${n});">Supprimer</button></th>`;
-
-                statTable.appendChild(tr);
-                document.getElementById(`row-${n}-stade`).onchange = stadeChangeListener;
-                currentPokeName = document.getElementById('specieSelect').selectedOptions[0].value;
-                await updateStade([n], currentPokeName);
-            }
-
-            // Modifie les ID d'une ligne du tableau
-            function renameRow(src, dst) {
-                document.getElementById(`row-${src}`).id             = `row-${dst}`;
-                document.getElementById(`row-${src}-stade`).id       = `row-${dst}-stade`;
-                document.getElementById(`row-${src}-spritecell`).id  = `row-${dst}-spritecell`;
-                document.getElementById(`row-${src}-niveau`).id      = `row-${dst}-niveau`;
-                document.getElementById(`row-${src}-pv`).id          = `row-${dst}-pv`;
-                document.getElementById(`row-${src}-attaque`).id     = `row-${dst}-attaque`;
-                document.getElementById(`row-${src}-defense`).id     = `row-${dst}-defense`;
-                document.getElementById(`row-${src}-attaque-spe`).id = `row-${dst}-attaque-spe`;
-                document.getElementById(`row-${src}-defense-spe`).id = `row-${dst}-defense-spe`;
-                document.getElementById(`row-${src}-vitesse`).id     = `row-${dst}-vitesse`;
-
-                remover = document.getElementById(`row-${src}-remover`);
-                remover.outerHTML = `<th><button id="row-${dst}-remover" class="pushy" onclick="removeRow(${dst});">Supprimer</button></th>`;
-            }
-
-            // Supprime une ligne du tableau
-            function removeRow(i) {
-                n = document.getElementById("stat-table-body").childElementCount + 1;
-                document.getElementById(`row-${i}`).remove();
-                for (j=i+1; j<n; j++) {
-                    renameRow(j, j-1);
-                }
-            }
-
-
-
-
-            // Charge un résumé de la liste des résumés pré-écrits
-            async function loadSummary(data) {
-                genSelect = document.getElementById("genSelect");
-                if (genSelect.value != data.gen) {
-                    genSelect.value = data.gen;
-                    await updatePokeList(data.gen);
-                }
-
-                specieSelect = document.getElementById("specieSelect");
-                specieSelect.value = data.specie;
-                await specieSelect.onchange();
-
-                document.getElementById("natureSelect").value = data.nature;
-                document.getElementById("caractSelect").value = data.caract;
-                document.getElementById("pcSelect"    ).value = data.typePC;
-
-                while (document.getElementById("stat-table-body").childElementCount < data.stats.length) { await newRow(); }
-                while (document.getElementById("stat-table-body").childElementCount > data.stats.length) { await removeRow(document.getElementById("stat-table-body").childElementCount); }
-
-                for(let i=1; i<=data.stats.length; i++) {
-                    let smry = data.stats[i-1];
-
-                    let stade = document.getElementById(`row-${i}-stade`)
-                    stade.value       = smry.stade;
-                    stade.onchange();
-
-                    document.getElementById(`row-${i}-niveau`).value      = smry.niveau;
-                    document.getElementById(`row-${i}-pv`).value          = smry.pv;
-                    document.getElementById(`row-${i}-attaque`).value     = smry.atk;
-                    document.getElementById(`row-${i}-defense`).value     = smry.def;
-                    document.getElementById(`row-${i}-attaque-spe`).value = smry.asp;
-                    document.getElementById(`row-${i}-defense-spe`).value = smry.dsp;
-                    document.getElementById(`row-${i}-vitesse`).value     = smry.vit;
-                }
-
-                if (data.statModif != null) {
-                    data.statModif.forEach(item => {
-                        document.getElementById(`bst-${item.stade}-${item.stat}`).value = item.newValue;
-                    });
-                }
-            }
-
-            nextSummary = 0;
-            // Passe au résumé suivant
-            function rotateSummaries() {
-                loadSummary(summaries[nextSummary]);
-                nextSummary = (nextSummary + 1) % summaries.length;
-            }
-
-
-
-            // Va chercher les updates de base stats
-            async function applyBaseStatsChanges(pokeName, gen) {
-                if (gen < 9) {
-                    let response = await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json');
-                    let data = await response.json();
-                    for (let g=9; g>gen; g--) {
-                        let changes = data.bstChanges[g].filter(item => item.pokemon === pokeName);
-                        for (let i=0; i<changes.length; i++) {
-                            document.getElementById(`bst-${pokeName}-${changes[i].stat}`).value = changes[i].oldVal;
-                        }
-                    }
-
-
-                    await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
-                        .then(async response => await response.json())
-                        .then(data => {
-                            for (let g=9; g>gen; g--) {
-                                let changes = data.bstChanges[g].filter(item => (item.pokemon == pokeName));
-                                for (let i=0; i<changes.length; i++) {
-                                    document.getElementById(`bst-${pokeName}-${changes[i].stat}`).value = changes[i].oldVal;
-                                }
-                            }
-                    });
-                }
-            }
-
-            // Crée une ligne du tableau d'édition des base stats
-            function createBstEditorRow(pokedata, pokeName) {
-                let bstEditor = document.getElementById("bstEditor");
-                let editRow = document.createElement("tr");
-
-                let nameCell = document.createElement("th");
-                nameCell.innerHTML = pokedata.name.fr;
-                editRow.appendChild(nameCell);
-                //*
-                let spriteCell = document.createElement("th");
-                let imgSize = 64;
-                let imgPath = (pokedata.sprites != null) ? pokedata.sprites.regular : "https://archives.bulbagarden.net/media/upload/a/a1/Substitute_artwork.png";
-                spriteCell.innerHTML = `<img id="sprite-${pokeName}" src="${imgPath}" width="${imgSize}px" height="${imgSize}px">`;
-                editRow.appendChild(spriteCell);
-                //*/
-                statFields = ["hp", "atk", "def", "spe_atk", "spe_def", "vit"];
-                for (let i=0; i<6; i++) {
-                    let statCell = document.createElement("th");
-
-                    let statEditor = document.createElement("input");
-                    statEditor.id = `bst-${pokeName}-${allstats[i]}`;
-                    statEditor.type = "number";
-                    statEditor.min = 1; statEditor.max = 999;
-                    statEditor.value = pokedata.stats[statFields[i]];
-                    statCell.appendChild(statEditor);
-
-                    editRow.appendChild(statCell);
-                }
-                bstEditor.appendChild(editRow);
-            }
-
-            // Met à jour l'éditeur de base stats
-            async function updateBstEditor(pokeName) {
-                let bstEditor = document.getElementById("bstEditor");
-                bstEditor.innerHTML = "<tr><th>Stade évolutif</th><th>Sprite</th><th>PV</th><th>Attaque</th><th>Défense</th><th>Attaque spéciale</th><th>Défense spéciale</th><th>Vitesse</th></tr>";
-                let gen = parseInt(document.getElementById("genSelect").value);
-                await fetchPokemonData(pokeName, async poke => {
-                    if (poke.evolution != null && poke.evolution.pre != null) {
-                        for (let item of poke.evolution.pre) {
-                            let path = (item.path!=null) ? item.path : formatName(item.name);
-                            await fetchPokemonData(path, async (preevo) => {
-                                createBstEditorRow(preevo, path); // Premiers appels
+                    for (n=oldGen+1; n<=newGen; n++) {
+                        await fetchPokemonSpeciesList(`https://tyradex.vercel.app/api/v1/gen/${n}`);
+                        await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
+                            .then(async response => await response.json())
+                            .then(data => {
+                                data.autres_pokemon[n].forEach(item => {
+                                    newPokeOption = document.createElement('option');
+                                    newPokeOption.innerHTML = item.name.fr;
+                                    newPokeOption.value = `local:${n}/${item.name.fr}`;
+                                    specieSelect.appendChild(newPokeOption);
+                                });
                             });
-                            await applyBaseStatsChanges(path, gen);
-                        };
                     }
-                    createBstEditorRow(poke, pokeName); // Appel final
-                    await applyBaseStatsChanges(pokeName, gen);
-                });
-            }
+                    specieSelect.setAttribute("gen", newGen);
+                }
+                updatePokeList(3);
 
-            function slide() {
-                let zack = document.getElementById("zack_slider");
 
-                if (zack.className.includes("visible")) {
-                    zack.classList.remove("visible");
-                    void zack.offsetWidth; // Provoque un recalcul pour réinitialiser l'animation
-                    zack.className = "hidden";
-                } else {
-                    // Forcer la réinitialisation de l'animation
-                    zack.classList.remove("hidden");
-                    void zack.offsetWidth; // Provoque un recalcul pour réinitialiser l'animation
-                    zack.className = "visible";
+
+
+                function bin6(n) {
+                    res = n.toString(2);
+                    while (res.length < 6) { res = "0" + res; }
+                    return res;
                 }
 
-                let arrow = document.getElementById("slide_arrow");
-                if (arrow.classList.contains("rightward")) {
-                    arrow.classList.remove("rightward");
-                    void arrow.offsetWidth;
-                    arrow.classList.add("leftward");
-                } else if (arrow.classList.contains("leftward")) {
-                    arrow.classList.remove("leftward");
-                    void arrow.offsetWidth;
-                    arrow.classList.add("rightward");
+                // Cette fonction est un meme à ce stade. Elle fait des trucs, je crois.
+                async function process() {
+                    let processBlock = document.getElementById("processBlock");
+                    let valueErrorBlock = document.getElementById("valueErrorBlock");
+                    let blankErrorBlock = document.getElementById("blankErrorBlock");
+
+                    let specieSelect = document.getElementById('specieSelect');
+                    let specie = specieSelect.value;
+                    //console.log(`Pokémon choisi : ${specie}`);
+
+                    let natureElt = document.getElementById('natureSelect').selectedOptions[0];
+                    let nature = [null];
+                    for (let i = 0; i<5; i++) {
+                        let c = natureElt.value.charAt(i);
+                        nature.push((c=='+') ? 1.1 : ((c=='-') ? 0.9 : 1));
+                    }
+                    //console.log(`Nature : ${natureElt.innerHTML} ( ${nature} )`);
+
+                    let carac = null;
+                    let caracElt = document.getElementById('caractSelect').selectedOptions[0];
+                    if (caracElt.value != "none") {
+                        let caracSplit = caracElt.value.split(':');
+                        carac = { statNo : allstats.indexOf(caracSplit[0]), modulo : parseInt(caracSplit[1]) };
+                        //console.log(`Caractéristique : ${caracElt.innerHTML}`);
+                        //console.log(carac);
+                    }
+
+                    let totalSummaries = document.getElementById("stat-table-body").childElementCount;
+                    let statMatrix = [];
+                    let bstMap = new Map();
+                    let failure = false;
+                    for (let i=1; i<=totalSummaries; i++) {
+                        let stadeName = document.getElementById(`row-${i}-stade`).selectedOptions[0].value;
+                        if (!bstMap.has(stadeName)) {
+                            let bst = [];
+                            for (let statNo=0; statNo<6; statNo++) {
+                                bst.push( parseInt( document.getElementById(`bst-${stadeName}-${allstats[statNo]}`).value ) );
+                            }
+                            bstMap.set(stadeName, bst);
+                        }
+
+                        let newLine = [];
+                        for (let id of [`row-${i}-pv`, `row-${i}-attaque`, `row-${i}-defense`, `row-${i}-attaque-spe`,
+                                        `row-${i}-defense-spe`, `row-${i}-vitesse`, `row-${i}-niveau`]) {
+                            let elt = document.getElementById(id);
+                            let val = elt.value;
+                            if (val=="") {
+                                failure = true;
+                                elt.className = "error";
+                                newLine.push(null);
+                            } else {
+                                elt.className = "";
+                                newLine.push( parseInt(val) );
+                            }
+                        }
+
+                        newLine.push(document.getElementById(`row-${i}-stade`).value);
+                        statMatrix.push(newLine);
+                    }
+                    if (failure) {
+                        valueErrorBlock.classList.add("not-displayed");
+                        blankErrorBlock.classList.remove("not-displayed");
+                        processBlock.classList.add("not-displayed");
+                        return;
+                    }
+                    statMatrix = statMatrix.sort((a, b) => a[6] - b[6]);
+                    /*
+                    console.log(`Base stats :`);
+                    console.log(bstMap);
+                    console.log(`Stats renseignées :`);
+                    console.log(statMatrix);
+                    //*/
+
+                    let pcElt = document.getElementById('pcSelect').selectedOptions[0];
+                    let pcSplit = pcElt.value.split(":");
+                    let pcFilter = null;
+                    if (pcSplit.length == 3) {
+                        let pcMin = parseInt(pcSplit[1]);
+                        let pcMax = parseInt(pcSplit[2]);
+                        pcFilter = [];
+                        for (let n=pcMin; n<=pcMax; n++) {
+                            let binary = bin6(n);
+                            let row = [];
+                            row.push( parseInt(binary.charAt(5)) ); // hp
+                            row.push( parseInt(binary.charAt(4)) ); // atk
+                            row.push( parseInt(binary.charAt(3)) ); // def
+                            row.push( parseInt(binary.charAt(1)) ); // sp atk
+                            row.push( parseInt(binary.charAt(0)) ); // sp def
+                            row.push( parseInt(binary.charAt(2)) ); // speed
+                            pcFilter.push(row);
+                        }
+                    }
+                    /*
+                    console.log(`Type PC : ${pcElt.innerHTML} ( ${pcElt.value} )`);
+                    console.log("PC filter :");
+                    console.log(pcFilter);
+                    //*/
+
+                    //console.log(`Résultat final :`);
+                    let possibleIVs_base = processing(statMatrix, bstMap, nature, carac, pcSplit[0]);
+                    if (possibleIVs_base.some(l => l.length==0)) {
+                        valueErrorBlock.classList.remove("not-displayed");
+                        blankErrorBlock.classList.add("not-displayed");
+                        processBlock.classList.add("not-displayed");
+                        return;
+                    }
+                    //console.log(possibleIVs_base);
+                    finalSummary = statMatrix[statMatrix.length-1];
+                    finalBst = bstMap.get(finalSummary[7]);
+                    results = selectIVs(possibleIVs_base, finalSummary, finalBst, nature, pcFilter, carac);
+                    //console.log(results);
+                    if (results==null) {
+                        valueErrorBlock.classList.remove("not-displayed");
+                        blankErrorBlock.classList.add("not-displayed");
+                        processBlock.classList.add("not-displayed");
+                        return;
+                    }
+
+                    processBlock.classList.remove("not-displayed");
+                    blankErrorBlock.classList.add("not-displayed");
+                    valueErrorBlock.classList.add("not-displayed");
+
+                    let detailsBlock = document.getElementById("detailedResults");
+                    detailsBlock.innerHTML = "";
+
+                    let detailsTable = document.createElement("table");
+                    detailsTable.className = "details";
+
+                    let detailsTableHeader = document.createElement("tr");
+                    detailsTableHeader.innerHTML = `<th>Stat</th><th colspan="32">IV possibles</th>`;
+                    detailsTable.appendChild(detailsTableHeader);
+
+                    for (let statNo=0; statNo<6; statNo++) {
+                        let detailsRow = document.createElement("tr");
+                        detailsRow.innerHTML = `<th>${statnames[statNo]}</th>`;
+                        for (let n=0; n<32; n++) {
+                            if (possibleIVs_base[statNo].includes(n)) {
+                                let frm = (statNo==0) ? hp_frame(finalSummary[statNo], finalBst[statNo], finalSummary[6]) : other_frame(finalSummary[statNo], finalBst[statNo], finalSummary[6], nature[statNo]);
+                                detailsRow.innerHTML += `<th class="green">${n}<p class="ev">EV : ${Math.max(0, (frm.lower - n)*4)} - ${Math.min(255, (frm.upper - n)*4 + 3)}</p></th>`;
+                            } else {
+                                detailsRow.innerHTML += `<th class="red"></th>`;
+                            }
+                        }
+                        detailsTable.appendChild(detailsRow);
+                    }
+                    detailsBlock.appendChild(detailsTable);
+
+                    let pcNumber =  (results[4].iv %2)*32 +
+                                    (results[3].iv %2)*16 +
+                                    (results[5].iv %2)*8  +
+                                    (results[2].iv %2)*4  +
+                                    (results[1].iv %2)*2  +
+                                    (results[0].iv %2)*1  ;
+                    detailsBlock.innerHTML += `<br>Valeur PC : ${pcNumber}.`;
+
+                    let resultsBlock = document.getElementById("resultsBlock");
+                    resultsBlock.innerHTML = "";
+
+                    let resultsTable = document.createElement("table");
+                    resultsTable.className = "results";
+                    resultsTable.innerHTML = "<thead><tr><th>Stat</th><th>IV</th><th>EV</th></tr></thead>";
+
+                    let resultsTableBody = document.createElement("tbody");
+                    for (let statNo=0; statNo<6; statNo++) {
+                        let r = results[statNo];
+                        resultsTableBody.innerHTML += `<tr><td>${statnames[statNo]}</td><td>${r.iv}</td><td>${r.ev}</td></tr>`;
+                    }
+
+                    resultsTable.appendChild(resultsTableBody);
+                    resultsBlock.appendChild(resultsTable);
+
+                    showdown(specieSelect.selectedOptions[0].innerHTML, natureElt.innerHTML, results);
+
                 }
-            }
 
-            function spoiler(blockId) {
-                let spoilerBlock = document.getElementById(blockId);
-                let icon1 = document.getElementById(blockId + "_icon1");
-                let icon2 = document.getElementById(blockId + "_icon2");
 
-                if (spoilerBlock.className.includes("not-displayed")) { // spoiler_opened spoiler_closed
-                    spoilerBlock.classList.remove("not-displayed");
-                    icon1.innerHTML = "remove"; icon2.innerHTML = "remove";
-                } else {
-                    spoilerBlock.classList.add("not-displayed");
-                    icon1.innerHTML = "add";    icon2.innerHTML = "add";
-                }
-            }
 
-            function showdown(engName, engNature, results) {
-                let exp = `${engName}<br>EVs:`;
+                // Ajoute une ligne dans le tableau d'entrée des stats
+                async function newRow() {
+                    statTable = document.getElementById("stat-table-body");
+                    n = statTable.childElementCount + 1;
 
-                let shortstats = ["HP", "Atk", "Def", "SpA", "SpD", "Spe"];
+                    tr = document.createElement("tr");
+                    tr.id = `row-${n}`;
+                    tr.innerHTML = `<th><select id="row-${n}-stade"></select></th>` +
+                        `<th id="row-${n}-spritecell"></th>` +
+                        `<th><input id="row-${n}-niveau"      type="number" min="1" max="100"/></th>` +
+                        "<th>|</th>" +
+                        `<th><input id="row-${n}-pv"          type="number" min="1" max="999"/></th>` +
+                        `<th><input id="row-${n}-attaque"     type="number" min="1" max="999"/></th>` +
+                        `<th><input id="row-${n}-defense"     type="number" min="1" max="999"/></th>` +
+                        `<th><input id="row-${n}-attaque-spe" type="number" min="1" max="999"/></th>` +
+                        `<th><input id="row-${n}-defense-spe" type="number" min="1" max="999"/></th>` +
+                        `<th><input id="row-${n}-vitesse"     type="number" min="1" max="999"/></th>` +
+                        `<th><button id="row-${n}-remover" class="pushy" onclick="removeRow(${n});">Supprimer</button></th>`;
 
-                for (let statNo=0; statNo<6; statNo++) {
-                    exp += ` ${results[statNo].ev} ${shortstats[statNo]}`;
-                    if (statNo<5) { exp += " /" }
-                }
-
-                exp += `<br>${engNature} Nature<br>IVs:`;
-
-                for (let statNo=0; statNo<6; statNo++) {
-                    exp += ` ${results[statNo].iv} ${shortstats[statNo]}`;
-                    if (statNo<5) { exp += " /" }
+                    statTable.appendChild(tr);
+                    document.getElementById(`row-${n}-stade`).onchange = stadeChangeListener;
+                    currentPokeName = document.getElementById('specieSelect').selectedOptions[0].value;
+                    await updateStade([n], currentPokeName);
                 }
 
-                document.getElementById("export").innerHTML = exp;
-            }
+                // Modifie les ID d'une ligne du tableau
+                function renameRow(src, dst) {
+                    document.getElementById(`row-${src}`).id             = `row-${dst}`;
+                    document.getElementById(`row-${src}-stade`).id       = `row-${dst}-stade`;
+                    document.getElementById(`row-${src}-spritecell`).id  = `row-${dst}-spritecell`;
+                    document.getElementById(`row-${src}-niveau`).id      = `row-${dst}-niveau`;
+                    document.getElementById(`row-${src}-pv`).id          = `row-${dst}-pv`;
+                    document.getElementById(`row-${src}-attaque`).id     = `row-${dst}-attaque`;
+                    document.getElementById(`row-${src}-defense`).id     = `row-${dst}-defense`;
+                    document.getElementById(`row-${src}-attaque-spe`).id = `row-${dst}-attaque-spe`;
+                    document.getElementById(`row-${src}-defense-spe`).id = `row-${dst}-defense-spe`;
+                    document.getElementById(`row-${src}-vitesse`).id     = `row-${dst}-vitesse`;
 
-            function copyExport() {
-                navigator.clipboard.writeText(document.getElementById("export").innerHTML.replaceAll("<br>", "\n"));
+                    remover = document.getElementById(`row-${src}-remover`);
+                    remover.outerHTML = `<th><button id="row-${dst}-remover" class="pushy" onclick="removeRow(${dst});">Supprimer</button></th>`;
+                }
 
-                let copyButton = document.getElementById("copyButton");
-                copyButton.classList.add("triggered");
-                copyButton.innerHTML = "Copié";
-                setTimeout(() => {
-                    copyButton.classList.remove("triggered");
-                    copyButton.innerHTML = "Copier";
-                }, 1000);
-            }
-        </script>
+                // Supprime une ligne du tableau
+                function removeRow(i) {
+                    n = document.getElementById("stat-table-body").childElementCount + 1;
+                    document.getElementById(`row-${i}`).remove();
+                    for (j=i+1; j<n; j++) {
+                        renameRow(j, j-1);
+                    }
+                }
 
-        <center><a href="parsemille.html"><img src="sortie.png"></a></center>
+
+
+
+                // Charge un résumé de la liste des résumés pré-écrits
+                async function loadSummary(data) {
+                    genSelect = document.getElementById("genSelect");
+                    if (genSelect.value != data.gen) {
+                        genSelect.value = data.gen;
+                        await updatePokeList(data.gen);
+                    }
+
+                    specieSelect = document.getElementById("specieSelect");
+                    specieSelect.value = data.specie;
+                    await specieSelect.onchange();
+
+                    document.getElementById("natureSelect").value = data.nature;
+                    document.getElementById("caractSelect").value = data.caract;
+                    document.getElementById("pcSelect"    ).value = data.typePC;
+
+                    while (document.getElementById("stat-table-body").childElementCount < data.stats.length) { await newRow(); }
+                    while (document.getElementById("stat-table-body").childElementCount > data.stats.length) { await removeRow(document.getElementById("stat-table-body").childElementCount); }
+
+                    for(let i=1; i<=data.stats.length; i++) {
+                        let smry = data.stats[i-1];
+
+                        let stade = document.getElementById(`row-${i}-stade`)
+                        stade.value       = smry.stade;
+                        stade.onchange();
+
+                        document.getElementById(`row-${i}-niveau`).value      = smry.niveau;
+                        document.getElementById(`row-${i}-pv`).value          = smry.pv;
+                        document.getElementById(`row-${i}-attaque`).value     = smry.atk;
+                        document.getElementById(`row-${i}-defense`).value     = smry.def;
+                        document.getElementById(`row-${i}-attaque-spe`).value = smry.asp;
+                        document.getElementById(`row-${i}-defense-spe`).value = smry.dsp;
+                        document.getElementById(`row-${i}-vitesse`).value     = smry.vit;
+                    }
+
+                    if (data.statModif != null) {
+                        data.statModif.forEach(item => {
+                            document.getElementById(`bst-${item.stade}-${item.stat}`).value = item.newValue;
+                        });
+                    }
+                }
+
+                nextSummary = 0;
+                // Passe au résumé suivant
+                function rotateSummaries() {
+                    loadSummary(summaries[nextSummary]);
+                    nextSummary = (nextSummary + 1) % summaries.length;
+                }
+
+
+
+                // Va chercher les updates de base stats
+                async function applyBaseStatsChanges(pokeName, gen) {
+                    if (gen < 9) {
+                        let response = await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json');
+                        let data = await response.json();
+                        for (let g=9; g>gen; g--) {
+                            let changes = data.bstChanges[g].filter(item => item.pokemon === pokeName);
+                            for (let i=0; i<changes.length; i++) {
+                                document.getElementById(`bst-${pokeName}-${changes[i].stat}`).value = changes[i].oldVal;
+                            }
+                        }
+
+
+                        await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
+                            .then(async response => await response.json())
+                            .then(data => {
+                                for (let g=9; g>gen; g--) {
+                                    let changes = data.bstChanges[g].filter(item => (item.pokemon == pokeName));
+                                    for (let i=0; i<changes.length; i++) {
+                                        document.getElementById(`bst-${pokeName}-${changes[i].stat}`).value = changes[i].oldVal;
+                                    }
+                                }
+                        });
+                    }
+                }
+
+                // Crée une ligne du tableau d'édition des base stats
+                function createBstEditorRow(pokedata, pokeName) {
+                    let bstEditor = document.getElementById("bstEditor");
+                    let editRow = document.createElement("tr");
+
+                    let nameCell = document.createElement("th");
+                    nameCell.innerHTML = pokedata.name.fr;
+                    editRow.appendChild(nameCell);
+                    //*
+                    let spriteCell = document.createElement("th");
+                    let imgSize = 64;
+                    let imgPath = (pokedata.sprites != null) ? pokedata.sprites.regular : "https://archives.bulbagarden.net/media/upload/a/a1/Substitute_artwork.png";
+                    spriteCell.innerHTML = `<img id="sprite-${pokeName}" src="${imgPath}" width="${imgSize}px" height="${imgSize}px">`;
+                    editRow.appendChild(spriteCell);
+                    //*/
+                    statFields = ["hp", "atk", "def", "spe_atk", "spe_def", "vit"];
+                    for (let i=0; i<6; i++) {
+                        let statCell = document.createElement("th");
+
+                        let statEditor = document.createElement("input");
+                        statEditor.id = `bst-${pokeName}-${allstats[i]}`;
+                        statEditor.type = "number";
+                        statEditor.min = 1; statEditor.max = 999;
+                        statEditor.value = pokedata.stats[statFields[i]];
+                        statCell.appendChild(statEditor);
+
+                        editRow.appendChild(statCell);
+                    }
+                    bstEditor.appendChild(editRow);
+                }
+
+                // Met à jour l'éditeur de base stats
+                async function updateBstEditor(pokeName) {
+                    let bstEditor = document.getElementById("bstEditor");
+                    bstEditor.innerHTML = "<tr><th>Stade évolutif</th><th>Sprite</th><th>PV</th><th>Attaque</th><th>Défense</th><th>Attaque spéciale</th><th>Défense spéciale</th><th>Vitesse</th></tr>";
+                    let gen = parseInt(document.getElementById("genSelect").value);
+                    await fetchPokemonData(pokeName, async poke => {
+                        if (poke.evolution != null && poke.evolution.pre != null) {
+                            for (let item of poke.evolution.pre) {
+                                let path = (item.path!=null) ? item.path : formatName(item.name);
+                                await fetchPokemonData(path, async (preevo) => {
+                                    createBstEditorRow(preevo, path); // Premiers appels
+                                });
+                                await applyBaseStatsChanges(path, gen);
+                            };
+                        }
+                        createBstEditorRow(poke, pokeName); // Appel final
+                        await applyBaseStatsChanges(pokeName, gen);
+                    });
+                }
+
+                function slide() {
+                    let zack = document.getElementById("zack_slider");
+
+                    if (zack.className.includes("visible")) {
+                        zack.classList.remove("visible");
+                        void zack.offsetWidth; // Provoque un recalcul pour réinitialiser l'animation
+                        zack.className = "hidden";
+                    } else {
+                        // Forcer la réinitialisation de l'animation
+                        zack.classList.remove("hidden");
+                        void zack.offsetWidth; // Provoque un recalcul pour réinitialiser l'animation
+                        zack.className = "visible";
+                    }
+
+                    let arrow = document.getElementById("slide_arrow");
+                    if (arrow.classList.contains("rightward")) {
+                        arrow.classList.remove("rightward");
+                        void arrow.offsetWidth;
+                        arrow.classList.add("leftward");
+                    } else if (arrow.classList.contains("leftward")) {
+                        arrow.classList.remove("leftward");
+                        void arrow.offsetWidth;
+                        arrow.classList.add("rightward");
+                    }
+                }
+
+                function spoiler(blockId) {
+                    let spoilerBlock = document.getElementById(blockId);
+                    let icon1 = document.getElementById(blockId + "_icon1");
+                    let icon2 = document.getElementById(blockId + "_icon2");
+
+                    if (spoilerBlock.className.includes("not-displayed")) { // spoiler_opened spoiler_closed
+                        spoilerBlock.classList.remove("not-displayed");
+                        icon1.innerHTML = "remove"; icon2.innerHTML = "remove";
+                    } else {
+                        spoilerBlock.classList.add("not-displayed");
+                        icon1.innerHTML = "add";    icon2.innerHTML = "add";
+                    }
+                }
+
+                function showdown(engName, engNature, results) {
+                    let exp = `${engName}<br>EVs:`;
+
+                    let shortstats = ["HP", "Atk", "Def", "SpA", "SpD", "Spe"];
+
+                    for (let statNo=0; statNo<6; statNo++) {
+                        exp += ` ${results[statNo].ev} ${shortstats[statNo]}`;
+                        if (statNo<5) { exp += " /" }
+                    }
+
+                    exp += `<br>${engNature} Nature<br>IVs:`;
+
+                    for (let statNo=0; statNo<6; statNo++) {
+                        exp += ` ${results[statNo].iv} ${shortstats[statNo]}`;
+                        if (statNo<5) { exp += " /" }
+                    }
+
+                    document.getElementById("export").innerHTML = exp;
+                }
+
+                function copyExport() {
+                    navigator.clipboard.writeText(document.getElementById("export").innerHTML.replaceAll("<br>", "\n"));
+
+                    let copyButton = document.getElementById("copyButton");
+                    copyButton.classList.add("triggered");
+                    copyButton.innerHTML = "Copié";
+                    setTimeout(() => {
+                        copyButton.classList.remove("triggered");
+                        copyButton.innerHTML = "Copier";
+                    }, 1000);
+                }
+            </script>
+
+            <div style="text-align: right;"><a href="parsemille.html"><img src="sortie.png"></a></div>
+        </div>
     </body>
 </html>
