@@ -103,6 +103,5152 @@
 			{ "pokemon" : "zamazenta", "stat" : "attack", "oldVal" : 130, "newVal" : 120  }
         ]
     ],
+    "listNames": [
+        null,
+        [
+          {
+            "ndex": 1,
+            "english": "Bulbasaur",
+            "french": "Bulbizarre"
+          },
+          {
+            "ndex": 2,
+            "english": "Ivysaur",
+            "french": "Herbizarre"
+          },
+          {
+            "ndex": 3,
+            "english": "Venusaur",
+            "french": "Florizarre"
+          },
+          {
+            "ndex": 4,
+            "english": "Charmander",
+            "french": "Salamèche"
+          },
+          {
+            "ndex": 5,
+            "english": "Charmeleon",
+            "french": "Reptincel"
+          },
+          {
+            "ndex": 6,
+            "english": "Charizard",
+            "french": "Dracaufeu"
+          },
+          {
+            "ndex": 7,
+            "english": "Squirtle",
+            "french": "Carapuce"
+          },
+          {
+            "ndex": 8,
+            "english": "Wartortle",
+            "french": "Carabaffe"
+          },
+          {
+            "ndex": 9,
+            "english": "Blastoise",
+            "french": "Tortank"
+          },
+          {
+            "ndex": 10,
+            "english": "Caterpie",
+            "french": "Chenipan"
+          },
+          {
+            "ndex": 11,
+            "english": "Metapod",
+            "french": "Chrysacier"
+          },
+          {
+            "ndex": 12,
+            "english": "Butterfree",
+            "french": "Papilusion"
+          },
+          {
+            "ndex": 13,
+            "english": "Weedle",
+            "french": "Aspicot"
+          },
+          {
+            "ndex": 14,
+            "english": "Kakuna",
+            "french": "Coconfort"
+          },
+          {
+            "ndex": 15,
+            "english": "Beedrill",
+            "french": "Dardargnan"
+          },
+          {
+            "ndex": 16,
+            "english": "Pidgey",
+            "french": "Roucool"
+          },
+          {
+            "ndex": 17,
+            "english": "Pidgeotto",
+            "french": "Roucoups"
+          },
+          {
+            "ndex": 18,
+            "english": "Pidgeot",
+            "french": "Roucarnage"
+          },
+          {
+            "ndex": 19,
+            "english": "Rattata",
+            "french": "Rattata"
+          },
+          {
+            "ndex": 20,
+            "english": "Raticate",
+            "french": "Rattatac"
+          },
+          {
+            "ndex": 21,
+            "english": "Spearow",
+            "french": "Piafabec"
+          },
+          {
+            "ndex": 22,
+            "english": "Fearow",
+            "french": "Rapasdepic"
+          },
+          {
+            "ndex": 23,
+            "english": "Ekans",
+            "french": "Abo"
+          },
+          {
+            "ndex": 24,
+            "english": "Arbok",
+            "french": "Arbok"
+          },
+          {
+            "ndex": 25,
+            "english": "Pikachu",
+            "french": "Pikachu"
+          },
+          {
+            "ndex": 26,
+            "english": "Raichu",
+            "french": "Raichu"
+          },
+          {
+            "ndex": 27,
+            "english": "Sandshrew",
+            "french": "Sabelette"
+          },
+          {
+            "ndex": 28,
+            "english": "Sandslash",
+            "french": "Sablaireau"
+          },
+          {
+            "ndex": 29,
+            "english": "Nidoran♀",
+            "french": "Nidoran♀"
+          },
+          {
+            "ndex": 30,
+            "english": "Nidorina",
+            "french": "Nidorina"
+          },
+          {
+            "ndex": 31,
+            "english": "Nidoqueen",
+            "french": "Nidoqueen"
+          },
+          {
+            "ndex": 32,
+            "english": "Nidoran♂",
+            "french": "Nidoran♂"
+          },
+          {
+            "ndex": 33,
+            "english": "Nidorino",
+            "french": "Nidorino"
+          },
+          {
+            "ndex": 34,
+            "english": "Nidoking",
+            "french": "Nidoking"
+          },
+          {
+            "ndex": 35,
+            "english": "Clefairy",
+            "french": "Mélofée"
+          },
+          {
+            "ndex": 36,
+            "english": "Clefable",
+            "french": "Mélodelfe"
+          },
+          {
+            "ndex": 37,
+            "english": "Vulpix",
+            "french": "Goupix"
+          },
+          {
+            "ndex": 38,
+            "english": "Ninetales",
+            "french": "Feunard"
+          },
+          {
+            "ndex": 39,
+            "english": "Jigglypuff",
+            "french": "Rondoudou"
+          },
+          {
+            "ndex": 40,
+            "english": "Wigglytuff",
+            "french": "Grodoudou"
+          },
+          {
+            "ndex": 41,
+            "english": "Zubat",
+            "french": "Nosferapti"
+          },
+          {
+            "ndex": 42,
+            "english": "Golbat",
+            "french": "Nosferalto"
+          },
+          {
+            "ndex": 43,
+            "english": "Oddish",
+            "french": "Mystherbe"
+          },
+          {
+            "ndex": 44,
+            "english": "Gloom",
+            "french": "Ortide"
+          },
+          {
+            "ndex": 45,
+            "english": "Vileplume",
+            "french": "Rafflesia"
+          },
+          {
+            "ndex": 46,
+            "english": "Paras",
+            "french": "Paras"
+          },
+          {
+            "ndex": 47,
+            "english": "Parasect",
+            "french": "Parasect"
+          },
+          {
+            "ndex": 48,
+            "english": "Venonat",
+            "french": "Mimitoss"
+          },
+          {
+            "ndex": 49,
+            "english": "Venomoth",
+            "french": "Aéromite"
+          },
+          {
+            "ndex": 50,
+            "english": "Diglett",
+            "french": "Taupiqueur"
+          },
+          {
+            "ndex": 51,
+            "english": "Dugtrio",
+            "french": "Triopikeur"
+          },
+          {
+            "ndex": 52,
+            "english": "Meowth",
+            "french": "Miaouss"
+          },
+          {
+            "ndex": 53,
+            "english": "Persian",
+            "french": "Persian"
+          },
+          {
+            "ndex": 54,
+            "english": "Psyduck",
+            "french": "Psykokwak"
+          },
+          {
+            "ndex": 55,
+            "english": "Golduck",
+            "french": "Akwakwak"
+          },
+          {
+            "ndex": 56,
+            "english": "Mankey",
+            "french": "Férosinge"
+          },
+          {
+            "ndex": 57,
+            "english": "Primeape",
+            "french": "Colossinge"
+          },
+          {
+            "ndex": 58,
+            "english": "Growlithe",
+            "french": "Caninos"
+          },
+          {
+            "ndex": 59,
+            "english": "Arcanine",
+            "french": "Arcanin"
+          },
+          {
+            "ndex": 60,
+            "english": "Poliwag",
+            "french": "Ptitard"
+          },
+          {
+            "ndex": 61,
+            "english": "Poliwhirl",
+            "french": "Têtarte"
+          },
+          {
+            "ndex": 62,
+            "english": "Poliwrath",
+            "french": "Tartard"
+          },
+          {
+            "ndex": 63,
+            "english": "Abra",
+            "french": "Abra"
+          },
+          {
+            "ndex": 64,
+            "english": "Kadabra",
+            "french": "Kadabra"
+          },
+          {
+            "ndex": 65,
+            "english": "Alakazam",
+            "french": "Alakazam"
+          },
+          {
+            "ndex": 66,
+            "english": "Machop",
+            "french": "Machoc"
+          },
+          {
+            "ndex": 67,
+            "english": "Machoke",
+            "french": "Machopeur"
+          },
+          {
+            "ndex": 68,
+            "english": "Machamp",
+            "french": "Mackogneur"
+          },
+          {
+            "ndex": 69,
+            "english": "Bellsprout",
+            "french": "Chétiflor"
+          },
+          {
+            "ndex": 70,
+            "english": "Weepinbell",
+            "french": "Boustiflor"
+          },
+          {
+            "ndex": 71,
+            "english": "Victreebel",
+            "french": "Empiflor"
+          },
+          {
+            "ndex": 72,
+            "english": "Tentacool",
+            "french": "Tentacool"
+          },
+          {
+            "ndex": 73,
+            "english": "Tentacruel",
+            "french": "Tentacruel"
+          },
+          {
+            "ndex": 74,
+            "english": "Geodude",
+            "french": "Racaillou"
+          },
+          {
+            "ndex": 75,
+            "english": "Graveler",
+            "french": "Gravalanch"
+          },
+          {
+            "ndex": 76,
+            "english": "Golem",
+            "french": "Grolem"
+          },
+          {
+            "ndex": 77,
+            "english": "Ponyta",
+            "french": "Ponyta"
+          },
+          {
+            "ndex": 78,
+            "english": "Rapidash",
+            "french": "Galopa"
+          },
+          {
+            "ndex": 79,
+            "english": "Slowpoke",
+            "french": "Ramoloss"
+          },
+          {
+            "ndex": 80,
+            "english": "Slowbro",
+            "french": "Flagadoss"
+          },
+          {
+            "ndex": 81,
+            "english": "Magnemite",
+            "french": "Magnéti"
+          },
+          {
+            "ndex": 82,
+            "english": "Magneton",
+            "french": "Magnéton"
+          },
+          {
+            "ndex": 83,
+            "english": "Farfetch'd",
+            "french": "Canarticho"
+          },
+          {
+            "ndex": 84,
+            "english": "Doduo",
+            "french": "Doduo"
+          },
+          {
+            "ndex": 85,
+            "english": "Dodrio",
+            "french": "Dodrio"
+          },
+          {
+            "ndex": 86,
+            "english": "Seel",
+            "french": "Otaria"
+          },
+          {
+            "ndex": 87,
+            "english": "Dewgong",
+            "french": "Lamantine"
+          },
+          {
+            "ndex": 88,
+            "english": "Grimer",
+            "french": "Tadmorv"
+          },
+          {
+            "ndex": 89,
+            "english": "Muk",
+            "french": "Grotadmorv"
+          },
+          {
+            "ndex": 90,
+            "english": "Shellder",
+            "french": "Kokiyas"
+          },
+          {
+            "ndex": 91,
+            "english": "Cloyster",
+            "french": "Crustabri"
+          },
+          {
+            "ndex": 92,
+            "english": "Gastly",
+            "french": "Fantominus"
+          },
+          {
+            "ndex": 93,
+            "english": "Haunter",
+            "french": "Spectrum"
+          },
+          {
+            "ndex": 94,
+            "english": "Gengar",
+            "french": "Ectoplasma"
+          },
+          {
+            "ndex": 95,
+            "english": "Onix",
+            "french": "Onix"
+          },
+          {
+            "ndex": 96,
+            "english": "Drowzee",
+            "french": "Soporifik"
+          },
+          {
+            "ndex": 97,
+            "english": "Hypno",
+            "french": "Hypnomade"
+          },
+          {
+            "ndex": 98,
+            "english": "Krabby",
+            "french": "Krabby"
+          },
+          {
+            "ndex": 99,
+            "english": "Kingler",
+            "french": "Krabboss"
+          },
+          {
+            "ndex": 100,
+            "english": "Voltorb",
+            "french": "Voltorbe"
+          },
+          {
+            "ndex": 101,
+            "english": "Electrode",
+            "french": "Électrode"
+          },
+          {
+            "ndex": 102,
+            "english": "Exeggcute",
+            "french": "Noeunoeuf"
+          },
+          {
+            "ndex": 103,
+            "english": "Exeggutor",
+            "french": "Noadkoko"
+          },
+          {
+            "ndex": 104,
+            "english": "Cubone",
+            "french": "Osselait"
+          },
+          {
+            "ndex": 105,
+            "english": "Marowak",
+            "french": "Ossatueur"
+          },
+          {
+            "ndex": 106,
+            "english": "Hitmonlee",
+            "french": "Kicklee"
+          },
+          {
+            "ndex": 107,
+            "english": "Hitmonchan",
+            "french": "Tygnon"
+          },
+          {
+            "ndex": 108,
+            "english": "Lickitung",
+            "french": "Excelangue"
+          },
+          {
+            "ndex": 109,
+            "english": "Koffing",
+            "french": "Smogo"
+          },
+          {
+            "ndex": 110,
+            "english": "Weezing",
+            "french": "Smogogo"
+          },
+          {
+            "ndex": 111,
+            "english": "Rhyhorn",
+            "french": "Rhinocorne"
+          },
+          {
+            "ndex": 112,
+            "english": "Rhydon",
+            "french": "Rhinoféros"
+          },
+          {
+            "ndex": 113,
+            "english": "Chansey",
+            "french": "Leveinard"
+          },
+          {
+            "ndex": 114,
+            "english": "Tangela",
+            "french": "Saquedeneu"
+          },
+          {
+            "ndex": 115,
+            "english": "Kangaskhan",
+            "french": "Kangourex"
+          },
+          {
+            "ndex": 116,
+            "english": "Horsea",
+            "french": "Hypotrempe"
+          },
+          {
+            "ndex": 117,
+            "english": "Seadra",
+            "french": "Hypocéan"
+          },
+          {
+            "ndex": 118,
+            "english": "Goldeen",
+            "french": "Poissirène"
+          },
+          {
+            "ndex": 119,
+            "english": "Seaking",
+            "french": "Poissoroy"
+          },
+          {
+            "ndex": 120,
+            "english": "Staryu",
+            "french": "Stari"
+          },
+          {
+            "ndex": 121,
+            "english": "Starmie",
+            "french": "Staross"
+          },
+          {
+            "ndex": 122,
+            "english": "Mr. Mime",
+            "french": "M. Mime"
+          },
+          {
+            "ndex": 123,
+            "english": "Scyther",
+            "french": "Insécateur"
+          },
+          {
+            "ndex": 124,
+            "english": "Jynx",
+            "french": "Lippoutou"
+          },
+          {
+            "ndex": 125,
+            "english": "Electabuzz",
+            "french": "Élektek"
+          },
+          {
+            "ndex": 126,
+            "english": "Magmar",
+            "french": "Magmar"
+          },
+          {
+            "ndex": 127,
+            "english": "Pinsir",
+            "french": "Scarabrute"
+          },
+          {
+            "ndex": 128,
+            "english": "Tauros",
+            "french": "Tauros"
+          },
+          {
+            "ndex": 129,
+            "english": "Magikarp",
+            "french": "Magicarpe"
+          },
+          {
+            "ndex": 130,
+            "english": "Gyarados",
+            "french": "Léviator"
+          },
+          {
+            "ndex": 131,
+            "english": "Lapras",
+            "french": "Lokhlass"
+          },
+          {
+            "ndex": 132,
+            "english": "Ditto",
+            "french": "Métamorph"
+          },
+          {
+            "ndex": 133,
+            "english": "Eevee",
+            "french": "Évoli"
+          },
+          {
+            "ndex": 134,
+            "english": "Vaporeon",
+            "french": "Aquali"
+          },
+          {
+            "ndex": 135,
+            "english": "Jolteon",
+            "french": "Voltali"
+          },
+          {
+            "ndex": 136,
+            "english": "Flareon",
+            "french": "Pyroli"
+          },
+          {
+            "ndex": 137,
+            "english": "Porygon",
+            "french": "Porygon"
+          },
+          {
+            "ndex": 138,
+            "english": "Omanyte",
+            "french": "Amonita"
+          },
+          {
+            "ndex": 139,
+            "english": "Omastar",
+            "french": "Amonistar"
+          },
+          {
+            "ndex": 140,
+            "english": "Kabuto",
+            "french": "Kabuto"
+          },
+          {
+            "ndex": 141,
+            "english": "Kabutops",
+            "french": "Kabutops"
+          },
+          {
+            "ndex": 142,
+            "english": "Aerodactyl",
+            "french": "Ptéra"
+          },
+          {
+            "ndex": 143,
+            "english": "Snorlax",
+            "french": "Ronflex"
+          },
+          {
+            "ndex": 144,
+            "english": "Articuno",
+            "french": "Artikodin"
+          },
+          {
+            "ndex": 145,
+            "english": "Zapdos",
+            "french": "Électhor"
+          },
+          {
+            "ndex": 146,
+            "english": "Moltres",
+            "french": "Sulfura"
+          },
+          {
+            "ndex": 147,
+            "english": "Dratini",
+            "french": "Minidraco"
+          },
+          {
+            "ndex": 148,
+            "english": "Dragonair",
+            "french": "Draco"
+          },
+          {
+            "ndex": 149,
+            "english": "Dragonite",
+            "french": "Dracolosse"
+          },
+          {
+            "ndex": 150,
+            "english": "Mewtwo",
+            "french": "Mewtwo"
+          },
+          {
+            "ndex": 151,
+            "english": "Mew",
+            "french": "Mew"
+          }
+        ],
+        [
+          {
+            "ndex": 152,
+            "english": "Chikorita",
+            "french": "Germignon"
+          },
+          {
+            "ndex": 153,
+            "english": "Bayleef",
+            "french": "Macronium"
+          },
+          {
+            "ndex": 154,
+            "english": "Meganium",
+            "french": "Méganium"
+          },
+          {
+            "ndex": 155,
+            "english": "Cyndaquil",
+            "french": "Héricendre"
+          },
+          {
+            "ndex": 156,
+            "english": "Quilava",
+            "french": "Feurisson"
+          },
+          {
+            "ndex": 157,
+            "english": "Typhlosion",
+            "french": "Typhlosion"
+          },
+          {
+            "ndex": 158,
+            "english": "Totodile",
+            "french": "Kaiminus"
+          },
+          {
+            "ndex": 159,
+            "english": "Croconaw",
+            "french": "Crocrodil"
+          },
+          {
+            "ndex": 160,
+            "english": "Feraligatr",
+            "french": "Aligatueur"
+          },
+          {
+            "ndex": 161,
+            "english": "Sentret",
+            "french": "Fouinette"
+          },
+          {
+            "ndex": 162,
+            "english": "Furret",
+            "french": "Fouinar"
+          },
+          {
+            "ndex": 163,
+            "english": "Hoothoot",
+            "french": "Hoothoot"
+          },
+          {
+            "ndex": 164,
+            "english": "Noctowl",
+            "french": "Noarfang"
+          },
+          {
+            "ndex": 165,
+            "english": "Ledyba",
+            "french": "Coxy"
+          },
+          {
+            "ndex": 166,
+            "english": "Ledian",
+            "french": "Coxyclaque"
+          },
+          {
+            "ndex": 167,
+            "english": "Spinarak",
+            "french": "Mimigal"
+          },
+          {
+            "ndex": 168,
+            "english": "Ariados",
+            "french": "Migalos"
+          },
+          {
+            "ndex": 169,
+            "english": "Crobat",
+            "french": "Nostenfer"
+          },
+          {
+            "ndex": 170,
+            "english": "Chinchou",
+            "french": "Loupio"
+          },
+          {
+            "ndex": 171,
+            "english": "Lanturn",
+            "french": "Lanturn"
+          },
+          {
+            "ndex": 172,
+            "english": "Pichu",
+            "french": "Pichu"
+          },
+          {
+            "ndex": 173,
+            "english": "Cleffa",
+            "french": "Mélo"
+          },
+          {
+            "ndex": 174,
+            "english": "Igglybuff",
+            "french": "Toudoudou"
+          },
+          {
+            "ndex": 175,
+            "english": "Togepi",
+            "french": "Togepi"
+          },
+          {
+            "ndex": 176,
+            "english": "Togetic",
+            "french": "Togetic"
+          },
+          {
+            "ndex": 177,
+            "english": "Natu",
+            "french": "Natu"
+          },
+          {
+            "ndex": 178,
+            "english": "Xatu",
+            "french": "Xatu"
+          },
+          {
+            "ndex": 179,
+            "english": "Mareep",
+            "french": "Wattouat"
+          },
+          {
+            "ndex": 180,
+            "english": "Flaaffy",
+            "french": "Lainergie"
+          },
+          {
+            "ndex": 181,
+            "english": "Ampharos",
+            "french": "Pharamp"
+          },
+          {
+            "ndex": 182,
+            "english": "Bellossom",
+            "french": "Joliflor"
+          },
+          {
+            "ndex": 183,
+            "english": "Marill",
+            "french": "Marill"
+          },
+          {
+            "ndex": 184,
+            "english": "Azumarill",
+            "french": "Azumarill"
+          },
+          {
+            "ndex": 185,
+            "english": "Sudowoodo",
+            "french": "Simularbre"
+          },
+          {
+            "ndex": 186,
+            "english": "Politoed",
+            "french": "Tarpaud"
+          },
+          {
+            "ndex": 187,
+            "english": "Hoppip",
+            "french": "Granivol"
+          },
+          {
+            "ndex": 188,
+            "english": "Skiploom",
+            "french": "Floravol"
+          },
+          {
+            "ndex": 189,
+            "english": "Jumpluff",
+            "french": "Cotovol"
+          },
+          {
+            "ndex": 190,
+            "english": "Aipom",
+            "french": "Capumain"
+          },
+          {
+            "ndex": 191,
+            "english": "Sunkern",
+            "french": "Tournegrin"
+          },
+          {
+            "ndex": 192,
+            "english": "Sunflora",
+            "french": "Héliatronc"
+          },
+          {
+            "ndex": 193,
+            "english": "Yanma",
+            "french": "Yanma"
+          },
+          {
+            "ndex": 194,
+            "english": "Wooper",
+            "french": "Axoloto"
+          },
+          {
+            "ndex": 195,
+            "english": "Quagsire",
+            "french": "Maraiste"
+          },
+          {
+            "ndex": 196,
+            "english": "Espeon",
+            "french": "Mentali"
+          },
+          {
+            "ndex": 197,
+            "english": "Umbreon",
+            "french": "Noctali"
+          },
+          {
+            "ndex": 198,
+            "english": "Murkrow",
+            "french": "Cornèbre"
+          },
+          {
+            "ndex": 199,
+            "english": "Slowking",
+            "french": "Roigada"
+          },
+          {
+            "ndex": 200,
+            "english": "Misdreavus",
+            "french": "Feuforêve"
+          },
+          {
+            "ndex": 201,
+            "english": "Unown",
+            "french": "Zarbi"
+          },
+          {
+            "ndex": 202,
+            "english": "Wobbuffet",
+            "french": "Qulbutoké"
+          },
+          {
+            "ndex": 203,
+            "english": "Girafarig",
+            "french": "Girafarig"
+          },
+          {
+            "ndex": 204,
+            "english": "Pineco",
+            "french": "Pomdepik"
+          },
+          {
+            "ndex": 205,
+            "english": "Forretress",
+            "french": "Foretress"
+          },
+          {
+            "ndex": 206,
+            "english": "Dunsparce",
+            "french": "Insolourdo"
+          },
+          {
+            "ndex": 207,
+            "english": "Gligar",
+            "french": "Scorplane"
+          },
+          {
+            "ndex": 208,
+            "english": "Steelix",
+            "french": "Steelix"
+          },
+          {
+            "ndex": 209,
+            "english": "Snubbull",
+            "french": "Snubbull"
+          },
+          {
+            "ndex": 210,
+            "english": "Granbull",
+            "french": "Granbull"
+          },
+          {
+            "ndex": 211,
+            "english": "Qwilfish",
+            "french": "Qwilfish"
+          },
+          {
+            "ndex": 212,
+            "english": "Scizor",
+            "french": "Cizayox"
+          },
+          {
+            "ndex": 213,
+            "english": "Shuckle",
+            "french": "Caratroc"
+          },
+          {
+            "ndex": 214,
+            "english": "Heracross",
+            "french": "Scarhino"
+          },
+          {
+            "ndex": 215,
+            "english": "Sneasel",
+            "french": "Farfuret"
+          },
+          {
+            "ndex": 216,
+            "english": "Teddiursa",
+            "french": "Teddiursa"
+          },
+          {
+            "ndex": 217,
+            "english": "Ursaring",
+            "french": "Ursaring"
+          },
+          {
+            "ndex": 218,
+            "english": "Slugma",
+            "french": "Limagma"
+          },
+          {
+            "ndex": 219,
+            "english": "Magcargo",
+            "french": "Volcaropod"
+          },
+          {
+            "ndex": 220,
+            "english": "Swinub",
+            "french": "Marcacrin"
+          },
+          {
+            "ndex": 221,
+            "english": "Piloswine",
+            "french": "Cochignon"
+          },
+          {
+            "ndex": 222,
+            "english": "Corsola",
+            "french": "Corayon"
+          },
+          {
+            "ndex": 223,
+            "english": "Remoraid",
+            "french": "Rémoraid"
+          },
+          {
+            "ndex": 224,
+            "english": "Octillery",
+            "french": "Octillery"
+          },
+          {
+            "ndex": 225,
+            "english": "Delibird",
+            "french": "Cadoizo"
+          },
+          {
+            "ndex": 226,
+            "english": "Mantine",
+            "french": "Démanta"
+          },
+          {
+            "ndex": 227,
+            "english": "Skarmory",
+            "french": "Airmure"
+          },
+          {
+            "ndex": 228,
+            "english": "Houndour",
+            "french": "Malosse"
+          },
+          {
+            "ndex": 229,
+            "english": "Houndoom",
+            "french": "Démolosse"
+          },
+          {
+            "ndex": 230,
+            "english": "Kingdra",
+            "french": "Hyporoi"
+          },
+          {
+            "ndex": 231,
+            "english": "Phanpy",
+            "french": "Phanpy"
+          },
+          {
+            "ndex": 232,
+            "english": "Donphan",
+            "french": "Donphan"
+          },
+          {
+            "ndex": 233,
+            "english": "Porygon2",
+            "french": "Porygon2"
+          },
+          {
+            "ndex": 234,
+            "english": "Stantler",
+            "french": "Cerfrousse"
+          },
+          {
+            "ndex": 235,
+            "english": "Smeargle",
+            "french": "Queulorior"
+          },
+          {
+            "ndex": 236,
+            "english": "Tyrogue",
+            "french": "Debugant"
+          },
+          {
+            "ndex": 237,
+            "english": "Hitmontop",
+            "french": "Kapoera"
+          },
+          {
+            "ndex": 238,
+            "english": "Smoochum",
+            "french": "Lippouti"
+          },
+          {
+            "ndex": 239,
+            "english": "Elekid",
+            "french": "Élekid"
+          },
+          {
+            "ndex": 240,
+            "english": "Magby",
+            "french": "Magby"
+          },
+          {
+            "ndex": 241,
+            "english": "Miltank",
+            "french": "Écrémeuh"
+          },
+          {
+            "ndex": 242,
+            "english": "Blissey",
+            "french": "Leuphorie"
+          },
+          {
+            "ndex": 243,
+            "english": "Raikou",
+            "french": "Raikou"
+          },
+          {
+            "ndex": 244,
+            "english": "Entei",
+            "french": "Entei"
+          },
+          {
+            "ndex": 245,
+            "english": "Suicune",
+            "french": "Suicune"
+          },
+          {
+            "ndex": 246,
+            "english": "Larvitar",
+            "french": "Embrylex"
+          },
+          {
+            "ndex": 247,
+            "english": "Pupitar",
+            "french": "Ymphect"
+          },
+          {
+            "ndex": 248,
+            "english": "Tyranitar",
+            "french": "Tyranocif"
+          },
+          {
+            "ndex": 249,
+            "english": "Lugia",
+            "french": "Lugia"
+          },
+          {
+            "ndex": 250,
+            "english": "Ho-Oh",
+            "french": "Ho-Oh"
+          },
+          {
+            "ndex": 251,
+            "english": "Celebi",
+            "french": "Celebi"
+          }
+        ],
+        [
+          {
+            "ndex": 252,
+            "english": "Treecko",
+            "french": "Arcko"
+          },
+          {
+            "ndex": 253,
+            "english": "Grovyle",
+            "french": "Massko"
+          },
+          {
+            "ndex": 254,
+            "english": "Sceptile",
+            "french": "Jungko"
+          },
+          {
+            "ndex": 255,
+            "english": "Torchic",
+            "french": "Poussifeu"
+          },
+          {
+            "ndex": 256,
+            "english": "Combusken",
+            "french": "Galifeu"
+          },
+          {
+            "ndex": 257,
+            "english": "Blaziken",
+            "french": "Braségali"
+          },
+          {
+            "ndex": 258,
+            "english": "Mudkip",
+            "french": "Gobou"
+          },
+          {
+            "ndex": 259,
+            "english": "Marshtomp",
+            "french": "Flobio"
+          },
+          {
+            "ndex": 260,
+            "english": "Swampert",
+            "french": "Laggron"
+          },
+          {
+            "ndex": 261,
+            "english": "Poochyena",
+            "french": "Medhyèna"
+          },
+          {
+            "ndex": 262,
+            "english": "Mightyena",
+            "french": "Grahyèna"
+          },
+          {
+            "ndex": 263,
+            "english": "Zigzagoon",
+            "french": "Zigzaton"
+          },
+          {
+            "ndex": 264,
+            "english": "Linoone",
+            "french": "Linéon"
+          },
+          {
+            "ndex": 265,
+            "english": "Wurmple",
+            "french": "Chenipotte"
+          },
+          {
+            "ndex": 266,
+            "english": "Silcoon",
+            "french": "Armulys"
+          },
+          {
+            "ndex": 267,
+            "english": "Beautifly",
+            "french": "Charmillon"
+          },
+          {
+            "ndex": 268,
+            "english": "Cascoon",
+            "french": "Blindalys"
+          },
+          {
+            "ndex": 269,
+            "english": "Dustox",
+            "french": "Papinox"
+          },
+          {
+            "ndex": 270,
+            "english": "Lotad",
+            "french": "Nénupiot"
+          },
+          {
+            "ndex": 271,
+            "english": "Lombre",
+            "french": "Lombre"
+          },
+          {
+            "ndex": 272,
+            "english": "Ludicolo",
+            "french": "Ludicolo"
+          },
+          {
+            "ndex": 273,
+            "english": "Seedot",
+            "french": "Grainipiot"
+          },
+          {
+            "ndex": 274,
+            "english": "Nuzleaf",
+            "french": "Pifeuil"
+          },
+          {
+            "ndex": 275,
+            "english": "Shiftry",
+            "french": "Tengalice"
+          },
+          {
+            "ndex": 276,
+            "english": "Taillow",
+            "french": "Nirondelle"
+          },
+          {
+            "ndex": 277,
+            "english": "Swellow",
+            "french": "Hélédelle"
+          },
+          {
+            "ndex": 278,
+            "english": "Wingull",
+            "french": "Goélise"
+          },
+          {
+            "ndex": 279,
+            "english": "Pelipper",
+            "french": "Bekipan"
+          },
+          {
+            "ndex": 280,
+            "english": "Ralts",
+            "french": "Tarsal"
+          },
+          {
+            "ndex": 281,
+            "english": "Kirlia",
+            "french": "Kirlia"
+          },
+          {
+            "ndex": 282,
+            "english": "Gardevoir",
+            "french": "Gardevoir"
+          },
+          {
+            "ndex": 283,
+            "english": "Surskit",
+            "french": "Arakdo"
+          },
+          {
+            "ndex": 284,
+            "english": "Masquerain",
+            "french": "Maskadra"
+          },
+          {
+            "ndex": 285,
+            "english": "Shroomish",
+            "french": "Balignon"
+          },
+          {
+            "ndex": 286,
+            "english": "Breloom",
+            "french": "Chapignon"
+          },
+          {
+            "ndex": 287,
+            "english": "Slakoth",
+            "french": "Parecool"
+          },
+          {
+            "ndex": 288,
+            "english": "Vigoroth",
+            "french": "Vigoroth"
+          },
+          {
+            "ndex": 289,
+            "english": "Slaking",
+            "french": "Monaflèmit"
+          },
+          {
+            "ndex": 290,
+            "english": "Nincada",
+            "french": "Ningale"
+          },
+          {
+            "ndex": 291,
+            "english": "Ninjask",
+            "french": "Ninjask"
+          },
+          {
+            "ndex": 292,
+            "english": "Shedinja",
+            "french": "Munja"
+          },
+          {
+            "ndex": 293,
+            "english": "Whismur",
+            "french": "Chuchmur"
+          },
+          {
+            "ndex": 294,
+            "english": "Loudred",
+            "french": "Ramboum"
+          },
+          {
+            "ndex": 295,
+            "english": "Exploud",
+            "french": "Brouhabam"
+          },
+          {
+            "ndex": 296,
+            "english": "Makuhita",
+            "french": "Makuhita"
+          },
+          {
+            "ndex": 297,
+            "english": "Hariyama",
+            "french": "Hariyama"
+          },
+          {
+            "ndex": 298,
+            "english": "Azurill",
+            "french": "Azurill"
+          },
+          {
+            "ndex": 299,
+            "english": "Nosepass",
+            "french": "Tarinor"
+          },
+          {
+            "ndex": 300,
+            "english": "Skitty",
+            "french": "Skitty"
+          },
+          {
+            "ndex": 301,
+            "english": "Delcatty",
+            "french": "Delcatty"
+          },
+          {
+            "ndex": 302,
+            "english": "Sableye",
+            "french": "Ténéfix"
+          },
+          {
+            "ndex": 303,
+            "english": "Mawile",
+            "french": "Mysdibule"
+          },
+          {
+            "ndex": 304,
+            "english": "Aron",
+            "french": "Galekid"
+          },
+          {
+            "ndex": 305,
+            "english": "Lairon",
+            "french": "Galegon"
+          },
+          {
+            "ndex": 306,
+            "english": "Aggron",
+            "french": "Galeking"
+          },
+          {
+            "ndex": 307,
+            "english": "Meditite",
+            "french": "Méditikka"
+          },
+          {
+            "ndex": 308,
+            "english": "Medicham",
+            "french": "Charmina"
+          },
+          {
+            "ndex": 309,
+            "english": "Electrike",
+            "french": "Dynavolt"
+          },
+          {
+            "ndex": 310,
+            "english": "Manectric",
+            "french": "Élecsprint"
+          },
+          {
+            "ndex": 311,
+            "english": "Plusle",
+            "french": "Posipi"
+          },
+          {
+            "ndex": 312,
+            "english": "Minun",
+            "french": "Négapi"
+          },
+          {
+            "ndex": 313,
+            "english": "Volbeat",
+            "french": "Muciole"
+          },
+          {
+            "ndex": 314,
+            "english": "Illumise",
+            "french": "Lumivole"
+          },
+          {
+            "ndex": 315,
+            "english": "Roselia",
+            "french": "Rosélia"
+          },
+          {
+            "ndex": 316,
+            "english": "Gulpin",
+            "french": "Gloupti"
+          },
+          {
+            "ndex": 317,
+            "english": "Swalot",
+            "french": "Avaltout"
+          },
+          {
+            "ndex": 318,
+            "english": "Carvanha",
+            "french": "Carvanha"
+          },
+          {
+            "ndex": 319,
+            "english": "Sharpedo",
+            "french": "Sharpedo"
+          },
+          {
+            "ndex": 320,
+            "english": "Wailmer",
+            "french": "Wailmer"
+          },
+          {
+            "ndex": 321,
+            "english": "Wailord",
+            "french": "Wailord"
+          },
+          {
+            "ndex": 322,
+            "english": "Numel",
+            "french": "Chamallot"
+          },
+          {
+            "ndex": 323,
+            "english": "Camerupt",
+            "french": "Camérupt"
+          },
+          {
+            "ndex": 324,
+            "english": "Torkoal",
+            "french": "Chartor"
+          },
+          {
+            "ndex": 325,
+            "english": "Spoink",
+            "french": "Spoink"
+          },
+          {
+            "ndex": 326,
+            "english": "Grumpig",
+            "french": "Groret"
+          },
+          {
+            "ndex": 327,
+            "english": "Spinda",
+            "french": "Spinda"
+          },
+          {
+            "ndex": 328,
+            "english": "Trapinch",
+            "french": "Kraknoix"
+          },
+          {
+            "ndex": 329,
+            "english": "Vibrava",
+            "french": "Vibraninf"
+          },
+          {
+            "ndex": 330,
+            "english": "Flygon",
+            "french": "Libégon"
+          },
+          {
+            "ndex": 331,
+            "english": "Cacnea",
+            "french": "Cacnea"
+          },
+          {
+            "ndex": 332,
+            "english": "Cacturne",
+            "french": "Cacturne"
+          },
+          {
+            "ndex": 333,
+            "english": "Swablu",
+            "french": "Tylton"
+          },
+          {
+            "ndex": 334,
+            "english": "Altaria",
+            "french": "Altaria"
+          },
+          {
+            "ndex": 335,
+            "english": "Zangoose",
+            "french": "Mangriff"
+          },
+          {
+            "ndex": 336,
+            "english": "Seviper",
+            "french": "Séviper"
+          },
+          {
+            "ndex": 337,
+            "english": "Lunatone",
+            "french": "Séléroc"
+          },
+          {
+            "ndex": 338,
+            "english": "Solrock",
+            "french": "Solaroc"
+          },
+          {
+            "ndex": 339,
+            "english": "Barboach",
+            "french": "Barloche"
+          },
+          {
+            "ndex": 340,
+            "english": "Whiscash",
+            "french": "Barbicha"
+          },
+          {
+            "ndex": 341,
+            "english": "Corphish",
+            "french": "Écrapince"
+          },
+          {
+            "ndex": 342,
+            "english": "Crawdaunt",
+            "french": "Colhomard"
+          },
+          {
+            "ndex": 343,
+            "english": "Baltoy",
+            "french": "Balbuto"
+          },
+          {
+            "ndex": 344,
+            "english": "Claydol",
+            "french": "Kaorine"
+          },
+          {
+            "ndex": 345,
+            "english": "Lileep",
+            "french": "Lilia"
+          },
+          {
+            "ndex": 346,
+            "english": "Cradily",
+            "french": "Vacilys"
+          },
+          {
+            "ndex": 347,
+            "english": "Anorith",
+            "french": "Anorith"
+          },
+          {
+            "ndex": 348,
+            "english": "Armaldo",
+            "french": "Armaldo"
+          },
+          {
+            "ndex": 349,
+            "english": "Feebas",
+            "french": "Barpau"
+          },
+          {
+            "ndex": 350,
+            "english": "Milotic",
+            "french": "Milobellus"
+          },
+          {
+            "ndex": 351,
+            "english": "Castform",
+            "french": "Morphéo"
+          },
+          {
+            "ndex": 352,
+            "english": "Kecleon",
+            "french": "Kecleon"
+          },
+          {
+            "ndex": 353,
+            "english": "Shuppet",
+            "french": "Polichombr"
+          },
+          {
+            "ndex": 354,
+            "english": "Banette",
+            "french": "Branette"
+          },
+          {
+            "ndex": 355,
+            "english": "Duskull",
+            "french": "Skelénox"
+          },
+          {
+            "ndex": 356,
+            "english": "Dusclops",
+            "french": "Téraclope"
+          },
+          {
+            "ndex": 357,
+            "english": "Tropius",
+            "french": "Tropius"
+          },
+          {
+            "ndex": 358,
+            "english": "Chimecho",
+            "french": "Éoko"
+          },
+          {
+            "ndex": 359,
+            "english": "Absol",
+            "french": "Absol"
+          },
+          {
+            "ndex": 360,
+            "english": "Wynaut",
+            "french": "Okéoké"
+          },
+          {
+            "ndex": 361,
+            "english": "Snorunt",
+            "french": "Stalgamin"
+          },
+          {
+            "ndex": 362,
+            "english": "Glalie",
+            "french": "Oniglali"
+          },
+          {
+            "ndex": 363,
+            "english": "Spheal",
+            "french": "Obalie"
+          },
+          {
+            "ndex": 364,
+            "english": "Sealeo",
+            "french": "Phogleur"
+          },
+          {
+            "ndex": 365,
+            "english": "Walrein",
+            "french": "Kaimorse"
+          },
+          {
+            "ndex": 366,
+            "english": "Clamperl",
+            "french": "Coquiperl"
+          },
+          {
+            "ndex": 367,
+            "english": "Huntail",
+            "french": "Serpang"
+          },
+          {
+            "ndex": 368,
+            "english": "Gorebyss",
+            "french": "Rosabyss"
+          },
+          {
+            "ndex": 369,
+            "english": "Relicanth",
+            "french": "Relicanth"
+          },
+          {
+            "ndex": 370,
+            "english": "Luvdisc",
+            "french": "Lovdisc"
+          },
+          {
+            "ndex": 371,
+            "english": "Bagon",
+            "french": "Draby"
+          },
+          {
+            "ndex": 372,
+            "english": "Shelgon",
+            "french": "Drackhaus"
+          },
+          {
+            "ndex": 373,
+            "english": "Salamence",
+            "french": "Drattak"
+          },
+          {
+            "ndex": 374,
+            "english": "Beldum",
+            "french": "Terhal"
+          },
+          {
+            "ndex": 375,
+            "english": "Metang",
+            "french": "Métang"
+          },
+          {
+            "ndex": 376,
+            "english": "Metagross",
+            "french": "Métalosse"
+          },
+          {
+            "ndex": 377,
+            "english": "Regirock",
+            "french": "Regirock"
+          },
+          {
+            "ndex": 378,
+            "english": "Regice",
+            "french": "Regice"
+          },
+          {
+            "ndex": 379,
+            "english": "Registeel",
+            "french": "Registeel"
+          },
+          {
+            "ndex": 380,
+            "english": "Latias",
+            "french": "Latias"
+          },
+          {
+            "ndex": 381,
+            "english": "Latios",
+            "french": "Latios"
+          },
+          {
+            "ndex": 382,
+            "english": "Kyogre",
+            "french": "Kyogre"
+          },
+          {
+            "ndex": 383,
+            "english": "Groudon",
+            "french": "Groudon"
+          },
+          {
+            "ndex": 384,
+            "english": "Rayquaza",
+            "french": "Rayquaza"
+          },
+          {
+            "ndex": 385,
+            "english": "Jirachi",
+            "french": "Jirachi"
+          },
+          {
+            "ndex": 386,
+            "english": "Deoxys",
+            "french": "Deoxys"
+          }
+        ],
+        [
+          {
+            "ndex": 387,
+            "english": "Turtwig",
+            "french": "Tortipouss"
+          },
+          {
+            "ndex": 388,
+            "english": "Grotle",
+            "french": "Boskara"
+          },
+          {
+            "ndex": 389,
+            "english": "Torterra",
+            "french": "Torterra"
+          },
+          {
+            "ndex": 390,
+            "english": "Chimchar",
+            "french": "Ouisticram"
+          },
+          {
+            "ndex": 391,
+            "english": "Monferno",
+            "french": "Chimpenfeu"
+          },
+          {
+            "ndex": 392,
+            "english": "Infernape",
+            "french": "Simiabraz"
+          },
+          {
+            "ndex": 393,
+            "english": "Piplup",
+            "french": "Tiplouf"
+          },
+          {
+            "ndex": 394,
+            "english": "Prinplup",
+            "french": "Prinplouf"
+          },
+          {
+            "ndex": 395,
+            "english": "Empoleon",
+            "french": "Pingoléon"
+          },
+          {
+            "ndex": 396,
+            "english": "Starly",
+            "french": "Étourmi"
+          },
+          {
+            "ndex": 397,
+            "english": "Staravia",
+            "french": "Étourvol"
+          },
+          {
+            "ndex": 398,
+            "english": "Staraptor",
+            "french": "Étouraptor"
+          },
+          {
+            "ndex": 399,
+            "english": "Bidoof",
+            "french": "Keunotor"
+          },
+          {
+            "ndex": 400,
+            "english": "Bibarel",
+            "french": "Castorno"
+          },
+          {
+            "ndex": 401,
+            "english": "Kricketot",
+            "french": "Crikzik"
+          },
+          {
+            "ndex": 402,
+            "english": "Kricketune",
+            "french": "Mélokrik"
+          },
+          {
+            "ndex": 403,
+            "english": "Shinx",
+            "french": "Lixy"
+          },
+          {
+            "ndex": 404,
+            "english": "Luxio",
+            "french": "Luxio"
+          },
+          {
+            "ndex": 405,
+            "english": "Luxray",
+            "french": "Luxray"
+          },
+          {
+            "ndex": 406,
+            "english": "Budew",
+            "french": "Rozbouton"
+          },
+          {
+            "ndex": 407,
+            "english": "Roserade",
+            "french": "Roserade"
+          },
+          {
+            "ndex": 408,
+            "english": "Cranidos",
+            "french": "Kranidos"
+          },
+          {
+            "ndex": 409,
+            "english": "Rampardos",
+            "french": "Charkos"
+          },
+          {
+            "ndex": 410,
+            "english": "Shieldon",
+            "french": "Dinoclier"
+          },
+          {
+            "ndex": 411,
+            "english": "Bastiodon",
+            "french": "Bastiodon"
+          },
+          {
+            "ndex": 412,
+            "english": "Burmy",
+            "french": "Cheniti"
+          },
+          {
+            "ndex": 413,
+            "english": "Wormadam",
+            "french": "Cheniselle"
+          },
+          {
+            "ndex": 414,
+            "english": "Mothim",
+            "french": "Papilord"
+          },
+          {
+            "ndex": 415,
+            "english": "Combee",
+            "french": "Apitrini"
+          },
+          {
+            "ndex": 416,
+            "english": "Vespiquen",
+            "french": "Apireine"
+          },
+          {
+            "ndex": 417,
+            "english": "Pachirisu",
+            "french": "Pachirisu"
+          },
+          {
+            "ndex": 418,
+            "english": "Buizel",
+            "french": "Mustébouée"
+          },
+          {
+            "ndex": 419,
+            "english": "Floatzel",
+            "french": "Mustéflott"
+          },
+          {
+            "ndex": 420,
+            "english": "Cherubi",
+            "french": "Ceribou"
+          },
+          {
+            "ndex": 421,
+            "english": "Cherrim",
+            "french": "Ceriflor"
+          },
+          {
+            "ndex": 422,
+            "english": "Shellos",
+            "french": "Sancoki"
+          },
+          {
+            "ndex": 423,
+            "english": "Gastrodon",
+            "french": "Tritosor"
+          },
+          {
+            "ndex": 424,
+            "english": "Ambipom",
+            "french": "Capidextre"
+          },
+          {
+            "ndex": 425,
+            "english": "Drifloon",
+            "french": "Baudrive"
+          },
+          {
+            "ndex": 426,
+            "english": "Drifblim",
+            "french": "Grodrive"
+          },
+          {
+            "ndex": 427,
+            "english": "Buneary",
+            "french": "Laporeille"
+          },
+          {
+            "ndex": 428,
+            "english": "Lopunny",
+            "french": "Lockpin"
+          },
+          {
+            "ndex": 429,
+            "english": "Mismagius",
+            "french": "Magirêve"
+          },
+          {
+            "ndex": 430,
+            "english": "Honchkrow",
+            "french": "Corboss"
+          },
+          {
+            "ndex": 431,
+            "english": "Glameow",
+            "french": "Chaglam"
+          },
+          {
+            "ndex": 432,
+            "english": "Purugly",
+            "french": "Chaffreux"
+          },
+          {
+            "ndex": 433,
+            "english": "Chingling",
+            "french": "Korillon"
+          },
+          {
+            "ndex": 434,
+            "english": "Stunky",
+            "french": "Moufouette"
+          },
+          {
+            "ndex": 435,
+            "english": "Skuntank",
+            "french": "Moufflair"
+          },
+          {
+            "ndex": 436,
+            "english": "Bronzor",
+            "french": "Archéomire"
+          },
+          {
+            "ndex": 437,
+            "english": "Bronzong",
+            "french": "Archéodong"
+          },
+          {
+            "ndex": 438,
+            "english": "Bonsly",
+            "french": "Manzaï"
+          },
+          {
+            "ndex": 439,
+            "english": "Mime Jr.",
+            "french": "Mime Jr."
+          },
+          {
+            "ndex": 440,
+            "english": "Happiny",
+            "french": "Ptiravi"
+          },
+          {
+            "ndex": 441,
+            "english": "Chatot",
+            "french": "Pijako"
+          },
+          {
+            "ndex": 442,
+            "english": "Spiritomb",
+            "french": "Spiritomb"
+          },
+          {
+            "ndex": 443,
+            "english": "Gible",
+            "french": "Griknot"
+          },
+          {
+            "ndex": 444,
+            "english": "Gabite",
+            "french": "Carmache"
+          },
+          {
+            "ndex": 445,
+            "english": "Garchomp",
+            "french": "Carchacrok"
+          },
+          {
+            "ndex": 446,
+            "english": "Munchlax",
+            "french": "Goinfrex"
+          },
+          {
+            "ndex": 447,
+            "english": "Riolu",
+            "french": "Riolu"
+          },
+          {
+            "ndex": 448,
+            "english": "Lucario",
+            "french": "Lucario"
+          },
+          {
+            "ndex": 449,
+            "english": "Hippopotas",
+            "french": "Hippopotas"
+          },
+          {
+            "ndex": 450,
+            "english": "Hippowdon",
+            "french": "Hippodocus"
+          },
+          {
+            "ndex": 451,
+            "english": "Skorupi",
+            "french": "Rapion"
+          },
+          {
+            "ndex": 452,
+            "english": "Drapion",
+            "french": "Drascore"
+          },
+          {
+            "ndex": 453,
+            "english": "Croagunk",
+            "french": "Cradopaud"
+          },
+          {
+            "ndex": 454,
+            "english": "Toxicroak",
+            "french": "Coatox"
+          },
+          {
+            "ndex": 455,
+            "english": "Carnivine",
+            "french": "Vortente"
+          },
+          {
+            "ndex": 456,
+            "english": "Finneon",
+            "french": "Écayon"
+          },
+          {
+            "ndex": 457,
+            "english": "Lumineon",
+            "french": "Luminéon"
+          },
+          {
+            "ndex": 458,
+            "english": "Mantyke",
+            "french": "Babimanta"
+          },
+          {
+            "ndex": 459,
+            "english": "Snover",
+            "french": "Blizzi"
+          },
+          {
+            "ndex": 460,
+            "english": "Abomasnow",
+            "french": "Blizzaroi"
+          },
+          {
+            "ndex": 461,
+            "english": "Weavile",
+            "french": "Dimoret"
+          },
+          {
+            "ndex": 462,
+            "english": "Magnezone",
+            "french": "Magnézone"
+          },
+          {
+            "ndex": 463,
+            "english": "Lickilicky",
+            "french": "Coudlangue"
+          },
+          {
+            "ndex": 464,
+            "english": "Rhyperior",
+            "french": "Rhinastoc"
+          },
+          {
+            "ndex": 465,
+            "english": "Tangrowth",
+            "french": "Bouldeneu"
+          },
+          {
+            "ndex": 466,
+            "english": "Electivire",
+            "french": "Élekable"
+          },
+          {
+            "ndex": 467,
+            "english": "Magmortar",
+            "french": "Maganon"
+          },
+          {
+            "ndex": 468,
+            "english": "Togekiss",
+            "french": "Togekiss"
+          },
+          {
+            "ndex": 469,
+            "english": "Yanmega",
+            "french": "Yanméga"
+          },
+          {
+            "ndex": 470,
+            "english": "Leafeon",
+            "french": "Phyllali"
+          },
+          {
+            "ndex": 471,
+            "english": "Glaceon",
+            "french": "Givrali"
+          },
+          {
+            "ndex": 472,
+            "english": "Gliscor",
+            "french": "Scorvol"
+          },
+          {
+            "ndex": 473,
+            "english": "Mamoswine",
+            "french": "Mammochon"
+          },
+          {
+            "ndex": 474,
+            "english": "Porygon-Z",
+            "french": "Porygon-Z"
+          },
+          {
+            "ndex": 475,
+            "english": "Gallade",
+            "french": "Gallame"
+          },
+          {
+            "ndex": 476,
+            "english": "Probopass",
+            "french": "Tarinorme"
+          },
+          {
+            "ndex": 477,
+            "english": "Dusknoir",
+            "french": "Noctunoir"
+          },
+          {
+            "ndex": 478,
+            "english": "Froslass",
+            "french": "Momartik"
+          },
+          {
+            "ndex": 479,
+            "english": "Rotom",
+            "french": "Motisma"
+          },
+          {
+            "ndex": 480,
+            "english": "Uxie",
+            "french": "Créhelf"
+          },
+          {
+            "ndex": 481,
+            "english": "Mesprit",
+            "french": "Créfollet"
+          },
+          {
+            "ndex": 482,
+            "english": "Azelf",
+            "french": "Créfadet"
+          },
+          {
+            "ndex": 483,
+            "english": "Dialga",
+            "french": "Dialga"
+          },
+          {
+            "ndex": 484,
+            "english": "Palkia",
+            "french": "Palkia"
+          },
+          {
+            "ndex": 485,
+            "english": "Heatran",
+            "french": "Heatran"
+          },
+          {
+            "ndex": 486,
+            "english": "Regigigas",
+            "french": "Regigigas"
+          },
+          {
+            "ndex": 487,
+            "english": "Giratina",
+            "french": "Giratina"
+          },
+          {
+            "ndex": 488,
+            "english": "Cresselia",
+            "french": "Cresselia"
+          },
+          {
+            "ndex": 489,
+            "english": "Phione",
+            "french": "Phione"
+          },
+          {
+            "ndex": 490,
+            "english": "Manaphy",
+            "french": "Manaphy"
+          },
+          {
+            "ndex": 491,
+            "english": "Darkrai",
+            "french": "Darkrai"
+          },
+          {
+            "ndex": 492,
+            "english": "Shaymin",
+            "french": "Shaymin"
+          },
+          {
+            "ndex": 493,
+            "english": "Arceus",
+            "french": "Arceus"
+          }
+        ],
+        [
+          {
+            "ndex": 494,
+            "english": "Victini",
+            "french": "Victini"
+          },
+          {
+            "ndex": 495,
+            "english": "Snivy",
+            "french": "Vipélierre"
+          },
+          {
+            "ndex": 496,
+            "english": "Servine",
+            "french": "Lianaja"
+          },
+          {
+            "ndex": 497,
+            "english": "Serperior",
+            "french": "Majaspic"
+          },
+          {
+            "ndex": 498,
+            "english": "Tepig",
+            "french": "Gruikui"
+          },
+          {
+            "ndex": 499,
+            "english": "Pignite",
+            "french": "Grotichon"
+          },
+          {
+            "ndex": 500,
+            "english": "Emboar",
+            "french": "Roitiflam"
+          },
+          {
+            "ndex": 501,
+            "english": "Oshawott",
+            "french": "Moustillon"
+          },
+          {
+            "ndex": 502,
+            "english": "Dewott",
+            "french": "Mateloutre"
+          },
+          {
+            "ndex": 503,
+            "english": "Samurott",
+            "french": "Clamiral"
+          },
+          {
+            "ndex": 504,
+            "english": "Patrat",
+            "french": "Ratentif"
+          },
+          {
+            "ndex": 505,
+            "english": "Watchog",
+            "french": "Miradar"
+          },
+          {
+            "ndex": 506,
+            "english": "Lillipup",
+            "french": "Ponchiot"
+          },
+          {
+            "ndex": 507,
+            "english": "Herdier",
+            "french": "Ponchien"
+          },
+          {
+            "ndex": 508,
+            "english": "Stoutland",
+            "french": "Mastouffe"
+          },
+          {
+            "ndex": 509,
+            "english": "Purrloin",
+            "french": "Chacripan"
+          },
+          {
+            "ndex": 510,
+            "english": "Liepard",
+            "french": "Léopardus"
+          },
+          {
+            "ndex": 511,
+            "english": "Pansage",
+            "french": "Feuillajou"
+          },
+          {
+            "ndex": 512,
+            "english": "Simisage",
+            "french": "Feuiloutan"
+          },
+          {
+            "ndex": 513,
+            "english": "Pansear",
+            "french": "Flamajou"
+          },
+          {
+            "ndex": 514,
+            "english": "Simisear",
+            "french": "Flamoutan"
+          },
+          {
+            "ndex": 515,
+            "english": "Panpour",
+            "french": "Flotajou"
+          },
+          {
+            "ndex": 516,
+            "english": "Simipour",
+            "french": "Flotoutan"
+          },
+          {
+            "ndex": 517,
+            "english": "Munna",
+            "french": "Munna"
+          },
+          {
+            "ndex": 518,
+            "english": "Musharna",
+            "french": "Mushana"
+          },
+          {
+            "ndex": 519,
+            "english": "Pidove",
+            "french": "Poichigeon"
+          },
+          {
+            "ndex": 520,
+            "english": "Tranquill",
+            "french": "Colombeau"
+          },
+          {
+            "ndex": 521,
+            "english": "Unfezant",
+            "french": "Déflaisan"
+          },
+          {
+            "ndex": 522,
+            "english": "Blitzle",
+            "french": "Zébibron"
+          },
+          {
+            "ndex": 523,
+            "english": "Zebstrika",
+            "french": "Zéblitz"
+          },
+          {
+            "ndex": 524,
+            "english": "Roggenrola",
+            "french": "Nodulithe"
+          },
+          {
+            "ndex": 525,
+            "english": "Boldore",
+            "french": "Géolithe"
+          },
+          {
+            "ndex": 526,
+            "english": "Gigalith",
+            "french": "Gigalithe"
+          },
+          {
+            "ndex": 527,
+            "english": "Woobat",
+            "french": "Chovsourir"
+          },
+          {
+            "ndex": 528,
+            "english": "Swoobat",
+            "french": "Rhinolove"
+          },
+          {
+            "ndex": 529,
+            "english": "Drilbur",
+            "french": "Rototaupe"
+          },
+          {
+            "ndex": 530,
+            "english": "Excadrill",
+            "french": "Minotaupe"
+          },
+          {
+            "ndex": 531,
+            "english": "Audino",
+            "french": "Nanméouïe"
+          },
+          {
+            "ndex": 532,
+            "english": "Timburr",
+            "french": "Charpenti"
+          },
+          {
+            "ndex": 533,
+            "english": "Gurdurr",
+            "french": "Ouvrifier"
+          },
+          {
+            "ndex": 534,
+            "english": "Conkeldurr",
+            "french": "Bétochef"
+          },
+          {
+            "ndex": 535,
+            "english": "Tympole",
+            "french": "Tritonde"
+          },
+          {
+            "ndex": 536,
+            "english": "Palpitoad",
+            "french": "Batracné"
+          },
+          {
+            "ndex": 537,
+            "english": "Seismitoad",
+            "french": "Crapustule"
+          },
+          {
+            "ndex": 538,
+            "english": "Throh",
+            "french": "Judokrak"
+          },
+          {
+            "ndex": 539,
+            "english": "Sawk",
+            "french": "Karaclée"
+          },
+          {
+            "ndex": 540,
+            "english": "Sewaddle",
+            "french": "Larveyette"
+          },
+          {
+            "ndex": 541,
+            "english": "Swadloon",
+            "french": "Couverdure"
+          },
+          {
+            "ndex": 542,
+            "english": "Leavanny",
+            "french": "Manternel"
+          },
+          {
+            "ndex": 543,
+            "english": "Venipede",
+            "french": "Venipatte"
+          },
+          {
+            "ndex": 544,
+            "english": "Whirlipede",
+            "french": "Scobolide"
+          },
+          {
+            "ndex": 545,
+            "english": "Scolipede",
+            "french": "Brutapode"
+          },
+          {
+            "ndex": 546,
+            "english": "Cottonee",
+            "french": "Doudouvet"
+          },
+          {
+            "ndex": 547,
+            "english": "Whimsicott",
+            "french": "Farfaduvet"
+          },
+          {
+            "ndex": 548,
+            "english": "Petilil",
+            "french": "Chlorobule"
+          },
+          {
+            "ndex": 549,
+            "english": "Lilligant",
+            "french": "Fragilady"
+          },
+          {
+            "ndex": 550,
+            "english": "Basculin",
+            "french": "Bargantua"
+          },
+          {
+            "ndex": 551,
+            "english": "Sandile",
+            "french": "Mascaïman"
+          },
+          {
+            "ndex": 552,
+            "english": "Krokorok",
+            "french": "Escroco"
+          },
+          {
+            "ndex": 553,
+            "english": "Krookodile",
+            "french": "Crocorible"
+          },
+          {
+            "ndex": 554,
+            "english": "Darumaka",
+            "french": "Darumarond"
+          },
+          {
+            "ndex": 555,
+            "english": "Darmanitan",
+            "french": "Darumacho"
+          },
+          {
+            "ndex": 556,
+            "english": "Maractus",
+            "french": "Maracachi"
+          },
+          {
+            "ndex": 557,
+            "english": "Dwebble",
+            "french": "Crabicoque"
+          },
+          {
+            "ndex": 558,
+            "english": "Crustle",
+            "french": "Crabaraque"
+          },
+          {
+            "ndex": 559,
+            "english": "Scraggy",
+            "french": "Baggiguane"
+          },
+          {
+            "ndex": 560,
+            "english": "Scrafty",
+            "french": "Baggaïd"
+          },
+          {
+            "ndex": 561,
+            "english": "Sigilyph",
+            "french": "Cryptéro"
+          },
+          {
+            "ndex": 562,
+            "english": "Yamask",
+            "french": "Tutafeh"
+          },
+          {
+            "ndex": 563,
+            "english": "Cofagrigus",
+            "french": "Tutankafer"
+          },
+          {
+            "ndex": 564,
+            "english": "Tirtouga",
+            "french": "Carapagos"
+          },
+          {
+            "ndex": 565,
+            "english": "Carracosta",
+            "french": "Mégapagos"
+          },
+          {
+            "ndex": 566,
+            "english": "Archen",
+            "french": "Arkéapti"
+          },
+          {
+            "ndex": 567,
+            "english": "Archeops",
+            "french": "Aéroptéryx"
+          },
+          {
+            "ndex": 568,
+            "english": "Trubbish",
+            "french": "Miamiasme"
+          },
+          {
+            "ndex": 569,
+            "english": "Garbodor",
+            "french": "Miasmax"
+          },
+          {
+            "ndex": 570,
+            "english": "Zorua",
+            "french": "Zorua"
+          },
+          {
+            "ndex": 571,
+            "english": "Zoroark",
+            "french": "Zoroark"
+          },
+          {
+            "ndex": 572,
+            "english": "Minccino",
+            "french": "Chinchidou"
+          },
+          {
+            "ndex": 573,
+            "english": "Cinccino",
+            "french": "Pashmilla"
+          },
+          {
+            "ndex": 574,
+            "english": "Gothita",
+            "french": "Scrutella"
+          },
+          {
+            "ndex": 575,
+            "english": "Gothorita",
+            "french": "Mesmérella"
+          },
+          {
+            "ndex": 576,
+            "english": "Gothitelle",
+            "french": "Sidérella"
+          },
+          {
+            "ndex": 577,
+            "english": "Solosis",
+            "french": "Nucléos"
+          },
+          {
+            "ndex": 578,
+            "english": "Duosion",
+            "french": "Méios"
+          },
+          {
+            "ndex": 579,
+            "english": "Reuniclus",
+            "french": "Symbios"
+          },
+          {
+            "ndex": 580,
+            "english": "Ducklett",
+            "french": "Couaneton"
+          },
+          {
+            "ndex": 581,
+            "english": "Swanna",
+            "french": "Lakmécygne"
+          },
+          {
+            "ndex": 582,
+            "english": "Vanillite",
+            "french": "Sorbébé"
+          },
+          {
+            "ndex": 583,
+            "english": "Vanillish",
+            "french": "Sorboul"
+          },
+          {
+            "ndex": 584,
+            "english": "Vanilluxe",
+            "french": "Sorbouboul"
+          },
+          {
+            "ndex": 585,
+            "english": "Deerling",
+            "french": "Vivaldaim"
+          },
+          {
+            "ndex": 586,
+            "english": "Sawsbuck",
+            "french": "Haydaim"
+          },
+          {
+            "ndex": 587,
+            "english": "Emolga",
+            "french": "Emolga"
+          },
+          {
+            "ndex": 588,
+            "english": "Karrablast",
+            "french": "Carabing"
+          },
+          {
+            "ndex": 589,
+            "english": "Escavalier",
+            "french": "Lançargot"
+          },
+          {
+            "ndex": 590,
+            "english": "Foongus",
+            "french": "Trompignon"
+          },
+          {
+            "ndex": 591,
+            "english": "Amoonguss",
+            "french": "Gaulet"
+          },
+          {
+            "ndex": 592,
+            "english": "Frillish",
+            "french": "Viskuse"
+          },
+          {
+            "ndex": 593,
+            "english": "Jellicent",
+            "french": "Moyade"
+          },
+          {
+            "ndex": 594,
+            "english": "Alomomola",
+            "french": "Mamanbo"
+          },
+          {
+            "ndex": 595,
+            "english": "Joltik",
+            "french": "Statitik"
+          },
+          {
+            "ndex": 596,
+            "english": "Galvantula",
+            "french": "Mygavolt"
+          },
+          {
+            "ndex": 597,
+            "english": "Ferroseed",
+            "french": "Grindur"
+          },
+          {
+            "ndex": 598,
+            "english": "Ferrothorn",
+            "french": "Noacier"
+          },
+          {
+            "ndex": 599,
+            "english": "Klink",
+            "french": "Tic"
+          },
+          {
+            "ndex": 600,
+            "english": "Klang",
+            "french": "Clic"
+          },
+          {
+            "ndex": 601,
+            "english": "Klinklang",
+            "french": "Cliticlic"
+          },
+          {
+            "ndex": 602,
+            "english": "Tynamo",
+            "french": "Anchwatt"
+          },
+          {
+            "ndex": 603,
+            "english": "Eelektrik",
+            "french": "Lampéroie"
+          },
+          {
+            "ndex": 604,
+            "english": "Eelektross",
+            "french": "Ohmassacre"
+          },
+          {
+            "ndex": 605,
+            "english": "Elgyem",
+            "french": "Lewsor"
+          },
+          {
+            "ndex": 606,
+            "english": "Beheeyem",
+            "french": "Neitram"
+          },
+          {
+            "ndex": 607,
+            "english": "Litwick",
+            "french": "Funécire"
+          },
+          {
+            "ndex": 608,
+            "english": "Lampent",
+            "french": "Mélancolux"
+          },
+          {
+            "ndex": 609,
+            "english": "Chandelure",
+            "french": "Lugulabre"
+          },
+          {
+            "ndex": 610,
+            "english": "Axew",
+            "french": "Coupenotte"
+          },
+          {
+            "ndex": 611,
+            "english": "Fraxure",
+            "french": "Incisache"
+          },
+          {
+            "ndex": 612,
+            "english": "Haxorus",
+            "french": "Tranchodon"
+          },
+          {
+            "ndex": 613,
+            "english": "Cubchoo",
+            "french": "Polarhume"
+          },
+          {
+            "ndex": 614,
+            "english": "Beartic",
+            "french": "Polagriffe"
+          },
+          {
+            "ndex": 615,
+            "english": "Cryogonal",
+            "french": "Hexagel"
+          },
+          {
+            "ndex": 616,
+            "english": "Shelmet",
+            "french": "Escargaume"
+          },
+          {
+            "ndex": 617,
+            "english": "Accelgor",
+            "french": "Limaspeed"
+          },
+          {
+            "ndex": 618,
+            "english": "Stunfisk",
+            "french": "Limonde"
+          },
+          {
+            "ndex": 619,
+            "english": "Mienfoo",
+            "french": "Kungfouine"
+          },
+          {
+            "ndex": 620,
+            "english": "Mienshao",
+            "french": "Shaofouine"
+          },
+          {
+            "ndex": 621,
+            "english": "Druddigon",
+            "french": "Drakkarmin"
+          },
+          {
+            "ndex": 622,
+            "english": "Golett",
+            "french": "Gringolem"
+          },
+          {
+            "ndex": 623,
+            "english": "Golurk",
+            "french": "Golemastoc"
+          },
+          {
+            "ndex": 624,
+            "english": "Pawniard",
+            "french": "Scalpion"
+          },
+          {
+            "ndex": 625,
+            "english": "Bisharp",
+            "french": "Scalproie"
+          },
+          {
+            "ndex": 626,
+            "english": "Bouffalant",
+            "french": "Frison"
+          },
+          {
+            "ndex": 627,
+            "english": "Rufflet",
+            "french": "Furaiglon"
+          },
+          {
+            "ndex": 628,
+            "english": "Braviary",
+            "french": "Gueriaigle"
+          },
+          {
+            "ndex": 629,
+            "english": "Vullaby",
+            "french": "Vostourno"
+          },
+          {
+            "ndex": 630,
+            "english": "Mandibuzz",
+            "french": "Vaututrice"
+          },
+          {
+            "ndex": 631,
+            "english": "Heatmor",
+            "french": "Aflamanoir"
+          },
+          {
+            "ndex": 632,
+            "english": "Durant",
+            "french": "Fermite"
+          },
+          {
+            "ndex": 633,
+            "english": "Deino",
+            "french": "Solochi"
+          },
+          {
+            "ndex": 634,
+            "english": "Zweilous",
+            "french": "Diamat"
+          },
+          {
+            "ndex": 635,
+            "english": "Hydreigon",
+            "french": "Trioxhydre"
+          },
+          {
+            "ndex": 636,
+            "english": "Larvesta",
+            "french": "Pyronille"
+          },
+          {
+            "ndex": 637,
+            "english": "Volcarona",
+            "french": "Pyrax"
+          },
+          {
+            "ndex": 638,
+            "english": "Cobalion",
+            "french": "Cobaltium"
+          },
+          {
+            "ndex": 639,
+            "english": "Terrakion",
+            "french": "Terrakium"
+          },
+          {
+            "ndex": 640,
+            "english": "Virizion",
+            "french": "Viridium"
+          },
+          {
+            "ndex": 641,
+            "english": "Tornadus",
+            "french": "Boréas"
+          },
+          {
+            "ndex": 642,
+            "english": "Thundurus",
+            "french": "Fulguris"
+          },
+          {
+            "ndex": 643,
+            "english": "Reshiram",
+            "french": "Reshiram"
+          },
+          {
+            "ndex": 644,
+            "english": "Zekrom",
+            "french": "Zekrom"
+          },
+          {
+            "ndex": 645,
+            "english": "Landorus",
+            "french": "Démétéros"
+          },
+          {
+            "ndex": 646,
+            "english": "Kyurem",
+            "french": "Kyurem"
+          },
+          {
+            "ndex": 647,
+            "english": "Keldeo",
+            "french": "Keldeo"
+          },
+          {
+            "ndex": 648,
+            "english": "Meloetta",
+            "french": "Meloetta"
+          },
+          {
+            "ndex": 649,
+            "english": "Genesect",
+            "french": "Genesect"
+          }
+        ],
+        [
+          {
+            "ndex": 650,
+            "english": "Chespin",
+            "french": "Marisson"
+          },
+          {
+            "ndex": 651,
+            "english": "Quilladin",
+            "french": "Boguérisse"
+          },
+          {
+            "ndex": 652,
+            "english": "Chesnaught",
+            "french": "Blindépique"
+          },
+          {
+            "ndex": 653,
+            "english": "Fennekin",
+            "french": "Feunnec"
+          },
+          {
+            "ndex": 654,
+            "english": "Braixen",
+            "french": "Roussil"
+          },
+          {
+            "ndex": 655,
+            "english": "Delphox",
+            "french": "Goupelin"
+          },
+          {
+            "ndex": 656,
+            "english": "Froakie",
+            "french": "Grenousse"
+          },
+          {
+            "ndex": 657,
+            "english": "Frogadier",
+            "french": "Croâporal"
+          },
+          {
+            "ndex": 658,
+            "english": "Greninja",
+            "french": "Amphinobi"
+          },
+          {
+            "ndex": 659,
+            "english": "Bunnelby",
+            "french": "Sapereau"
+          },
+          {
+            "ndex": 660,
+            "english": "Diggersby",
+            "french": "Excavarenne"
+          },
+          {
+            "ndex": 661,
+            "english": "Fletchling",
+            "french": "Passerouge"
+          },
+          {
+            "ndex": 662,
+            "english": "Fletchinder",
+            "french": "Braisillon"
+          },
+          {
+            "ndex": 663,
+            "english": "Talonflame",
+            "french": "Flambusard"
+          },
+          {
+            "ndex": 664,
+            "english": "Scatterbug",
+            "french": "Lépidonille"
+          },
+          {
+            "ndex": 665,
+            "english": "Spewpa",
+            "french": "Pérégrain"
+          },
+          {
+            "ndex": 666,
+            "english": "Vivillon",
+            "french": "Prismillon"
+          },
+          {
+            "ndex": 667,
+            "english": "Litleo",
+            "french": "Hélionceau"
+          },
+          {
+            "ndex": 668,
+            "english": "Pyroar",
+            "french": "Némélios"
+          },
+          {
+            "ndex": 669,
+            "english": "Flabébé",
+            "french": "Flabébé"
+          },
+          {
+            "ndex": 670,
+            "english": "Floette",
+            "french": "Floette"
+          },
+          {
+            "ndex": 671,
+            "english": "Florges",
+            "french": "Florges"
+          },
+          {
+            "ndex": 672,
+            "english": "Skiddo",
+            "french": "Cabriolaine"
+          },
+          {
+            "ndex": 673,
+            "english": "Gogoat",
+            "french": "Chevroum"
+          },
+          {
+            "ndex": 674,
+            "english": "Pancham",
+            "french": "Pandespiègle"
+          },
+          {
+            "ndex": 675,
+            "english": "Pangoro",
+            "french": "Pandarbare"
+          },
+          {
+            "ndex": 676,
+            "english": "Furfrou",
+            "french": "Couafarel"
+          },
+          {
+            "ndex": 677,
+            "english": "Espurr",
+            "french": "Psystigri"
+          },
+          {
+            "ndex": 678,
+            "english": "Meowstic",
+            "french": "Mistigrix"
+          },
+          {
+            "ndex": 679,
+            "english": "Honedge",
+            "french": "Monorpale"
+          },
+          {
+            "ndex": 680,
+            "english": "Doublade",
+            "french": "Dimoclès"
+          },
+          {
+            "ndex": 681,
+            "english": "Aegislash",
+            "french": "Exagide"
+          },
+          {
+            "ndex": 682,
+            "english": "Spritzee",
+            "french": "Fluvetin"
+          },
+          {
+            "ndex": 683,
+            "english": "Aromatisse",
+            "french": "Cocotine"
+          },
+          {
+            "ndex": 684,
+            "english": "Swirlix",
+            "french": "Sucroquin"
+          },
+          {
+            "ndex": 685,
+            "english": "Slurpuff",
+            "french": "Cupcanaille"
+          },
+          {
+            "ndex": 686,
+            "english": "Inkay",
+            "french": "Sepiatop"
+          },
+          {
+            "ndex": 687,
+            "english": "Malamar",
+            "french": "Sepiatroce"
+          },
+          {
+            "ndex": 688,
+            "english": "Binacle",
+            "french": "Opermine"
+          },
+          {
+            "ndex": 689,
+            "english": "Barbaracle",
+            "french": "Golgopathe"
+          },
+          {
+            "ndex": 690,
+            "english": "Skrelp",
+            "french": "Venalgue"
+          },
+          {
+            "ndex": 691,
+            "english": "Dragalge",
+            "french": "Kravarech"
+          },
+          {
+            "ndex": 692,
+            "english": "Clauncher",
+            "french": "Flingouste"
+          },
+          {
+            "ndex": 693,
+            "english": "Clawitzer",
+            "french": "Gamblast"
+          },
+          {
+            "ndex": 694,
+            "english": "Helioptile",
+            "french": "Galvaran"
+          },
+          {
+            "ndex": 695,
+            "english": "Heliolisk",
+            "french": "Iguolta"
+          },
+          {
+            "ndex": 696,
+            "english": "Tyrunt",
+            "french": "Ptyranidur"
+          },
+          {
+            "ndex": 697,
+            "english": "Tyrantrum",
+            "french": "Rexillius"
+          },
+          {
+            "ndex": 698,
+            "english": "Amaura",
+            "french": "Amagara"
+          },
+          {
+            "ndex": 699,
+            "english": "Aurorus",
+            "french": "Dragmara"
+          },
+          {
+            "ndex": 700,
+            "english": "Sylveon",
+            "french": "Nymphali"
+          },
+          {
+            "ndex": 701,
+            "english": "Hawlucha",
+            "french": "Brutalibré"
+          },
+          {
+            "ndex": 702,
+            "english": "Dedenne",
+            "french": "Dedenne"
+          },
+          {
+            "ndex": 703,
+            "english": "Carbink",
+            "french": "Strassie"
+          },
+          {
+            "ndex": 704,
+            "english": "Goomy",
+            "french": "Mucuscule"
+          },
+          {
+            "ndex": 705,
+            "english": "Sliggoo",
+            "french": "Colimucus"
+          },
+          {
+            "ndex": 706,
+            "english": "Goodra",
+            "french": "Muplodocus"
+          },
+          {
+            "ndex": 707,
+            "english": "Klefki",
+            "french": "Trousselin"
+          },
+          {
+            "ndex": 708,
+            "english": "Phantump",
+            "french": "Brocélôme"
+          },
+          {
+            "ndex": 709,
+            "english": "Trevenant",
+            "french": "Desséliande"
+          },
+          {
+            "ndex": 710,
+            "english": "Pumpkaboo",
+            "french": "Pitrouille"
+          },
+          {
+            "ndex": 711,
+            "english": "Gourgeist",
+            "french": "Banshitrouye"
+          },
+          {
+            "ndex": 712,
+            "english": "Bergmite",
+            "french": "Grelaçon"
+          },
+          {
+            "ndex": 713,
+            "english": "Avalugg",
+            "french": "Séracrawl"
+          },
+          {
+            "ndex": 714,
+            "english": "Noibat",
+            "french": "Sonistrelle"
+          },
+          {
+            "ndex": 715,
+            "english": "Noivern",
+            "french": "Bruyverne"
+          },
+          {
+            "ndex": 716,
+            "english": "Xerneas",
+            "french": "Xerneas"
+          },
+          {
+            "ndex": 717,
+            "english": "Yveltal",
+            "french": "Yveltal"
+          },
+          {
+            "ndex": 718,
+            "english": "Zygarde",
+            "french": "Zygarde"
+          },
+          {
+            "ndex": 719,
+            "english": "Diancie",
+            "french": "Diancie"
+          },
+          {
+            "ndex": 720,
+            "english": "Hoopa",
+            "french": "Hoopa"
+          },
+          {
+            "ndex": 721,
+            "english": "Volcanion",
+            "french": "Volcanion"
+          }
+        ],
+        [
+          {
+            "ndex": 722,
+            "english": "Rowlet",
+            "french": "Brindibou"
+          },
+          {
+            "ndex": 723,
+            "english": "Dartrix",
+            "french": "Efflèche"
+          },
+          {
+            "ndex": 724,
+            "english": "Decidueye",
+            "french": "Archéduc"
+          },
+          {
+            "ndex": 725,
+            "english": "Litten",
+            "french": "Flamiaou"
+          },
+          {
+            "ndex": 726,
+            "english": "Torracat",
+            "french": "Matoufeu"
+          },
+          {
+            "ndex": 727,
+            "english": "Incineroar",
+            "french": "Félinferno"
+          },
+          {
+            "ndex": 728,
+            "english": "Popplio",
+            "french": "Otaquin"
+          },
+          {
+            "ndex": 729,
+            "english": "Brionne",
+            "french": "Otarlette"
+          },
+          {
+            "ndex": 730,
+            "english": "Primarina",
+            "french": "Oratoria"
+          },
+          {
+            "ndex": 731,
+            "english": "Pikipek",
+            "french": "Picassaut"
+          },
+          {
+            "ndex": 732,
+            "english": "Trumbeak",
+            "french": "Piclairon"
+          },
+          {
+            "ndex": 733,
+            "english": "Toucannon",
+            "french": "Bazoucan"
+          },
+          {
+            "ndex": 734,
+            "english": "Yungoos",
+            "french": "Manglouton"
+          },
+          {
+            "ndex": 735,
+            "english": "Gumshoos",
+            "french": "Argouste"
+          },
+          {
+            "ndex": 736,
+            "english": "Grubbin",
+            "french": "Larvibule"
+          },
+          {
+            "ndex": 737,
+            "english": "Charjabug",
+            "french": "Chrysapile"
+          },
+          {
+            "ndex": 738,
+            "english": "Vikavolt",
+            "french": "Lucanon"
+          },
+          {
+            "ndex": 739,
+            "english": "Crabrawler",
+            "french": "Crabagarre"
+          },
+          {
+            "ndex": 740,
+            "english": "Crabominable",
+            "french": "Crabominable"
+          },
+          {
+            "ndex": 741,
+            "english": "Oricorio",
+            "french": "Plumeline"
+          },
+          {
+            "ndex": 742,
+            "english": "Cutiefly",
+            "french": "Bombydou"
+          },
+          {
+            "ndex": 743,
+            "english": "Ribombee",
+            "french": "Rubombelle"
+          },
+          {
+            "ndex": 744,
+            "english": "Rockruff",
+            "french": "Rocabot"
+          },
+          {
+            "ndex": 745,
+            "english": "Lycanroc",
+            "french": "Lougaroc"
+          },
+          {
+            "ndex": 746,
+            "english": "Wishiwashi",
+            "french": "Froussardine"
+          },
+          {
+            "ndex": 747,
+            "english": "Mareanie",
+            "french": "Vorastérie"
+          },
+          {
+            "ndex": 748,
+            "english": "Toxapex",
+            "french": "Prédastérie"
+          },
+          {
+            "ndex": 749,
+            "english": "Mudbray",
+            "french": "Tiboudet"
+          },
+          {
+            "ndex": 750,
+            "english": "Mudsdale",
+            "french": "Bourrinos"
+          },
+          {
+            "ndex": 751,
+            "english": "Dewpider",
+            "french": "Araqua"
+          },
+          {
+            "ndex": 752,
+            "english": "Araquanid",
+            "french": "Tarenbulle"
+          },
+          {
+            "ndex": 753,
+            "english": "Fomantis",
+            "french": "Mimantis"
+          },
+          {
+            "ndex": 754,
+            "english": "Lurantis",
+            "french": "Floramantis"
+          },
+          {
+            "ndex": 755,
+            "english": "Morelull",
+            "french": "Spododo"
+          },
+          {
+            "ndex": 756,
+            "english": "Shiinotic",
+            "french": "Lampignon"
+          },
+          {
+            "ndex": 757,
+            "english": "Salandit",
+            "french": "Tritox"
+          },
+          {
+            "ndex": 758,
+            "english": "Salazzle",
+            "french": "Malamandre"
+          },
+          {
+            "ndex": 759,
+            "english": "Stufful",
+            "french": "Nounourson"
+          },
+          {
+            "ndex": 760,
+            "english": "Bewear",
+            "french": "Chelours"
+          },
+          {
+            "ndex": 761,
+            "english": "Bounsweet",
+            "french": "Croquine"
+          },
+          {
+            "ndex": 762,
+            "english": "Steenee",
+            "french": "Candine"
+          },
+          {
+            "ndex": 763,
+            "english": "Tsareena",
+            "french": "Sucreine"
+          },
+          {
+            "ndex": 764,
+            "english": "Comfey",
+            "french": "Guérilande"
+          },
+          {
+            "ndex": 765,
+            "english": "Oranguru",
+            "french": "Gouroutan"
+          },
+          {
+            "ndex": 766,
+            "english": "Passimian",
+            "french": "Quartermac"
+          },
+          {
+            "ndex": 767,
+            "english": "Wimpod",
+            "french": "Sovkipou"
+          },
+          {
+            "ndex": 768,
+            "english": "Golisopod",
+            "french": "Sarmuraï"
+          },
+          {
+            "ndex": 769,
+            "english": "Sandygast",
+            "french": "Bacabouh"
+          },
+          {
+            "ndex": 770,
+            "english": "Palossand",
+            "french": "Trépassable"
+          },
+          {
+            "ndex": 771,
+            "english": "Pyukumuku",
+            "french": "Concombaffe"
+          },
+          {
+            "ndex": 772,
+            "english": "Type: Null",
+            "french": "Type:0"
+          },
+          {
+            "ndex": 773,
+            "english": "Silvally",
+            "french": "Silvallié"
+          },
+          {
+            "ndex": 774,
+            "english": "Minior",
+            "french": "Météno"
+          },
+          {
+            "ndex": 775,
+            "english": "Komala",
+            "french": "Dodoala"
+          },
+          {
+            "ndex": 776,
+            "english": "Turtonator",
+            "french": "Boumata"
+          },
+          {
+            "ndex": 777,
+            "english": "Togedemaru",
+            "french": "Togedemaru"
+          },
+          {
+            "ndex": 778,
+            "english": "Mimikyu",
+            "french": "Mimiqui"
+          },
+          {
+            "ndex": 779,
+            "english": "Bruxish",
+            "french": "Denticrisse"
+          },
+          {
+            "ndex": 780,
+            "english": "Drampa",
+            "french": "Draïeul"
+          },
+          {
+            "ndex": 781,
+            "english": "Dhelmise",
+            "french": "Sinistrail"
+          },
+          {
+            "ndex": 782,
+            "english": "Jangmo-o",
+            "french": "Bébécaille"
+          },
+          {
+            "ndex": 783,
+            "english": "Hakamo-o",
+            "french": "Écaïd"
+          },
+          {
+            "ndex": 784,
+            "english": "Kommo-o",
+            "french": "Ékaïser"
+          },
+          {
+            "ndex": 785,
+            "english": "Tapu Koko",
+            "french": "Tokorico"
+          },
+          {
+            "ndex": 786,
+            "english": "Tapu Lele",
+            "french": "Tokopiyon"
+          },
+          {
+            "ndex": 787,
+            "english": "Tapu Bulu",
+            "french": "Tokotoro"
+          },
+          {
+            "ndex": 788,
+            "english": "Tapu Fini",
+            "french": "Tokopisco"
+          },
+          {
+            "ndex": 789,
+            "english": "Cosmog",
+            "french": "Cosmog"
+          },
+          {
+            "ndex": 790,
+            "english": "Cosmoem",
+            "french": "Cosmovum"
+          },
+          {
+            "ndex": 791,
+            "english": "Solgaleo",
+            "french": "Solgaleo"
+          },
+          {
+            "ndex": 792,
+            "english": "Lunala",
+            "french": "Lunala"
+          },
+          {
+            "ndex": 793,
+            "english": "Nihilego",
+            "french": "Zéroïd"
+          },
+          {
+            "ndex": 794,
+            "english": "Buzzwole",
+            "french": "Mouscoto"
+          },
+          {
+            "ndex": 795,
+            "english": "Pheromosa",
+            "french": "Cancrelove"
+          },
+          {
+            "ndex": 796,
+            "english": "Xurkitree",
+            "french": "Câblifère"
+          },
+          {
+            "ndex": 797,
+            "english": "Celesteela",
+            "french": "Bamboiselle"
+          },
+          {
+            "ndex": 798,
+            "english": "Kartana",
+            "french": "Katagami"
+          },
+          {
+            "ndex": 799,
+            "english": "Guzzlord",
+            "french": "Engloutyran"
+          },
+          {
+            "ndex": 800,
+            "english": "Necrozma",
+            "french": "Necrozma"
+          },
+          {
+            "ndex": 801,
+            "english": "Magearna",
+            "french": "Magearna"
+          },
+          {
+            "ndex": 802,
+            "english": "Marshadow",
+            "french": "Marshadow"
+          },
+          {
+            "ndex": 803,
+            "english": "Poipole",
+            "french": "Vémini"
+          },
+          {
+            "ndex": 804,
+            "english": "Naganadel",
+            "french": "Mandrillon"
+          },
+          {
+            "ndex": 805,
+            "english": "Stakataka",
+            "french": "Ama-Ama"
+          },
+          {
+            "ndex": 806,
+            "english": "Blacephalon",
+            "french": "Pierroteknik"
+          },
+          {
+            "ndex": 807,
+            "english": "Zeraora",
+            "french": "Zeraora"
+          },
+          {
+            "ndex": 808,
+            "english": "Meltan",
+            "french": "Meltan"
+          },
+          {
+            "ndex": 809,
+            "english": "Melmetal",
+            "french": "Melmetal"
+          }
+        ],
+        [
+          {
+            "ndex": 810,
+            "english": "Grookey",
+            "french": "Ouistempo"
+          },
+          {
+            "ndex": 811,
+            "english": "Thwackey",
+            "french": "Badabouin"
+          },
+          {
+            "ndex": 812,
+            "english": "Rillaboom",
+            "french": "Gorythmic"
+          },
+          {
+            "ndex": 813,
+            "english": "Scorbunny",
+            "french": "Flambino"
+          },
+          {
+            "ndex": 814,
+            "english": "Raboot",
+            "french": "Lapyro"
+          },
+          {
+            "ndex": 815,
+            "english": "Cinderace",
+            "french": "Pyrobut"
+          },
+          {
+            "ndex": 816,
+            "english": "Sobble",
+            "french": "Larméléon"
+          },
+          {
+            "ndex": 817,
+            "english": "Drizzile",
+            "french": "Arrozard"
+          },
+          {
+            "ndex": 818,
+            "english": "Inteleon",
+            "french": "Lézargus"
+          },
+          {
+            "ndex": 819,
+            "english": "Skwovet",
+            "french": "Rongourmand"
+          },
+          {
+            "ndex": 820,
+            "english": "Greedent",
+            "french": "Rongrigou"
+          },
+          {
+            "ndex": 821,
+            "english": "Rookidee",
+            "french": "Minisange"
+          },
+          {
+            "ndex": 822,
+            "english": "Corvisquire",
+            "french": "Bleuseille"
+          },
+          {
+            "ndex": 823,
+            "english": "Corviknight",
+            "french": "Corvaillus"
+          },
+          {
+            "ndex": 824,
+            "english": "Blipbug",
+            "french": "Larvadar"
+          },
+          {
+            "ndex": 825,
+            "english": "Dottler",
+            "french": "Coléodôme"
+          },
+          {
+            "ndex": 826,
+            "english": "Orbeetle",
+            "french": "Astronelle"
+          },
+          {
+            "ndex": 827,
+            "english": "Nickit",
+            "french": "Goupilou"
+          },
+          {
+            "ndex": 828,
+            "english": "Thievul",
+            "french": "Roublenard"
+          },
+          {
+            "ndex": 829,
+            "english": "Gossifleur",
+            "french": "Tournicoton"
+          },
+          {
+            "ndex": 830,
+            "english": "Eldegoss",
+            "french": "Blancoton"
+          },
+          {
+            "ndex": 831,
+            "english": "Wooloo",
+            "french": "Moumouton"
+          },
+          {
+            "ndex": 832,
+            "english": "Dubwool",
+            "french": "Moumouflon"
+          },
+          {
+            "ndex": 833,
+            "english": "Chewtle",
+            "french": "Khélocrok"
+          },
+          {
+            "ndex": 834,
+            "english": "Drednaw",
+            "french": "Torgamord"
+          },
+          {
+            "ndex": 835,
+            "english": "Yamper",
+            "french": "Voltoutou"
+          },
+          {
+            "ndex": 836,
+            "english": "Boltund",
+            "french": "Fulgudog"
+          },
+          {
+            "ndex": 837,
+            "english": "Rolycoly",
+            "french": "Charbi"
+          },
+          {
+            "ndex": 838,
+            "english": "Carkol",
+            "french": "Wagomine"
+          },
+          {
+            "ndex": 839,
+            "english": "Coalossal",
+            "french": "Monthracite"
+          },
+          {
+            "ndex": 840,
+            "english": "Applin",
+            "french": "Verpom"
+          },
+          {
+            "ndex": 841,
+            "english": "Flapple",
+            "french": "Pomdrapi"
+          },
+          {
+            "ndex": 842,
+            "english": "Appletun",
+            "french": "Dratatin"
+          },
+          {
+            "ndex": 843,
+            "english": "Silicobra",
+            "french": "Dunaja"
+          },
+          {
+            "ndex": 844,
+            "english": "Sandaconda",
+            "french": "Dunaconda"
+          },
+          {
+            "ndex": 845,
+            "english": "Cramorant",
+            "french": "Nigosier"
+          },
+          {
+            "ndex": 846,
+            "english": "Arrokuda",
+            "french": "Embrochet"
+          },
+          {
+            "ndex": 847,
+            "english": "Barraskewda",
+            "french": "Hastacuda"
+          },
+          {
+            "ndex": 848,
+            "english": "Toxel",
+            "french": "Toxizap"
+          },
+          {
+            "ndex": 849,
+            "english": "Toxtricity",
+            "french": "Salarsen"
+          },
+          {
+            "ndex": 850,
+            "english": "Sizzlipede",
+            "french": "Grillepattes"
+          },
+          {
+            "ndex": 851,
+            "english": "Centiskorch",
+            "french": "Scolocendre"
+          },
+          {
+            "ndex": 852,
+            "english": "Clobbopus",
+            "french": "Poulpaf"
+          },
+          {
+            "ndex": 853,
+            "english": "Grapploct",
+            "french": "Krakos"
+          },
+          {
+            "ndex": 854,
+            "english": "Sinistea",
+            "french": "Théffroi"
+          },
+          {
+            "ndex": 855,
+            "english": "Polteageist",
+            "french": "Polthégeist"
+          },
+          {
+            "ndex": 856,
+            "english": "Hatenna",
+            "french": "Bibichut"
+          },
+          {
+            "ndex": 857,
+            "english": "Hattrem",
+            "french": "Chapotus"
+          },
+          {
+            "ndex": 858,
+            "english": "Hatterene",
+            "french": "Sorcilence"
+          },
+          {
+            "ndex": 859,
+            "english": "Impidimp",
+            "french": "Grimalin"
+          },
+          {
+            "ndex": 860,
+            "english": "Morgrem",
+            "french": "Fourbelin"
+          },
+          {
+            "ndex": 861,
+            "english": "Grimmsnarl",
+            "french": "Angoliath"
+          },
+          {
+            "ndex": 862,
+            "english": "Obstagoon",
+            "french": "Ixon"
+          },
+          {
+            "ndex": 863,
+            "english": "Perrserker",
+            "french": "Berserkatt"
+          },
+          {
+            "ndex": 864,
+            "english": "Cursola",
+            "french": "Corayôme"
+          },
+          {
+            "ndex": 865,
+            "english": "Sirfetch'd",
+            "french": "Palarticho"
+          },
+          {
+            "ndex": 866,
+            "english": "Mr. Rime",
+            "french": "M. Glaquette"
+          },
+          {
+            "ndex": 867,
+            "english": "Runerigus",
+            "french": "Tutétékri"
+          },
+          {
+            "ndex": 868,
+            "english": "Milcery",
+            "french": "Crèmy"
+          },
+          {
+            "ndex": 869,
+            "english": "Alcremie",
+            "french": "Charmilly"
+          },
+          {
+            "ndex": 870,
+            "english": "Falinks",
+            "french": "Hexadron"
+          },
+          {
+            "ndex": 871,
+            "english": "Pincurchin",
+            "french": "Wattapik"
+          },
+          {
+            "ndex": 872,
+            "english": "Snom",
+            "french": "Frissonille"
+          },
+          {
+            "ndex": 873,
+            "english": "Frosmoth",
+            "french": "Beldeneige"
+          },
+          {
+            "ndex": 874,
+            "english": "Stonjourner",
+            "french": "Dolman"
+          },
+          {
+            "ndex": 875,
+            "english": "Eiscue",
+            "french": "Bekaglaçon"
+          },
+          {
+            "ndex": 876,
+            "english": "Indeedee",
+            "french": "Wimessir"
+          },
+          {
+            "ndex": 877,
+            "english": "Morpeko",
+            "french": "Morpeko"
+          },
+          {
+            "ndex": 878,
+            "english": "Cufant",
+            "french": "Charibari"
+          },
+          {
+            "ndex": 879,
+            "english": "Copperajah",
+            "french": "Pachyradjah"
+          },
+          {
+            "ndex": 880,
+            "english": "Dracozolt",
+            "french": "Galvagon"
+          },
+          {
+            "ndex": 881,
+            "english": "Arctozolt",
+            "french": "Galvagla"
+          },
+          {
+            "ndex": 882,
+            "english": "Dracovish",
+            "french": "Hydragon"
+          },
+          {
+            "ndex": 883,
+            "english": "Arctovish",
+            "french": "Hydragla"
+          },
+          {
+            "ndex": 884,
+            "english": "Duraludon",
+            "french": "Duralugon"
+          },
+          {
+            "ndex": 885,
+            "english": "Dreepy",
+            "french": "Fantyrm"
+          },
+          {
+            "ndex": 886,
+            "english": "Drakloak",
+            "french": "Dispareptil"
+          },
+          {
+            "ndex": 887,
+            "english": "Dragapult",
+            "french": "Lanssorien"
+          },
+          {
+            "ndex": 888,
+            "english": "Zacian",
+            "french": "Zacian"
+          },
+          {
+            "ndex": 889,
+            "english": "Zamazenta",
+            "french": "Zamazenta"
+          },
+          {
+            "ndex": 890,
+            "english": "Eternatus",
+            "french": "Éthernatos"
+          },
+          {
+            "ndex": 891,
+            "english": "Kubfu",
+            "french": "Wushours"
+          },
+          {
+            "ndex": 892,
+            "english": "Urshifu",
+            "french": "Shifours"
+          },
+          {
+            "ndex": 893,
+            "english": "Zarude",
+            "french": "Zarude"
+          },
+          {
+            "ndex": 894,
+            "english": "Regieleki",
+            "french": "Regieleki"
+          },
+          {
+            "ndex": 895,
+            "english": "Regidrago",
+            "french": "Regidrago"
+          },
+          {
+            "ndex": 896,
+            "english": "Glastrier",
+            "french": "Blizzeval"
+          },
+          {
+            "ndex": 897,
+            "english": "Spectrier",
+            "french": "Spectreval"
+          },
+          {
+            "ndex": 898,
+            "english": "Calyrex",
+            "french": "Sylveroy"
+          },
+          {
+            "ndex": 899,
+            "english": "Wyrdeer",
+            "french": "Cerbyllin"
+          },
+          {
+            "ndex": 900,
+            "english": "Kleavor",
+            "french": "Hachécateur"
+          },
+          {
+            "ndex": 901,
+            "english": "Ursaluna",
+            "french": "Ursaking"
+          },
+          {
+            "ndex": 902,
+            "english": "Basculegion",
+            "french": "Paragruel"
+          },
+          {
+            "ndex": 903,
+            "english": "Sneasler",
+            "french": "Farfurex"
+          },
+          {
+            "ndex": 904,
+            "english": "Overqwil",
+            "french": "Qwilpik"
+          },
+          {
+            "ndex": 905,
+            "english": "Enamorus",
+            "french": "Amovénus"
+          }
+        ],
+        [
+          {
+            "ndex": 906,
+            "english": "Sprigatito",
+            "french": "Poussacha"
+          },
+          {
+            "ndex": 907,
+            "english": "Floragato",
+            "french": "Matourgeon"
+          },
+          {
+            "ndex": 908,
+            "english": "Meowscarada",
+            "french": "Miascarade"
+          },
+          {
+            "ndex": 909,
+            "english": "Fuecoco",
+            "french": "Chochodile"
+          },
+          {
+            "ndex": 910,
+            "english": "Crocalor",
+            "french": "Crocogril"
+          },
+          {
+            "ndex": 911,
+            "english": "Skeledirge",
+            "french": "Flâmigator"
+          },
+          {
+            "ndex": 912,
+            "english": "Quaxly",
+            "french": "Coiffeton"
+          },
+          {
+            "ndex": 913,
+            "english": "Quaxwell",
+            "french": "Canarbello"
+          },
+          {
+            "ndex": 914,
+            "english": "Quaquaval",
+            "french": "Palmaval"
+          },
+          {
+            "ndex": 915,
+            "english": "Lechonk",
+            "french": "Gourmelet"
+          },
+          {
+            "ndex": 916,
+            "english": "Oinkologne",
+            "french": "Fragroin"
+          },
+          {
+            "ndex": 917,
+            "english": "Tarountula",
+            "french": "Tissenboule"
+          },
+          {
+            "ndex": 918,
+            "english": "Spidops",
+            "french": "Filentrappe"
+          },
+          {
+            "ndex": 919,
+            "english": "Nymble",
+            "french": "Lilliterelle"
+          },
+          {
+            "ndex": 920,
+            "english": "Lokix",
+            "french": "Gambex"
+          },
+          {
+            "ndex": 921,
+            "english": "Pawmi",
+            "french": "Pohm"
+          },
+          {
+            "ndex": 922,
+            "english": "Pawmo",
+            "french": "Pohmotte"
+          },
+          {
+            "ndex": 923,
+            "english": "Pawmot",
+            "french": "Pohmarmotte"
+          },
+          {
+            "ndex": 924,
+            "english": "Tandemaus",
+            "french": "Compagnol"
+          },
+          {
+            "ndex": 925,
+            "english": "Maushold",
+            "french": "Famignol"
+          },
+          {
+            "ndex": 926,
+            "english": "Fidough",
+            "french": "Pâtachiot"
+          },
+          {
+            "ndex": 927,
+            "english": "Dachsbun",
+            "french": "Briochien"
+          },
+          {
+            "ndex": 928,
+            "english": "Smoliv",
+            "french": "Olivini"
+          },
+          {
+            "ndex": 929,
+            "english": "Dolliv",
+            "french": "Olivado"
+          },
+          {
+            "ndex": 930,
+            "english": "Arboliva",
+            "french": "Arboliva"
+          },
+          {
+            "ndex": 931,
+            "english": "Squawkabilly",
+            "french": "Tapatoès"
+          },
+          {
+            "ndex": 932,
+            "english": "Nacli",
+            "french": "Selutin"
+          },
+          {
+            "ndex": 933,
+            "english": "Naclstack",
+            "french": "Amassel"
+          },
+          {
+            "ndex": 934,
+            "english": "Garganacl",
+            "french": "Gigansel"
+          },
+          {
+            "ndex": 935,
+            "english": "Charcadet",
+            "french": "Charbambin"
+          },
+          {
+            "ndex": 936,
+            "english": "Armarouge",
+            "french": "Carmadura"
+          },
+          {
+            "ndex": 937,
+            "english": "Ceruledge",
+            "french": "Malvalame"
+          },
+          {
+            "ndex": 938,
+            "english": "Tadbulb",
+            "french": "Têtampoule"
+          },
+          {
+            "ndex": 939,
+            "english": "Bellibolt",
+            "french": "Ampibidou"
+          },
+          {
+            "ndex": 940,
+            "english": "Wattrel",
+            "french": "Zapétrel"
+          },
+          {
+            "ndex": 941,
+            "english": "Kilowattrel",
+            "french": "Fulgulairo"
+          },
+          {
+            "ndex": 942,
+            "english": "Maschiff",
+            "french": "Grondogue"
+          },
+          {
+            "ndex": 943,
+            "english": "Mabosstiff",
+            "french": "Dogrino"
+          },
+          {
+            "ndex": 944,
+            "english": "Shroodle",
+            "french": "Gribouraigne"
+          },
+          {
+            "ndex": 945,
+            "english": "Grafaiai",
+            "french": "Tag-Tag"
+          },
+          {
+            "ndex": 946,
+            "english": "Bramblin",
+            "french": "Virovent"
+          },
+          {
+            "ndex": 947,
+            "english": "Brambleghast",
+            "french": "Virevorreur"
+          },
+          {
+            "ndex": 948,
+            "english": "Toedscool",
+            "french": "Terracool"
+          },
+          {
+            "ndex": 949,
+            "english": "Toedscruel",
+            "french": "Terracruel"
+          },
+          {
+            "ndex": 950,
+            "english": "Klawf",
+            "french": "Craparoi"
+          },
+          {
+            "ndex": 951,
+            "english": "Capsakid",
+            "french": "Pimito"
+          },
+          {
+            "ndex": 952,
+            "english": "Scovillain",
+            "french": "Scovilain"
+          },
+          {
+            "ndex": 953,
+            "english": "Rellor",
+            "french": "Léboulérou"
+          },
+          {
+            "ndex": 954,
+            "english": "Rabsca",
+            "french": "Bérasca"
+          },
+          {
+            "ndex": 955,
+            "english": "Flittle",
+            "french": "Flotillon"
+          },
+          {
+            "ndex": 956,
+            "english": "Espathra",
+            "french": "Cléopsytra"
+          },
+          {
+            "ndex": 957,
+            "english": "Tinkatink",
+            "french": "Forgerette"
+          },
+          {
+            "ndex": 958,
+            "english": "Tinkatuff",
+            "french": "Forgella"
+          },
+          {
+            "ndex": 959,
+            "english": "Tinkaton",
+            "french": "Forgelina"
+          },
+          {
+            "ndex": 960,
+            "english": "Wiglett",
+            "french": "Taupikeau"
+          },
+          {
+            "ndex": 961,
+            "english": "Wugtrio",
+            "french": "Triopikeau"
+          },
+          {
+            "ndex": 962,
+            "english": "Bombirdier",
+            "french": "Lestombaile"
+          },
+          {
+            "ndex": 963,
+            "english": "Finizen",
+            "french": "Dofin"
+          },
+          {
+            "ndex": 964,
+            "english": "Palafin",
+            "french": "Superdofin"
+          },
+          {
+            "ndex": 965,
+            "english": "Varoom",
+            "french": "Vrombi"
+          },
+          {
+            "ndex": 966,
+            "english": "Revavroom",
+            "french": "Vrombotor"
+          },
+          {
+            "ndex": 967,
+            "english": "Cyclizar",
+            "french": "Motorizard"
+          },
+          {
+            "ndex": 968,
+            "english": "Orthworm",
+            "french": "Ferdeter"
+          },
+          {
+            "ndex": 969,
+            "english": "Glimmet",
+            "french": "Germéclat"
+          },
+          {
+            "ndex": 970,
+            "english": "Glimmora",
+            "french": "Floréclat"
+          },
+          {
+            "ndex": 971,
+            "english": "Greavard",
+            "french": "Toutombe"
+          },
+          {
+            "ndex": 972,
+            "english": "Houndstone",
+            "french": "Tomberro"
+          },
+          {
+            "ndex": 973,
+            "english": "Flamigo",
+            "french": "Flamenroule"
+          },
+          {
+            "ndex": 974,
+            "english": "Cetoddle",
+            "french": "Piétacé"
+          },
+          {
+            "ndex": 975,
+            "english": "Cetitan",
+            "french": "Balbalèze"
+          },
+          {
+            "ndex": 976,
+            "english": "Veluza",
+            "french": "Délestin"
+          },
+          {
+            "ndex": 977,
+            "english": "Dondozo",
+            "french": "Oyacata"
+          },
+          {
+            "ndex": 978,
+            "english": "Tatsugiri",
+            "french": "Nigirigon"
+          },
+          {
+            "ndex": 979,
+            "english": "Annihilape",
+            "french": "Courrousinge"
+          },
+          {
+            "ndex": 980,
+            "english": "Clodsire",
+            "french": "Terraiste"
+          },
+          {
+            "ndex": 981,
+            "english": "Farigiraf",
+            "french": "Farigiraf"
+          },
+          {
+            "ndex": 982,
+            "english": "Dudunsparce",
+            "french": "Deusolourdo"
+          },
+          {
+            "ndex": 983,
+            "english": "Kingambit",
+            "french": "Scalpereur"
+          },
+          {
+            "ndex": 984,
+            "english": "Great Tusk",
+            "french": "Fort-Ivoire"
+          },
+          {
+            "ndex": 985,
+            "english": "Scream Tail",
+            "french": "Hurle-Queue"
+          },
+          {
+            "ndex": 986,
+            "english": "Brute Bonnet",
+            "french": "Fongus-Furie"
+          },
+          {
+            "ndex": 987,
+            "english": "Flutter Mane",
+            "french": "Flotte-Mèche"
+          },
+          {
+            "ndex": 988,
+            "english": "Slither Wing",
+            "french": "Rampe-Ailes"
+          },
+          {
+            "ndex": 989,
+            "english": "Sandy Shocks",
+            "french": "Pelage-Sablé"
+          },
+          {
+            "ndex": 990,
+            "english": "Iron Treads",
+            "french": "Roue-de-Fer"
+          },
+          {
+            "ndex": 991,
+            "english": "Iron Bundle",
+            "french": "Hotte-de-Fer"
+          },
+          {
+            "ndex": 992,
+            "english": "Iron Hands",
+            "french": "Paume-de-Fer"
+          },
+          {
+            "ndex": 993,
+            "english": "Iron Jugulis",
+            "french": "Têtes-de-Fer"
+          },
+          {
+            "ndex": 994,
+            "english": "Iron Moth",
+            "french": "Mite-de-Fer"
+          },
+          {
+            "ndex": 995,
+            "english": "Iron Thorns",
+            "french": "Épine-de-Fer"
+          },
+          {
+            "ndex": 996,
+            "english": "Frigibax",
+            "french": "Frigodo"
+          },
+          {
+            "ndex": 997,
+            "english": "Arctibax",
+            "french": "Cryodo"
+          },
+          {
+            "ndex": 998,
+            "english": "Baxcalibur",
+            "french": "Glaivodo"
+          },
+          {
+            "ndex": 999,
+            "english": "Gimmighoul",
+            "french": "Mordudor"
+          },
+          {
+            "ndex": 1000,
+            "english": "Gholdengo",
+            "french": "Gromago"
+          },
+          {
+            "ndex": 1001,
+            "english": "Wo-Chien",
+            "french": "Chongjian"
+          },
+          {
+            "ndex": 1002,
+            "english": "Chien-Pao",
+            "french": "Baojian"
+          },
+          {
+            "ndex": 1003,
+            "english": "Ting-Lu",
+            "french": "Dinglu"
+          },
+          {
+            "ndex": 1004,
+            "english": "Chi-Yu",
+            "french": "Yuyu"
+          },
+          {
+            "ndex": 1005,
+            "english": "Roaring Moon",
+            "french": "Rugit-Lune"
+          },
+          {
+            "ndex": 1006,
+            "english": "Iron Valiant",
+            "french": "Garde-de-Fer"
+          },
+          {
+            "ndex": 1007,
+            "english": "Koraidon",
+            "french": "Koraidon"
+          },
+          {
+            "ndex": 1008,
+            "english": "Miraidon",
+            "french": "Miraidon"
+          },
+          {
+            "ndex": 1009,
+            "english": "Walking Wake",
+            "french": "Serpente-Eau"
+          },
+          {
+            "ndex": 1010,
+            "english": "Iron Leaves",
+            "french": "Vert-de-Fer"
+          },
+          {
+            "ndex": 1011,
+            "english": "Dipplin",
+            "french": "Pomdramour"
+          },
+          {
+            "ndex": 1012,
+            "english": "Poltchageist",
+            "french": "Poltchageist"
+          },
+          {
+            "ndex": 1013,
+            "english": "Sinistcha",
+            "french": "Théffroyable"
+          },
+          {
+            "ndex": 1014,
+            "english": "Okidogi",
+            "french": "Félicanis"
+          },
+          {
+            "ndex": 1015,
+            "english": "Munkidori",
+            "french": "Fortusimia"
+          },
+          {
+            "ndex": 1016,
+            "english": "Fezandipiti",
+            "french": "Favianos"
+          },
+          {
+            "ndex": 1017,
+            "english": "Ogerpon",
+            "french": "Ogerpon"
+          },
+          {
+            "ndex": 1018,
+            "english": "Archaludon",
+            "french": "Pondralugon"
+          },
+          {
+            "ndex": 1019,
+            "english": "Hydrapple",
+            "french": "Pomdorochi"
+          },
+          {
+            "ndex": 1020,
+            "english": "Gouging Fire",
+            "french": "Feu-Perçant"
+          },
+          {
+            "ndex": 1021,
+            "english": "Raging Bolt",
+            "french": "Ire-Foudre"
+          },
+          {
+            "ndex": 1022,
+            "english": "Iron Boulder",
+            "french": "Roc-de-Fer"
+          },
+          {
+            "ndex": 1023,
+            "english": "Iron Crown",
+            "french": "Chef-de-Fer"
+          },
+          {
+            "ndex": 1024,
+            "english": "Terapagos",
+            "french": "Terapagos"
+          },
+          {
+            "ndex": 1025,
+            "english": "Pecharunt",
+            "french": "Pêchaminus"
+          }
+        ]
+      ],
     "autres_pokemon" : [
         null,
         [],
