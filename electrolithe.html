@@ -19,9 +19,22 @@
                 color: #00aeff;
                 background-color: #48608099;
                 border: 1px solid #333;
+
                 width: 90%;
+                min-height: 90%;
+
                 margin: auto;
+            }
+
+            .submain {
                 padding: 5px;
+            }
+
+            .bandeau-inf {
+                text-align: right;
+                background-color: #102848;
+                padding: 10px;
+                margin-top: 50px;
             }
 
 
@@ -74,6 +87,79 @@
 
             .material-symbols-outlined {
                 font-size: inherit;
+            }
+
+
+
+
+            /* Columns */
+
+            div.column {
+                float: left;
+                width: 50%;
+            }
+
+
+
+
+            /* Form table */
+
+            /* General styling */
+
+            table.form {
+                border: 1px solid #aaa;
+                border-collapse: collapse;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+            }
+
+            table.form tr {
+                background-color: #486080;
+            }
+
+            table.form tr:nth-child(even) {
+                background-color: #507098;
+            }
+
+            table.form th {
+                background-color: #284870;
+                padding: 8px;
+                font-weight: 1000;
+            }
+
+            table.form td {
+                vertical-align: middle;
+                padding: 8px;
+                font-weight: 500;
+            }
+
+            /* Pokémon details form table styling */
+
+            table.poke {
+                width: 80%;
+                margin-left:  auto;
+                margin-right: auto;
+            }
+
+            table.poke th, table.poke td {
+                width: 50%;
+                text-align: left;
+            }
+
+            /* Stat form table styling */
+
+            table.stat {
+                width: 95%;
+            }
+
+            table.stat th, table.stat td {
+                width: 10%;
+                text-align: center;
+            }
+
+            .right_border {
+                border-right: 1px solid #aaa;
             }
 
 
@@ -267,6 +353,12 @@
                 border-radius: 5px;
             }
 
+            table.results th.pushed, table.results td.pushed {
+                border-color: #406360 #90dfd8 #90dfd8 #406360;
+                background-color: #4d7874;
+                color: #009be2;
+            }
+
 
 
 
@@ -312,6 +404,9 @@
                 padding: 0;
                 font-family: monaco, Consolas, Lucida Console, monospace;
             }
+
+
+
         </style>
 
         <!-- Setting the icon of the page -->
@@ -320,120 +415,175 @@
 
     <body>
         <div class="main">
-            <div class="header">
-                <img src="rocher_flottant.png">
-                <h2>Bienvenue dans la Grotte Electrolithe</h2>
-                <img src="rocher_flottant.png" onclick="rotateSummaries();">
-            </div>
+            <div class="submain">
+                <div class="header">
+                    <img src="rocher_flottant.png">
+                    <h2>Bienvenue dans la Grotte Electrolithe</h2>
+                    <img src="rocher_flottant.png" onclick="rotateSummaries();">
+                </div>
 
-            <b>Génération</b><select id="genSelect"></select>
+                <div id="genSelectBlock">
+                    <span style="font-weight: bold; margin-right: 10px;">Entrez la génération du jeu :</span><select id="genSelect"></select>
+                </div>
 
-            <table>
-                <tr>
-                    <th>Entrez les informations sur le Pokémon :</th>
-                    <th>Pokémon</th>
-                    <th>Nature</th>
-                    <th>Caractéristique</th>
-                    <th>Type Puissance Cachée</th>
-                </tr>
-                <tr>
-                    <th></th>
-                    <th><select id="specieSelect" gen="0"></select></th>
-                    <th><select id="natureSelect"></select></th>
-                    <th><select id="caractSelect">
-                        <option value="none" selected=true>(non renseigné)</option>
-                    </select></th>
-                    <th><select id="pcSelect">
-                        <option value="??????" selected=true>(non renseigné)</option>
-                    </select></th>
-                </tr>
-            </table>
-            <div id="zack_slider" class="slider_base">
-                Il peut y avoir des erreurs dans les stats de base des Pokémon. En cas de problème, n'hésitez pas à vérifier les données ci-dessous et à les modifier, puis à relancer le calculateur.
-                <table id="bstEditor"></table>
-                <div class="depasseur prevent-select" onclick="slide();">Base stats <span id="slide_arrow" class="material-symbols-outlined leftward">keyboard_double_arrow_up</span></div>
-            </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Stade évolutif</th>
-                        <th>Sprite</th>
-                        <th>Niveau</th>
-                        <th>|</th>
-                        <th>PV</th>
-                        <th>Attaque</th>
-                        <th>Défense</th>
-                        <th>Attaque spéciale</th>
-                        <th>Défense spéciale</th>
-                        <th>Vitesse</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="stat-table-body">
-                    <tr id="row-1">
-                        <th><select id="row-1-stade"></select></th>
-                        <th id="row-1-spritecell"></th>
-                        <th><input id="row-1-niveau"      type="number" min="1" max="100"/></th>
-                        <th>|</th>
-                        <th><input id="row-1-pv"          type="number" min="1" max="999"/></th>
-                        <th><input id="row-1-attaque"     type="number" min="1" max="999"/></th>
-                        <th><input id="row-1-defense"     type="number" min="1" max="999"/></th>
-                        <th><input id="row-1-attaque-spe" type="number" min="1" max="999"/></th>
-                        <th><input id="row-1-defense-spe" type="number" min="1" max="999"/></th>
-                        <th><input id="row-1-vitesse"     type="number" min="1" max="999"/></th>
-                        <th></th>
-                    </tr>
-                </tbody>
-            </table>
-            <button onclick="newRow();" class="pushy">+ Ajouter une ligne</button>
-            <br><br>
+                <div id="pokeSelectBlock" class="column">
+                    <table class="form poke">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Pokémon</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Génération</td>
+                                <td><select id="pokeGenSelect"></select></td>
+                            </tr>
+                            <tr>
+                                <td>Espèce</td>
+                                <td><select id="specieSelect" gen="0"></select></td>
+                            </tr>
+                            <tr>
+                                <td>Forme</td>
+                                <td><select id="formSelect"></select></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="pokeDetailsBlock" class="column">
+                    <table class="form poke">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Détails</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Nature</td>
+                                <td><select id="natureSelect"></select></td>
+                            </tr>
+                            <tr>
+                                <td>Caractéristique</td>
+                                <td>
+                                    <select id="caractSelect">
+                                        <option value="none" selected=true>(non renseigné)</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Type Puissance Cachée</td>
+                                <td>
+                                    <select id="pcSelect">
+                                        <option value="??????" selected=true>(non renseigné)</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-            <center><input class="pushy" type="submit" value="Process" onClick="process(); return false;"/></center>
-            <div id="processBlock" class="not-displayed">
-                <div class="spoiler">
-                    <div class="spoiler_header prevent-select" onclick="spoiler('detailedResults');">
-                        <span id="detailedResults_icon1" class="material-symbols-outlined">add</span>
-                        Détails
-                        <span id="detailedResults_icon2" class="material-symbols-outlined">add</span>
+
+                <div id="zack_slider" class="slider_base">
+                    Il peut y avoir des erreurs dans les stats de base des Pokémon. En cas de problème, n'hésitez pas à vérifier les données ci-dessous et à les modifier, puis à relancer le calculateur.
+                    <table id="bstEditor"></table>
+                    <div class="depasseur prevent-select" onclick="slide();">Base stats <span id="slide_arrow" class="material-symbols-outlined leftward">keyboard_double_arrow_up</span></div>
+                </div>
+                <table class="form stat">
+                    <thead>
+                        <tr>
+                            <th>Stade évolutif</th>
+                            <th>Sprite</th>
+                            <th class="right_border">Niveau</th>
+                            <th>PV</th>
+                            <th>Attaque</th>
+                            <th>Défense</th>
+                            <th>Attaque spéciale</th>
+                            <th>Défense spéciale</th>
+                            <th>Vitesse</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="stat-table-body">
+                        <tr id="row-1">
+                            <td><select id="row-1-stade"></select></th>
+                            <td id="row-1-spritecell"></th>
+                            <td class="right_border"><input id="row-1-niveau"      type="number" min="1" max="100"/></td>
+                            <td><input id="row-1-pv"          type="number" min="1" max="999"/></td>
+                            <td><input id="row-1-attaque"     type="number" min="1" max="999"/></td>
+                            <td><input id="row-1-defense"     type="number" min="1" max="999"/></td>
+                            <td><input id="row-1-attaque-spe" type="number" min="1" max="999"/></td>
+                            <td><input id="row-1-defense-spe" type="number" min="1" max="999"/></td>
+                            <td><input id="row-1-vitesse"     type="number" min="1" max="999"/></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button onclick="newRow();" class="pushy">+ Ajouter une ligne</button>
+
+                <center><input class="pushy" type="submit" value="Process" onClick="process(); return false;"/></center>
+                <div id="processBlock" class="not-displayed">
+                    <div class="spoiler">
+                        <div class="spoiler_header prevent-select" onclick="spoiler('detailedResults');">
+                            <span id="detailedResults_icon1" class="material-symbols-outlined">add</span>
+                            Détails
+                            <span id="detailedResults_icon2" class="material-symbols-outlined">add</span>
+                        </div>
+                        <div id="detailedResults" class="spoiler_content not-displayed"></div>
                     </div>
-                    <div id="detailedResults" class="spoiler_content not-displayed"></div>
+                    <div id="resultsBlock"></div>
+                    <div class="export">
+                        <button id="copyButton" class="prevent-select" onclick="copyExport();">Copier</button>
+                        <p id="export"></p>
+                    </div>
                 </div>
-                <div id="resultsBlock"></div>
-                <div class="export">
-                    <button id="copyButton" class="prevent-select" onclick="copyExport();">Copier</button>
-                    <p id="export">Lorem ipsum dolorem sic hamet</p>
+                <div id="blankErrorBlock" class="errorMessage not-displayed">
+                    Erreur : veuillez remplir tous les champs à l'écran avant de valider.
+                </div>
+                <div id="valueErrorBlock" class="errorMessage not-displayed">
+                    Erreur : aucune valeur ne correspond aux données renseignées. Pour régler ce problème :
+                    <ul>
+                        <li>Vérifiez bien les données que vous avez entrées.</li>
+                        <li>Il peut y avoir une erreur dans les stats de base du Pokémon de l'API. Cliquez sur le panneau base stats sur la droite de l'écran, et vérifiez que les stats correspondent à celles renseignées sur Poképédia et Bulbapedia. En cas d'erreur, vous pouvez les modifier directement et relancer le calculateur.</li>
+                        <li>Au pire du pire, contactez moi lol.</li>
+                    </ul>
                 </div>
             </div>
-            <div id="blankErrorBlock" class="errorMessage not-displayed">
-                Erreur : veuillez remplir tous les champs à l'écran avant de valider.
-            </div>
-            <div id="valueErrorBlock" class="errorMessage not-displayed">
-                Erreur : aucune valeur ne correspond aux données renseignées. Pour régler ce problème :
-                <ul>
-                    <li>Vérifiez bien les données que vous avez entrées.</li>
-                    <li>Il peut y avoir une erreur dans les stats de base du Pokémon de l'API. Cliquez sur le panneau base stats sur la droite de l'écran, et vérifiez que les stats correspondent à celles renseignées sur Poképédia et Bulbapedia. En cas d'erreur, vous pouvez les modifier directement et relancer le calculateur.</li>
-                    <li>Au pire du pire, contactez moi lol.</li>
-                </ul>
-            </div>
-            <br><br>
 
             <script src="statcalc.js"></script>
             <script>
                 // Setting the Pokemon specie list change listener
                 document.getElementById("specieSelect").onchange = pokemon_list_ener;
+                document.getElementById("pokeGenSelect").onchange = pokegen_list_ener;
 
                 // Initializing the gen select picklist
-                genSelect = document.getElementById("genSelect");
-                for (let i=3; i<=9; i++) {
-                    genSelect.innerHTML += `<option value="${i}" onclick="updatePokeList(${i});"${i==3 ? ' selected=true' : ''}>${i}</option>`;
+                let genSelect = document.getElementById("genSelect");
+                let lastGen = 9;
+                for (let i=3; i<=lastGen; i++) {
+                    genSelect.innerHTML += `<option value="${i}" ${i==lastGen ? 'selected=true' : ''}>${i}</option>`;
+                }
+                genSelect.onchange = gen_list_ener;
+                genSelect.onchange();
+
+                async function gen_list_ener() {
+                    let val = parseInt( this.value );
+                    let pokeGenSelect = document.getElementById("pokeGenSelect");
+                    pokeGenSelect.innerHTML = "";
+                    for (let i=1; i<=val; i++) {
+                        pokeGenSelect.innerHTML += `<option value="${i}" ${i==1 ? 'selected=true' : ''}>${i}</option>`;
+                    }
+                    await pokeGenSelect.onchange();
+                }
+
+                async function pokegen_list_ener() {
+                    await updatePokeList(this.value);
                 }
 
                 // Prewritten summaries for testing purposes
                 summaries = [
                     {
-                        gen: "5",
-                        specie: "moyade",
-                        nature: "***-+",
+                        gen: 5,
+                        pokeGen: 5,
+                        specie: 593,
+                        nature: "naive",
                         caract: "defense:1",
                         typePC: "???100:17:20",
                         stats: [
@@ -450,9 +600,10 @@
                         ]
                     },
                     {
-                        gen: "5",
-                        specie: "siderella",
-                        nature: "*+**-",
+                        gen: 5,
+                        pokeGen: 5,
+                        specie: 576,
+                        nature: "relaxed",
                         caract: "defense:3",
                         typePC: "????0?:13:16",
                         stats: [
@@ -523,9 +674,10 @@
                         ]
                     },
                     {
-                        gen: "5",
-                        specie: "zeblitz",
-                        nature: "-*+**",
+                        gen: 5,
+                        pokeGen: 5,
+                        specie: 523,
+                        nature: "modest",
                         caract: "special-defense:2",
                         typePC: "111111:63:63",
                         stats: [
@@ -590,7 +742,7 @@
                         innerSelect = "";
                         if (poke.evolution != null && poke.evolution.pre != null) {
                             poke.evolution.pre.forEach(item => {
-                                let path = (item.path!=null) ? item.path : formatName(item.name);
+                                let path = (item.path!=null) ? item.path : formatNameFr(item.name);
                                 innerSelect += `<option value="${path}">${item.name}</option>`;
                             });
                         }
@@ -630,15 +782,24 @@
                                 fetch(item.url)
                                     .then(async response => await response.json())
                                     .then(data => {
-                                        val = ["*", "*", "*", "*", "*"];
+                                        let name = data.name;
+                                        let name_fr = data.names.find(elt => elt.language.name == 'fr').name;
+                                        let name_en = data.names.find(elt => elt.language.name == 'en').name;
+                                        let effect = [null, 1, 1, 1, 1, 1];
                                         if (data.increased_stat != null) {
-                                            val[ allstats.findIndex(item => item==data.increased_stat.name)-1 ] = "+";
-                                            val[ allstats.findIndex(item => item==data.decreased_stat.name)-1 ] = "-";
+                                            effect[ allstats.findIndex(item => item==data.increased_stat.name) ] = 1.1;
+                                            effect[ allstats.findIndex(item => item==data.decreased_stat.name) ] = 0.9;
                                         }
 
+                                        naturesMap[name] = {
+                                            name_fr: name_fr,
+                                            name_en: name_en,
+                                            effect: effect
+                                        };
+
                                         newOption = document.createElement('option');
-                                        newOption.innerHTML = data.names.find(elt => elt.language.name == 'fr').name;
-                                        newOption.value = val.join('');
+                                        newOption.innerHTML = name_fr;
+                                        newOption.value = name;
                                         natureSelect.appendChild(newOption);
                                     });
                             });
@@ -646,6 +807,7 @@
                         })
                         .catch(error => console.error('Erreur lors de l\'appel API :', error));
                 }
+                let naturesMap = new Map();
                 fetchNatures("https://pokeapi.co/api/v2/nature");
 
                 // Fetching characteristics from PokeAPI
@@ -671,7 +833,6 @@
                 };
                 fetchCaracteristics("https://pokeapi.co/api/v2/characteristic");
 
-                genSelect = document.getElementById("pcSelect");
                 fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
                     .then(async response => await response.json())
                     .then(data => {
@@ -687,7 +848,7 @@
 
 
                 // Turns a Pokemon name into the name required to access the API
-                function formatName(name) {
+                function formatNameFr(name) {
                     if (name=="Mime Jr.") { return "439"; }
                     return name
                         .replace(" d'", "/").replace(" de ", "/") // Pour les formes régionales
@@ -697,19 +858,20 @@
                         .toLowerCase();
                 }
 
+                // Turns a Pokemon name into the name required to access the API
+                function formatNameEn(name) {
+                    return name
+                        .toLowerCase();
+                }
+
+
+
                 // Reads from the API the list of all Pokemon from a generation with the given url
                 async function fetchPokemonSpeciesList(url) {
                     await fetch(url)
                         .then(async response => await response.json())
                         .then(data => {
                             specieSelect = document.getElementById('specieSelect');
-
-                            data.forEach(item => {
-                                newPokeOption = document.createElement('option');
-                                newPokeOption.innerHTML = item.name.fr;
-                                newPokeOption.value = formatName(item.name.fr);
-                                specieSelect.appendChild(newPokeOption);
-                            });
                         })
                         .catch(error => console.error('Erreur lors de l\'appel API :', error));
                 }
@@ -718,31 +880,24 @@
 
                 // Updates the list of species, when the gen has been changed
                 async function updatePokeList(newGen) {
-                    specieSelect = document.getElementById('specieSelect');
-                    oldGen = parseInt(specieSelect.getAttribute("gen"));
-                    if (newGen < oldGen) {
-                        specieSelect.innerHTML = "";
-                        oldGen = 0;
+                    let specieSelect = document.getElementById('specieSelect');
+                    specieSelect.innerHTML = "";
 
-                        await updateBstEditor('bulbizarre');
-                        updateStade(range(1, document.getElementById("stat-table-body").childElementCount+1), 'bulbizarre');
-                    }
-                    for (n=oldGen+1; n<=newGen; n++) {
-                        await fetchPokemonSpeciesList(`https://tyradex.vercel.app/api/v1/gen/${n}`);
-                        await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
-                            .then(async response => await response.json())
-                            .then(data => {
-                                data.autres_pokemon[n].forEach(item => {
-                                    newPokeOption = document.createElement('option');
-                                    newPokeOption.innerHTML = item.name.fr;
-                                    newPokeOption.value = `local:${n}/${item.name.fr}`;
-                                    specieSelect.appendChild(newPokeOption);
-                                });
-                            });
-                    }
-                    specieSelect.setAttribute("gen", newGen);
+                    await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
+                        .then(async response => await response.json())
+                        .then(async data => {
+                            let pokes = data.listNames[newGen];
+                            for (let i=0; i<pokes.length; i++) {
+                                newPokeOption = document.createElement('option');
+                                newPokeOption.innerHTML = pokes[i].french;
+                                newPokeOption.value = pokes[i].ndex;
+                                specieSelect.appendChild(newPokeOption);
+                            };
+
+                            specieSelect.value = pokes[0].ndex;
+                            specieSelect.onchange();
+                        });
                 }
-                updatePokeList(3);
 
 
 
@@ -751,6 +906,13 @@
                     res = n.toString(2);
                     while (res.length < 6) { res = "0" + res; }
                     return res;
+                }
+
+                function pushcell() {
+                    this.classList.add("pushed");
+                    setTimeout(() => {
+                        this.classList.remove("pushed");
+                    }, 200);
                 }
 
                 // Cette fonction est un meme à ce stade. Elle fait des trucs, je crois.
@@ -764,11 +926,7 @@
                     //console.log(`Pokémon choisi : ${specie}`);
 
                     let natureElt = document.getElementById('natureSelect').selectedOptions[0];
-                    let nature = [null];
-                    for (let i = 0; i<5; i++) {
-                        let c = natureElt.value.charAt(i);
-                        nature.push((c=='+') ? 1.1 : ((c=='-') ? 0.9 : 1));
-                    }
+                    let nature = naturesMap[natureElt.value].effect;
                     //console.log(`Nature : ${natureElt.innerHTML} ( ${nature} )`);
 
                     let carac = null;
@@ -913,18 +1071,29 @@
 
                     let resultsTable = document.createElement("table");
                     resultsTable.className = "results";
-                    resultsTable.innerHTML = "<thead><tr><th>Stat</th><th>IV</th><th>EV</th></tr></thead>";
+
+                    let resultsTableHead = document.createElement("thead");
+                    let resultsTableHeadRow = document.createElement("tr");
+                    let statCell = document.createElement("th"); statCell.innerHTML = "Stat"; statCell.onclick = pushcell; resultsTableHeadRow.appendChild(statCell);
+                    let   ivCell = document.createElement("th");   ivCell.innerHTML = "IV"  ;   ivCell.onclick = pushcell; resultsTableHeadRow.appendChild(  ivCell);
+                    let   evCell = document.createElement("th");   evCell.innerHTML = "EV"  ;   evCell.onclick = pushcell; resultsTableHeadRow.appendChild(  evCell);
+                    resultsTableHead.appendChild(resultsTableHeadRow);
+                    resultsTable.appendChild(resultsTableHead);
 
                     let resultsTableBody = document.createElement("tbody");
                     for (let statNo=0; statNo<6; statNo++) {
                         let r = results[statNo];
-                        resultsTableBody.innerHTML += `<tr><td>${statnames[statNo]}</td><td>${r.iv}</td><td>${r.ev}</td></tr>`;
+                        let resultsTableBodyRow = document.createElement("tr");
+                        let statCell = document.createElement("td"); statCell.innerHTML = statnames[statNo]; statCell.onclick = pushcell; resultsTableBodyRow.appendChild(statCell);
+                        let   ivCell = document.createElement("td");   ivCell.innerHTML = r.iv             ;   ivCell.onclick = pushcell; resultsTableBodyRow.appendChild(  ivCell);
+                        let   evCell = document.createElement("td");   evCell.innerHTML = r.ev             ;   evCell.onclick = pushcell; resultsTableBodyRow.appendChild(  evCell);
+                        resultsTableBody.appendChild(resultsTableBodyRow);
                     }
 
                     resultsTable.appendChild(resultsTableBody);
                     resultsBlock.appendChild(resultsTable);
 
-                    showdown(specieSelect.selectedOptions[0].innerHTML, natureElt.innerHTML, results);
+                    showdown(specieSelect.selectedOptions[0].innerHTML, naturesMap[natureElt.value].name_en, results);
 
                 }
 
@@ -937,17 +1106,16 @@
 
                     tr = document.createElement("tr");
                     tr.id = `row-${n}`;
-                    tr.innerHTML = `<th><select id="row-${n}-stade"></select></th>` +
-                        `<th id="row-${n}-spritecell"></th>` +
-                        `<th><input id="row-${n}-niveau"      type="number" min="1" max="100"/></th>` +
-                        "<th>|</th>" +
-                        `<th><input id="row-${n}-pv"          type="number" min="1" max="999"/></th>` +
-                        `<th><input id="row-${n}-attaque"     type="number" min="1" max="999"/></th>` +
-                        `<th><input id="row-${n}-defense"     type="number" min="1" max="999"/></th>` +
-                        `<th><input id="row-${n}-attaque-spe" type="number" min="1" max="999"/></th>` +
-                        `<th><input id="row-${n}-defense-spe" type="number" min="1" max="999"/></th>` +
-                        `<th><input id="row-${n}-vitesse"     type="number" min="1" max="999"/></th>` +
-                        `<th><button id="row-${n}-remover" class="pushy" onclick="removeRow(${n});">Supprimer</button></th>`;
+                    tr.innerHTML = `<td><select id="row-${n}-stade"></select></td>` +
+                        `<td id="row-${n}-spritecell"></td>` +
+                        `<td class="right_border"><input id="row-${n}-niveau"      type="number" min="1" max="100"/></td>` +
+                        `<td><input id="row-${n}-pv"          type="number" min="1" max="999"/></td>` +
+                        `<td><input id="row-${n}-attaque"     type="number" min="1" max="999"/></td>` +
+                        `<td><input id="row-${n}-defense"     type="number" min="1" max="999"/></td>` +
+                        `<td><input id="row-${n}-attaque-spe" type="number" min="1" max="999"/></td>` +
+                        `<td><input id="row-${n}-defense-spe" type="number" min="1" max="999"/></td>` +
+                        `<td><input id="row-${n}-vitesse"     type="number" min="1" max="999"/></td>` +
+                        `<td><button id="row-${n}-remover" class="pushy" onclick="removeRow(${n});">Supprimer</button></td>`;
 
                     statTable.appendChild(tr);
                     document.getElementById(`row-${n}-stade`).onchange = stadeChangeListener;
@@ -986,10 +1154,16 @@
 
                 // Charge un résumé de la liste des résumés pré-écrits
                 async function loadSummary(data) {
-                    genSelect = document.getElementById("genSelect");
+                    let genSelect = document.getElementById("genSelect");
                     if (genSelect.value != data.gen) {
                         genSelect.value = data.gen;
-                        await updatePokeList(data.gen);
+                        await genSelect.onchange();
+                    }
+
+                    let pokeGenSelect = document.getElementById("pokeGenSelect");
+                    if (pokeGenSelect.value != data.pokeGen) {
+                        pokeGenSelect.value =  data.pokeGen;
+                        await pokeGenSelect.onchange();
                     }
 
                     specieSelect = document.getElementById("specieSelect");
@@ -1100,7 +1274,7 @@
                     await fetchPokemonData(pokeName, async poke => {
                         if (poke.evolution != null && poke.evolution.pre != null) {
                             for (let item of poke.evolution.pre) {
-                                let path = (item.path!=null) ? item.path : formatName(item.name);
+                                let path = (item.path!=null) ? item.path : formatNameFr(item.name);
                                 await fetchPokemonData(path, async (preevo) => {
                                     createBstEditorRow(preevo, path); // Premiers appels
                                 });
@@ -1185,7 +1359,7 @@
                 }
             </script>
 
-            <div style="text-align: right;"><a href="parsemille.html"><img src="sortie.png"></a></div>
+            <div class="bandeau-inf"><a href="parsemille.html"><img src="sortie.png"></a></div>
         </div>
     </body>
 </html>
