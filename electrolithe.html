@@ -109,9 +109,11 @@
             table.form {
                 border: 1px solid #aaa;
                 border-collapse: collapse;
+
                 margin-top: 10px;
                 margin-bottom: 10px;
-                border-radius: 5px;
+                margin-left:  auto;
+                margin-right: auto;
             }
 
             table.form tr {
@@ -138,8 +140,6 @@
 
             table.poke {
                 width: 80%;
-                margin-left:  auto;
-                margin-right: auto;
             }
 
             table.poke th, table.poke td {
@@ -160,6 +160,17 @@
 
             .right_border {
                 border-right: 1px solid #aaa;
+            }
+
+            /* Stat form table styling */
+
+            table.bst {
+                width: 100%;
+            }
+
+            table.bst th, table.bst td {
+                width: 12%;
+                text-align: center;
             }
 
 
@@ -440,11 +451,7 @@
                             </tr>
                             <tr>
                                 <td>Espèce</td>
-                                <td><select id="specieSelect" gen="0"></select></td>
-                            </tr>
-                            <tr>
-                                <td>Forme</td>
-                                <td><select id="formSelect"></select></td>
+                                <td><select id="specieSelect"></select></td>
                             </tr>
                         </tbody>
                     </table>
@@ -484,13 +491,27 @@
 
                 <div id="zack_slider" class="slider_base">
                     Il peut y avoir des erreurs dans les stats de base des Pokémon. En cas de problème, n'hésitez pas à vérifier les données ci-dessous et à les modifier, puis à relancer le calculateur.
-                    <table id="bstEditor"></table>
+                    <table class="form bst">
+                        <thead>
+                            <tr>
+                                <th>Forme</th>
+                                <th>Sprite</th>
+                                <th>PV</th>
+                                <th>Attaque</th>
+                                <th>Défense</th>
+                                <th>Attaque spéciale</th>
+                                <th>Défense spéciale</th>
+                                <th>Vitesse</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bstEditor"></tbody>
+                    </table>
                     <div class="depasseur prevent-select" onclick="slide();">Base stats <span id="slide_arrow" class="material-symbols-outlined leftward">keyboard_double_arrow_up</span></div>
                 </div>
                 <table class="form stat">
                     <thead>
                         <tr>
-                            <th>Stade évolutif</th>
+                            <th>Forme</th>
                             <th>Sprite</th>
                             <th class="right_border">Niveau</th>
                             <th>PV</th>
@@ -504,7 +525,7 @@
                     </thead>
                     <tbody id="stat-table-body">
                         <tr id="row-1">
-                            <td><select id="row-1-stade"></select></th>
+                            <td><select id="row-1-forme"></select></th>
                             <td id="row-1-spritecell"></th>
                             <td class="right_border"><input id="row-1-niveau"      type="number" min="1" max="100"/></td>
                             <td><input id="row-1-pv"          type="number" min="1" max="999"/></td>
@@ -588,7 +609,7 @@
                         typePC: "???100:17:20",
                         stats: [
                             {
-                                stade:"moyade",
+                                forme:"jellicent",
                                 niveau: 52,
                                 pv:  172,
                                 atk: 80,
@@ -608,7 +629,7 @@
                         typePC: "????0?:13:16",
                         stats: [
                             {
-                                stade:"scrutella",
+                                forme:"gothita",
                                 niveau: 27,
                                 pv:  61,
                                 atk: 26,
@@ -618,7 +639,7 @@
                                 vit: 30
                             },
                             {
-                                stade:"scrutella",
+                                forme:"gothita",
                                 niveau: 31,
                                 pv:  70,
                                 atk: 31,
@@ -628,7 +649,7 @@
                                 vit: 35
                             },
                             {
-                                stade:"mesmerella",
+                                forme:"gothorita",
                                 niveau: 37,
                                 pv:  93,
                                 atk: 49,
@@ -638,7 +659,7 @@
                                 vit: 49
                             },
                             {
-                                stade:"mesmerella",
+                                forme:"gothorita",
                                 niveau: 38,
                                 pv:  96,
                                 atk: 51,
@@ -648,7 +669,7 @@
                                 vit: 51
                             },
                             {
-                                stade:"siderella",
+                                forme:"gothitelle",
                                 niveau: 43,
                                 pv:  116,
                                 atk: 69,
@@ -658,7 +679,7 @@
                                 vit: 66
                             },
                             {
-                                stade:"siderella",
+                                forme:"gothitelle",
                                 niveau: 52,
                                 pv:  144,
                                 atk: 85,
@@ -667,10 +688,6 @@
                                 dsp: 120,
                                 vit: 80
                             }
-                        ],
-                        statModif : [
-                            {stade: "scrutella", stat: "special-attack" , newValue: 55 },
-                            {stade: "scrutella", stat: "special-defense", newValue: 65 }
                         ]
                     },
                     {
@@ -682,7 +699,7 @@
                         typePC: "111111:63:63",
                         stats: [
                             {
-                                stade:"zeblitz",
+                                forme:"zebstrika",
                                 niveau: 52,
                                 pv:  154,
                                 atk: 104,
@@ -706,9 +723,8 @@
                 async function onPokemonPick(pokeName) {
                     await updateBstEditor(pokeName);
                     let n = document.getElementById("stat-table-body").childElementCount;
-                    await updateStade(range(1, n+1), pokeName);
                 }
-                onPokemonPick("bulbizarre");
+                //onPokemonPick("bulbasaur");
 
 
 
@@ -717,9 +733,9 @@
                 async function fetchPokemonData(pokeName, func) {
                     // Depending on the cases, we might need to look in the API or in the local JSON
                     if (pokeName.substr(0, 6) == 'local:') { // Local JSON
-                        splitName = pokeName.substr(6).split('/');
-                        gen = parseInt(splitName[0]);
-                        trueName = splitName[1];
+                        let splitName = pokeName.substr(6).split('/');
+                        let gen = parseInt(splitName[0]);
+                        let trueName = splitName[1];
 
                         let response = await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json');
                         let data = await response.json();
@@ -734,40 +750,19 @@
                     }
                 }
 
-
-
-                // Update the evolution stage picklists
-                async function updateStade(rows, pokeName) {
-                    await fetchPokemonData(pokeName, (poke) => {
-                        innerSelect = "";
-                        if (poke.evolution != null && poke.evolution.pre != null) {
-                            poke.evolution.pre.forEach(item => {
-                                let path = (item.path!=null) ? item.path : formatNameFr(item.name);
-                                innerSelect += `<option value="${path}">${item.name}</option>`;
-                            });
-                        }
-                        innerSelect += `<option value="${pokeName}" selected=true>${poke.name.fr}</option>`;
-
-                        rows.forEach(n => {
-                            document.getElementById(`row-${n}-stade`).innerHTML = innerSelect;
-                            updateSprite(n, pokeName);
-                        });
-                    });
-                }
-
-                function updateSprite(row, stade) {
+                function updateSprite(row, forme) {
                     let spriteCell = document.getElementById(`row-${row}-spritecell`);
                     spriteCell.innerHTML = "";
 
-                    let newSprite = document.getElementById(`sprite-${stade}`).cloneNode();
+                    let newSprite = document.getElementById(`sprite-${forme}`).cloneNode();
                     newSprite.id = null;
                     spriteCell.appendChild(newSprite);
                 }
 
-                function stadeChangeListener() {
+                function formeChangeListener() {
                     updateSprite( this.id.split('-')[1], this.value );
                 }
-                document.getElementById("row-1-stade").onchange = stadeChangeListener;
+                document.getElementById("row-1-forme").onchange = formeChangeListener;
 
 
 
@@ -847,33 +842,14 @@
 
 
 
-                // Turns a Pokemon name into the name required to access the API
-                function formatNameFr(name) {
-                    if (name=="Mime Jr.") { return "439"; }
-                    return name
-                        .replace(" d'", "/").replace(" de ", "/") // Pour les formes régionales
-                        .replace("♀", "-f").replace("♂", "-m") // Pour les Nidorans
-                        .replace(". ", ".") // Pour M. Mime et M. Glaquette
-                        .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // suppression des accents
-                        .toLowerCase();
+                function capitalize(mot) {
+                    return mot.charAt(0).toUpperCase() + mot.slice(1);
                 }
 
-                // Turns a Pokemon name into the name required to access the API
-                function formatNameEn(name) {
+                // Turns a Pokemon API name into a suitable name for Showdown
+                function formatNameShowdown(name) {
                     return name
-                        .toLowerCase();
-                }
-
-
-
-                // Reads from the API the list of all Pokemon from a generation with the given url
-                async function fetchPokemonSpeciesList(url) {
-                    await fetch(url)
-                        .then(async response => await response.json())
-                        .then(data => {
-                            specieSelect = document.getElementById('specieSelect');
-                        })
-                        .catch(error => console.error('Erreur lors de l\'appel API :', error));
+                        .split('-').map(mot => capitalize(mot)).join('-');
                 }
 
 
@@ -888,14 +864,14 @@
                         .then(async data => {
                             let pokes = data.listNames[newGen];
                             for (let i=0; i<pokes.length; i++) {
-                                newPokeOption = document.createElement('option');
+                                let newPokeOption = document.createElement('option');
                                 newPokeOption.innerHTML = pokes[i].french;
                                 newPokeOption.value = pokes[i].ndex;
                                 specieSelect.appendChild(newPokeOption);
                             };
 
                             specieSelect.value = pokes[0].ndex;
-                            specieSelect.onchange();
+                            await specieSelect.onchange();
                         });
                 }
 
@@ -943,13 +919,13 @@
                     let bstMap = new Map();
                     let failure = false;
                     for (let i=1; i<=totalSummaries; i++) {
-                        let stadeName = document.getElementById(`row-${i}-stade`).selectedOptions[0].value;
-                        if (!bstMap.has(stadeName)) {
+                        let formeName = document.getElementById(`row-${i}-forme`).value;
+                        if (!bstMap.has(formeName)) {
                             let bst = [];
                             for (let statNo=0; statNo<6; statNo++) {
-                                bst.push( parseInt( document.getElementById(`bst-${stadeName}-${allstats[statNo]}`).value ) );
+                                bst.push( parseInt( document.getElementById(`bst-${formeName}-${allstats[statNo]}`).value ) );
                             }
-                            bstMap.set(stadeName, bst);
+                            bstMap.set(formeName, bst);
                         }
 
                         let newLine = [];
@@ -967,7 +943,7 @@
                             }
                         }
 
-                        newLine.push(document.getElementById(`row-${i}-stade`).value);
+                        newLine.push(formeName);
                         statMatrix.push(newLine);
                     }
                     if (failure) {
@@ -1093,7 +1069,7 @@
                     resultsTable.appendChild(resultsTableBody);
                     resultsBlock.appendChild(resultsTable);
 
-                    showdown(specieSelect.selectedOptions[0].innerHTML, naturesMap[natureElt.value].name_en, results);
+                    showdown(formatNameShowdown(finalSummary[7]), naturesMap[natureElt.value].name_en, results);
 
                 }
 
@@ -1106,7 +1082,7 @@
 
                     tr = document.createElement("tr");
                     tr.id = `row-${n}`;
-                    tr.innerHTML = `<td><select id="row-${n}-stade"></select></td>` +
+                    tr.innerHTML = `<td><select id="row-${n}-forme"></select></td>` +
                         `<td id="row-${n}-spritecell"></td>` +
                         `<td class="right_border"><input id="row-${n}-niveau"      type="number" min="1" max="100"/></td>` +
                         `<td><input id="row-${n}-pv"          type="number" min="1" max="999"/></td>` +
@@ -1118,15 +1094,20 @@
                         `<td><button id="row-${n}-remover" class="pushy" onclick="removeRow(${n});">Supprimer</button></td>`;
 
                     statTable.appendChild(tr);
-                    document.getElementById(`row-${n}-stade`).onchange = stadeChangeListener;
-                    currentPokeName = document.getElementById('specieSelect').selectedOptions[0].value;
-                    await updateStade([n], currentPokeName);
+
+                    let forme = document.getElementById(`row-${n}-forme`);
+                    let prevForme = document.getElementById(`row-${n-1}-forme`);
+                    forme.onchange = formeChangeListener;
+                    forme.innerHTML = prevForme.innerHTML;
+                    forme.defaut = prevForme.defaut;
+                    forme.value = forme.defaut;
+                    await forme.onchange();
                 }
 
                 // Modifie les ID d'une ligne du tableau
                 function renameRow(src, dst) {
                     document.getElementById(`row-${src}`).id             = `row-${dst}`;
-                    document.getElementById(`row-${src}-stade`).id       = `row-${dst}-stade`;
+                    document.getElementById(`row-${src}-forme`).id       = `row-${dst}-forme`;
                     document.getElementById(`row-${src}-spritecell`).id  = `row-${dst}-spritecell`;
                     document.getElementById(`row-${src}-niveau`).id      = `row-${dst}-niveau`;
                     document.getElementById(`row-${src}-pv`).id          = `row-${dst}-pv`;
@@ -1172,7 +1153,7 @@
 
                     document.getElementById("natureSelect").value = data.nature;
                     document.getElementById("caractSelect").value = data.caract;
-                    document.getElementById("pcSelect"    ).value = data.typePC;
+                    document.getElementById(    "pcSelect").value = data.typePC;
 
                     while (document.getElementById("stat-table-body").childElementCount < data.stats.length) { await newRow(); }
                     while (document.getElementById("stat-table-body").childElementCount > data.stats.length) { await removeRow(document.getElementById("stat-table-body").childElementCount); }
@@ -1180,9 +1161,9 @@
                     for(let i=1; i<=data.stats.length; i++) {
                         let smry = data.stats[i-1];
 
-                        let stade = document.getElementById(`row-${i}-stade`)
-                        stade.value       = smry.stade;
-                        stade.onchange();
+                        let forme = document.getElementById(`row-${i}-forme`)
+                        forme.value       = smry.forme;
+                        forme.onchange();
 
                         document.getElementById(`row-${i}-niveau`).value      = smry.niveau;
                         document.getElementById(`row-${i}-pv`).value          = smry.pv;
@@ -1195,7 +1176,7 @@
 
                     if (data.statModif != null) {
                         data.statModif.forEach(item => {
-                            document.getElementById(`bst-${item.stade}-${item.stat}`).value = item.newValue;
+                            document.getElementById(`bst-${item.forme}-${item.stat}`).value = item.newValue;
                         });
                     }
                 }
@@ -1212,16 +1193,6 @@
                 // Va chercher les updates de base stats
                 async function applyBaseStatsChanges(pokeName, gen) {
                     if (gen < 9) {
-                        let response = await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json');
-                        let data = await response.json();
-                        for (let g=9; g>gen; g--) {
-                            let changes = data.bstChanges[g].filter(item => item.pokemon === pokeName);
-                            for (let i=0; i<changes.length; i++) {
-                                document.getElementById(`bst-${pokeName}-${changes[i].stat}`).value = changes[i].oldVal;
-                            }
-                        }
-
-
                         await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
                             .then(async response => await response.json())
                             .then(data => {
@@ -1235,55 +1206,111 @@
                     }
                 }
 
+
+
+
+                async function fetchPreEvo(pokeName, formeSelect, defaut=false) {
+                    await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokeName}`)
+                        .then(async response => await response.json() )
+                        .then(async specieData => {
+                            if (specieData.evolves_from_species != null) {
+                                let innerSelect = await fetchPreEvo(specieData.evolves_from_species.name, formeSelect);
+                            } else {
+                                let innerSelect = "";
+                            }
+
+                            for (let i=0; i<specieData.varieties.length; i++) {
+                                await fetch(specieData.varieties[i].pokemon.url)
+                                    .then(async response => await response.json())
+                                    .then(async pokeData => {
+                                        if (pokeData.stats==null || pokeData.stats.length==0) { return; }
+                                        let nameFr;
+                                        let specieName = specieData.names.find(elt => elt.language.name == 'fr').name;
+
+                                        if (specieData.varieties[i].is_default) {
+                                            nameFr = specieName;
+                                        } else {
+                                            if (pokeData.forms==null || pokeData.forms.length==0) {
+                                                nameFr = pokeData.name;
+                                            } else {
+                                                let formResponse = await fetch(pokeData.forms[0].url)
+                                                    .then(async response => await response.json() )
+                                                    .then(async formData => {
+                                                        if (formData.is_battle_only) { return { code: 2 }; } // Code 2 : form is battle only
+                                                        let formNameContainer = formData.form_names.find(elt => elt.language.name == 'fr');
+                                                        return (formNameContainer!=null) ? { code: 0, name: formNameContainer.name } : { code: 1, name: "" }; // Code 1 : no french name found | Code 0 : all is well
+                                                });
+                                                if (formResponse.code==2) { return; }
+                                                nameFr = (formResponse.code==0 && formResponse.name.includes(specieName)) ? formResponse.name : (specieName + " " + formResponse.name);
+                                            }
+                                        }
+
+                                        createBstEditorRow(pokeData, nameFr);
+
+                                        let newOption = document.createElement("option");
+                                        newOption.value = pokeData.name;
+                                        newOption.innerHTML = nameFr;
+                                        if (defaut && specieData.varieties[i].is_default) {
+                                            newOption.selected = "true";
+                                            formeSelect.defaut = pokeData.name;
+                                        }
+                                        formeSelect.appendChild(newOption);
+                                });
+                            }
+                    });
+                }
+
                 // Crée une ligne du tableau d'édition des base stats
-                function createBstEditorRow(pokedata, pokeName) {
+                function createBstEditorRow(pokeData, nameFr) {
+                    let pokeName = pokeData.name;
+
                     let bstEditor = document.getElementById("bstEditor");
                     let editRow = document.createElement("tr");
 
-                    let nameCell = document.createElement("th");
-                    nameCell.innerHTML = pokedata.name.fr;
+                    let nameCell = document.createElement("td");
+                    nameCell.innerHTML = nameFr;
                     editRow.appendChild(nameCell);
                     //*
-                    let spriteCell = document.createElement("th");
+                    let spriteCell = document.createElement("td");
                     let imgSize = 64;
-                    let imgPath = (pokedata.sprites != null) ? pokedata.sprites.regular : "https://archives.bulbagarden.net/media/upload/a/a1/Substitute_artwork.png";
+                    let imgPath = (pokeData.sprites != null && pokeData.sprites.front_default != null) ? pokeData.sprites.front_default : "https://archives.bulbagarden.net/media/upload/a/a1/Substitute_artwork.png";
                     spriteCell.innerHTML = `<img id="sprite-${pokeName}" src="${imgPath}" width="${imgSize}px" height="${imgSize}px">`;
                     editRow.appendChild(spriteCell);
                     //*/
-                    statFields = ["hp", "atk", "def", "spe_atk", "spe_def", "vit"];
+                    statFields = ["hp", "attack", "defense", "special-attack", "special-defense", "speed"];
                     for (let i=0; i<6; i++) {
-                        let statCell = document.createElement("th");
+                        let statCell = document.createElement("td");
 
                         let statEditor = document.createElement("input");
                         statEditor.id = `bst-${pokeName}-${allstats[i]}`;
                         statEditor.type = "number";
                         statEditor.min = 1; statEditor.max = 999;
-                        statEditor.value = pokedata.stats[statFields[i]];
+                        statEditor.value = pokeData.stats.find(elt => elt.stat.name == statFields[i]).base_stat;
                         statCell.appendChild(statEditor);
 
                         editRow.appendChild(statCell);
                     }
                     bstEditor.appendChild(editRow);
+
+                    applyBaseStatsChanges(pokeName, parseInt( document.getElementById("genSelect").value ))
                 }
 
                 // Met à jour l'éditeur de base stats
                 async function updateBstEditor(pokeName) {
-                    let bstEditor = document.getElementById("bstEditor");
-                    bstEditor.innerHTML = "<tr><th>Stade évolutif</th><th>Sprite</th><th>PV</th><th>Attaque</th><th>Défense</th><th>Attaque spéciale</th><th>Défense spéciale</th><th>Vitesse</th></tr>";
-                    let gen = parseInt(document.getElementById("genSelect").value);
-                    await fetchPokemonData(pokeName, async poke => {
-                        if (poke.evolution != null && poke.evolution.pre != null) {
-                            for (let item of poke.evolution.pre) {
-                                let path = (item.path!=null) ? item.path : formatNameFr(item.name);
-                                await fetchPokemonData(path, async (preevo) => {
-                                    createBstEditorRow(preevo, path); // Premiers appels
-                                });
-                                await applyBaseStatsChanges(path, gen);
-                            };
-                        }
-                        createBstEditorRow(poke, pokeName); // Appel final
-                        await applyBaseStatsChanges(pokeName, gen);
-                    });
+                    document.getElementById("bstEditor").innerHTML = "";
+                    let formeSelect = document.getElementById("row-1-forme");
+                    formeSelect.innerHTML = "";
+                    await fetchPreEvo(pokeName, formeSelect, defaut=true);
+                    formeSelect.value = formeSelect.defaut;
+                    formeSelect.onchange();
+
+                    for (let i=2; i<= document.getElementById("stat-table-body").childElementCount; i++) {
+                        let forme = document.getElementById(`row-${i}-forme`);
+                        forme.innerHTML = formeSelect.innerHTML;
+                        forme.defaut = formeSelect.defaut;
+                        forme.value = forme.defaut;
+                        await forme.onchange();
+                    }
                 }
 
                 function slide() {

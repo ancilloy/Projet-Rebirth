@@ -50,7 +50,7 @@ function range(min, max, step=1) {
     return res;
 }
 
-// statMatrix : list of lists of [hp, atk, def, asp, dsp, spe, lvl]
+// statMatrix : list of lists of [hp, atk, def, asp, dsp, spe, lvl, forme]
 // bstMap : map associating every stage name with its bst
 // nature : list of length 6, giving each stat its multiplier
 // carac : object { statNo, modulo } or null if not given
