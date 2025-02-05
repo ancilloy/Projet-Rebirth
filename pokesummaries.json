@@ -1,0 +1,114 @@
+{
+    "summaries" : [
+        {
+            "gen": 5,
+            "pokeGen": 5,
+            "specie": 593,
+            "nature": "naive",
+            "caract": "defense:1",
+            "typePC": "???100:17:20",
+            "stats": [
+                {
+                    "forme":"jellicent",
+                    "niveau": 52,
+                    "pv":  172,
+                    "atk": 80,
+                    "def": 93,
+                    "asp": 108,
+                    "dsp": 109,
+                    "vit": 86
+                }
+            ]
+        },
+        {
+            "gen": 5,
+            "pokeGen": 5,
+            "specie": 576,
+            "nature": "relaxed",
+            "caract": "defense:3",
+            "typePC": "????0?:13:16",
+            "stats": [
+                {
+                    "forme":"gothita",
+                    "niveau": 27,
+                    "pv":  61,
+                    "atk": 26,
+                    "def": 42,
+                    "asp": 39,
+                    "dsp": 40,
+                    "vit": 30
+                },
+                {
+                    "forme":"gothita",
+                    "niveau": 31,
+                    "pv":  70,
+                    "atk": 31,
+                    "def": 48,
+                    "asp": 44,
+                    "dsp": 45,
+                    "vit": 35
+                },
+                {
+                    "forme":"gothorita",
+                    "niveau": 37,
+                    "pv":  93,
+                    "atk": 49,
+                    "def": 75,
+                    "asp": 66,
+                    "dsp": 68,
+                    "vit": 49
+                },
+                {
+                    "forme":"gothorita",
+                    "niveau": 38,
+                    "pv":  96,
+                    "atk": 51,
+                    "def": 78,
+                    "asp": 68,
+                    "dsp": 70,
+                    "vit": 51
+                },
+                {
+                    "forme":"gothitelle",
+                    "niveau": 43,
+                    "pv":  116,
+                    "atk": 69,
+                    "def": 111,
+                    "asp": 94,
+                    "dsp": 100,
+                    "vit": 66
+                },
+                {
+                    "forme":"gothitelle",
+                    "niveau": 52,
+                    "pv":  144,
+                    "atk": 85,
+                    "def": 134,
+                    "asp": 113,
+                    "dsp": 120,
+                    "vit": 80
+                }
+            ]
+        },
+        {
+            "gen": 5,
+            "pokeGen": 5,
+            "specie": 523,
+            "nature": "modest",
+            "caract": "special-defense:2",
+            "typePC": "111111:63:63",
+            "stats": [
+                {
+                    "forme":"zebstrika",
+                    "niveau": 52,
+                    "pv":  154,
+                    "atk": 104,
+                    "def": 72,
+                    "asp": 99,
+                    "dsp": 84,
+                    "vit": 151
+                }
+            ]
+        }
+    ]
+}
