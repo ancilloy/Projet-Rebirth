@@ -1,0 +1,5534 @@
+{
+  "locations": [
+    {
+      "name": "canalave-city",
+      "nameFr": "Joliberges"
+    },
+    {
+      "name": "eterna-city",
+      "nameFr": "Vestigion"
+    },
+    {
+      "name": "pastoria-city",
+      "nameFr": "Verchamps"
+    },
+    {
+      "name": "sunyshore-city",
+      "nameFr": "Rivamar"
+    },
+    {
+      "name": "sinnoh-pokemon-league",
+      "nameFr": "Ligue Pokémon"
+    },
+    {
+      "name": "oreburgh-mine",
+      "nameFr": "Mine Charbourg"
+    },
+    {
+      "name": "valley-windworks",
+      "nameFr": "Les Eoliennes"
+    },
+    {
+      "name": "eterna-forest",
+      "nameFr": "Forêt Vestigion"
+    },
+    {
+      "name": "fuego-ironworks",
+      "nameFr": "Forge Fuego"
+    },
+    {
+      "name": "mt-coronet",
+      "nameFr": "Mont Couronné"
+    },
+    {
+      "name": "great-marsh",
+      "nameFr": "Grand Marais"
+    },
+    {
+      "name": "solaceon-ruins",
+      "nameFr": "Ruines Bonville"
+    },
+    {
+      "name": "sinnoh-victory-road",
+      "nameFr": "Route Victoire"
+    },
+    {
+      "name": "ravaged-path",
+      "nameFr": "Chemin Rocheux"
+    },
+    {
+      "name": "oreburgh-gate",
+      "nameFr": "Entrée Charbourg"
+    },
+    {
+      "name": "stark-mountain",
+      "nameFr": "Mont Abrupt"
+    },
+    {
+      "name": "turnback-cave",
+      "nameFr": "Grotte Retour"
+    },
+    {
+      "name": "snowpoint-temple",
+      "nameFr": "Temple Frimapic"
+    },
+    {
+      "name": "wayward-cave",
+      "nameFr": "Grotte Revèche"
+    },
+    {
+      "name": "ruin-maniac-cave",
+      "nameFr": "Grotte Ruinem."
+    },
+    {
+      "name": "trophy-garden",
+      "nameFr": "Jardin Trophée"
+    },
+    {
+      "name": "iron-island",
+      "nameFr": "Ile de Fer"
+    },
+    {
+      "name": "old-chateau",
+      "nameFr": "Vieux Château"
+    },
+    {
+      "name": "lake-verity",
+      "nameFr": "Lac Vérité"
+    },
+    {
+      "name": "lake-valor",
+      "nameFr": "Lac Courage"
+    },
+    {
+      "name": "lake-acuity",
+      "nameFr": "Lac Savoir"
+    },
+    {
+      "name": "valor-lakefront",
+      "nameFr": "Rive Lac Courage"
+    },
+    {
+      "name": "acuity-lakefront",
+      "nameFr": "Rive Lac Savoir"
+    },
+    {
+      "name": "sinnoh-route-201",
+      "nameFr": "Route 201"
+    },
+    {
+      "name": "sinnoh-route-202",
+      "nameFr": "Route 202"
+    },
+    {
+      "name": "sinnoh-route-203",
+      "nameFr": "Route 203"
+    },
+    {
+      "name": "sinnoh-route-204",
+      "nameFr": "Route 204"
+    },
+    {
+      "name": "sinnoh-route-205",
+      "nameFr": "Route 205"
+    },
+    {
+      "name": "sinnoh-route-206",
+      "nameFr": "Route 206"
+    },
+    {
+      "name": "sinnoh-route-207",
+      "nameFr": "Route 207"
+    },
+    {
+      "name": "sinnoh-route-208",
+      "nameFr": "Route 208"
+    },
+    {
+      "name": "sinnoh-route-209",
+      "nameFr": "Route 209"
+    },
+    {
+      "name": "lost-tower",
+      "nameFr": "Tour Perdue"
+    },
+    {
+      "name": "sinnoh-route-210",
+      "nameFr": "Route 210"
+    },
+    {
+      "name": "sinnoh-route-211",
+      "nameFr": "Route 211"
+    },
+    {
+      "name": "sinnoh-route-212",
+      "nameFr": "Route 212"
+    },
+    {
+      "name": "sinnoh-route-213",
+      "nameFr": "Route 213"
+    },
+    {
+      "name": "sinnoh-route-214",
+      "nameFr": "Route 214"
+    },
+    {
+      "name": "sinnoh-route-215",
+      "nameFr": "Route 215"
+    },
+    {
+      "name": "sinnoh-route-216",
+      "nameFr": "Route 216"
+    },
+    {
+      "name": "sinnoh-route-217",
+      "nameFr": "Route 217"
+    },
+    {
+      "name": "sinnoh-route-218",
+      "nameFr": "Route 218"
+    },
+    {
+      "name": "sinnoh-route-219",
+      "nameFr": "Route 219"
+    },
+    {
+      "name": "sinnoh-route-221",
+      "nameFr": "Route 221"
+    },
+    {
+      "name": "sinnoh-route-222",
+      "nameFr": "Route 222"
+    },
+    {
+      "name": "sinnoh-route-224",
+      "nameFr": "Route 224"
+    },
+    {
+      "name": "sinnoh-route-225",
+      "nameFr": "Route 225"
+    },
+    {
+      "name": "sinnoh-route-227",
+      "nameFr": "Route 227"
+    },
+    {
+      "name": "sinnoh-route-228",
+      "nameFr": "Route 228"
+    },
+    {
+      "name": "sinnoh-route-229",
+      "nameFr": "Route 229"
+    },
+    {
+      "name": "twinleaf-town",
+      "nameFr": "Bonaugure"
+    },
+    {
+      "name": "celestic-town",
+      "nameFr": "Célestia"
+    },
+    {
+      "name": "resort-area",
+      "nameFr": "Aire de Détente"
+    },
+    {
+      "name": "sinnoh-sea-route-220",
+      "nameFr": "Chenal 220"
+    },
+    {
+      "name": "sinnoh-sea-route-223",
+      "nameFr": "Chenal 223"
+    },
+    {
+      "name": "sinnoh-sea-route-226",
+      "nameFr": "Chenal 226"
+    },
+    {
+      "name": "sinnoh-sea-route-230",
+      "nameFr": "Chenal 230"
+    },
+    {
+      "name": "blackthorn-city",
+      "nameFr": "Ebènelle"
+    },
+    {
+      "name": "burned-tower",
+      "nameFr": "Tour Cendrée"
+    },
+    {
+      "name": "celadon-city",
+      "nameFr": "Céladopole"
+    },
+    {
+      "name": "cerulean-city",
+      "nameFr": "Azuria"
+    },
+    {
+      "name": "cherrygrove-city",
+      "nameFr": "Ville Griotte"
+    },
+    {
+      "name": "cianwood-city",
+      "nameFr": "Irisia"
+    },
+    {
+      "name": "cinnabar-island",
+      "nameFr": "Cramois'Ile"
+    },
+    {
+      "name": "dark-cave",
+      "nameFr": "Antre Noir"
+    },
+    {
+      "name": "digletts-cave",
+      "nameFr": "Cave TAUPIQUEUR"
+    },
+    {
+      "name": "dragons-den",
+      "nameFr": "Antre du Dragon"
+    },
+    {
+      "name": "ecruteak-city",
+      "nameFr": "Rosalia"
+    },
+    {
+      "name": "fuchsia-city",
+      "nameFr": "Parmanie"
+    },
+    {
+      "name": "ice-path",
+      "nameFr": "Route de Glace"
+    },
+    {
+      "name": "ilex-forest",
+      "nameFr": "Bois aux Chênes"
+    },
+    {
+      "name": "lake-of-rage",
+      "nameFr": "Lac Colère"
+    },
+    {
+      "name": "mt-moon",
+      "nameFr": "Mont Sélénite"
+    },
+    {
+      "name": "mt-mortar",
+      "nameFr": "Mont Creuset"
+    },
+    {
+      "name": "mt-silver",
+      "nameFr": "Mont Argenté"
+    },
+    {
+      "name": "national-park",
+      "nameFr": "Parc Naturel"
+    },
+    {
+      "name": "new-bark-town",
+      "nameFr": "Bourg Geon"
+    },
+    {
+      "name": "olivine-city",
+      "nameFr": "Oliville"
+    },
+    {
+      "name": "pallet-town",
+      "nameFr": "Bourg Palette"
+    },
+    {
+      "name": "rock-tunnel",
+      "nameFr": "Grotte"
+    },
+    {
+      "name": "kanto-route-1",
+      "nameFr": "Route 1"
+    },
+    {
+      "name": "kanto-route-10",
+      "nameFr": "Route 10"
+    },
+    {
+      "name": "kanto-route-11",
+      "nameFr": "Route 11"
+    },
+    {
+      "name": "kanto-route-12",
+      "nameFr": "Route 12"
+    },
+    {
+      "name": "kanto-route-13",
+      "nameFr": "Route 13"
+    },
+    {
+      "name": "kanto-route-14",
+      "nameFr": "Route 14"
+    },
+    {
+      "name": "kanto-route-15",
+      "nameFr": "Route 15"
+    },
+    {
+      "name": "kanto-route-16",
+      "nameFr": "Route 16"
+    },
+    {
+      "name": "kanto-route-17",
+      "nameFr": "Route 17"
+    },
+    {
+      "name": "kanto-route-18",
+      "nameFr": "Route 18"
+    },
+    {
+      "name": "kanto-sea-route-19",
+      "nameFr": "Chenal 19"
+    },
+    {
+      "name": "kanto-route-2",
+      "nameFr": "Route 2"
+    },
+    {
+      "name": "kanto-sea-route-20",
+      "nameFr": "Chenal 20"
+    },
+    {
+      "name": "kanto-sea-route-21",
+      "nameFr": "Chenal 21"
+    },
+    {
+      "name": "kanto-route-22",
+      "nameFr": "Route 22"
+    },
+    {
+      "name": "kanto-route-24",
+      "nameFr": "Route 24"
+    },
+    {
+      "name": "kanto-route-25",
+      "nameFr": "Route 25"
+    },
+    {
+      "name": "kanto-route-26",
+      "nameFr": "Route 26"
+    },
+    {
+      "name": "kanto-route-27",
+      "nameFr": "Route 27"
+    },
+    {
+      "name": "kanto-route-28",
+      "nameFr": "Route 28"
+    },
+    {
+      "name": "johto-route-29",
+      "nameFr": "Route 29"
+    },
+    {
+      "name": "kanto-route-3",
+      "nameFr": "Route 3"
+    },
+    {
+      "name": "johto-route-30",
+      "nameFr": "Route 30"
+    },
+    {
+      "name": "johto-route-31",
+      "nameFr": "Route 31"
+    },
+    {
+      "name": "johto-route-32",
+      "nameFr": "Route 32"
+    },
+    {
+      "name": "johto-route-33",
+      "nameFr": "Route 33"
+    },
+    {
+      "name": "johto-route-34",
+      "nameFr": "Route 34"
+    },
+    {
+      "name": "johto-route-35",
+      "nameFr": "Route 35"
+    },
+    {
+      "name": "johto-route-36",
+      "nameFr": "Route 36"
+    },
+    {
+      "name": "johto-route-37",
+      "nameFr": "Route 37"
+    },
+    {
+      "name": "johto-route-38",
+      "nameFr": "Route 38"
+    },
+    {
+      "name": "johto-route-39",
+      "nameFr": "Route 39"
+    },
+    {
+      "name": "kanto-route-4",
+      "nameFr": "Route 4"
+    },
+    {
+      "name": "johto-sea-route-40",
+      "nameFr": "Chenal 40"
+    },
+    {
+      "name": "johto-sea-route-41",
+      "nameFr": "Chenal 41"
+    },
+    {
+      "name": "johto-route-42",
+      "nameFr": "Route 42"
+    },
+    {
+      "name": "johto-route-43",
+      "nameFr": "Route 43"
+    },
+    {
+      "name": "johto-route-44",
+      "nameFr": "Route 44"
+    },
+    {
+      "name": "johto-route-45",
+      "nameFr": "Route 45"
+    },
+    {
+      "name": "johto-route-46",
+      "nameFr": "Route 46"
+    },
+    {
+      "name": "johto-route-47",
+      "nameFr": "Route 47"
+    },
+    {
+      "name": "johto-route-48",
+      "nameFr": "Route 48"
+    },
+    {
+      "name": "kanto-route-5",
+      "nameFr": "Route 5"
+    },
+    {
+      "name": "kanto-route-6",
+      "nameFr": "Route 6"
+    },
+    {
+      "name": "kanto-route-7",
+      "nameFr": "Route 7"
+    },
+    {
+      "name": "kanto-route-8",
+      "nameFr": "Route 8"
+    },
+    {
+      "name": "kanto-route-9",
+      "nameFr": "Route 9"
+    },
+    {
+      "name": "ruins-of-alph",
+      "nameFr": "Ruines d'Alpha"
+    },
+    {
+      "name": "seafoam-islands",
+      "nameFr": "Iles Ecume"
+    },
+    {
+      "name": "slowpoke-well",
+      "nameFr": "Puits RAMOLOSS"
+    },
+    {
+      "name": "sprout-tower",
+      "nameFr": "Tour CHETIFLOR"
+    },
+    {
+      "name": "bell-tower",
+      "nameFr": "Tour Carillon"
+    },
+    {
+      "name": "tohjo-falls",
+      "nameFr": "Chutes Tohjo"
+    },
+    {
+      "name": "union-cave",
+      "nameFr": "Caves Jumelles"
+    },
+    {
+      "name": "cerulean-cave",
+      "nameFr": "Caverne Azurée"
+    },
+    {
+      "name": "unknown-all-poliwag",
+      "nameFr": "Inconnu; que des Ptitard"
+    },
+    {
+      "name": "unknown-all-rattata",
+      "nameFr": "Inconnu; que des Rattata"
+    },
+    {
+      "name": "unknown-all-bugs",
+      "nameFr": "Inconnu; que des insectes"
+    },
+    {
+      "name": "vermilion-city",
+      "nameFr": "Carmin sur Mer"
+    },
+    {
+      "name": "kanto-victory-road-1",
+      "nameFr": "Route Victoire"
+    },
+    {
+      "name": "violet-city",
+      "nameFr": "Mauville"
+    },
+    {
+      "name": "viridian-city",
+      "nameFr": "Jadielle"
+    },
+    {
+      "name": "viridian-forest",
+      "nameFr": "Forêt de Jade"
+    },
+    {
+      "name": "whirl-islands",
+      "nameFr": "Tourb'Iles"
+    },
+    {
+      "name": "kanto-route-23",
+      "nameFr": "Route 23"
+    },
+    {
+      "name": "power-plant",
+      "nameFr": "Centrale"
+    },
+    {
+      "name": "kanto-victory-road-2",
+      "nameFr": "Route Victoire"
+    },
+    {
+      "name": "pokemon-tower",
+      "nameFr": "Tour Pokémon"
+    },
+    {
+      "name": "pokemon-mansion",
+      "nameFr": "Manoir Pokémon"
+    },
+    {
+      "name": "kanto-safari-zone",
+      "nameFr": "Parc Safari"
+    },
+    {
+      "name": "hearthome-city",
+      "nameFr": "Unionpolis"
+    },
+    {
+      "name": "veilstone-city",
+      "nameFr": "Voilaroc"
+    },
+    {
+      "name": "spear-pillar",
+      "nameFr": "Colonnes Lances"
+    },
+    {
+      "name": "sendoff-spring",
+      "nameFr": "Source Adieu"
+    },
+    {
+      "name": "flower-paradise",
+      "nameFr": "Paradis Fleuri"
+    },
+    {
+      "name": "maniac-tunnel",
+      "nameFr": "Tunnel Runiem."
+    },
+    {
+      "name": "newmoon-island",
+      "nameFr": "Ile Nouvellelune"
+    },
+    {
+      "name": "sinnoh-hall-of-origin-1",
+      "nameFr": "Salle Originelle"
+    },
+    {
+      "name": "trainers-school",
+      "nameFr": "Ecole Dresseurs"
+    },
+    {
+      "name": "azalea-town",
+      "nameFr": "Ecorcia"
+    },
+    {
+      "name": "goldenrod-city",
+      "nameFr": "Doublonville"
+    },
+    {
+      "name": "saffron-city",
+      "nameFr": "Safrania"
+    },
+    {
+      "name": "team-rocket-hq",
+      "nameFr": "Repaire Rocket d'Acajou"
+    },
+    {
+      "name": "sinjoh-ruins",
+      "nameFr": "Ruines Sinjoh"
+    },
+    {
+      "name": "embedded-tower",
+      "nameFr": "Tour Enfouie"
+    },
+    {
+      "name": "nuvema-town",
+      "nameFr": "Renouet"
+    },
+    {
+      "name": "striaton-city",
+      "nameFr": "Ogoesse"
+    },
+    {
+      "name": "nacrene-city",
+      "nameFr": "Maillard"
+    },
+    {
+      "name": "castelia-city",
+      "nameFr": "Volucité"
+    },
+    {
+      "name": "driftveil-city",
+      "nameFr": "Port Yoneuve"
+    },
+    {
+      "name": "icirrus-city",
+      "nameFr": "Flocombe"
+    },
+    {
+      "name": "unova-route-1",
+      "nameFr": "Route 1"
+    },
+    {
+      "name": "unova-route-2",
+      "nameFr": "Route 2"
+    },
+    {
+      "name": "unova-route-3",
+      "nameFr": "Route 3"
+    },
+    {
+      "name": "unova-route-4",
+      "nameFr": "Route 4"
+    },
+    {
+      "name": "unova-route-5",
+      "nameFr": "Route 5"
+    },
+    {
+      "name": "unova-route-6",
+      "nameFr": "Route 6"
+    },
+    {
+      "name": "unova-route-7",
+      "nameFr": "Route 7"
+    },
+    {
+      "name": "unova-route-8",
+      "nameFr": "Route 8"
+    },
+    {
+      "name": "unova-route-9",
+      "nameFr": "Route 9"
+    },
+    {
+      "name": "unova-route-10",
+      "nameFr": "Route 10"
+    },
+    {
+      "name": "unova-route-11",
+      "nameFr": "Route 11"
+    },
+    {
+      "name": "unova-route-12",
+      "nameFr": "Route 12"
+    },
+    {
+      "name": "unova-route-13",
+      "nameFr": "Route 13"
+    },
+    {
+      "name": "unova-route-14",
+      "nameFr": "Route 14"
+    },
+    {
+      "name": "unova-route-15",
+      "nameFr": "Route 15"
+    },
+    {
+      "name": "unova-route-16",
+      "nameFr": "Route 16"
+    },
+    {
+      "name": "unova-route-17",
+      "nameFr": "Chenal 17"
+    },
+    {
+      "name": "unova-route-18",
+      "nameFr": "Route 18"
+    },
+    {
+      "name": "dreamyard",
+      "nameFr": "Vestiges du Rêve"
+    },
+    {
+      "name": "pinwheel-forest",
+      "nameFr": "Forêt d'Empoigne"
+    },
+    {
+      "name": "desert-resort",
+      "nameFr": "Désert Délassant"
+    },
+    {
+      "name": "relic-castle",
+      "nameFr": "Château Enfoui"
+    },
+    {
+      "name": "cold-storage",
+      "nameFr": "Hangar Frigorifique"
+    },
+    {
+      "name": "chargestone-cave",
+      "nameFr": "Grotte Électrolithe"
+    },
+    {
+      "name": "twist-mountain",
+      "nameFr": "Mont Foré"
+    },
+    {
+      "name": "dragonspiral-tower",
+      "nameFr": "Tour Dragospire"
+    },
+    {
+      "name": "unova-victory-road",
+      "nameFr": "Route Victoire"
+    },
+    {
+      "name": "undella-town",
+      "nameFr": "Vaguelone"
+    },
+    {
+      "name": "ns-castle",
+      "nameFr": "Palais de N"
+    },
+    {
+      "name": "wellspring-cave",
+      "nameFr": "Veine Souterraine"
+    },
+    {
+      "name": "mistralton-cave",
+      "nameFr": "Grotte Parsemille"
+    },
+    {
+      "name": "celestial-tower",
+      "nameFr": "Tour des Cieux"
+    },
+    {
+      "name": "moor-of-icirrus",
+      "nameFr": "Tourbière Flocombe"
+    },
+    {
+      "name": "challengers-cave",
+      "nameFr": "Antre d'Entraînement"
+    },
+    {
+      "name": "giant-chasm",
+      "nameFr": "Grotte Cyclopéenne"
+    },
+    {
+      "name": "liberty-garden",
+      "nameFr": "Île Liberté"
+    },
+    {
+      "name": "p2-laboratory",
+      "nameFr": "Labo P2"
+    },
+    {
+      "name": "driftveil-drawbridge",
+      "nameFr": "Pont Yoneuve"
+    },
+    {
+      "name": "village-bridge",
+      "nameFr": "Pont du Hameau"
+    },
+    {
+      "name": "marvelous-bridge",
+      "nameFr": "Pont de l'Inconnu"
+    },
+    {
+      "name": "abundant-shrine",
+      "nameFr": "Autel Abondance"
+    },
+    {
+      "name": "undella-bay",
+      "nameFr": "Baie Vaguelone"
+    },
+    {
+      "name": "lostlorn-forest",
+      "nameFr": "Bois des Illusions"
+    },
+    {
+      "name": "trial-chamber",
+      "nameFr": "Salle Épreuve"
+    },
+    {
+      "name": "guidance-chamber",
+      "nameFr": "Espace Guide"
+    },
+    {
+      "name": "petalburg-city",
+      "nameFr": "Clémenti-Ville"
+    },
+    {
+      "name": "slateport-city",
+      "nameFr": "Poivressel"
+    },
+    {
+      "name": "lilycove-city",
+      "nameFr": "Nénucrique"
+    },
+    {
+      "name": "mossdeep-city",
+      "nameFr": "Algatia"
+    },
+    {
+      "name": "sootopolis-city",
+      "nameFr": "Atalanopolis"
+    },
+    {
+      "name": "ever-grande-city",
+      "nameFr": "Éternara"
+    },
+    {
+      "name": "meteor-falls",
+      "nameFr": "Site Météore"
+    },
+    {
+      "name": "rusturf-tunnel",
+      "nameFr": "Tunnel Mérazon"
+    },
+    {
+      "name": "granite-cave",
+      "nameFr": "Grotte Granite"
+    },
+    {
+      "name": "petalburg-woods",
+      "nameFr": "Bois Clémenti"
+    },
+    {
+      "name": "jagged-pass",
+      "nameFr": "Sentier Sinuroc"
+    },
+    {
+      "name": "fiery-path",
+      "nameFr": "Chemin Ardent"
+    },
+    {
+      "name": "mt-pyre",
+      "nameFr": "Mont Mémoria"
+    },
+    {
+      "name": "seafloor-cavern",
+      "nameFr": "Caverne Fondmer"
+    },
+    {
+      "name": "cave-of-origin",
+      "nameFr": "Grotte Origine"
+    },
+    {
+      "name": "hoenn-victory-road",
+      "nameFr": "Route Victoire"
+    },
+    {
+      "name": "shoal-cave",
+      "nameFr": "Grotte Tréfonds"
+    },
+    {
+      "name": "new-mauville",
+      "nameFr": "New Lavandia"
+    },
+    {
+      "name": "abandoned-ship",
+      "nameFr": "Épave"
+    },
+    {
+      "name": "sky-pillar",
+      "nameFr": "Pilier Céleste"
+    },
+    {
+      "name": "hoenn-route-101",
+      "nameFr": "Route 101"
+    },
+    {
+      "name": "hoenn-route-102",
+      "nameFr": "Route 102"
+    },
+    {
+      "name": "hoenn-route-103",
+      "nameFr": "Route 103"
+    },
+    {
+      "name": "hoenn-route-104",
+      "nameFr": "Route 104"
+    },
+    {
+      "name": "hoenn-route-105",
+      "nameFr": "Chenal 105"
+    },
+    {
+      "name": "hoenn-route-106",
+      "nameFr": "Chenal 106"
+    },
+    {
+      "name": "hoenn-route-107",
+      "nameFr": "Chenal 107"
+    },
+    {
+      "name": "hoenn-route-108",
+      "nameFr": "Chenal 108"
+    },
+    {
+      "name": "hoenn-route-109",
+      "nameFr": "Chenal 109"
+    },
+    {
+      "name": "hoenn-route-110",
+      "nameFr": "Route 110"
+    },
+    {
+      "name": "hoenn-route-111",
+      "nameFr": "Route 111"
+    },
+    {
+      "name": "hoenn-route-112",
+      "nameFr": "Route 112"
+    },
+    {
+      "name": "hoenn-route-113",
+      "nameFr": "Route 113"
+    },
+    {
+      "name": "hoenn-route-114",
+      "nameFr": "Route 114"
+    },
+    {
+      "name": "hoenn-route-115",
+      "nameFr": "Route 115"
+    },
+    {
+      "name": "hoenn-route-116",
+      "nameFr": "Route 116"
+    },
+    {
+      "name": "hoenn-route-117",
+      "nameFr": "Route 117"
+    },
+    {
+      "name": "hoenn-route-118",
+      "nameFr": "Route 118"
+    },
+    {
+      "name": "hoenn-route-119",
+      "nameFr": "Route 119"
+    },
+    {
+      "name": "hoenn-route-120",
+      "nameFr": "Route 120"
+    },
+    {
+      "name": "hoenn-route-121",
+      "nameFr": "Route 121"
+    },
+    {
+      "name": "hoenn-route-122",
+      "nameFr": "Chenal 122"
+    },
+    {
+      "name": "hoenn-route-123",
+      "nameFr": "Route 123"
+    },
+    {
+      "name": "hoenn-route-124",
+      "nameFr": "Chenal 124"
+    },
+    {
+      "name": "hoenn-route-125",
+      "nameFr": "Chenal 125"
+    },
+    {
+      "name": "hoenn-route-126",
+      "nameFr": "Chenal 126"
+    },
+    {
+      "name": "hoenn-route-127",
+      "nameFr": "Chenal 127"
+    },
+    {
+      "name": "hoenn-route-128",
+      "nameFr": "Chenal 128"
+    },
+    {
+      "name": "hoenn-route-129",
+      "nameFr": "Chenal 129"
+    },
+    {
+      "name": "hoenn-route-130",
+      "nameFr": "Chenal 130"
+    },
+    {
+      "name": "hoenn-route-131",
+      "nameFr": "Chenal 131"
+    },
+    {
+      "name": "hoenn-route-132",
+      "nameFr": "Chenal 132"
+    },
+    {
+      "name": "hoenn-route-133",
+      "nameFr": "Chenal 133"
+    },
+    {
+      "name": "hoenn-route-134",
+      "nameFr": "Chenal 134"
+    },
+    {
+      "name": "hoenn-safari-zone",
+      "nameFr": "Parc Safari"
+    },
+    {
+      "name": "dewford-town",
+      "nameFr": "Myokara"
+    },
+    {
+      "name": "pacifidlog-town",
+      "nameFr": "Pacifiville"
+    },
+    {
+      "name": "magma-hideout",
+      "nameFr": "Planque Magma"
+    },
+    {
+      "name": "mirage-tower",
+      "nameFr": "Tour Mirage"
+    },
+    {
+      "name": "desert-underpass",
+      "nameFr": "Voie du Désert"
+    },
+    {
+      "name": "artisan-cave",
+      "nameFr": "Grotte Atelier"
+    },
+    {
+      "name": "hoenn-altering-cave",
+      "nameFr": "Grotte Métamo"
+    },
+    {
+      "name": "monean-chamber",
+      "nameFr": "Chambre Anemune"
+    },
+    {
+      "name": "liptoo-chamber",
+      "nameFr": "Chambre Deulipe"
+    },
+    {
+      "name": "weepth-chamber",
+      "nameFr": "Chambre Prois"
+    },
+    {
+      "name": "dilford-chamber",
+      "nameFr": "Chambre Jonquatre"
+    },
+    {
+      "name": "scufib-chamber",
+      "nameFr": "Chambre Hibicinq"
+    },
+    {
+      "name": "rixy-chamber",
+      "nameFr": "Chambre Irix"
+    },
+    {
+      "name": "viapos-chamber",
+      "nameFr": "Chambre Poinsept"
+    },
+    {
+      "name": "ss-anne",
+      "nameFr": "L'Océane"
+    },
+    {
+      "name": "mt-ember",
+      "nameFr": "Mont Braise"
+    },
+    {
+      "name": "berry-forest",
+      "nameFr": "Bois Baies"
+    },
+    {
+      "name": "icefall-cave",
+      "nameFr": "Grotte de Glace"
+    },
+    {
+      "name": "pattern-bush",
+      "nameFr": "Forbuissons"
+    },
+    {
+      "name": "lost-cave",
+      "nameFr": "Grotte Perdue"
+    },
+    {
+      "name": "kindle-road",
+      "nameFr": "Route Tison"
+    },
+    {
+      "name": "treasure-beach",
+      "nameFr": "Plage Trésor"
+    },
+    {
+      "name": "cape-brink",
+      "nameFr": "Cap Falaise"
+    },
+    {
+      "name": "bond-bridge",
+      "nameFr": "Pont du Lien"
+    },
+    {
+      "name": "three-isle-port",
+      "nameFr": "Port Ile 3"
+    },
+    {
+      "name": "resort-gorgeous",
+      "nameFr": "Camp de Vacances"
+    },
+    {
+      "name": "water-labyrinth",
+      "nameFr": "Labyrinthe d'O"
+    },
+    {
+      "name": "five-isle-meadow",
+      "nameFr": "Pré Ile 5"
+    },
+    {
+      "name": "memorial-pillar",
+      "nameFr": "Mémorial"
+    },
+    {
+      "name": "outcast-island",
+      "nameFr": "Ile du Lointain"
+    },
+    {
+      "name": "green-path",
+      "nameFr": "Chemin Vert"
+    },
+    {
+      "name": "water-path",
+      "nameFr": "Agualcanal"
+    },
+    {
+      "name": "ruin-valley",
+      "nameFr": "Vallée Ruine"
+    },
+    {
+      "name": "trainer-tower",
+      "nameFr": "Tour Dresseurs"
+    },
+    {
+      "name": "canyon-entrance",
+      "nameFr": "Entrée du Canyon"
+    },
+    {
+      "name": "sevault-canyon",
+      "nameFr": "Canyon Sesor"
+    },
+    {
+      "name": "tanoby-ruins",
+      "nameFr": "Ruines Tanoby"
+    },
+    {
+      "name": "one-island",
+      "nameFr": "Ile 1"
+    },
+    {
+      "name": "four-island",
+      "nameFr": "Ile 4"
+    },
+    {
+      "name": "five-island",
+      "nameFr": "Ile 5"
+    },
+    {
+      "name": "kanto-altering-cave",
+      "nameFr": "Grotte Métamo"
+    },
+    {
+      "name": "aspertia-city",
+      "nameFr": "Pavonnay"
+    },
+    {
+      "name": "virbank-city",
+      "nameFr": "Ondes-sur-Mer"
+    },
+    {
+      "name": "humilau-city",
+      "nameFr": "Papeloa"
+    },
+    {
+      "name": "floccesy-town",
+      "nameFr": "Amaillide"
+    },
+    {
+      "name": "unova-route-19",
+      "nameFr": "Route 19"
+    },
+    {
+      "name": "unova-route-20",
+      "nameFr": "Route 20"
+    },
+    {
+      "name": "unova-route-21",
+      "nameFr": "Chenal 21"
+    },
+    {
+      "name": "unova-route-22",
+      "nameFr": "Route 22"
+    },
+    {
+      "name": "unova-route-23",
+      "nameFr": "Route 23"
+    },
+    {
+      "name": "castelia-sewers",
+      "nameFr": "Égouts de Volucité"
+    },
+    {
+      "name": "floccesy-ranch",
+      "nameFr": "Ranch d'Amaillide"
+    },
+    {
+      "name": "virbank-complex",
+      "nameFr": "Z.I. d'Ondes-sur-Mer"
+    },
+    {
+      "name": "reversal-mountain",
+      "nameFr": "Mont Renenvers"
+    },
+    {
+      "name": "strange-house",
+      "nameFr": "Manoir de l'Étrange"
+    },
+    {
+      "name": "unova-victory-road-2",
+      "nameFr": "Route Victoire"
+    },
+    {
+      "name": "relic-passage",
+      "nameFr": "Chemin Enfoui"
+    },
+    {
+      "name": "clay-tunnel",
+      "nameFr": "Route Bardane"
+    },
+    {
+      "name": "seaside-cave",
+      "nameFr": "Grotte Littorale"
+    },
+    {
+      "name": "nature-sanctuary",
+      "nameFr": "Réserve Naturelle"
+    },
+    {
+      "name": "underground-ruins",
+      "nameFr": "Ruines Enfouies"
+    },
+    {
+      "name": "rocky-mountain-room",
+      "nameFr": "Salle Pic Rocheux"
+    },
+    {
+      "name": "glacier-room",
+      "nameFr": "Salle Iceberg"
+    },
+    {
+      "name": "iron-room",
+      "nameFr": "Salle Fer"
+    },
+    {
+      "name": "littleroot-town",
+      "nameFr": "Bourg-en-Vol"
+    },
+    {
+      "name": "lavaridge-town",
+      "nameFr": "Vermilava"
+    },
+    {
+      "name": "fallarbor-town",
+      "nameFr": "Autéquia"
+    },
+    {
+      "name": "verdanturf-town",
+      "nameFr": "Vergazon"
+    },
+    {
+      "name": "rustboro-city",
+      "nameFr": "Mérouville"
+    },
+    {
+      "name": "southern-island",
+      "nameFr": "Île du Sud"
+    },
+    {
+      "name": "scorched-slab",
+      "nameFr": "Grotte Zénith"
+    },
+    {
+      "name": "island-cave",
+      "nameFr": "Grotte de l’Îlot"
+    },
+    {
+      "name": "desert-ruins",
+      "nameFr": "Ruines Désert"
+    },
+    {
+      "name": "ancient-tomb",
+      "nameFr": "Tombeau Antique"
+    },
+    {
+      "name": "aquacorde-town",
+      "nameFr": "Quarellis"
+    },
+    {
+      "name": "kalos-route-2",
+      "nameFr": "Route 2"
+    },
+    {
+      "name": "santalune-forest",
+      "nameFr": "Forêt de Neuvartault"
+    },
+    {
+      "name": "kalos-route-3",
+      "nameFr": "Route 3"
+    },
+    {
+      "name": "kalos-route-4",
+      "nameFr": "Route 4"
+    },
+    {
+      "name": "lumiose-city",
+      "nameFr": "Illumis"
+    },
+    {
+      "name": "kalos-route-5",
+      "nameFr": "Route 5"
+    },
+    {
+      "name": "kalos-route-6",
+      "nameFr": "Route 6"
+    },
+    {
+      "name": "parfum-palace",
+      "nameFr": "Palais Chaydeuvre"
+    },
+    {
+      "name": "kalos-route-7",
+      "nameFr": "Route 7"
+    },
+    {
+      "name": "cyllage-city",
+      "nameFr": "Relifac-le-Haut"
+    },
+    {
+      "name": "kalos-route-8",
+      "nameFr": "Route 8"
+    },
+    {
+      "name": "ambrette-town",
+      "nameFr": "Roche-sur-Gliffe"
+    },
+    {
+      "name": "kalos-route-9",
+      "nameFr": "Route 9"
+    },
+    {
+      "name": "kalos-route-10",
+      "nameFr": "Route 10"
+    },
+    {
+      "name": "kalos-route-11",
+      "nameFr": "Route 11"
+    },
+    {
+      "name": "reflection-cave",
+      "nameFr": "Grotte Miroitante"
+    },
+    {
+      "name": "shalour-city",
+      "nameFr": "Yantreizh"
+    },
+    {
+      "name": "tower-of-mastery",
+      "nameFr": "Tour Maîtrise"
+    },
+    {
+      "name": "kalos-route-12",
+      "nameFr": "Route 12"
+    },
+    {
+      "name": "kalos-route-13",
+      "nameFr": "Route 13"
+    },
+    {
+      "name": "kalos-route-14",
+      "nameFr": "Route 14"
+    },
+    {
+      "name": "laverre-city",
+      "nameFr": "Romant-sous-Bois"
+    },
+    {
+      "name": "kalos-route-15",
+      "nameFr": "Route 15"
+    },
+    {
+      "name": "kalos-route-16",
+      "nameFr": "Route 16"
+    },
+    {
+      "name": "frost-cavern",
+      "nameFr": "Caverne Gelée"
+    },
+    {
+      "name": "kalos-route-17",
+      "nameFr": "Route 17"
+    },
+    {
+      "name": "kalos-route-18",
+      "nameFr": "Route 18"
+    },
+    {
+      "name": "couriway-town",
+      "nameFr": "Mozheim"
+    },
+    {
+      "name": "kalos-route-19",
+      "nameFr": "Route 19"
+    },
+    {
+      "name": "kalos-route-20",
+      "nameFr": "Route 20"
+    },
+    {
+      "name": "pokemon-village",
+      "nameFr": "Village Pokémon"
+    },
+    {
+      "name": "kalos-route-21",
+      "nameFr": "Route 21"
+    },
+    {
+      "name": "kalos-route-22",
+      "nameFr": "Route 22"
+    },
+    {
+      "name": "kalos-victory-road",
+      "nameFr": "Route Victoire"
+    },
+    {
+      "name": "azure-bay",
+      "nameFr": "Baie Azur"
+    },
+    {
+      "name": "glittering-cave",
+      "nameFr": "Grotte Étincelante"
+    },
+    {
+      "name": "connecting-cave",
+      "nameFr": "Cave Connecterre"
+    },
+    {
+      "name": "team-flare-secret-hq",
+      "nameFr": "Repaire Team Flare"
+    },
+    {
+      "name": "terminus-cave",
+      "nameFr": "Grotte Coda"
+    },
+    {
+      "name": "lost-hotel",
+      "nameFr": "Hôtel Désolation"
+    },
+    {
+      "name": "sea-spirits-den",
+      "nameFr": "Antre Néréen"
+    },
+    {
+      "name": "unknown-dungeon",
+      "nameFr": "Grotte Inconnue"
+    },
+    {
+      "name": "team-aqua-hideout",
+      "nameFr": "Planque Aqua"
+    },
+    {
+      "name": "sea-mauville",
+      "nameFr": "Lavandia Sea"
+    },
+    {
+      "name": "team-magma-hideout",
+      "nameFr": "Planque Magma"
+    },
+    {
+      "name": "battle-resort",
+      "nameFr": "Atoll de Combat"
+    },
+    {
+      "name": "trackless-forest",
+      "nameFr": "Forêt Impénétrable"
+    },
+    {
+      "name": "pathless-plain",
+      "nameFr": "Plaine Sans Nom"
+    },
+    {
+      "name": "nameless-cavern",
+      "nameFr": "Grotte Oubliée"
+    },
+    {
+      "name": "fabled-cave",
+      "nameFr": "Grotte Évanescente"
+    },
+    {
+      "name": "gnarled-den",
+      "nameFr": "Gouffre Informe"
+    },
+    {
+      "name": "crescent-isle",
+      "nameFr": "Île de l’Arc"
+    },
+    {
+      "name": "soaring-in-the-sky",
+      "nameFr": "Grand Ciel"
+    },
+    {
+      "name": "alola-route-1",
+      "nameFr": "Route 1"
+    },
+    {
+      "name": "alola-route-3",
+      "nameFr": "Route 3"
+    },
+    {
+      "name": "alola-route-2",
+      "nameFr": "Route 2"
+    },
+    {
+      "name": "kalae-bay",
+      "nameFr": "Baie de Kala’e"
+    },
+    {
+      "name": "melemele-sea",
+      "nameFr": "Mer de Mele-Mele"
+    },
+    {
+      "name": "iki-town",
+      "nameFr": "Lili’i"
+    },
+    {
+      "name": "mahalo-trail",
+      "nameFr": "Sentier de Mahalo"
+    },
+    {
+      "name": "ruins-of-conflict",
+      "nameFr": "Ruines du Conflit"
+    },
+    {
+      "name": "ten-carat-hill",
+      "nameFr": "Colline Dicarat"
+    },
+    {
+      "name": "hauoli-cemetery",
+      "nameFr": "Cimetière d’Ekaeka"
+    },
+    {
+      "name": "melemele-meadow",
+      "nameFr": "Jardin de Mele-Mele"
+    },
+    {
+      "name": "seaward-cave",
+      "nameFr": "Grotte Verlamer"
+    },
+    {
+      "name": "berry-fields",
+      "nameFr": "Champ de Baies"
+    },
+    {
+      "name": "verdant-cavern--trial-site",
+      "nameFr": "Grotte Verdoyante"
+    },
+    {
+      "name": "alola-route-4",
+      "nameFr": "Route 4"
+    },
+    {
+      "name": "alola-route-5",
+      "nameFr": "Route 5"
+    },
+    {
+      "name": "alola-route-6",
+      "nameFr": "Route 6"
+    },
+    {
+      "name": "alola-route-7",
+      "nameFr": "Route 7"
+    },
+    {
+      "name": "alola-route-8",
+      "nameFr": "Route 8"
+    },
+    {
+      "name": "alola-route-9",
+      "nameFr": "Route 9"
+    },
+    {
+      "name": "hano-beach",
+      "nameFr": "Plage Hano-Hano"
+    },
+    {
+      "name": "paniola-town",
+      "nameFr": "Ohana"
+    },
+    {
+      "name": "heahea-city",
+      "nameFr": "Ho’ohale"
+    },
+    {
+      "name": "konikoni-city",
+      "nameFr": "Konikoni"
+    },
+    {
+      "name": "royal-avenue",
+      "nameFr": "Rue du Dôme Royal"
+    },
+    {
+      "name": "memorial-hill",
+      "nameFr": "Colline Memento"
+    },
+    {
+      "name": "paniola-ranch",
+      "nameFr": "Ranch Ohana"
+    },
+    {
+      "name": "wela-volcano-park",
+      "nameFr": "Parc Volcanique"
+    },
+    {
+      "name": "brooklet-hill",
+      "nameFr": "Colline Clapotis"
+    },
+    {
+      "name": "lush-jungle",
+      "nameFr": "Jungle Sombrefeuille"
+    },
+    {
+      "name": "ruins-of-life",
+      "nameFr": "Ruines de l’Éveil"
+    },
+    {
+      "name": "akala-outskirts",
+      "nameFr": "Côte Reculée d’Akala"
+    },
+    {
+      "name": "digletts-tunnel",
+      "nameFr": "Tunnel Taupiqueur"
+    },
+    {
+      "name": "alola-route-10",
+      "nameFr": "Route 10"
+    },
+    {
+      "name": "alola-route-11",
+      "nameFr": "Route 11"
+    },
+    {
+      "name": "secluded-shore",
+      "nameFr": "Côte Sauvage"
+    },
+    {
+      "name": "alola-route-13",
+      "nameFr": "Route 13"
+    },
+    {
+      "name": "tapu-village",
+      "nameFr": "Village Toko"
+    },
+    {
+      "name": "alola-route-15",
+      "nameFr": "Route 15"
+    },
+    {
+      "name": "alola-route-16",
+      "nameFr": "Route 16"
+    },
+    {
+      "name": "alola-route-17",
+      "nameFr": "Route 17"
+    },
+    {
+      "name": "alola-route-12",
+      "nameFr": "Route 12"
+    },
+    {
+      "name": "haina-desert",
+      "nameFr": "Désert Haina"
+    },
+    {
+      "name": "alola-route-14",
+      "nameFr": "Route 14"
+    },
+    {
+      "name": "ulaula-meadow",
+      "nameFr": "Jardin d’Ula-Ula"
+    },
+    {
+      "name": "malie-garden",
+      "nameFr": "Parc de Malié"
+    },
+    {
+      "name": "mount-hokulani",
+      "nameFr": "Mont Hokulani"
+    },
+    {
+      "name": "blush-mountain",
+      "nameFr": "Mont Ardent"
+    },
+    {
+      "name": "ruins-of-abundance",
+      "nameFr": "Ruines de l’Essor"
+    },
+    {
+      "name": "lake-of-the-sunne",
+      "nameFr": "Lac du Halo Solaire"
+    },
+    {
+      "name": "lake-of-the-moone",
+      "nameFr": "Lac du Halo Lunaire"
+    },
+    {
+      "name": "mount-lanakila",
+      "nameFr": "Mont Lanakila"
+    },
+    {
+      "name": "poni-meadow",
+      "nameFr": "Jardin de Poni"
+    },
+    {
+      "name": "poni-wilds",
+      "nameFr": "Prairie de Poni"
+    },
+    {
+      "name": "ancient-poni-path",
+      "nameFr": "Vieille Route"
+    },
+    {
+      "name": "poni-breaker-coast",
+      "nameFr": "Récif de Poni"
+    },
+    {
+      "name": "poni-grove",
+      "nameFr": "Forêt de Poni"
+    },
+    {
+      "name": "poni-plains",
+      "nameFr": "Plaine de Poni"
+    },
+    {
+      "name": "poni-coast",
+      "nameFr": "Côte de Poni"
+    },
+    {
+      "name": "poni-gauntlet",
+      "nameFr": "Chemin du Défi"
+    },
+    {
+      "name": "seafolk-village",
+      "nameFr": "Village Flottant"
+    },
+    {
+      "name": "vast-poni-canyon",
+      "nameFr": "Grand Canyon de Poni"
+    },
+    {
+      "name": "altar-of-the-sunne",
+      "nameFr": "Autel du Soleil"
+    },
+    {
+      "name": "altar-of-the-moone",
+      "nameFr": "Autel de la Lune"
+    },
+    {
+      "name": "ruins-of-hope",
+      "nameFr": "Ruines de l’Au-Delà"
+    },
+    {
+      "name": "resolution-cave",
+      "nameFr": "Caverne Coda"
+    },
+    {
+      "name": "exeggutor-island",
+      "nameFr": "Île Noadkoko"
+    },
+    {
+      "name": "aether-paradise",
+      "nameFr": "Paradis Æther"
+    },
+    {
+      "name": "ultra-space",
+      "nameFr": "Ultra-Dimension"
+    },
+    {
+      "name": "roaming-kanto",
+      "nameFr": "Sillonnant Kanto"
+    },
+    {
+      "name": "roaming-johto",
+      "nameFr": "Sillonnant Johto"
+    },
+    {
+      "name": "roaming-hoenn",
+      "nameFr": "Sillonnant Hoenn"
+    },
+    {
+      "name": "roaming-sinnoh",
+      "nameFr": "Sillonnant Sinnoh"
+    },
+    {
+      "name": "terra-cave",
+      "nameFr": "Grotte Terra"
+    },
+    {
+      "name": "marine-cave",
+      "nameFr": "Grotte Marine"
+    },
+    {
+      "name": "birth-island",
+      "nameFr": "Île Aurore"
+    },
+    {
+      "name": "navel-rock",
+      "nameFr": "Roc Nombri"
+    },
+    {
+      "name": "faraway-island",
+      "nameFr": "Île lointaine"
+    },
+    {
+      "name": "hoenn-battle-frontier",
+      "nameFr": "Zone de Combat"
+    },
+    {
+      "name": "johto-safari-zone",
+      "nameFr": "Parc Safari"
+    },
+    {
+      "name": "hauoli-city",
+      "nameFr": "Ekaeka"
+    },
+    {
+      "name": "verdant-cavern",
+      "nameFr": "Grotte Verdoyante"
+    },
+    {
+      "name": "thrifty-megamart",
+      "nameFr": "Bradley Prix"
+    },
+    {
+      "name": "malie-city",
+      "nameFr": "Malié"
+    },
+    {
+      "name": "dividing-peak-tunnel",
+      "nameFr": "Tunnel Perce-Mont"
+    },
+    {
+      "name": "heahea-beach",
+      "nameFr": "Place d'Ho-Ohale"
+    },
+    {
+      "name": "sandy-cave",
+      "nameFr": "Grotte de la plage"
+    },
+    {
+      "name": "ulaula-beach",
+      "nameFr": "Plage d'Ula-Ula"
+    },
+    {
+      "name": "ultra-megalopolis",
+      "nameFr": "Ultra-Mégalopole"
+    },
+    {
+      "name": "ultra-space-wilds",
+      "nameFr": "Ultra-Dimension Zéro"
+    },
+    {
+      "name": "poke-pelago",
+      "nameFr": "Poké Loisir"
+    },
+    {
+      "name": "team-rockets-castle",
+      "nameFr": "Château Rocket"
+    },
+    {
+      "name": "mauville-space-center",
+      "nameFr": "Centre Spatial d'Algatia"
+    },
+    {
+      "name": "roaming-kalos",
+      "nameFr": "Mouvant dans Kalos"
+    }
+  ],
+  "location-areas": [
+    {
+      "name": "canalave-city-area",
+      "nameFr": "Joliberges"
+    },
+    {
+      "name": "eterna-city-area",
+      "nameFr": "Vestigion"
+    },
+    {
+      "name": "pastoria-city-area",
+      "nameFr": "Verchamps"
+    },
+    {
+      "name": "sunyshore-city-area",
+      "nameFr": "Rivamar"
+    },
+    {
+      "name": "sinnoh-pokemon-league-area",
+      "nameFr": "Ligue Pokémon"
+    },
+    {
+      "name": "oreburgh-mine-1f",
+      "nameFr": "Mine Charbourg (RdC)"
+    },
+    {
+      "name": "oreburgh-mine-b1f",
+      "nameFr": "Mine Charbourg (sous-sol)"
+    },
+    {
+      "name": "valley-windworks-area",
+      "nameFr": "Les Eoliennes"
+    },
+    {
+      "name": "eterna-forest-area",
+      "nameFr": "Forêt Vestigion"
+    },
+    {
+      "name": "fuego-ironworks-area",
+      "nameFr": "Forge Fuego"
+    },
+    {
+      "name": "mt-coronet-1f-route-207",
+      "nameFr": "Mont Couronné (RdC côté route 207)"
+    },
+    {
+      "name": "mt-coronet-2f",
+      "nameFr": "Mont Couronné (1er ét.)"
+    },
+    {
+      "name": "mt-coronet-3f",
+      "nameFr": "Mont Couronné (2e ét.)"
+    },
+    {
+      "name": "mt-coronet-exterior-snowfall",
+      "nameFr": "Mont Couronné (extérieur neige)"
+    },
+    {
+      "name": "mt-coronet-exterior-blizzard",
+      "nameFr": "Mont Couronné (extérieur blizzard)"
+    },
+    {
+      "name": "mt-coronet-4f",
+      "nameFr": "Mont Couronné (3e ét.)"
+    },
+    {
+      "name": "mt-coronet-4f-small-room",
+      "nameFr": "Mont Couronné (3e ét., petite salle)"
+    },
+    {
+      "name": "mt-coronet-5f",
+      "nameFr": "Mont Couronné (4e ét.)"
+    },
+    {
+      "name": "mt-coronet-6f",
+      "nameFr": "Mont Couronné (5e ét.)"
+    },
+    {
+      "name": "mt-coronet-1f-from-exterior",
+      "nameFr": "Mont Couronné (RdC depuis l'extérieur)"
+    },
+    {
+      "name": "mt-coronet-1f-route-216",
+      "nameFr": "Mont Couronné (RdC côté route 216)"
+    },
+    {
+      "name": "mt-coronet-1f-route-211",
+      "nameFr": "Mont Couronné (RdC côté route 211)"
+    },
+    {
+      "name": "mt-coronet-b1f",
+      "nameFr": "Mont Couronné (sous-sol)"
+    },
+    {
+      "name": "great-marsh-area-1",
+      "nameFr": "Grand Marais Zone 1"
+    },
+    {
+      "name": "great-marsh-area-2",
+      "nameFr": "Grand Marais Zone 2"
+    },
+    {
+      "name": "great-marsh-area-3",
+      "nameFr": "Grand Marais Zone 3"
+    },
+    {
+      "name": "great-marsh-area-4",
+      "nameFr": "Grand Marais Zone 4"
+    },
+    {
+      "name": "great-marsh-area-5",
+      "nameFr": "Grand Marais Zone 5"
+    },
+    {
+      "name": "great-marsh-area-6",
+      "nameFr": "Grand Marais Zone 6"
+    },
+    {
+      "name": "solaceon-ruins-2f",
+      "nameFr": "Ruines Bonville (étage)"
+    },
+    {
+      "name": "solaceon-ruins-1f",
+      "nameFr": "Ruines Bonville (RdC)"
+    },
+    {
+      "name": "solaceon-ruins-b1f-a",
+      "nameFr": "Ruines Bonville (1er s-sol A)"
+    },
+    {
+      "name": "solaceon-ruins-b1f-b",
+      "nameFr": "Ruines Bonville (1er s-sol B)"
+    },
+    {
+      "name": "solaceon-ruins-b1f-c",
+      "nameFr": "Ruines Bonville (1er s-sol C)"
+    },
+    {
+      "name": "solaceon-ruins-b2f-a",
+      "nameFr": "Ruines Bonville (2e s-sol A)"
+    },
+    {
+      "name": "solaceon-ruins-b2f-b",
+      "nameFr": "Ruines Bonville (2e s-sol B)"
+    },
+    {
+      "name": "solaceon-ruins-b2f-c",
+      "nameFr": "Ruines Bonville (2e s-sol C)"
+    },
+    {
+      "name": "solaceon-ruins-b3f-a",
+      "nameFr": "Ruines Bonville (3e s-sol A)"
+    },
+    {
+      "name": "solaceon-ruins-b3f-b",
+      "nameFr": "Ruines Bonville (3e s-sol B)"
+    },
+    {
+      "name": "solaceon-ruins-b3f-c",
+      "nameFr": "Ruines Bonville (3e s-sol C)"
+    },
+    {
+      "name": "solaceon-ruins-b3f-d",
+      "nameFr": "Ruines Bonville (3e s-sol D)"
+    },
+    {
+      "name": "solaceon-ruins-b3f-e",
+      "nameFr": "Ruines Bonville (3e s-sol E)"
+    },
+    {
+      "name": "solaceon-ruins-b4f-a",
+      "nameFr": "Ruines Bonville (4e s-sol A)"
+    },
+    {
+      "name": "solaceon-ruins-b4f-b",
+      "nameFr": "Ruines Bonville (4e s-sol B)"
+    },
+    {
+      "name": "solaceon-ruins-b4f-c",
+      "nameFr": "Ruines Bonville (4e s-sol C)"
+    },
+    {
+      "name": "solaceon-ruins-b4f-d",
+      "nameFr": "Ruines Bonville (4e s-sol D)"
+    },
+    {
+      "name": "solaceon-ruins-b5f",
+      "nameFr": "Ruines Bonville (5e s-sol)"
+    },
+    {
+      "name": "sinnoh-victory-road-1f",
+      "nameFr": "Route Victoire (RdC)"
+    },
+    {
+      "name": "sinnoh-victory-road-2f",
+      "nameFr": "Route Victoire (étage)"
+    },
+    {
+      "name": "sinnoh-victory-road-b1f",
+      "nameFr": "Route Victoire (sous-sol)"
+    },
+    {
+      "name": "sinnoh-victory-road-inside-b1f",
+      "nameFr": "Route Victoire (intérieur sous-sol)"
+    },
+    {
+      "name": "sinnoh-victory-road-inside",
+      "nameFr": "Route Victoire (intérieur)"
+    },
+    {
+      "name": "sinnoh-victory-road-inside-exit",
+      "nameFr": "Route Victoire (intérieur, sortie)"
+    },
+    {
+      "name": "ravaged-path-area",
+      "nameFr": "Chemin Rocheux"
+    },
+    {
+      "name": "oreburgh-gate-1f",
+      "nameFr": "Entrée Charbourg (RdC)"
+    },
+    {
+      "name": "oreburgh-gate-b1f",
+      "nameFr": "Entrée Charbourg (sous-sol)"
+    },
+    {
+      "name": "stark-mountain-area",
+      "nameFr": "Mont Abrupt (extérieur)"
+    },
+    {
+      "name": "stark-mountain-entrance",
+      "nameFr": "Mont Abrupt (entrée)"
+    },
+    {
+      "name": "stark-mountain-inside",
+      "nameFr": "Mont Abrupt (caverne principale)"
+    },
+    {
+      "name": "sendoff-spring-area",
+      "nameFr": "Source Adieu"
+    },
+    {
+      "name": "turnback-cave-pillar-1",
+      "nameFr": "Grotte Retour (1er pilier)"
+    },
+    {
+      "name": "turnback-cave-pillar-2",
+      "nameFr": "Grotte Retour (2e pilier)"
+    },
+    {
+      "name": "turnback-cave-pillar-3",
+      "nameFr": "Grotte Retour (3e pilier)"
+    },
+    {
+      "name": "turnback-cave-before-pillar-1",
+      "nameFr": "Grotte Retour (avant 1er pilier)"
+    },
+    {
+      "name": "turnback-cave-between-pillars-1-and-2",
+      "nameFr": "Grotte Retour (entre 1er et 2e piliers)"
+    },
+    {
+      "name": "turnback-cave-between-pillars-2-and-3",
+      "nameFr": "Grotte Retour (entre 2e et 3e piliers)"
+    },
+    {
+      "name": "turnback-cave-after-pillar-3",
+      "nameFr": "Grotte Retour (après 3e pilier)"
+    },
+    {
+      "name": "snowpoint-temple-1f",
+      "nameFr": "Temple Frimapic (RdC)"
+    },
+    {
+      "name": "snowpoint-temple-b1f",
+      "nameFr": "Temple Frimapic (1er s-sol)"
+    },
+    {
+      "name": "snowpoint-temple-b2f",
+      "nameFr": "Temple Frimapic (2e s-sol)"
+    },
+    {
+      "name": "snowpoint-temple-b3f",
+      "nameFr": "Temple Frimapic (3e s-sol)"
+    },
+    {
+      "name": "snowpoint-temple-b4f",
+      "nameFr": "Temple Frimapic (4e s-sol)"
+    },
+    {
+      "name": "snowpoint-temple-b5f",
+      "nameFr": "Temple Frimapic (5e s-sol)"
+    },
+    {
+      "name": "wayward-cave-1f",
+      "nameFr": "Grotte Revèche (RdC)"
+    },
+    {
+      "name": "wayward-cave-b1f",
+      "nameFr": "Grotte Revèche (sous-sol)"
+    },
+    {
+      "name": "ruin-maniac-cave-0-9-different-unown-caught",
+      "nameFr": "Grotte Ruinemaniac (de 0 à 9 Zarbi différents capturés)"
+    },
+    {
+      "name": "ruin-maniac-cave-10-25-different-unown-caught",
+      "nameFr": "Grotte Ruinemaniac (de 10 à 25 Zarbi différents capturés)"
+    },
+    {
+      "name": "maniac-tunnel-26-plus-different-unown-caught",
+      "nameFr": "Tunnel Ruinemaniac (+ de 26 Zarbi différents attrapés)"
+    },
+    {
+      "name": "trophy-garden-area",
+      "nameFr": "Jardin Trophée"
+    },
+    {
+      "name": "iron-island-area",
+      "nameFr": "Ile de Fer (alentours)"
+    },
+    {
+      "name": "iron-island-1f",
+      "nameFr": "Ile de Fer (RdC)"
+    },
+    {
+      "name": "iron-island-b1f-left",
+      "nameFr": "Ile de Fer (1er s-sol gauche)"
+    },
+    {
+      "name": "iron-island-b1f-right",
+      "nameFr": "Ile de Fer (1er s-sol droit)"
+    },
+    {
+      "name": "iron-island-b2f-right",
+      "nameFr": "Ile de Fer (2e s-sol droit)"
+    },
+    {
+      "name": "iron-island-b2f-left",
+      "nameFr": "Ile de Fer (2e s-sol gauche)"
+    },
+    {
+      "name": "iron-island-b3f",
+      "nameFr": "Ile de Fer (3e s-sol)"
+    },
+    {
+      "name": "old-chateau-entrance",
+      "nameFr": "Vieux Château (entrée)"
+    },
+    {
+      "name": "old-chateau-dining-room",
+      "nameFr": "Vieux Château (salle à manger)"
+    },
+    {
+      "name": "old-chateau-2f-private-room",
+      "nameFr": "Vieux Château (étage pièce privée)"
+    },
+    {
+      "name": "old-chateau-2f",
+      "nameFr": "Vieux Château (étage)"
+    },
+    {
+      "name": "old-chateau-2f-leftmost-room",
+      "nameFr": "Vieux Château (étage pièce tout à gauche)"
+    },
+    {
+      "name": "old-chateau-2f-left-room",
+      "nameFr": "Vieux Château (étage pièce centre gauche)"
+    },
+    {
+      "name": "old-chateau-2f-middle-room",
+      "nameFr": "Vieux Château (étage pièce du centre)"
+    },
+    {
+      "name": "old-chateau-2f-right-room",
+      "nameFr": "Vieux Château (étage pièce centre droite)"
+    },
+    {
+      "name": "old-chateau-2f-rightmost-room",
+      "nameFr": "Vieux Château (étage pièce tout à droite)"
+    },
+    {
+      "name": "lake-verity-before-galactic-intervention",
+      "nameFr": "Lac Vérité (avant la team Galaxie)"
+    },
+    {
+      "name": "lake-verity-after-galactic-intervention",
+      "nameFr": "Lac Vérité (après la team Galaxie)"
+    },
+    {
+      "name": "lake-valor-area",
+      "nameFr": "Lac Courage"
+    },
+    {
+      "name": "lake-acuity-area",
+      "nameFr": "Lac Savoir"
+    },
+    {
+      "name": "valor-lakefront-area",
+      "nameFr": "Rive Lac Courage"
+    },
+    {
+      "name": "acuity-lakefront-area",
+      "nameFr": "Rive Lac Savoir"
+    },
+    {
+      "name": "sinnoh-route-201-area",
+      "nameFr": "Route 201"
+    },
+    {
+      "name": "sinnoh-route-202-area",
+      "nameFr": "Route 202"
+    },
+    {
+      "name": "sinnoh-route-203-area",
+      "nameFr": "Route 203"
+    },
+    {
+      "name": "sinnoh-route-204-south-towards-jubilife-city",
+      "nameFr": "Route 204 (sud, vers Féli-Cité)"
+    },
+    {
+      "name": "sinnoh-route-204-north-towards-floaroma-town",
+      "nameFr": "Route 204 (nord, vers Floraville)"
+    },
+    {
+      "name": "sinnoh-route-205-south-towards-floaroma-town",
+      "nameFr": "Route 205 (sud, vers Floraville)"
+    },
+    {
+      "name": "sinnoh-route-205-east-towards-eterna-city",
+      "nameFr": "Route 205 (est, vers Vestigion)"
+    },
+    {
+      "name": "sinnoh-route-206-area",
+      "nameFr": "Route 206"
+    },
+    {
+      "name": "sinnoh-route-207-area",
+      "nameFr": "Route 207"
+    },
+    {
+      "name": "sinnoh-route-208-area",
+      "nameFr": "Route 208"
+    },
+    {
+      "name": "sinnoh-route-209-area",
+      "nameFr": "Route 209"
+    },
+    {
+      "name": "lost-tower-1f",
+      "nameFr": "Tour Perdue (RdC)"
+    },
+    {
+      "name": "lost-tower-2f",
+      "nameFr": "Tour Perdue (1er ét.)"
+    },
+    {
+      "name": "lost-tower-3f",
+      "nameFr": "Tour Perdue (2e ét.)"
+    },
+    {
+      "name": "lost-tower-4f",
+      "nameFr": "Tour Perdue (3e ét.)"
+    },
+    {
+      "name": "lost-tower-5f",
+      "nameFr": "Tour Perdue (4e ét.)"
+    },
+    {
+      "name": "sinnoh-route-210-south-towards-solaceon-town",
+      "nameFr": "Route 210 (sud, vers Bonville)"
+    },
+    {
+      "name": "sinnoh-route-210-west-towards-celestic-town",
+      "nameFr": "Route 210 (ouest, vers Celestia)"
+    },
+    {
+      "name": "sinnoh-route-211-west-towards-eterna-city",
+      "nameFr": "Route 211 (ouest, vers Vestigion)"
+    },
+    {
+      "name": "sinnoh-route-211-east-towards-celestic-town",
+      "nameFr": "Route 211 (est, vers Celestia)"
+    },
+    {
+      "name": "sinnoh-route-212-north-towards-hearthome-city",
+      "nameFr": "Route 212 (nord, vers Unionpolis)"
+    },
+    {
+      "name": "sinnoh-route-212-east-towards-pastoria-city",
+      "nameFr": "Route 212 (est, vers Verchamps)"
+    },
+    {
+      "name": "sinnoh-route-213-area",
+      "nameFr": "Route 213"
+    },
+    {
+      "name": "sinnoh-route-214-area",
+      "nameFr": "Route 214"
+    },
+    {
+      "name": "sinnoh-route-215-area",
+      "nameFr": "Route 215"
+    },
+    {
+      "name": "sinnoh-route-216-area",
+      "nameFr": "Route 216"
+    },
+    {
+      "name": "sinnoh-route-217-area",
+      "nameFr": "Route 217"
+    },
+    {
+      "name": "sinnoh-route-218-area",
+      "nameFr": "Route 218"
+    },
+    {
+      "name": "sinnoh-route-219-area",
+      "nameFr": "Route 219"
+    },
+    {
+      "name": "sinnoh-route-221-area",
+      "nameFr": "Route 221"
+    },
+    {
+      "name": "sinnoh-route-222-area",
+      "nameFr": "Route 222"
+    },
+    {
+      "name": "sinnoh-route-224-area",
+      "nameFr": "Route 224"
+    },
+    {
+      "name": "sinnoh-route-225-area",
+      "nameFr": "Route 225"
+    },
+    {
+      "name": "sinnoh-route-227-area",
+      "nameFr": "Route 227"
+    },
+    {
+      "name": "sinnoh-route-228-area",
+      "nameFr": "Route 228"
+    },
+    {
+      "name": "sinnoh-route-229-area",
+      "nameFr": "Route 229"
+    },
+    {
+      "name": "twinleaf-town-area",
+      "nameFr": "Bonaugure"
+    },
+    {
+      "name": "celestic-town-area",
+      "nameFr": "Célestia"
+    },
+    {
+      "name": "resort-area-area",
+      "nameFr": "Aire de Détente"
+    },
+    {
+      "name": "sinnoh-sea-route-220-area",
+      "nameFr": "Route 220"
+    },
+    {
+      "name": "sinnoh-sea-route-223-area",
+      "nameFr": "Route 223"
+    },
+    {
+      "name": "sinnoh-sea-route-226-area",
+      "nameFr": "Route 226"
+    },
+    {
+      "name": "sinnoh-sea-route-230-area",
+      "nameFr": "Route 230"
+    },
+    {
+      "name": "new-bark-town-area",
+      "nameFr": "Bourg Geon"
+    },
+    {
+      "name": "johto-route-29-area",
+      "nameFr": "Route 29"
+    },
+    {
+      "name": "cherrygrove-city-area",
+      "nameFr": "Ville Griotte"
+    },
+    {
+      "name": "johto-route-30-area",
+      "nameFr": "Route 30"
+    },
+    {
+      "name": "johto-route-31-area",
+      "nameFr": "Route 31"
+    },
+    {
+      "name": "violet-city-area",
+      "nameFr": "Mauville"
+    },
+    {
+      "name": "sprout-tower-2f",
+      "nameFr": "Tour CHETIFLOR (1er ét.)"
+    },
+    {
+      "name": "sprout-tower-3f",
+      "nameFr": "Tour CHETIFLOR (2e ét.)"
+    },
+    {
+      "name": "johto-route-32-area",
+      "nameFr": "Route 32"
+    },
+    {
+      "name": "ruins-of-alph-outside",
+      "nameFr": "Ruines d'Alpha (extérieur)"
+    },
+    {
+      "name": "ruins-of-alph-interior-a",
+      "nameFr": "Ruines d'Alpha (intérieur A)"
+    },
+    {
+      "name": "ruins-of-alph-interior-b",
+      "nameFr": "Ruines d'Alpha (intérieur B)"
+    },
+    {
+      "name": "ruins-of-alph-interior-c",
+      "nameFr": "Ruines d'Alpha (intérieur C)"
+    },
+    {
+      "name": "ruins-of-alph-interior-d",
+      "nameFr": "Ruines d'Alpha (intérieur D)"
+    },
+    {
+      "name": "union-cave-1f",
+      "nameFr": "Caves Jumelles (RdC)"
+    },
+    {
+      "name": "union-cave-b1f",
+      "nameFr": "Caves Jumelles (1er s-sol)"
+    },
+    {
+      "name": "union-cave-b2f",
+      "nameFr": "Caves Jumelles (2e s-sol)"
+    },
+    {
+      "name": "johto-route-33-area",
+      "nameFr": "Route 33"
+    },
+    {
+      "name": "slowpoke-well-1f",
+      "nameFr": "Puits RAMOLOSS (RdC)"
+    },
+    {
+      "name": "slowpoke-well-b1f",
+      "nameFr": "Puits RAMOLOSS (Sous-sol)"
+    },
+    {
+      "name": "ilex-forest-area",
+      "nameFr": "Bois aux Chênes"
+    },
+    {
+      "name": "johto-route-34-area",
+      "nameFr": "Route 34"
+    },
+    {
+      "name": "johto-route-35-area",
+      "nameFr": "Route 35"
+    },
+    {
+      "name": "national-park-area",
+      "nameFr": "Parc Naturel"
+    },
+    {
+      "name": "unknown-all-bugs-area",
+      "nameFr": "Zone inconnue ; que des insectes"
+    },
+    {
+      "name": "johto-route-36-area",
+      "nameFr": "Route 36"
+    },
+    {
+      "name": "johto-route-37-area",
+      "nameFr": "Route 37"
+    },
+    {
+      "name": "ecruteak-city-area",
+      "nameFr": "Rosalia"
+    },
+    {
+      "name": "burned-tower-1f",
+      "nameFr": "Tour Cendrée (RdC)"
+    },
+    {
+      "name": "burned-tower-b1f",
+      "nameFr": "Tour Cendrée (sous-sol)"
+    },
+    {
+      "name": "bell-tower-2f",
+      "nameFr": "Tour Carillon (1er ét.)"
+    },
+    {
+      "name": "bell-tower-3f",
+      "nameFr": "Tour Carillon (2e ét.)"
+    },
+    {
+      "name": "bell-tower-4f",
+      "nameFr": "Tour Carillon (3e ét.)"
+    },
+    {
+      "name": "bell-tower-5f",
+      "nameFr": "Tour Carillon (4e ét.)"
+    },
+    {
+      "name": "bell-tower-6f",
+      "nameFr": "Tour Carillon (5e ét.)"
+    },
+    {
+      "name": "bell-tower-7f",
+      "nameFr": "Tour Carillon (6e ét.)"
+    },
+    {
+      "name": "bell-tower-8f",
+      "nameFr": "Tour Carillon (7e ét.)"
+    },
+    {
+      "name": "bell-tower-9f",
+      "nameFr": "Tour Carillon (8e ét.)"
+    },
+    {
+      "name": "johto-route-38-area",
+      "nameFr": "Route 38"
+    },
+    {
+      "name": "johto-route-39-area",
+      "nameFr": "Route 39"
+    },
+    {
+      "name": "olivine-city-area",
+      "nameFr": "Oliville"
+    },
+    {
+      "name": "johto-sea-route-40-area",
+      "nameFr": "Route 4"
+    },
+    {
+      "name": "johto-sea-route-41-area",
+      "nameFr": "Route 41"
+    },
+    {
+      "name": "whirl-islands-1f",
+      "nameFr": "Tourb'Iles (RdC)"
+    },
+    {
+      "name": "whirl-islands-b1f",
+      "nameFr": "Tourb'Iles (1er s-sol)"
+    },
+    {
+      "name": "whirl-islands-b2f",
+      "nameFr": "Tourb'Iles (2e s-sol)"
+    },
+    {
+      "name": "whirl-islands-b3f",
+      "nameFr": "Tourb'Iles (3e s-sol)"
+    },
+    {
+      "name": "cianwood-city-area",
+      "nameFr": "Irisia"
+    },
+    {
+      "name": "johto-route-42-area",
+      "nameFr": "Route 42"
+    },
+    {
+      "name": "mt-mortar-1f",
+      "nameFr": "Mont Creuset (RdC)"
+    },
+    {
+      "name": "mt-mortar-lower-cave",
+      "nameFr": "Mont Creuset (caverne inférieure)"
+    },
+    {
+      "name": "mt-mortar-upper-cave",
+      "nameFr": "Mont Creuset (caverne supérieure)"
+    },
+    {
+      "name": "mt-mortar-b1f",
+      "nameFr": "Mont Creuset (sous-sol)"
+    },
+    {
+      "name": "johto-route-43-area",
+      "nameFr": "Route 43"
+    },
+    {
+      "name": "lake-of-rage-area",
+      "nameFr": "Lac Colère"
+    },
+    {
+      "name": "johto-route-44-area",
+      "nameFr": "Route 44"
+    },
+    {
+      "name": "ice-path-1f",
+      "nameFr": "Route de Glace (RdC)"
+    },
+    {
+      "name": "ice-path-b1f",
+      "nameFr": "Route de Glace (1er s-sol)"
+    },
+    {
+      "name": "ice-path-b2f",
+      "nameFr": "Route de Glace (2e s-sol)"
+    },
+    {
+      "name": "ice-path-b3f",
+      "nameFr": "Route de Glace (3e s-sol)"
+    },
+    {
+      "name": "blackthorn-city-area",
+      "nameFr": "Ebènelle"
+    },
+    {
+      "name": "dragons-den-area",
+      "nameFr": "Antre du Dragon"
+    },
+    {
+      "name": "johto-route-45-area",
+      "nameFr": "Route 45"
+    },
+    {
+      "name": "johto-route-46-area",
+      "nameFr": "Route 46"
+    },
+    {
+      "name": "dark-cave-violet-city-entrance",
+      "nameFr": "Antre Noir (entrée Mauville)"
+    },
+    {
+      "name": "dark-cave-blackthorn-city-entrance",
+      "nameFr": "Antre Noir (entrée Ebènelle)"
+    },
+    {
+      "name": "johto-route-47-area",
+      "nameFr": "Route 47"
+    },
+    {
+      "name": "mt-moon-mt-moon-square",
+      "nameFr": "Aire de repos du Mont Sélénite"
+    },
+    {
+      "name": "unknown-all-poliwag-area",
+      "nameFr": "Zone inconnue ; que des Ptitard"
+    },
+    {
+      "name": "seafoam-islands-1f",
+      "nameFr": "Iles Ecume (RdC)"
+    },
+    {
+      "name": "seafoam-islands-b1f",
+      "nameFr": "Iles Ecume (1er s-sol)"
+    },
+    {
+      "name": "seafoam-islands-b2f",
+      "nameFr": "Iles Ecume (2e s-sol)"
+    },
+    {
+      "name": "seafoam-islands-b3f",
+      "nameFr": "Iles Ecume (3e s-sol)"
+    },
+    {
+      "name": "seafoam-islands-b4f",
+      "nameFr": "Iles Ecume (4e s-sol)"
+    },
+    {
+      "name": "mt-silver-2f",
+      "nameFr": "Mont Argenté (1er étage)"
+    },
+    {
+      "name": "mt-silver-1f-top",
+      "nameFr": "Mont Argenté (RdC haut)"
+    },
+    {
+      "name": "mt-silver-4f",
+      "nameFr": "Mont Argenté (3e étage)"
+    },
+    {
+      "name": "johto-route-47-cave-gate",
+      "nameFr": "Route 47 (Portail Falaise)"
+    },
+    {
+      "name": "johto-route-47-inside-cave",
+      "nameFr": "Route 47 (Grotte Falaise)"
+    },
+    {
+      "name": "bell-tower-10f",
+      "nameFr": "Tour Carillon (9e ét.)"
+    },
+    {
+      "name": "mt-silver-outside",
+      "nameFr": "Mont Argenté (extérieur)"
+    },
+    {
+      "name": "mt-silver-1f",
+      "nameFr": "Mont Argenté (RdC)"
+    },
+    {
+      "name": "mt-silver-mountainside",
+      "nameFr": "Mont Argenté (flancs)"
+    },
+    {
+      "name": "mt-silver-3f",
+      "nameFr": "Mont Argenté (2e étage)"
+    },
+    {
+      "name": "mt-silver-top",
+      "nameFr": "Mon Argenté (sommet)"
+    },
+    {
+      "name": "unknown-all-rattata-area",
+      "nameFr": "Zone inconnue ; que des Rattata"
+    },
+    {
+      "name": "kanto-route-12-area",
+      "nameFr": "Route 12"
+    },
+    {
+      "name": "kanto-sea-route-19-area",
+      "nameFr": "Route 19"
+    },
+    {
+      "name": "kanto-sea-route-20-area",
+      "nameFr": "Route 20"
+    },
+    {
+      "name": "cinnabar-island-area",
+      "nameFr": "Cramois'Ile"
+    },
+    {
+      "name": "viridian-city-area",
+      "nameFr": "Jadielle"
+    },
+    {
+      "name": "cerulean-city-area",
+      "nameFr": "Azuria"
+    },
+    {
+      "name": "vermilion-city-area",
+      "nameFr": "Carmin sur Mer"
+    },
+    {
+      "name": "celadon-city-area",
+      "nameFr": "Céladopole"
+    },
+    {
+      "name": "fuchsia-city-area",
+      "nameFr": "Parmanie"
+    },
+    {
+      "name": "pallet-town-area",
+      "nameFr": "Bourg Palette"
+    },
+    {
+      "name": "johto-route-48-area",
+      "nameFr": "Route 47"
+    },
+    {
+      "name": "kanto-route-26-area",
+      "nameFr": "Route 26"
+    },
+    {
+      "name": "kanto-route-27-area",
+      "nameFr": "Route 27"
+    },
+    {
+      "name": "kanto-route-28-area",
+      "nameFr": "Route 28"
+    },
+    {
+      "name": "mt-moon-1f",
+      "nameFr": "Mont Sélénite (RdC)"
+    },
+    {
+      "name": "mt-moon-2f",
+      "nameFr": "Mont Sélénite (étage)"
+    },
+    {
+      "name": "rock-tunnel-1f",
+      "nameFr": "Grotte (RdC)"
+    },
+    {
+      "name": "rock-tunnel-b1f",
+      "nameFr": "Grotte (1er s-sol)"
+    },
+    {
+      "name": "kanto-victory-road-1-1f",
+      "nameFr": "Route Victoire 1 (RdC)"
+    },
+    {
+      "name": "kanto-route-1-area",
+      "nameFr": "Route 1"
+    },
+    {
+      "name": "kanto-route-2-south-towards-viridian-city",
+      "nameFr": "Route 2 (sud, vers Jadielle)"
+    },
+    {
+      "name": "kanto-route-3-area",
+      "nameFr": "Route 3"
+    },
+    {
+      "name": "kanto-route-4-area",
+      "nameFr": "Route 4"
+    },
+    {
+      "name": "kanto-route-5-area",
+      "nameFr": "Route 5"
+    },
+    {
+      "name": "kanto-route-6-area",
+      "nameFr": "Route 6"
+    },
+    {
+      "name": "kanto-route-7-area",
+      "nameFr": "Route 7"
+    },
+    {
+      "name": "kanto-route-8-area",
+      "nameFr": "Route 8"
+    },
+    {
+      "name": "kanto-route-9-area",
+      "nameFr": "Route 9"
+    },
+    {
+      "name": "kanto-route-10-area",
+      "nameFr": "Route 1"
+    },
+    {
+      "name": "kanto-route-11-area",
+      "nameFr": "Route 1"
+    },
+    {
+      "name": "kanto-route-13-area",
+      "nameFr": "Route 13"
+    },
+    {
+      "name": "kanto-route-14-area",
+      "nameFr": "Route 14"
+    },
+    {
+      "name": "kanto-route-15-area",
+      "nameFr": "Route 15"
+    },
+    {
+      "name": "kanto-route-16-area",
+      "nameFr": "Route 16"
+    },
+    {
+      "name": "kanto-route-17-area",
+      "nameFr": "Route 17"
+    },
+    {
+      "name": "kanto-route-18-area",
+      "nameFr": "Route 18"
+    },
+    {
+      "name": "kanto-sea-route-21-area",
+      "nameFr": "Route 21"
+    },
+    {
+      "name": "kanto-route-22-area",
+      "nameFr": "Route 22"
+    },
+    {
+      "name": "kanto-route-24-area",
+      "nameFr": "Route 24"
+    },
+    {
+      "name": "kanto-route-25-area",
+      "nameFr": "Route 25"
+    },
+    {
+      "name": "tohjo-falls-area",
+      "nameFr": "Chutes Tohjo"
+    },
+    {
+      "name": "digletts-cave-area",
+      "nameFr": "Cave Taupiqueur"
+    },
+    {
+      "name": "kanto-victory-road-1-2f",
+      "nameFr": "Route Victoire 1 (1er ét.)"
+    },
+    {
+      "name": "kanto-victory-road-1-3f",
+      "nameFr": "Route Victoire 1 (2e ét.)"
+    },
+    {
+      "name": "kanto-route-2-north-towards-pewter-city",
+      "nameFr": "Route 2 (nord, vers Argenta)"
+    },
+    {
+      "name": "viridian-forest-area",
+      "nameFr": "Forêt de Jade"
+    },
+    {
+      "name": "cerulean-cave-1f",
+      "nameFr": "Caverne Azurée (RdC)"
+    },
+    {
+      "name": "cerulean-cave-2f",
+      "nameFr": "Caverne Azurée (étage)"
+    },
+    {
+      "name": "cerulean-cave-b1f",
+      "nameFr": "Caverne Azurée (sous-sol)"
+    },
+    {
+      "name": "mt-moon-b1f",
+      "nameFr": "Mont Sélénite (1er s-sol)"
+    },
+    {
+      "name": "mt-moon-b2f",
+      "nameFr": "Mont Sélénite (2e s-sol)"
+    },
+    {
+      "name": "rock-tunnel-b2f",
+      "nameFr": "Grotte (2e s-sol)"
+    },
+    {
+      "name": "kanto-route-23-area",
+      "nameFr": "Route 23"
+    },
+    {
+      "name": "power-plant-area",
+      "nameFr": "Centrale"
+    },
+    {
+      "name": "kanto-victory-road-2-1f",
+      "nameFr": "Route Victoire 2 (RdC)"
+    },
+    {
+      "name": "kanto-victory-road-2-2f",
+      "nameFr": "Route Victoire 2 (1er ét.)"
+    },
+    {
+      "name": "kanto-victory-road-2-3f",
+      "nameFr": "Route Victoire 2 (2e ét.)"
+    },
+    {
+      "name": "pokemon-tower-3f",
+      "nameFr": "Tour Pokémon (2e ét.)"
+    },
+    {
+      "name": "pokemon-tower-4f",
+      "nameFr": "Tour Pokémon (3e ét.)"
+    },
+    {
+      "name": "pokemon-tower-5f",
+      "nameFr": "Tour Pokémon (4e ét.)"
+    },
+    {
+      "name": "pokemon-tower-6f",
+      "nameFr": "Tour Pokémon (5e ét.)"
+    },
+    {
+      "name": "pokemon-tower-7f",
+      "nameFr": "Tour Pokémon (6e ét.)"
+    },
+    {
+      "name": "pokemon-mansion-1f",
+      "nameFr": "Manoir Pokémon (RdC)"
+    },
+    {
+      "name": "pokemon-mansion-2f",
+      "nameFr": "Manoir Pokémon (1er ét.)"
+    },
+    {
+      "name": "pokemon-mansion-3f",
+      "nameFr": "Manoir Pokémon (2e ét.)"
+    },
+    {
+      "name": "pokemon-mansion-b1f",
+      "nameFr": "Manoir Pokémon (sous-sol)"
+    },
+    {
+      "name": "kanto-safari-zone-middle",
+      "nameFr": "Parc Safari (centre)"
+    },
+    {
+      "name": "kanto-safari-zone-area-1-east",
+      "nameFr": "Parc Safari (Zone 1, est)"
+    },
+    {
+      "name": "kanto-safari-zone-area-2-north",
+      "nameFr": "Parc Safari (Zone 2, nord)"
+    },
+    {
+      "name": "kanto-safari-zone-area-3-west",
+      "nameFr": "Parc Safari (Zone 3, ouest)"
+    },
+    {
+      "name": "vermilion-city-ss-anne-dock",
+      "nameFr": "Pont de l'Océane"
+    },
+    {
+      "name": "petalburg-city-area",
+      "nameFr": "Clémenti-Ville"
+    },
+    {
+      "name": "slateport-city-area",
+      "nameFr": "Poivressel"
+    },
+    {
+      "name": "lilycove-city-area",
+      "nameFr": "Nénucrique"
+    },
+    {
+      "name": "mossdeep-city-area",
+      "nameFr": "Algatia"
+    },
+    {
+      "name": "sootopolis-city-area",
+      "nameFr": "Atalanopolis"
+    },
+    {
+      "name": "ever-grande-city-area",
+      "nameFr": "Éternara"
+    },
+    {
+      "name": "meteor-falls-area",
+      "nameFr": "Site Météore"
+    },
+    {
+      "name": "meteor-falls-back",
+      "nameFr": "Site Météore (arrière)"
+    },
+    {
+      "name": "meteor-falls-b1f",
+      "nameFr": "Site Météore (sous-sol)"
+    },
+    {
+      "name": "meteor-falls-backsmall-room",
+      "nameFr": "Site Météore (petite salle)"
+    },
+    {
+      "name": "rusturf-tunnel-area",
+      "nameFr": "Tunnel Mérazon"
+    },
+    {
+      "name": "granite-cave-1f",
+      "nameFr": "Grotte Granite (RdC)"
+    },
+    {
+      "name": "granite-cave-b1f",
+      "nameFr": "Grotte Granite (1er s-sol)"
+    },
+    {
+      "name": "granite-cave-b2f",
+      "nameFr": "Grotte Granite (2e s-sol)"
+    },
+    {
+      "name": "granite-cave-1fsmall-room",
+      "nameFr": "Grotte Granite (RdC, petite salle)"
+    },
+    {
+      "name": "petalburg-woods-area",
+      "nameFr": "Bois Clémenti"
+    },
+    {
+      "name": "jagged-pass-area",
+      "nameFr": "Sentier Sinuroc"
+    },
+    {
+      "name": "fiery-path-area",
+      "nameFr": "Chemin Ardent"
+    },
+    {
+      "name": "mt-pyre-1f",
+      "nameFr": "Mont Mémoria (RdC)"
+    },
+    {
+      "name": "mt-pyre-2f",
+      "nameFr": "Mont Mémoria (1er ét.)"
+    },
+    {
+      "name": "mt-pyre-3f",
+      "nameFr": "Mont Mémoria (2e ét.)"
+    },
+    {
+      "name": "mt-pyre-4f",
+      "nameFr": "Mont Mémoria (3e ét.)"
+    },
+    {
+      "name": "mt-pyre-5f",
+      "nameFr": "Mont Mémoria (4e ét.)"
+    },
+    {
+      "name": "mt-pyre-6f",
+      "nameFr": "Mont Mémoria (5e ét.)"
+    },
+    {
+      "name": "mt-pyre-outside",
+      "nameFr": "Mont Mémoria (extérieur)"
+    },
+    {
+      "name": "mt-pyre-summit",
+      "nameFr": "Mont Mémoria (sommet)"
+    },
+    {
+      "name": "seafloor-cavern-area",
+      "nameFr": "Caverne Fondmer"
+    },
+    {
+      "name": "cave-of-origin-entrance",
+      "nameFr": "Grotte Origine (entrée)"
+    },
+    {
+      "name": "cave-of-origin-1f",
+      "nameFr": "Grotte Origine (RdC)"
+    },
+    {
+      "name": "cave-of-origin-b1f",
+      "nameFr": "Grotte Origine (1er s-sol)"
+    },
+    {
+      "name": "cave-of-origin-b2f",
+      "nameFr": "Grotte Origine (2e s-sol)"
+    },
+    {
+      "name": "cave-of-origin-b3f",
+      "nameFr": "Grotte Origine (3e s-sol)"
+    },
+    {
+      "name": "hoenn-victory-road-1f",
+      "nameFr": "Route Victoire (RdC)"
+    },
+    {
+      "name": "hoenn-victory-road-b1f",
+      "nameFr": "Route Victoire (1er s-sol)"
+    },
+    {
+      "name": "hoenn-victory-road-b2f",
+      "nameFr": "Route Victoire (2e s-sol)"
+    },
+    {
+      "name": "shoal-cave-area",
+      "nameFr": "Grotte Tréfonds"
+    },
+    {
+      "name": "shoal-cave-b1f",
+      "nameFr": "Grotte Tréfonds (sous-sol)"
+    },
+    {
+      "name": "new-mauville-entrance",
+      "nameFr": "New Lavandia (entrée)"
+    },
+    {
+      "name": "new-mauville-area",
+      "nameFr": "New Lavandia"
+    },
+    {
+      "name": "abandoned-ship-area",
+      "nameFr": "Épave"
+    },
+    {
+      "name": "sky-pillar-1f",
+      "nameFr": "Pilier Céleste (RdC)"
+    },
+    {
+      "name": "sky-pillar-3f",
+      "nameFr": "Pilier Céleste (2e ét.)"
+    },
+    {
+      "name": "sky-pillar-5f",
+      "nameFr": "Pilier Céleste (4e ét.)"
+    },
+    {
+      "name": "hoenn-route-101-area",
+      "nameFr": "Route 101"
+    },
+    {
+      "name": "hoenn-route-102-area",
+      "nameFr": "Route 102"
+    },
+    {
+      "name": "hoenn-route-103-area",
+      "nameFr": "Route 103"
+    },
+    {
+      "name": "hoenn-route-104-area",
+      "nameFr": "Route 104"
+    },
+    {
+      "name": "hoenn-route-105-area",
+      "nameFr": "Route 105"
+    },
+    {
+      "name": "hoenn-route-106-area",
+      "nameFr": "Route 106"
+    },
+    {
+      "name": "hoenn-route-107-area",
+      "nameFr": "Route 107"
+    },
+    {
+      "name": "hoenn-route-108-area",
+      "nameFr": "Route 108"
+    },
+    {
+      "name": "hoenn-route-109-area",
+      "nameFr": "Route 109"
+    },
+    {
+      "name": "hoenn-route-110-area",
+      "nameFr": "Route 110"
+    },
+    {
+      "name": "hoenn-route-111-area",
+      "nameFr": "Route 111"
+    },
+    {
+      "name": "hoenn-route-112-area",
+      "nameFr": "Route 112"
+    },
+    {
+      "name": "hoenn-route-113-area",
+      "nameFr": "Route 113"
+    },
+    {
+      "name": "hoenn-route-114-area",
+      "nameFr": "Route 114"
+    },
+    {
+      "name": "hoenn-route-115-area",
+      "nameFr": "Route 115"
+    },
+    {
+      "name": "hoenn-route-116-area",
+      "nameFr": "Route 116"
+    },
+    {
+      "name": "hoenn-route-117-area",
+      "nameFr": "Route 117"
+    },
+    {
+      "name": "hoenn-route-118-area",
+      "nameFr": "Route 118"
+    },
+    {
+      "name": "hoenn-route-119-area",
+      "nameFr": "Route 119"
+    },
+    {
+      "name": "hoenn-route-120-area",
+      "nameFr": "Route 120"
+    },
+    {
+      "name": "hoenn-route-121-area",
+      "nameFr": "Route 121"
+    },
+    {
+      "name": "hoenn-route-122-area",
+      "nameFr": "Route 122"
+    },
+    {
+      "name": "hoenn-route-123-area",
+      "nameFr": "Route 123"
+    },
+    {
+      "name": "hoenn-route-124-area",
+      "nameFr": "Route 124"
+    },
+    {
+      "name": "hoenn-route-124-underwater",
+      "nameFr": "Route 124 (sous l'eau)"
+    },
+    {
+      "name": "hoenn-route-125-area",
+      "nameFr": "Route 125"
+    },
+    {
+      "name": "hoenn-route-126-area",
+      "nameFr": "Route 126"
+    },
+    {
+      "name": "hoenn-route-126-underwater",
+      "nameFr": "Route 126 (sous l'eau)"
+    },
+    {
+      "name": "hoenn-route-127-area",
+      "nameFr": "Route 127"
+    },
+    {
+      "name": "hoenn-route-128-area",
+      "nameFr": "Route 128"
+    },
+    {
+      "name": "hoenn-route-129-area",
+      "nameFr": "Route 129"
+    },
+    {
+      "name": "hoenn-route-130-area",
+      "nameFr": "Route 130"
+    },
+    {
+      "name": "hoenn-route-131-area",
+      "nameFr": "Route 131"
+    },
+    {
+      "name": "hoenn-route-132-area",
+      "nameFr": "Route 132"
+    },
+    {
+      "name": "hoenn-route-133-area",
+      "nameFr": "Route 133"
+    },
+    {
+      "name": "hoenn-route-134-area",
+      "nameFr": "Route 134"
+    },
+    {
+      "name": "hoenn-safari-zone-nwmach-bike-area",
+      "nameFr": "Parc Safari (nord-ouest)"
+    },
+    {
+      "name": "hoenn-safari-zone-neacro-bike-area",
+      "nameFr": "Parc Safari (nord-est)"
+    },
+    {
+      "name": "hoenn-safari-zone-sw",
+      "nameFr": "Parc Safari (sud-ouest)"
+    },
+    {
+      "name": "hoenn-safari-zone-se",
+      "nameFr": "Parc Safari (sud-est)"
+    },
+    {
+      "name": "dewford-town-area",
+      "nameFr": "Myokara"
+    },
+    {
+      "name": "pacifidlog-town-area",
+      "nameFr": "Pacifiville"
+    },
+    {
+      "name": "hoenn-safari-zone-expansion-south",
+      "nameFr": "Parc Safari (ext. sud à l’est)"
+    },
+    {
+      "name": "hoenn-safari-zone-expansion-north",
+      "nameFr": "Parc Safari (ext. nord à l’est)"
+    },
+    {
+      "name": "magma-hideout-area",
+      "nameFr": "Planque Magma"
+    },
+    {
+      "name": "mirage-tower-area",
+      "nameFr": "Tour Mirage"
+    },
+    {
+      "name": "desert-underpass-area",
+      "nameFr": "Voie du Désert"
+    },
+    {
+      "name": "artisan-cave-area",
+      "nameFr": "Grotte Atelier"
+    },
+    {
+      "name": "hoenn-altering-cave-a",
+      "nameFr": "Grotte Métamo (A)"
+    },
+    {
+      "name": "hoenn-altering-cave-b",
+      "nameFr": "Grotte Métamo (B)"
+    },
+    {
+      "name": "hoenn-altering-cave-c",
+      "nameFr": "Grotte Métamo (C)"
+    },
+    {
+      "name": "hoenn-altering-cave-d",
+      "nameFr": "Grotte Métamo (D)"
+    },
+    {
+      "name": "hoenn-altering-cave-e",
+      "nameFr": "Grotte Métamo (E)"
+    },
+    {
+      "name": "hoenn-altering-cave-f",
+      "nameFr": "Grotte Métamo (F)"
+    },
+    {
+      "name": "hoenn-altering-cave-g",
+      "nameFr": "Grotte Métamo (G)"
+    },
+    {
+      "name": "hoenn-altering-cave-h",
+      "nameFr": "Grotte Métamo (H)"
+    },
+    {
+      "name": "hoenn-altering-cave-i",
+      "nameFr": "Grotte Métamo (I)"
+    },
+    {
+      "name": "monean-chamber-area",
+      "nameFr": "Chambre Anemune"
+    },
+    {
+      "name": "liptoo-chamber-area",
+      "nameFr": "Chambre Deulipe"
+    },
+    {
+      "name": "weepth-chamber-area",
+      "nameFr": "Chambre Prois"
+    },
+    {
+      "name": "dilford-chamber-area",
+      "nameFr": "Chambre Jonquatre"
+    },
+    {
+      "name": "scufib-chamber-area",
+      "nameFr": "Chambre Hibicinq"
+    },
+    {
+      "name": "rixy-chamber-area",
+      "nameFr": "Chambre Irix"
+    },
+    {
+      "name": "viapos-chamber-area",
+      "nameFr": "Chambre Poinsept"
+    },
+    {
+      "name": "ss-anne-area",
+      "nameFr": "L'Océane"
+    },
+    {
+      "name": "mt-ember-area",
+      "nameFr": "Mont Braise"
+    },
+    {
+      "name": "mt-ember-cave",
+      "nameFr": "Mont Braise (caverne)"
+    },
+    {
+      "name": "mt-ember-inside",
+      "nameFr": "Mont Braise (intérieur)"
+    },
+    {
+      "name": "mt-ember-1f-cave-behind-team-rocket",
+      "nameFr": "Mont Braise (RdC, caverne derrière Team Rocket)"
+    },
+    {
+      "name": "mt-ember-b1f",
+      "nameFr": "Mont Braise (1er s-sol)"
+    },
+    {
+      "name": "mt-ember-b2f",
+      "nameFr": "Mont Braise (2e s-sol)"
+    },
+    {
+      "name": "mt-ember-b3f",
+      "nameFr": "Mont Braise (3e s-sol)"
+    },
+    {
+      "name": "berry-forest-area",
+      "nameFr": "Bois Baies"
+    },
+    {
+      "name": "icefall-cave-entrance",
+      "nameFr": "Grotte de Glace (entrée)"
+    },
+    {
+      "name": "icefall-cave-1f",
+      "nameFr": "Grotte de Glace (RdC)"
+    },
+    {
+      "name": "icefall-cave-b1f",
+      "nameFr": "Grotte de Glace (sous-sol)"
+    },
+    {
+      "name": "icefall-cave-waterfall",
+      "nameFr": "Grotte de Glace (cascade)"
+    },
+    {
+      "name": "pattern-bush-area",
+      "nameFr": "Forbuissons"
+    },
+    {
+      "name": "lost-cave-room-1",
+      "nameFr": "Grotte Perdue (salle 1)"
+    },
+    {
+      "name": "lost-cave-room-2",
+      "nameFr": "Grotte Perdue (salle 2)"
+    },
+    {
+      "name": "lost-cave-room-3",
+      "nameFr": "Grotte Perdue (salle 3)"
+    },
+    {
+      "name": "lost-cave-room-4",
+      "nameFr": "Grotte Perdue (salle 4)"
+    },
+    {
+      "name": "lost-cave-room-5",
+      "nameFr": "Grotte Perdue (salle 5)"
+    },
+    {
+      "name": "lost-cave-room-6",
+      "nameFr": "Grotte Perdue (salle 6)"
+    },
+    {
+      "name": "lost-cave-room-7",
+      "nameFr": "Grotte Perdue (salle 7)"
+    },
+    {
+      "name": "lost-cave-room-8",
+      "nameFr": "Grotte Perdue (salle 8)"
+    },
+    {
+      "name": "lost-cave-room-9",
+      "nameFr": "Grotte Perdue (salle 9)"
+    },
+    {
+      "name": "lost-cave-room-10",
+      "nameFr": "Grotte Perdue (salle 10)"
+    },
+    {
+      "name": "lost-cave-item-rooms",
+      "nameFr": "Grotte Perdue (salle des objets)"
+    },
+    {
+      "name": "kindle-road-area",
+      "nameFr": "Route Tison"
+    },
+    {
+      "name": "treasure-beach-area",
+      "nameFr": "Plage Trésor"
+    },
+    {
+      "name": "cape-brink-area",
+      "nameFr": "Cap Falaise"
+    },
+    {
+      "name": "bond-bridge-area",
+      "nameFr": "Pont du Lien"
+    },
+    {
+      "name": "three-isle-port-area",
+      "nameFr": "Port Ile 3"
+    },
+    {
+      "name": "resort-gorgeous-area",
+      "nameFr": "Camp de Vacances"
+    },
+    {
+      "name": "water-labyrinth-area",
+      "nameFr": "Labyrinthe d'O"
+    },
+    {
+      "name": "five-isle-meadow-area",
+      "nameFr": "Pré Ile 5"
+    },
+    {
+      "name": "memorial-pillar-area",
+      "nameFr": "Mémorial"
+    },
+    {
+      "name": "outcast-island-area",
+      "nameFr": "Ile du Lointain"
+    },
+    {
+      "name": "green-path-area",
+      "nameFr": "Chemin Vert"
+    },
+    {
+      "name": "water-path-area",
+      "nameFr": "Agualcanal"
+    },
+    {
+      "name": "ruin-valley-area",
+      "nameFr": "Vallée Ruine"
+    },
+    {
+      "name": "trainer-tower-area",
+      "nameFr": "Tour Dresseurs"
+    },
+    {
+      "name": "canyon-entrance-area",
+      "nameFr": "Entrée du Canyon"
+    },
+    {
+      "name": "sevault-canyon-area",
+      "nameFr": "Canyon Sesor"
+    },
+    {
+      "name": "tanoby-ruins-area",
+      "nameFr": "Ruines Tanoby"
+    },
+    {
+      "name": "one-island-area",
+      "nameFr": "Ile 1"
+    },
+    {
+      "name": "four-island-area",
+      "nameFr": "Ile 4"
+    },
+    {
+      "name": "five-island-area",
+      "nameFr": "Ile 5"
+    },
+    {
+      "name": "kanto-altering-cave-a",
+      "nameFr": "Grotte Métamo (A)"
+    },
+    {
+      "name": "kanto-altering-cave-b",
+      "nameFr": "Grotte Métamo (B)"
+    },
+    {
+      "name": "kanto-altering-cave-c",
+      "nameFr": "Grotte Métamo (C)"
+    },
+    {
+      "name": "kanto-altering-cave-d",
+      "nameFr": "Grotte Métamo (D)"
+    },
+    {
+      "name": "kanto-altering-cave-e",
+      "nameFr": "Grotte Métamo (E)"
+    },
+    {
+      "name": "kanto-altering-cave-f",
+      "nameFr": "Grotte Métamo (F)"
+    },
+    {
+      "name": "kanto-altering-cave-g",
+      "nameFr": "Grotte Métamo (G)"
+    },
+    {
+      "name": "kanto-altering-cave-h",
+      "nameFr": "Grotte Métamo (H)"
+    },
+    {
+      "name": "kanto-altering-cave-i",
+      "nameFr": "Grotte Métamo (I)"
+    },
+    {
+      "name": "striaton-city-area",
+      "nameFr": "Ogoesse"
+    },
+    {
+      "name": "driftveil-city-area",
+      "nameFr": "Port Yoneuve"
+    },
+    {
+      "name": "icirrus-city-area",
+      "nameFr": "Flocombe"
+    },
+    {
+      "name": "dreamyard-area",
+      "nameFr": "Vestiges du Rêve"
+    },
+    {
+      "name": "dreamyard-b1f",
+      "nameFr": "Vestiges du Rêve (sous-sol)"
+    },
+    {
+      "name": "pinwheel-forest-outside",
+      "nameFr": "Forêt d'Empoigne (extérieur)"
+    },
+    {
+      "name": "pinwheel-forest-inside",
+      "nameFr": "Forêt d'Empoigne (intérieur)"
+    },
+    {
+      "name": "desert-resort-entrance",
+      "nameFr": "Désert Délassant (entrée)"
+    },
+    {
+      "name": "desert-resort-area",
+      "nameFr": "Désert Délassant"
+    },
+    {
+      "name": "relic-castle-a",
+      "nameFr": "Château Enfoui (A)"
+    },
+    {
+      "name": "relic-castle-b",
+      "nameFr": "Château Enfoui (B)"
+    },
+    {
+      "name": "relic-castle-c",
+      "nameFr": "Château Enfoui (C)"
+    },
+    {
+      "name": "relic-castle-d",
+      "nameFr": "Château Enfoui (D)"
+    },
+    {
+      "name": "cold-storage-area",
+      "nameFr": "Hangar Frigorifique"
+    },
+    {
+      "name": "chargestone-cave-1f",
+      "nameFr": "Grotte Électrolithe (RdC)"
+    },
+    {
+      "name": "chargestone-cave-b1f",
+      "nameFr": "Grotte Électrolithe (1er s-sol)"
+    },
+    {
+      "name": "chargestone-cave-b2f",
+      "nameFr": "Grotte Électrolithe (2e s-sol)"
+    },
+    {
+      "name": "twist-mountain-b1f-3f",
+      "nameFr": "Mont Foré"
+    },
+    {
+      "name": "dragonspiral-tower-entrance",
+      "nameFr": "Tour Dragospire (entrée)"
+    },
+    {
+      "name": "dragonspiral-tower-outside",
+      "nameFr": "Tour Dragospire (extérieur)"
+    },
+    {
+      "name": "dragonspiral-tower-1f",
+      "nameFr": "Tour Dragospire (RdC)"
+    },
+    {
+      "name": "dragonspiral-tower-2f",
+      "nameFr": "Tour Dragospire (1er ét.)"
+    },
+    {
+      "name": "unova-victory-road-outside",
+      "nameFr": "Route Victoire (extérieur)"
+    },
+    {
+      "name": "unova-victory-road-unknown-area-53",
+      "nameFr": "Route Victoire (zone inconnue 53)"
+    },
+    {
+      "name": "unova-victory-road-unknown-area-54",
+      "nameFr": "Route Victoire (zone inconnue 54)"
+    },
+    {
+      "name": "unova-victory-road-unknown-area-55",
+      "nameFr": "Route Victoire (zone inconnue 55)"
+    },
+    {
+      "name": "unova-victory-road-4f-middle-room",
+      "nameFr": "Route Victoire (zone inconnue 56)"
+    },
+    {
+      "name": "unova-victory-road-unknown-area-57",
+      "nameFr": "Route Victoire (zone inconnue 57)"
+    },
+    {
+      "name": "unova-victory-road-1f-unknown-room",
+      "nameFr": "Route Victoire (zone inconnue 58)"
+    },
+    {
+      "name": "unova-victory-road-unknown-area-59",
+      "nameFr": "Route Victoire (zone inconnue 59)"
+    },
+    {
+      "name": "unova-victory-road-unknown-area-60",
+      "nameFr": "Route Victoire (zone inconnue 60)"
+    },
+    {
+      "name": "unova-victory-road-unknown-area-61",
+      "nameFr": "Route Victoire (zone inconnue 61)"
+    },
+    {
+      "name": "unova-victory-road-unknown-area-62",
+      "nameFr": "Route Victoire (zone inconnue 62)"
+    },
+    {
+      "name": "unova-victory-road-unknown-area-63",
+      "nameFr": "Route Victoire (zone inconnue 63)"
+    },
+    {
+      "name": "unova-victory-road-unknown-area-64",
+      "nameFr": "Route Victoire (zone inconnue 64)"
+    },
+    {
+      "name": "unova-victory-road-unknown-area-65",
+      "nameFr": "Route Victoire (zone inconnue 65)"
+    },
+    {
+      "name": "unova-victory-road-unknown-area-66",
+      "nameFr": "Route Victoire (zone inconnue 66)"
+    },
+    {
+      "name": "trial-chamber-area",
+      "nameFr": "Salle Épreuve"
+    },
+    {
+      "name": "giant-chasm-outside",
+      "nameFr": "Grotte Cyclopéenne (extérieur)"
+    },
+    {
+      "name": "giant-chasm-area",
+      "nameFr": "Grotte Cyclopéenne"
+    },
+    {
+      "name": "giant-chasm-forest",
+      "nameFr": "Grotte Cyclopéenne (forêt)"
+    },
+    {
+      "name": "giant-chasm-forest-cave",
+      "nameFr": "Grotte Cyclopéenne (caverne-forêt)"
+    },
+    {
+      "name": "p2-laboratory-area",
+      "nameFr": "Labo P2"
+    },
+    {
+      "name": "undella-bay-area",
+      "nameFr": "Baie Vaguelone"
+    },
+    {
+      "name": "driftveil-drawbridge-area",
+      "nameFr": "Pont Yoneuve"
+    },
+    {
+      "name": "village-bridge-area",
+      "nameFr": "Pont du Hameau"
+    },
+    {
+      "name": "marvelous-bridge-area",
+      "nameFr": "Pont de l'Inconnu"
+    },
+    {
+      "name": "unova-route-1-area",
+      "nameFr": "Route 1"
+    },
+    {
+      "name": "unova-route-2-area",
+      "nameFr": "Route 2"
+    },
+    {
+      "name": "unova-route-3-area",
+      "nameFr": "Route 3"
+    },
+    {
+      "name": "wellspring-cave-area",
+      "nameFr": "Veine Souterraine"
+    },
+    {
+      "name": "unova-route-4-area",
+      "nameFr": "Route 4"
+    },
+    {
+      "name": "unova-route-5-area",
+      "nameFr": "Route 5"
+    },
+    {
+      "name": "unova-route-6-area",
+      "nameFr": "Route 6"
+    },
+    {
+      "name": "mistralton-cave-area",
+      "nameFr": "Grotte Parsemille"
+    },
+    {
+      "name": "guidance-chamber-area",
+      "nameFr": "Espace Guide"
+    },
+    {
+      "name": "unova-route-7-area",
+      "nameFr": "Route 7"
+    },
+    {
+      "name": "celestial-tower-2f",
+      "nameFr": "Tour des Cieux (1er ét.)"
+    },
+    {
+      "name": "celestial-tower-3f",
+      "nameFr": "Tour des Cieux (2e ét.)"
+    },
+    {
+      "name": "celestial-tower-4f",
+      "nameFr": "Tour des Cieux (3e ét.)"
+    },
+    {
+      "name": "celestial-tower-5f",
+      "nameFr": "Tour des Cieux (4e ét.)"
+    },
+    {
+      "name": "unova-route-8-area",
+      "nameFr": "Route 8"
+    },
+    {
+      "name": "moor-of-icirrus-area",
+      "nameFr": "Tourbière Flocombe"
+    },
+    {
+      "name": "unova-route-9-area",
+      "nameFr": "Route 9"
+    },
+    {
+      "name": "challengers-cave-1f",
+      "nameFr": "Antre d'Entraînement (RdC)"
+    },
+    {
+      "name": "challengers-cave-b1f",
+      "nameFr": "Antre d'Entraînement (1er s-sol)"
+    },
+    {
+      "name": "challengers-cave-b2f",
+      "nameFr": "Antre d'Entraînement (2e s-sol)"
+    },
+    {
+      "name": "unova-route-10-area",
+      "nameFr": "Route 10"
+    },
+    {
+      "name": "unova-route-10-victory-road-gate",
+      "nameFr": "Route 10 (point de contrôle des badges)"
+    },
+    {
+      "name": "unova-route-11-area",
+      "nameFr": "Route 11"
+    },
+    {
+      "name": "unova-route-12-area",
+      "nameFr": "Route 12"
+    },
+    {
+      "name": "unova-route-13-area",
+      "nameFr": "Route 13"
+    },
+    {
+      "name": "unova-route-14-area",
+      "nameFr": "Route 14"
+    },
+    {
+      "name": "abundant-shrine-area",
+      "nameFr": "Autel Abondance"
+    },
+    {
+      "name": "unova-route-15-area",
+      "nameFr": "Route 15"
+    },
+    {
+      "name": "unova-route-16-area",
+      "nameFr": "Route 16"
+    },
+    {
+      "name": "lostlorn-forest-area",
+      "nameFr": "Bois des Illusions"
+    },
+    {
+      "name": "unova-route-18-area",
+      "nameFr": "Route 18"
+    },
+    {
+      "name": "undella-town-area",
+      "nameFr": "Vaguelone"
+    },
+    {
+      "name": "unova-route-17-area",
+      "nameFr": "Route 17"
+    },
+    {
+      "name": "castelia-city-area",
+      "nameFr": "Volucité"
+    },
+    {
+      "name": "aspertia-city-area",
+      "nameFr": "Pavonnay"
+    },
+    {
+      "name": "virbank-city-area",
+      "nameFr": "Ondes-sur-Mer"
+    },
+    {
+      "name": "humilau-city-area",
+      "nameFr": "Papeloa"
+    },
+    {
+      "name": "unova-victory-road-7f",
+      "nameFr": "Route Victoire (6e ét.)"
+    },
+    {
+      "name": "unova-victory-road-2-unknown-area-71",
+      "nameFr": "Route Victoire 2 (zone inconnue 71)"
+    },
+    {
+      "name": "unova-victory-road-2-unknown-area-72",
+      "nameFr": "Route Victoire 2 (zone inconnue 72)"
+    },
+    {
+      "name": "unova-victory-road-2-unknown-area-73",
+      "nameFr": "Route Victoire 2 (zone inconnue 73)"
+    },
+    {
+      "name": "unova-victory-road-2-unknown-area-74",
+      "nameFr": "Route Victoire 2 (zone inconnue 74)"
+    },
+    {
+      "name": "unova-victory-road-2-unknown-area-75",
+      "nameFr": "Route Victoire 2 (zone inconnue 75)"
+    },
+    {
+      "name": "unova-victory-road-2-unknown-area-76",
+      "nameFr": "Route Victoire 2 (zone inconnue 76)"
+    },
+    {
+      "name": "unova-victory-road-2-unknown-area-77",
+      "nameFr": "Route Victoire 2 (zone inconnue 77)"
+    },
+    {
+      "name": "unova-victory-road-2-unknown-area-78",
+      "nameFr": "Route Victoire 2 (zone inconnue 78)"
+    },
+    {
+      "name": "unova-victory-road-2-unknown-area-79",
+      "nameFr": "Route Victoire 2 (zone inconnue 79)"
+    },
+    {
+      "name": "unova-victory-road-2-unknown-area-80",
+      "nameFr": "Route Victoire 2 (zone inconnue 80)"
+    },
+    {
+      "name": "castelia-sewers-area",
+      "nameFr": "Égouts de Volucité"
+    },
+    {
+      "name": "castelia-sewers-unknown-area-38",
+      "nameFr": "Égouts de Volucité (zone inconnue 38)"
+    },
+    {
+      "name": "floccesy-ranch-outer",
+      "nameFr": "Ranch d'Amaillide (extérieur)"
+    },
+    {
+      "name": "floccesy-ranch-inner",
+      "nameFr": "Ranch d'Amaillide (intérieur)"
+    },
+    {
+      "name": "virbank-complex-outer",
+      "nameFr": "Z.I. d'Ondes-sur-Mer (extérieur)"
+    },
+    {
+      "name": "virbank-complex-inner",
+      "nameFr": "Z.I. d'Ondes-sur-Mer (intérieur)"
+    },
+    {
+      "name": "reversal-mountain-unknown-area-48",
+      "nameFr": "Mont Renenvers (zone inconnue 48)"
+    },
+    {
+      "name": "reversal-mountain-unknown-area-49",
+      "nameFr": "Mont Renenvers (zone inconnue49)"
+    },
+    {
+      "name": "reversal-mountain-unknown-area-50",
+      "nameFr": "Mont Renenvers (zone inconnue 50)"
+    },
+    {
+      "name": "reversal-mountain-unknown-area-51",
+      "nameFr": "Mont Renenvers (zone inconnue 51)"
+    },
+    {
+      "name": "reversal-mountain-unknown-area-52",
+      "nameFr": "Mont Renenvers (zone inconnue 52)"
+    },
+    {
+      "name": "reversal-mountain-unknown-area-53",
+      "nameFr": "Mont Renenvers (zone inconnue 53)"
+    },
+    {
+      "name": "reversal-mountain-unknown-area-54",
+      "nameFr": "Mont Renenvers (zone inconnue 54)"
+    },
+    {
+      "name": "reversal-mountain-unknown-area-55",
+      "nameFr": "Mont Renenvers (zone inconnue 55)"
+    },
+    {
+      "name": "reversal-mountain-unknown-area-56",
+      "nameFr": "Mont Renenvers (zone inconnue 56)"
+    },
+    {
+      "name": "reversal-mountain-unknown-area-57",
+      "nameFr": "Mont Renenvers (zone inconnue 57)"
+    },
+    {
+      "name": "reversal-mountain-unknown-area-58",
+      "nameFr": "Mont Renenvers (zone inconnue 58)"
+    },
+    {
+      "name": "reversal-mountain-unknown-area-59",
+      "nameFr": "Mont Renenvers (zone inconnue 59)"
+    },
+    {
+      "name": "reversal-mountain-unknown-area-60",
+      "nameFr": "Mont Renenvers (zone inconnue 60)"
+    },
+    {
+      "name": "strange-house-1f",
+      "nameFr": "Manoir de l'Étrange (RdC)"
+    },
+    {
+      "name": "strange-house-b1f",
+      "nameFr": "Manoir de l'Étrange (sous-sol)"
+    },
+    {
+      "name": "relic-passage-castelia-sewers-entrance",
+      "nameFr": "Chemin Enfoui (entrée des égoûts de Volucité)"
+    },
+    {
+      "name": "relic-passage-relic-castle-entrance",
+      "nameFr": "Chemin Enfoui (entrée du Château Enfoui)"
+    },
+    {
+      "name": "relic-passage-pwt-entrance",
+      "nameFr": "Chemin Enfoui (entrée PWT)"
+    },
+    {
+      "name": "clay-tunnel-area",
+      "nameFr": "Route Bardane"
+    },
+    {
+      "name": "underground-ruins-area",
+      "nameFr": "Ruines Enfouies"
+    },
+    {
+      "name": "rocky-mountain-room-area",
+      "nameFr": "Salle Pic Rocheux"
+    },
+    {
+      "name": "glacier-room-area",
+      "nameFr": "Salle Iceberg"
+    },
+    {
+      "name": "iron-room-area",
+      "nameFr": "Salle Fer"
+    },
+    {
+      "name": "seaside-cave-1f",
+      "nameFr": "Grotte Littorale (RdC)"
+    },
+    {
+      "name": "seaside-cave-b1f",
+      "nameFr": "Grotte Littorale (sous-sol)"
+    },
+    {
+      "name": "nature-sanctuary-area",
+      "nameFr": "Réserve Naturelle"
+    },
+    {
+      "name": "unova-route-19-area",
+      "nameFr": "Route 19"
+    },
+    {
+      "name": "unova-route-20-area",
+      "nameFr": "Route 20"
+    },
+    {
+      "name": "unova-route-22-area",
+      "nameFr": "Route 22"
+    },
+    {
+      "name": "unova-route-23-area",
+      "nameFr": "Route 230"
+    },
+    {
+      "name": "unova-route-21-area",
+      "nameFr": "Route 21"
+    },
+    {
+      "name": "couriway-town-area",
+      "nameFr": "Mozheim"
+    },
+    {
+      "name": "ambrette-town-area",
+      "nameFr": "Roche-sur-Gliffe"
+    },
+    {
+      "name": "cyllage-city-area",
+      "nameFr": "Relifac-le-Haut"
+    },
+    {
+      "name": "shalour-city-area",
+      "nameFr": "Yantreizh"
+    },
+    {
+      "name": "laverre-city-area",
+      "nameFr": "Romant-sous-Bois"
+    },
+    {
+      "name": "kalos-route-2-area",
+      "nameFr": "Route 2"
+    },
+    {
+      "name": "kalos-route-3-area",
+      "nameFr": "Route 3"
+    },
+    {
+      "name": "kalos-route-4-area",
+      "nameFr": "Route 4"
+    },
+    {
+      "name": "kalos-route-5-area",
+      "nameFr": "Route 5"
+    },
+    {
+      "name": "kalos-route-6-area",
+      "nameFr": "Route 6"
+    },
+    {
+      "name": "kalos-route-7-area",
+      "nameFr": "Route 7"
+    },
+    {
+      "name": "kalos-route-8-area",
+      "nameFr": "Route 8"
+    },
+    {
+      "name": "kalos-route-9-area",
+      "nameFr": "Route 9"
+    },
+    {
+      "name": "kalos-route-10-area",
+      "nameFr": "Route 10"
+    },
+    {
+      "name": "kalos-route-11-area",
+      "nameFr": "Route 11"
+    },
+    {
+      "name": "kalos-route-12-area",
+      "nameFr": "Route 12"
+    },
+    {
+      "name": "kalos-route-13-area",
+      "nameFr": "Route 13"
+    },
+    {
+      "name": "kalos-route-14-area",
+      "nameFr": "Route 14"
+    },
+    {
+      "name": "kalos-route-15-area",
+      "nameFr": "Route 15"
+    },
+    {
+      "name": "kalos-route-16-area",
+      "nameFr": "Route 16"
+    },
+    {
+      "name": "kalos-route-17-area",
+      "nameFr": "Route 17"
+    },
+    {
+      "name": "kalos-route-18-area",
+      "nameFr": "Route 18"
+    },
+    {
+      "name": "kalos-route-19-area",
+      "nameFr": "Route 19"
+    },
+    {
+      "name": "kalos-route-20-area",
+      "nameFr": "Route 20"
+    },
+    {
+      "name": "kalos-route-21-area",
+      "nameFr": "Route 21"
+    },
+    {
+      "name": "kalos-route-22-area",
+      "nameFr": "Route 22"
+    },
+    {
+      "name": "santalune-forest-area",
+      "nameFr": "Forêt de Neuvartault"
+    },
+    {
+      "name": "parfum-palace-area",
+      "nameFr": "Palais Chaydeuvre"
+    },
+    {
+      "name": "glittering-cave-unknown-area-303",
+      "nameFr": "Grotte Étincelante (zone inconnue 303)"
+    },
+    {
+      "name": "glittering-cave-unknown-area-304",
+      "nameFr": "Grotte Étincelante (zone inconnue 304)"
+    },
+    {
+      "name": "reflection-cave-unknown-area-305",
+      "nameFr": "Grotte Miroitante (zone inconnue 305)"
+    },
+    {
+      "name": "reflection-cave-unknown-area-306",
+      "nameFr": "Grotte Miroitante (zone inconnue 306)"
+    },
+    {
+      "name": "reflection-cave-unknown-area-307",
+      "nameFr": "Grotte Miroitante (zone inconnue 307)"
+    },
+    {
+      "name": "reflection-cave-unknown-area-308",
+      "nameFr": "Grotte Miroitante (zone inconnue 308)"
+    },
+    {
+      "name": "frost-cavern-unknown-area-313",
+      "nameFr": "Caverne Gelée (zone inconnue 313)"
+    },
+    {
+      "name": "frost-cavern-unknown-area-314",
+      "nameFr": "Caverne Gelée (zone inconnue 314)"
+    },
+    {
+      "name": "frost-cavern-unknown-area-315",
+      "nameFr": "Caverne Gelée (zone inconnue 315)"
+    },
+    {
+      "name": "frost-cavern-unknown-area-316",
+      "nameFr": "Caverne Gelée (zone inconnue 316)"
+    },
+    {
+      "name": "frost-cavern-unknown-area-317",
+      "nameFr": "Caverne Gelée (zone inconnue 317)"
+    },
+    {
+      "name": "pokemon-village-area",
+      "nameFr": "Village Pokémon"
+    },
+    {
+      "name": "kalos-victory-road-unknown-area-322",
+      "nameFr": "Route Victoire (zone inconnue 322)"
+    },
+    {
+      "name": "kalos-victory-road-unknown-area-324",
+      "nameFr": "Route Victoire (zone inconnue 324)"
+    },
+    {
+      "name": "kalos-victory-road-unknown-area-326",
+      "nameFr": "Route Victoire (zone inconnue 326)"
+    },
+    {
+      "name": "kalos-victory-road-unknown-area-327",
+      "nameFr": "Route Victoire (zone inconnue 327)"
+    },
+    {
+      "name": "kalos-victory-road-unknown-area-328",
+      "nameFr": "Route Victoire (zone inconnue 328)"
+    },
+    {
+      "name": "connecting-cave-area",
+      "nameFr": "Cave Connecterre"
+    },
+    {
+      "name": "terminus-cave-1f",
+      "nameFr": "Grotte Coda (zone inconnue 343)"
+    },
+    {
+      "name": "terminus-cave-b1f-left",
+      "nameFr": "Grotte Coda (zone inconnue 344)"
+    },
+    {
+      "name": "terminus-cave-b1f-right",
+      "nameFr": "Grotte Coda (zone inconnue 345)"
+    },
+    {
+      "name": "terminus-cave-b2f",
+      "nameFr": "Grotte Coda (zone inconnue 347)"
+    },
+    {
+      "name": "terminus-cave-zygardes-chamber",
+      "nameFr": "Grotte Coda (zone inconnue 348)"
+    },
+    {
+      "name": "lost-hotel-area",
+      "nameFr": "Hôtel Désolation"
+    },
+    {
+      "name": "azure-bay-area",
+      "nameFr": "Baie Azur"
+    },
+    {
+      "name": "kanto-route-4-pokemon-center",
+      "nameFr": "Centre Pokémon (Route 4)"
+    },
+    {
+      "name": "saffron-city-fighting-dojo",
+      "nameFr": "Dojo de Combat"
+    },
+    {
+      "name": "celadon-city-celadon-mansion",
+      "nameFr": "Toit du manoir Céladon"
+    },
+    {
+      "name": "saffron-city-silph-co-7f",
+      "nameFr": "Sylphe SARL (6e ét.)"
+    },
+    {
+      "name": "goldenrod-city-north-gate",
+      "nameFr": "Doublonville (porte Nord)"
+    },
+    {
+      "name": "goldenrod-city-bills-house",
+      "nameFr": "Doublonville (maison de Bill)"
+    },
+    {
+      "name": "cianwood-city-manias-house",
+      "nameFr": "Irisia (maison à l'ouest du centre Pokémon)"
+    },
+    {
+      "name": "hoenn-route-119-weather-institute",
+      "nameFr": "Centre météo (Route 119)"
+    },
+    {
+      "name": "mossdeep-city-stevens-house",
+      "nameFr": "Algatia (maison de Pierre Rochard)"
+    },
+    {
+      "name": "littleroot-town-area",
+      "nameFr": "Bourg-en-Vol"
+    },
+    {
+      "name": "hearthome-city-area",
+      "nameFr": "Unionpolis"
+    },
+    {
+      "name": "veilstone-city-area",
+      "nameFr": "Voilaroc"
+    },
+    {
+      "name": "cianwood-city-kirks-house",
+      "nameFr": "Irisia (maison à l'ouest du centre Pokémon)"
+    },
+    {
+      "name": "nuvema-town-area",
+      "nameFr": "Renouet"
+    },
+    {
+      "name": "castelia-city-game-freak-hq-1f",
+      "nameFr": "Bureaux de Game Freak (Volucité)"
+    },
+    {
+      "name": "unova-route-6-weather-institute",
+      "nameFr": "Centre météo (Route 6)"
+    },
+    {
+      "name": "floccesy-town-area",
+      "nameFr": "Amaillide"
+    },
+    {
+      "name": "aquacorde-town-area",
+      "nameFr": "Quarellis"
+    },
+    {
+      "name": "lumiose-city-area",
+      "nameFr": "Illumis"
+    },
+    {
+      "name": "tower-of-mastery-area",
+      "nameFr": "Tour Maîtrise"
+    },
+    {
+      "name": "slateport-city-contest-hall",
+      "nameFr": "Centre de concours (Poivressel)"
+    },
+    {
+      "name": "verdanturf-town-contest-hall",
+      "nameFr": "Centre de concours (Vergazon)"
+    },
+    {
+      "name": "fallarbor-town-contest-hall",
+      "nameFr": "Centre de concours (Autéquia)"
+    },
+    {
+      "name": "lilycove-city-contest-hall",
+      "nameFr": "Centre de concours (Nénucrique)"
+    },
+    {
+      "name": "southern-island-area",
+      "nameFr": "Île du Sud"
+    },
+    {
+      "name": "battle-resort-area",
+      "nameFr": "Atoll de Combat"
+    },
+    {
+      "name": "lavaridge-town-area",
+      "nameFr": "Vermilava"
+    },
+    {
+      "name": "eterna-city-west-gate",
+      "nameFr": "Vestigion (porte ouest)"
+    },
+    {
+      "name": "hearthome-city-west-gate",
+      "nameFr": "Unionpolis (porte ouest)"
+    },
+    {
+      "name": "violet-city-poke-mart",
+      "nameFr": "Mauville (Boutique Pokémon)"
+    },
+    {
+      "name": "violet-city-pokemon-center",
+      "nameFr": "Mauville (Centre Pokémon)"
+    },
+    {
+      "name": "nacrene-city-west-gate",
+      "nameFr": "Maillard (porte ouest)"
+    },
+    {
+      "name": "bell-tower-roof",
+      "nameFr": "Tour Carillon (toit)"
+    },
+    {
+      "name": "roaming-kanto-area",
+      "nameFr": "Sillonnant Kanto"
+    },
+    {
+      "name": "roaming-johto-area",
+      "nameFr": "Sillonnant Johto"
+    },
+    {
+      "name": "roaming-hoenn-area",
+      "nameFr": "Sillonnant Hoenn"
+    },
+    {
+      "name": "roaming-sinnoh-area",
+      "nameFr": "Sillonnant Sinnoh"
+    },
+    {
+      "name": "azalea-town-area",
+      "nameFr": "Ecorcia"
+    },
+    {
+      "name": "cave-of-origin-b4f",
+      "nameFr": "Grotte Origine (4e s-sol)"
+    },
+    {
+      "name": "terra-cave-area",
+      "nameFr": "Grotte Terra"
+    },
+    {
+      "name": "marine-cave-area",
+      "nameFr": "Grotte Marine"
+    },
+    {
+      "name": "sky-pillar-apex",
+      "nameFr": "Pilier Céleste (sommet)"
+    },
+    {
+      "name": "bell-tower-1f",
+      "nameFr": "Tour Carillon (RdC)"
+    },
+    {
+      "name": "birth-island-area",
+      "nameFr": "Île Aurore"
+    },
+    {
+      "name": "navel-rock-area",
+      "nameFr": "Roc Nombri"
+    },
+    {
+      "name": "faraway-island-area",
+      "nameFr": "Île lointaine"
+    },
+    {
+      "name": "hoenn-battle-frontier-area",
+      "nameFr": "Zone de Combat"
+    },
+    {
+      "name": "desert-ruins-area",
+      "nameFr": "Ruines Désert"
+    },
+    {
+      "name": "island-cave-area",
+      "nameFr": "Grotte de l’Îlot"
+    },
+    {
+      "name": "ancient-tomb-area",
+      "nameFr": "Tombeau Antique"
+    },
+    {
+      "name": "johto-safari-zone-zone-peak",
+      "nameFr": "Parc Safari - Rochers"
+    },
+    {
+      "name": "johto-safari-zone-zone-desert",
+      "nameFr": "Parc Safari - Désert"
+    },
+    {
+      "name": "johto-safari-zone-zone-plains",
+      "nameFr": "Parc Safari - Prairie"
+    },
+    {
+      "name": "johto-safari-zone-zone-meadow",
+      "nameFr": "Parc Safari - Champ de fleurs"
+    },
+    {
+      "name": "johto-safari-zone-zone-forest",
+      "nameFr": "Parc Safari - Bois "
+    },
+    {
+      "name": "johto-safari-zone-zone-swamp",
+      "nameFr": "Parc Safari - Bois et lacs"
+    },
+    {
+      "name": "johto-safari-zone-zone-marshland",
+      "nameFr": "Parc Safari - Marais"
+    },
+    {
+      "name": "johto-safari-zone-zone-mountain",
+      "nameFr": "Parc Safari - Montagne"
+    },
+    {
+      "name": "johto-safari-zone-zone-rocky-beach",
+      "nameFr": "Parc Safari - Rocs et lacs"
+    },
+    {
+      "name": "johto-safari-zone-zone-wasteland",
+      "nameFr": "Parc Safari - Terre aride"
+    },
+    {
+      "name": "johto-safari-zone-zone-savannah",
+      "nameFr": "Parc Safari - Savane"
+    },
+    {
+      "name": "johto-safari-zone-zone-wetland",
+      "nameFr": "Parc Safari - Terre humide"
+    },
+    {
+      "name": "mt-ember-summit",
+      "nameFr": "Mont Braise (sommet)"
+    },
+    {
+      "name": "embedded-tower-kyogre-room",
+      "nameFr": "Tour Enfouie (salle de Kyogre)"
+    },
+    {
+      "name": "embedded-tower-groundon-room",
+      "nameFr": "Tour Enfouie (salle de Groudon)"
+    },
+    {
+      "name": "embedded-tower-rayquaza-room",
+      "nameFr": "Tour Enfouie (salle de Rayquaza)"
+    },
+    {
+      "name": "lake-acuity-cavern",
+      "nameFr": "Lac Savoir (caverne)"
+    },
+    {
+      "name": "lake-valor-cavern",
+      "nameFr": "Lac Courage (caverne)"
+    },
+    {
+      "name": "spear-pillar-area",
+      "nameFr": "Colonnes Lances"
+    },
+    {
+      "name": "kanto-route-3-pokemon-center",
+      "nameFr": "Centre Pokémon (Route 3)"
+    },
+    {
+      "name": "cinnabar-island-cinnabar-lab",
+      "nameFr": "Laboratoire (Cramois'Île)"
+    },
+    {
+      "name": "rustboro-city-area",
+      "nameFr": "Mérouville"
+    },
+    {
+      "name": "saffron-city-silph-co",
+      "nameFr": "Sylphe SARL"
+    },
+    {
+      "name": "cianwood-city-pokemon-center",
+      "nameFr": "Centre Pokémon (Irisia)"
+    },
+    {
+      "name": "stark-mountain-heatran-chamber",
+      "nameFr": "Mont Abrupt (salle d'Heatran)"
+    },
+    {
+      "name": "newmoon-island-area",
+      "nameFr": "Ile Nouvellelune"
+    },
+    {
+      "name": "flower-paradise-area",
+      "nameFr": "Paradis Fleuri"
+    },
+    {
+      "name": "sinnoh-hall-of-origin-1-area",
+      "nameFr": "Salle Originelle"
+    },
+    {
+      "name": "team-rocket-hq-area",
+      "nameFr": "Repaire Rocket d'Acajou"
+    },
+    {
+      "name": "sinjoh-ruins-area",
+      "nameFr": "Ruines Sinjoh"
+    },
+    {
+      "name": "alola-route-1-east",
+      "nameFr": "Route 1 (Alola) (est)"
+    },
+    {
+      "name": "alola-route-1-hauoli-outskirts",
+      "nameFr": "Route 1 (Alola) (Abords d'Ekaeka)"
+    },
+    {
+      "name": "alola-route-1-south",
+      "nameFr": "Route 1 (Alola) (sud)"
+    },
+    {
+      "name": "alola-route-1-trainers-school",
+      "nameFr": "Route 1 (Alola) (école des dresseurs)"
+    },
+    {
+      "name": "alola-route-1-west",
+      "nameFr": "Route 1 (Alola) (ouest)"
+    },
+    {
+      "name": "alola-route-2-main",
+      "nameFr": "Route 2 (Alola)"
+    },
+    {
+      "name": "alola-route-2-north",
+      "nameFr": "Route 2 (Alola) (nord)"
+    },
+    {
+      "name": "alola-route-2-south",
+      "nameFr": "Route 2 (Alola) (sud)"
+    },
+    {
+      "name": "alola-route-3-main",
+      "nameFr": "Route 3 (Alola)"
+    },
+    {
+      "name": "alola-route-3-north",
+      "nameFr": "Route 3 (Alola) (nord)"
+    },
+    {
+      "name": "alola-route-3-south",
+      "nameFr": "Route 3 (Alola) (sud)"
+    },
+    {
+      "name": "alola-route-4-area",
+      "nameFr": "Route 4 (Alola)"
+    },
+    {
+      "name": "alola-route-5-area",
+      "nameFr": "Route 5 (Alola)"
+    },
+    {
+      "name": "alola-route-6-north",
+      "nameFr": "Route 6 (Alola) (nord)"
+    },
+    {
+      "name": "alola-route-6-south",
+      "nameFr": "Route 6 (Alola) (sud)"
+    },
+    {
+      "name": "alola-route-7-area",
+      "nameFr": "Route 7 (Alola)"
+    },
+    {
+      "name": "alola-route-8-main",
+      "nameFr": "Route 8 (Alola)"
+    },
+    {
+      "name": "alola-route-8-fossil-restoration-center",
+      "nameFr": "Route 8 (Alola) (centre de restauration des fossiles)"
+    },
+    {
+      "name": "alola-route-9-main",
+      "nameFr": "Route 9 (Alola)"
+    },
+    {
+      "name": "alola-route-9-police-station",
+      "nameFr": "Route 9 (Alola) (commissariat)"
+    },
+    {
+      "name": "alola-route-10-area",
+      "nameFr": "Route 10 (Alola)"
+    },
+    {
+      "name": "alola-route-11-area",
+      "nameFr": "Route 11 (Alola)"
+    },
+    {
+      "name": "alola-route-12-area",
+      "nameFr": "Route 12 (Alola)"
+    },
+    {
+      "name": "alola-route-13-area",
+      "nameFr": "Route 13 (Alola)"
+    },
+    {
+      "name": "alola-route-14-area",
+      "nameFr": "Route 14 (Alola)"
+    },
+    {
+      "name": "alola-route-15-main",
+      "nameFr": "Route 15 (Alola)"
+    },
+    {
+      "name": "alola-route-15-aether-house",
+      "nameFr": "Route 15 (Alola) (foyer Aether)"
+    },
+    {
+      "name": "alola-route-16-main",
+      "nameFr": "Route 16 (Alola)"
+    },
+    {
+      "name": "alola-route-16-east",
+      "nameFr": "Route 16 (Alola) (est)"
+    },
+    {
+      "name": "alola-route-16-west",
+      "nameFr": "Route 16 (Alola) (ouest)"
+    },
+    {
+      "name": "alola-route-17-northeast",
+      "nameFr": "Route 17 (Alola) (nord-est)"
+    },
+    {
+      "name": "alola-route-17-west",
+      "nameFr": "Route 17 (Alola) (ouest)"
+    },
+    {
+      "name": "aether-paradise-2f",
+      "nameFr": "Paradis Aether (étage)"
+    },
+    {
+      "name": "akala-outskirts-area",
+      "nameFr": "Côte Reculée d'Akala"
+    },
+    {
+      "name": "altar-of-the-moone-area",
+      "nameFr": "Autel de la Lune"
+    },
+    {
+      "name": "altar-of-the-sunne-area",
+      "nameFr": "Autel du Soleil"
+    },
+    {
+      "name": "ancient-poni-path-area",
+      "nameFr": "Vieille Route"
+    },
+    {
+      "name": "berry-fields-area",
+      "nameFr": "Champ de Baies (Alola)"
+    },
+    {
+      "name": "blush-mountain-area",
+      "nameFr": "Mont Ardent"
+    },
+    {
+      "name": "brooklet-hill-main",
+      "nameFr": "Colline Clapotis"
+    },
+    {
+      "name": "brooklet-hill-north",
+      "nameFr": "Colline Clapotis (nord)"
+    },
+    {
+      "name": "brooklet-hill-south",
+      "nameFr": "Colline Clapotis (sud)"
+    },
+    {
+      "name": "brooklet-hill-totems-den",
+      "nameFr": "Colline Clapotis (repaire du dominant)"
+    },
+    {
+      "name": "digletts-tunnel-area",
+      "nameFr": "Tunnel Taupiqueur"
+    },
+    {
+      "name": "dividing-peak-tunnel-area",
+      "nameFr": "Tunnel Perce-Mont"
+    },
+    {
+      "name": "exeggutor-island-area",
+      "nameFr": "Île Noadkoko"
+    },
+    {
+      "name": "haina-desert-area",
+      "nameFr": "Désert Haina"
+    },
+    {
+      "name": "hano-beach-area",
+      "nameFr": "Plage Hano-Hano"
+    },
+    {
+      "name": "hauoli-cemetery-area",
+      "nameFr": "Cimetière d'Ekaeka"
+    },
+    {
+      "name": "hauoli-city-main",
+      "nameFr": "Ekaeka"
+    },
+    {
+      "name": "hauoli-city-shopping-district",
+      "nameFr": "Ekaeka (zone commerciale)"
+    },
+    {
+      "name": "hauoli-city-beachfront",
+      "nameFr": "Ekaeka (plage)"
+    },
+    {
+      "name": "heahea-beach-area",
+      "nameFr": "Ho'ohale (plage)"
+    },
+    {
+      "name": "heahea-city-surf-association",
+      "nameFr": "Ho'ohale (Surf Club)"
+    },
+    {
+      "name": "iki-town-area",
+      "nameFr": "Lili'i"
+    },
+    {
+      "name": "kalae-bay-area",
+      "nameFr": "Baie de Kala'e"
+    },
+    {
+      "name": "konikoni-city-area",
+      "nameFr": "Konikoni"
+    },
+    {
+      "name": "lake-of-the-moone-area",
+      "nameFr": "Lac du Halo Lunaire"
+    },
+    {
+      "name": "lake-of-the-sunne-area",
+      "nameFr": "Lac du Halo Solaire"
+    },
+    {
+      "name": "lush-jungle-east-cave",
+      "nameFr": "Jungle Sombrefeuille (caverne)"
+    },
+    {
+      "name": "lush-jungle-north",
+      "nameFr": "Jungle Sombrefeuille (nord)"
+    },
+    {
+      "name": "lush-jungle-south",
+      "nameFr": "Jungle Sombrefeuille (sud)"
+    },
+    {
+      "name": "lush-jungle-west",
+      "nameFr": "Jungle Sombrefeuille (ouest)"
+    },
+    {
+      "name": "mahalo-trail-area",
+      "nameFr": "Sentier de Mahalo"
+    },
+    {
+      "name": "malie-city-main",
+      "nameFr": "Malié"
+    },
+    {
+      "name": "malie-city-outer-cape",
+      "nameFr": "Cap Passiloin"
+    },
+    {
+      "name": "malie-garden-area",
+      "nameFr": "Parc de Malié"
+    },
+    {
+      "name": "melemele-meadow-area",
+      "nameFr": "Jardin de Mele-Mele"
+    },
+    {
+      "name": "melemele-sea-area",
+      "nameFr": "Mer de Mele-Mele"
+    },
+    {
+      "name": "memorial-hill-area",
+      "nameFr": "Colline Memento"
+    },
+    {
+      "name": "mount-hokulani-main",
+      "nameFr": "Mont Hokulani"
+    },
+    {
+      "name": "mount-hokulani-east",
+      "nameFr": "Mont Hokulani (est)"
+    },
+    {
+      "name": "mount-hokulani-west",
+      "nameFr": "Mont Hokulani (ouest)"
+    },
+    {
+      "name": "mount-lanakila-base",
+      "nameFr": "Mont Lanakila (pied de la montagne)"
+    },
+    {
+      "name": "mount-lanakila-cave",
+      "nameFr": "Mont Lanakila (caverne)"
+    },
+    {
+      "name": "mount-lanakila-outside",
+      "nameFr": "Mont Lanakila (extérieur)"
+    },
+    {
+      "name": "paniola-ranch-area",
+      "nameFr": "Ranch Ohana"
+    },
+    {
+      "name": "paniola-town-area",
+      "nameFr": "Ohana"
+    },
+    {
+      "name": "poni-breaker-coast-area",
+      "nameFr": "Récif de Poni"
+    },
+    {
+      "name": "poni-coast-area",
+      "nameFr": "Côte de Poni"
+    },
+    {
+      "name": "poni-gauntlet-area",
+      "nameFr": "Chemin du Défi"
+    },
+    {
+      "name": "poni-grove-area",
+      "nameFr": "Forêt de Poni"
+    },
+    {
+      "name": "poni-meadow-area",
+      "nameFr": "Jardin de Poni"
+    },
+    {
+      "name": "poni-plains-center",
+      "nameFr": "Plaine de Poni (centre)"
+    },
+    {
+      "name": "poni-plains-east",
+      "nameFr": "Plaine de Poni (est)"
+    },
+    {
+      "name": "poni-plains-north",
+      "nameFr": "Plaine de Poni (nord)"
+    },
+    {
+      "name": "poni-plains-west",
+      "nameFr": "Plaine de Poni (ouest)"
+    },
+    {
+      "name": "poni-wilds-area",
+      "nameFr": "Prairie de Poni"
+    },
+    {
+      "name": "resolution-cave-area",
+      "nameFr": "Caverne Coda"
+    },
+    {
+      "name": "royal-avenue-area",
+      "nameFr": "Rue du Dôme Royal"
+    },
+    {
+      "name": "ruins-of-abundance-area",
+      "nameFr": "Ruines de l'Essor"
+    },
+    {
+      "name": "ruins-of-conflict-area",
+      "nameFr": "Ruines du Conflit"
+    },
+    {
+      "name": "ruins-of-hope-area",
+      "nameFr": "Ruines de l'Au-Delà"
+    },
+    {
+      "name": "ruins-of-life-area",
+      "nameFr": "Ruines de l'Éveil"
+    },
+    {
+      "name": "sandy-cave-area",
+      "nameFr": "Grotte de la plage"
+    },
+    {
+      "name": "seafolk-village-main",
+      "nameFr": "Village Flottant"
+    },
+    {
+      "name": "seafolk-village-huntail-boat",
+      "nameFr": "Village Flottant (bateau Serpang)"
+    },
+    {
+      "name": "seaward-cave-area",
+      "nameFr": "Grotte Verlamer"
+    },
+    {
+      "name": "secluded-shore-area",
+      "nameFr": "Côte Sauvage"
+    },
+    {
+      "name": "tapu-village-area",
+      "nameFr": "Village Toko"
+    },
+    {
+      "name": "ten-carat-hill-farthest-hollow",
+      "nameFr": "Colline Dicarat - Caldeira Toutofon"
+    },
+    {
+      "name": "ten-carat-hill-inside",
+      "nameFr": "Colline Dicarat"
+    },
+    {
+      "name": "thrifty-megamart-abandoned-site",
+      "nameFr": "Ancien site Bradley Prix"
+    },
+    {
+      "name": "ulaula-beach-area",
+      "nameFr": "Plage d'Ula-Ula"
+    },
+    {
+      "name": "ulaula-meadow-area",
+      "nameFr": "Jardin d'Ula-Ula"
+    },
+    {
+      "name": "ultra-space-ultra-crater",
+      "nameFr": "Ultra-Vallée"
+    },
+    {
+      "name": "ultra-space-ultra-deep-sea",
+      "nameFr": "Ultra-Abysses"
+    },
+    {
+      "name": "ultra-space-ultra-desert",
+      "nameFr": "Ultra-Désert"
+    },
+    {
+      "name": "ultra-space-ultra-forest",
+      "nameFr": "Ultra-Forêt"
+    },
+    {
+      "name": "ultra-space-ultra-jungle",
+      "nameFr": "Ultra-Jungle"
+    },
+    {
+      "name": "ultra-space-ultra-plant",
+      "nameFr": "Ultra-Centrale"
+    },
+    {
+      "name": "ultra-space-ultra-ruin",
+      "nameFr": "Ultra-Gratte-Ciel"
+    },
+    {
+      "name": "ultra-space-wilds-cave",
+      "nameFr": "Ultra-Dimension Zéro - Brèche jaune"
+    },
+    {
+      "name": "ultra-space-wilds-cliff",
+      "nameFr": "Ultra-Dimension Zéro - Brèche rouge"
+    },
+    {
+      "name": "ultra-space-wilds-crag",
+      "nameFr": "Ultra-Dimension Zéro - Brèche verte"
+    },
+    {
+      "name": "ultra-space-wilds-waterfall",
+      "nameFr": "Ultra-Dimension Zéro - Brèche bleue"
+    },
+    {
+      "name": "vast-poni-canyon-inside",
+      "nameFr": "Grand Canyon de Poni - intérieur"
+    },
+    {
+      "name": "vast-poni-canyon-northwest",
+      "nameFr": "Grand Canyon de Poni - Nord-ouest"
+    },
+    {
+      "name": "vast-poni-canyon-outside",
+      "nameFr": "Grand Canyon de Poni - extérieur"
+    },
+    {
+      "name": "verdant-cavern-trial-site",
+      "nameFr": "Grotte Verdoyante"
+    },
+    {
+      "name": "wela-volcano-park-area",
+      "nameFr": "Parc Volcanique"
+    },
+    {
+      "name": "poke-pelago-poni-island-reached",
+      "nameFr": "Poké Loisir (à partir de Poni)"
+    },
+    {
+      "name": "poke-pelago-ulaula-island-reached",
+      "nameFr": "Poké Loisir (à partir d'Ula-Ula)"
+    },
+    {
+      "name": "poke-pelago-elite-four-defeated",
+      "nameFr": "Poké Loisir (une fois les crédits de fin vus)"
+    },
+    {
+      "name": "team-rockets-castle-area",
+      "nameFr": "Château Rocket"
+    },
+    {
+      "name": "ultra-megalopolis-area",
+      "nameFr": "Ultra-Mégalopole"
+    },
+    {
+      "name": "lush-jungle-all-areas",
+      "nameFr": "Jungle Sombrefeuille"
+    },
+    {
+      "name": "alola-route-17-all-areas",
+      "nameFr": "Route 17 (Alola)"
+    },
+    {
+      "name": "team-aqua-hideout-area",
+      "nameFr": "Planque Aqua"
+    },
+    {
+      "name": "team-magma-hideout-area",
+      "nameFr": "Planque Magma"
+    },
+    {
+      "name": "liberty-garden-lighthouse-basement",
+      "nameFr": "Phare de la Liberté - cave"
+    },
+    {
+      "name": "pinwheel-forest-rumination-field",
+      "nameFr": "Forêt d'Empoigne - Clairière Réflexion"
+    },
+    {
+      "name": "ns-castle-throne-room",
+      "nameFr": "Palais de N - salle du trône"
+    },
+    {
+      "name": "dragonspiral-tower-7f",
+      "nameFr": "Tour Dragospire (7ème ét.)"
+    },
+    {
+      "name": "reversal-mountain-b1f",
+      "nameFr": "Mont Renenvers (zone inconnue 48)"
+    },
+    {
+      "name": "twist-mountain-b4f",
+      "nameFr": ""
+    },
+    {
+      "name": "sea-spirits-den-area",
+      "nameFr": ""
+    },
+    {
+      "name": "unknown-dungeon-area",
+      "nameFr": ""
+    },
+    {
+      "name": "team-flare-secret-hq-area",
+      "nameFr": ""
+    },
+    {
+      "name": "trackless-forest-area",
+      "nameFr": ""
+    },
+    {
+      "name": "sea-mauville-inside",
+      "nameFr": ""
+    },
+    {
+      "name": "mauville-space-center-area",
+      "nameFr": ""
+    },
+    {
+      "name": "roaming-kalos-area",
+      "nameFr": ""
+    },
+    {
+      "name": "nameless-cavern-area",
+      "nameFr": ""
+    },
+    {
+      "name": "soaring-in-the-sky-area",
+      "nameFr": ""
+    },
+    {
+      "name": "scorched-slab-b3f",
+      "nameFr": ""
+    },
+    {
+      "name": "crescent-isle-area",
+      "nameFr": ""
+    },
+    {
+      "name": "pathless-plain-area",
+      "nameFr": ""
+    },
+    {
+      "name": "fabled-cave-area",
+      "nameFr": ""
+    },
+    {
+      "name": "gnarled-den-area",
+      "nameFr": ""
+    },
+    {
+      "name": "verdant-cavern--trial-site-area",
+      "nameFr": ""
+    },
+    {
+      "name": "trainers-school-area",
+      "nameFr": ""
+    },
+    {
+      "name": "ultra-space-ultra-space-wilds-cliff",
+      "nameFr": ""
+    },
+    {
+      "name": "ultra-space-ultra-space-wilds-water",
+      "nameFr": ""
+    },
+    {
+      "name": "ultra-space-ultra-space-wilds-rocky",
+      "nameFr": ""
+    },
+    {
+      "name": "ultra-space-ultra-space-wilds-cave",
+      "nameFr": ""
+    },
+    {
+      "name": "mount-lanakila-peak",
+      "nameFr": ""
+    }
+  ]
+}
