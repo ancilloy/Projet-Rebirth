@@ -153,7 +153,7 @@
             <img src="champ.png">
         </div>
         Ou souhaitez-vous partir aujourd'hui ?
-        <select id="areaSelect" class="on_est_trop_en_attente" disabled="true"><option id="loading_bar" value="">Veuillez patienter...</option></select>
+        <select id="areaSelect"></select>
 
         <br><br>
         <table class="main">
@@ -162,162 +162,149 @@
         </table>
 
         <script>
-            reloadList('chargestone-cave-1f');
+            allstats = ['hp', 'attack', 'defense', 'special-attack', 'special-defense', 'speed'];
+            statnames = ["PV", "Attaque", "Défense", "Attaque spéciale", "Défense spéciale", "Vitesse"];
+
             async function loadPicklist() {
-                console.log("Fetching...");
-                fetch('https://pokeapi.co/api/v2/location-area?limit=1054')
+                let areaSelect = document.getElementById("areaSelect");
+                await fetch('https://ancilloy.github.io/Projet-Rebirth/pokelocations.json')
                     .then(response => response.json())
                     .then(async data => {
-                        let bar = document.getElementById("loading_bar");
-                        let allOptions = [];
-                        let itemsNumber = data.results.length;
-                        for (let i=0; i<itemsNumber; i++) {
-                            let item = data.results[i];
-                            await fetch(item.url)
-                                .then(response => response.json())
-                                .then(data => {
-                                    console.log(`Analyzing ${data.name}... (${i}/${itemsNumber-1})`);
-                                    if (data.pokemon_encounters.length != 0 && data.names != null) {
-                                        let nameFrSlot = data.names.find(elt => elt.language.name == "fr");
-                                        if (nameFrSlot != null) {
-                                            newOption = document.createElement('option');
-                                            newOption.innerHTML = nameFrSlot.name;
-                                            newOption.value = data.name;
-                                            if (data.name == 'chargestone-cave-1f') { newOption.selected = true; }
-                                            allOptions.push(newOption);
-                                            //picklist.appendChild(newOption);
-                                        }
-                                    }
-                                    bar.innerHTML = `Veuillez patienter... ${loadBar(20, i, itemsNumber-1)}`;
-                            });
+                        locationList = data.locations.sort((a, b) => a.nameFr.localeCompare(b.nameFr));
+                        for (let i=0; i<locationList.length; i++) {
+                            let newOption = document.createElement("option");
+                            newOption.value = locationList[i].name;
+                            newOption.innerHTML = locationList[i].nameFr;
+                            areaSelect.appendChild(newOption);
                         }
-
-                        let picklist = document.getElementById('areaSelect');
-                        picklist.innerHTML = "";
-                        allOptions.sort((a, b) => a.innerHTML.localeCompare(b.innerHTML));
-                        for (let i=0; i<allOptions.length; i++) {
-                            picklist.appendChild(allOptions[i]);
-                        }
-                        picklist.disabled = false;
-                        picklist.className = "";
-                        picklist.onchange = areaList_ener;
                     });
+                areaSelect.value = 'chargestone-cave';
             }
             loadPicklist();
-
-            function loadBar(length, progress, total) {
-                let p = Math.floor(length * (progress / total));
-                return `[${"=".repeat(p)}${"-".repeat(length-p)}]`;
-            }
+            reloadList('chargestone-cave');
 
             function areaList_ener() {
                 //console.log(this.value);
                 reloadList(this.value);
             }
+            document.getElementById("areaSelect").onchange = areaList_ener;
 
             function reloadList(locationName) {
+                let areaSelect = document.getElementById("areaSelect");
+                areaSelect.classList.add("on_est_trop_en_attente");
+                areaSelect.disabled = true;
+
                 tableHead = document.getElementById('poketab-head');
                 tableHead.innerHTML = '<tr>' +
                         '<th>Sprite</th>' +
                         '<th>Nom</th>' +
                         '<th>Nom anglais</th>' +
                     '</tr>';
-                fetch('https://pokeapi.co/api/v2/location-area/' + locationName)
+
+                let tableBody = document.getElementById('poketab-body');
+                tableBody.innerHTML = "";
+
+                fetch('https://pokeapi.co/api/v2/location/' + locationName)
                     .then(response => response.json())
-                    .then(data => {
-                        // Fonction pour afficher les données
-                        parcoursListePoke(data.pokemon_encounters);
-                    })
-                    .catch(error => console.error('Erreur lors de l\'appel API :', error));
+                    .then(async data => {
+                        let pokeMap = new Map();
+                        for (let i=0; i<data.areas.length; i++) {
+                            console.log("Iterating on areas");
+                            await fetch(data.areas[i].url).then(response => response.json())
+                                .then(areaData => {
+                                    console.log(`Iterating on ${areaData.name}`);
+                                    console.log(areaData.pokemon_encounters);
+                                    for (let i=0; i<areaData.pokemon_encounters.length; i++) {
+                                        pokeMap.set(areaData.pokemon_encounters[i].pokemon.name, true);
+                                    }
+                                });
+                        }
+                        console.log("Done iterating");
+                        console.log(pokeMap);
+
+                        let rows = [];
+                        let keys = pokeMap.keys().toArray();
+                        for (let i=0; i<keys.length; i++) {
+                            rows.push( await newPokeRow(keys[i]) );
+                        }
+
+                        rows.sort((a, b) => a.order - b.order);
+                        for (let i=0; i<rows.length; i++) {
+                            tableBody.appendChild( rows[i] );
+                        }
+
+                        areaSelect.classList.remove("on_est_trop_en_attente");
+                        areaSelect.disabled = false;
+                    });
             }
 
             function capitalize(mot) {
                 return mot.charAt(0).toUpperCase() + mot.slice(1);
             }
 
-            function fetchPokemon(name, n) {
-                return fetch('https://pokeapi.co/api/v2/pokemon/' + name)
+            async function fetchPokemon(name, sprite, name_fr, name_en, dropstat) {
+                return await fetch('https://pokeapi.co/api/v2/pokemon/' + name)
                     .then(response => response.json())
                     .then(data => {
-                        sprite = document.getElementById(`poketab-row-${n}-spritecell`);
+                        let n = data.order;
                         let weight = (["diglett", "dugtrio"].includes(data.species.name)) ? -1 : data.weight / 10;
                         sprite.innerHTML = `<img id=poketab-row-${n}-sprite src="${ data.sprites.front_default }" class="jumpy" onClick="yipee(${n}, ${weight});">` +
                                             `<audio id="poketab-row-${n}-cry" src="${ data.cries.latest }" preload="auto"></audio>`;
 
-                        allstats = ['hp', 'attack', 'defense', 'special-attack', 'special-defense', 'speed'];
                         let total = 0;
 
-                        allstats.forEach(stati => {
-                            elt = document.getElementById(`poketab-row-${n}-${stati}`);
-                            let stat = data.stats.find(elt => elt.stat.name == stati).base_stat;
-                            elt.innerHTML = stat;
+                        for (let i=0; i<6; i++) {
+                            let row = document.createElement("tr");
+                            let stat = data.stats.find(elt => elt.stat.name == allstats[i]).base_stat;
+                            row.innerHTML = `<td class="header">${statnames[i]}</td><td class="value">${stat}</td>`;
+                            dropstat.appendChild(row);
                             total += stat;
-                        });
-                        document.getElementById(`poketab-row-${n}-bst`).innerHTML = total;
+                        }
+                        let row = document.createElement("tr");
+                        row.innerHTML = `<td class="header">Total</td><td class="value">${total}</td>`;
+                        dropstat.appendChild(row);
 
+                        fetchPokeSpecies(data.species.name, name_fr, name_en);
+                        return n;
                     })
                     .catch(error => console.error('Erreur lors de l\'appel API :', error));
             }
 
-            function fetchPokeSpecies(name, n) {
-                return fetch('https://pokeapi.co/api/v2/pokemon-species/' + name)
+            function fetchPokeSpecies(specieName, name_fr, name_en) {
+                return fetch('https://pokeapi.co/api/v2/pokemon-species/' + specieName)
                     .then(response => response.json())
                     .then(data => {
-                        name_fr = document.getElementById(`poketab-row-${n}-name-fr`);
-                        n = data.names.find(elt => elt.language.name == 'fr').name;
-                        name_fr.innerHTML = `<a href="https://www.pokepedia.fr/${n}">${n}</a>`;
+                        let ne = capitalize(data.name);
+                        name_en.innerHTML = `<a href="https://bulbapedia.bulbagarden.net/wiki/${ne}_(Pok%C3%A9mon)">${ne}</a>`;
+
+                        let nf = data.names.find(elt => elt.language.name == 'fr').name;
+                        name_fr.innerHTML = `<a href="https://www.pokepedia.fr/${nf}">${nf}</a>`;
                     })
                     .catch(error => console.error('Erreur lors de l\'appel API :', error));
             }
 
             // Fonction pour insérer les données dans la page
-            function parcoursListePoke(data) {
-                const tableBody = document.getElementById('poketab-body');
-                tableBody.innerHTML = "";
+            async function newPokeRow(pokeName) {
+                let row = document.createElement('tr');
+                row.className = "dropdown";
 
-                n = 1;
+                let sprite = document.createElement("td");
+                sprite.className = "jumpy_cell";
+                row.appendChild(sprite);
 
-                // Supposons que les données sont un tableau d'objets
-                data.forEach(item => {
+                let name_fr = document.createElement("td");
+                row.appendChild(name_fr);
 
-                    let row = document.createElement('tr');
-                    row.className = "dropdown";
+                let name_en = document.createElement("td");
+                row.appendChild(name_en);
 
-                    let sprite = document.createElement("td");
-                    sprite.id = `poketab-row-${n}-spritecell`;
-                    sprite.className = "jumpy_cell";
-                    row.appendChild(sprite);
+                let dropstat = document.createElement("table");
+                dropstat.className = "dropdown-content stat";
+                row.appendChild(dropstat);
 
-                    let name_fr = document.createElement("td");
-                    name_fr.id = `poketab-row-${n}-name-fr`;
-                    row.appendChild(name_fr);
+                row.order = await fetchPokemon(pokeName, sprite, name_fr, name_en, dropstat);
 
-                    let name_en = document.createElement("td");
-                    name_en.id = `poketab-row-${n}-name-en`;
-                    row.appendChild(name_en);
-
-                    let dropstat = document.createElement("table");
-                    dropstat.className = "dropdown-content stat";
-                    dropstat.innerHTML = `<tr><td class="header">PV</td>              <td id="poketab-row-${n}-hp"              class="value"></td></tr>` +
-                                         `<tr><td class="header">Attaque</td>         <td id="poketab-row-${n}-attack"          class="value"></td></tr>` +
-                                         `<tr><td class="header">Défense</td>         <td id="poketab-row-${n}-defense"         class="value"></td></tr>` +
-                                         `<tr><td class="header">Attaque spéciale</td><td id="poketab-row-${n}-special-attack"  class="value"></td></tr>` +
-                                         `<tr><td class="header">Défense spéciale</td><td id="poketab-row-${n}-special-defense" class="value"></td></tr>` +
-                                         `<tr><td class="header">Vitesse</td>         <td id="poketab-row-${n}-speed"           class="value"></td></tr>` +
-                                         `<tr><td class="header">Total</td>           <td id="poketab-row-${n}-bst"             class="value"></td></tr>`;
-                    row.appendChild(dropstat);
-
-                    tableBody.appendChild(row);
-
-                    fetchPokemon(item.pokemon.name, n);
-                    fetchPokeSpecies(item.pokemon.name, n);
-
-                    name_en = document.getElementById(`poketab-row-${n}-name-en`);
-                    name = capitalize(item.pokemon.name);
-                    name_en.innerHTML = `<a href="https://bulbapedia.bulbagarden.net/wiki/${name}_(Pok%C3%A9mon)">${name}</a>`;
-
-                    n += 1;
-                });
+                return row;
             }
 
             function yipee(n, weight) {

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Aéroport de Parsemille</title>
+        <style>
+            body {
+                background-color: #88e0b8;
+            }
+
+            a {
+                color: inherit;
+            }
+
+            div.header {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            h2 {
+                display: inline-block;
+                padding: 0 20px;
+                vertical-align: middle;
+            }
+
+            img[src="champ.png"] {
+                padding: 0;
+                vertical-align: middle;
+            }
+
+            #areaSelect {
+                font-family: monaco, Consolas, Lucida Console, monospace;
+            }
+
+            .on_est_trop_en_attente:hover {
+                cursor: wait;
+            }
+
+            .dropdown {
+                position: relative;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                top: 0%;
+                left: 100%;
+                background-color: #aaa;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            table.main {
+                color: #000;
+                overflow: visible;
+                background-color: #ccc;
+                margin: auto;
+                margin-bottom: 100px;
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            table.main > tbody > tr > td {
+                padding: 5px 35px 5px 5px;
+            }
+
+            table.main > thead > tr > th {
+                color: #fff;
+                background-color: #555;
+                text-align: left;
+                padding: 5px;
+            }
+
+            table.main > tbody > tr:nth-child(even) {
+                background-color: #bbb;
+            }
+
+            table.main > tbody > tr:hover {
+                background-color: #ddd;
+            }
+
+            table.stat td.header {
+                background-color: #666;
+                color: #fff;
+                white-space: nowrap;
+                border: 1px solid #000;
+                padding: 5px;
+            }
+
+            table.stat td.value {
+                background-color: #aaa;
+                color: #000;
+                border: 1px solid #000;
+                padding: 5px;
+            }
+
+            @keyframes jump_tier1 {
+                0%   {bottom: 0;}
+                50%  {bottom: 20%;}
+                100% {bottom: 0;}
+            }
+
+            @keyframes jump_tier2 {
+                0%   {bottom: 0;}
+                50%  {bottom: 45%;}
+                100% {bottom: 0;}
+            }
+
+            @keyframes jump_tier3 {
+                0%   {bottom: 0;}
+                50%  {bottom: 80%;}
+                100% {bottom: 0;}
+            }
+
+            .jumpy_cell {
+                position: relative;
+                height: 96px;
+                width: 96px;
+            }
+
+            .jumpy {
+                position: absolute;
+                bottom: 0%;
+                left: 0%;
+            }
+
+            .furious_jumper1 {
+                animation-name: jump_tier1;
+                animation-duration: 0.75s;
+            }
+
+            .furious_jumper2 {
+                animation-name: jump_tier2;
+                animation-duration: 0.75s;
+            }
+
+            .furious_jumper3 {
+                animation-name: jump_tier3;
+                animation-duration: 0.75s;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="header">
+            <img src="champ.png">
+            <h2>Bienvenue à l'aéroport de Parsemille</h2>
+            <img src="champ.png">
+        </div>
+        Ou souhaitez-vous partir aujourd'hui ?
+        <select id="areaSelect" class="on_est_trop_en_attente" disabled="true"><option id="loading_bar" value="">Veuillez patienter...</option></select>
+
+        <br><br>
+        <table class="main">
+            <thead id="poketab-head"></thead>
+            <tbody id="poketab-body"></thead>
+        </table>
+
+        <script>
+            reloadList('chargestone-cave-1f');
+            async function loadLocationPicklist() {
+                console.log("Fetching...");
+                let limit = await fetch('https://pokeapi.co/api/v2/location').then(async response => await response.json()).then(async data => await data.count);
+                fetch(`https://pokeapi.co/api/v2/location?limit=${limit}`)
+                    .then(response => response.json())
+                    .then(async data => {
+                        let bar = document.getElementById("loading_bar");
+                        allLocations = [];
+                        let itemsNumber = data.results.length;
+                        for (let i=0; i<itemsNumber; i++) {
+                            let item = data.results[i];
+                            await fetch(item.url)
+                                .then(response => response.json())
+                                .then(async data => {
+                                    console.log(`Analyzing ${data.name}... (${i}/${itemsNumber-1})`);
+                                    let pokeNumber = 0;
+                                    for (let i=0; data.areas!=null && i<data.areas.length; i++) {
+                                        pokeNumber += await fetch(data.areas[i].url).then(response => response.json())
+                                            .then(data => data.pokemon_encounters==null ? 0 : data.pokemon_encounters.length);
+                                    }
+
+                                    if (pokeNumber > 0) {
+                                        let nameFr = null;
+                                        if (data.names != null) {
+                                            let nameFrSlot = data.names.find(elt => elt.language.name == "fr");
+                                            nameFr = (nameFrSlot!=null) ? nameFrSlot.name : null;
+                                        }
+                                        allLocations.push({
+                                            name: data.name,
+                                            nameFr: nameFr
+                                        });
+                                    }
+
+                                    bar.innerHTML = `Veuillez patienter... ${loadBar(20, i, itemsNumber-1)}`;
+                            });
+                        }
+
+                        console.log(allLocations);
+                    });
+            }
+
+            async function loadLocationAreaPicklist() {
+                console.log("Fetching...");
+                let limit = await fetch('https://pokeapi.co/api/v2/location-area').then(async response => await response.json()).then(async data => await data.count);
+                fetch(`https://pokeapi.co/api/v2/location-area?limit=${limit}`)
+                    .then(response => response.json())
+                    .then(async data => {
+                        let bar = document.getElementById("loading_bar");
+                        allLocations = [];
+                        let itemsNumber = data.results.length;
+                        for (let i=0; i<itemsNumber; i++) {
+                            let item = data.results[i];
+                            await fetch(item.url)
+                                .then(response => response.json())
+                                .then(data => {
+                                    console.log(`Analyzing ${data.name}... (${i}/${itemsNumber-1})`);
+                                    if (data.pokemon_encounters.length != 0) {
+                                        let nameFr = null;
+                                        if (data.names != null) {
+                                            let nameFrSlot = data.names.find(elt => elt.language.name == "fr");
+                                            nameFr = (nameFrSlot!=null) ? nameFrSlot.name : null;
+                                        }
+                                        allLocations.push({
+                                            name: data.name,
+                                            nameFr: nameFr
+                                        });
+                                    }
+                                    bar.innerHTML = `Veuillez patienter... ${loadBar(20, i, itemsNumber-1)}`;
+                            });
+                        }
+
+                        console.log(allLocations);
+                    });
+            }
+
+            function loadBar(length, progress, total) {
+                let p = Math.floor(length * (progress / total));
+                return `[${"=".repeat(p)}${"-".repeat(length-p)}]`;
+            }
+
+            function areaList_ener() {
+                //console.log(this.value);
+                reloadList(this.value);
+            }
+
+            function reloadList(locationName) {
+                tableHead = document.getElementById('poketab-head');
+                tableHead.innerHTML = '<tr>' +
+                        '<th>Sprite</th>' +
+                        '<th>Nom</th>' +
+                        '<th>Nom anglais</th>' +
+                    '</tr>';
+                fetch('https://pokeapi.co/api/v2/location-area/' + locationName)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Fonction pour afficher les données
+                        parcoursListePoke(data.pokemon_encounters);
+                    })
+                    .catch(error => console.error('Erreur lors de l\'appel API :', error));
+            }
+
+            function capitalize(mot) {
+                return mot.charAt(0).toUpperCase() + mot.slice(1);
+            }
+
+            function fetchPokemon(name, n) {
+                return fetch('https://pokeapi.co/api/v2/pokemon/' + name)
+                    .then(response => response.json())
+                    .then(data => {
+                        sprite = document.getElementById(`poketab-row-${n}-spritecell`);
+                        let weight = (["diglett", "dugtrio"].includes(data.species.name)) ? -1 : data.weight / 10;
+                        sprite.innerHTML = `<img id=poketab-row-${n}-sprite src="${ data.sprites.front_default }" class="jumpy" onClick="yipee(${n}, ${weight});">` +
+                                            `<audio id="poketab-row-${n}-cry" src="${ data.cries.latest }" preload="auto"></audio>`;
+
+                        allstats = ['hp', 'attack', 'defense', 'special-attack', 'special-defense', 'speed'];
+                        let total = 0;
+
+                        for (let i=0; i<6; i++) {
+                            let elt = document.getElementById(`poketab-row-${n}-${allstats[i]}`);
+                            let stat = data.stats.find(elt => elt.stat.name == allstats[i]).base_stat;
+                            elt.innerHTML = stat;
+                            total += stat;
+                        }
+                        document.getElementById(`poketab-row-${n}-bst`).innerHTML = total;
+
+                    })
+                    .catch(error => console.error('Erreur lors de l\'appel API :', error));
+            }
+
+            function fetchPokeSpecies(name, n) {
+                return fetch('https://pokeapi.co/api/v2/pokemon-species/' + name)
+                    .then(response => response.json())
+                    .then(data => {
+                        name_fr = document.getElementById(`poketab-row-${n}-name-fr`);
+                        n = data.names.find(elt => elt.language.name == 'fr').name;
+                        name_fr.innerHTML = `<a href="https://www.pokepedia.fr/${n}">${n}</a>`;
+                    })
+                    .catch(error => console.error('Erreur lors de l\'appel API :', error));
+            }
+
+            // Fonction pour insérer les données dans la page
+            function parcoursListePoke(data) {
+                const tableBody = document.getElementById('poketab-body');
+                tableBody.innerHTML = "";
+
+                n = 1;
+
+                // Supposons que les données sont un tableau d'objets
+                for (let i=0; i<data.length; i++) {
+
+                    let row = document.createElement('tr');
+                    row.className = "dropdown";
+
+                    let sprite = document.createElement("td");
+                    sprite.id = `poketab-row-${n}-spritecell`;
+                    sprite.className = "jumpy_cell";
+                    row.appendChild(sprite);
+
+                    let name_fr = document.createElement("td");
+                    name_fr.id = `poketab-row-${n}-name-fr`;
+                    row.appendChild(name_fr);
+
+                    let name_en = document.createElement("td");
+                    name_en.id = `poketab-row-${n}-name-en`;
+                    row.appendChild(name_en);
+
+                    let dropstat = document.createElement("table");
+                    dropstat.className = "dropdown-content stat";
+                    dropstat.innerHTML = `<tr><td class="header">PV</td>              <td id="poketab-row-${n}-hp"              class="value"></td></tr>` +
+                                         `<tr><td class="header">Attaque</td>         <td id="poketab-row-${n}-attack"          class="value"></td></tr>` +
+                                         `<tr><td class="header">Défense</td>         <td id="poketab-row-${n}-defense"         class="value"></td></tr>` +
+                                         `<tr><td class="header">Attaque spéciale</td><td id="poketab-row-${n}-special-attack"  class="value"></td></tr>` +
+                                         `<tr><td class="header">Défense spéciale</td><td id="poketab-row-${n}-special-defense" class="value"></td></tr>` +
+                                         `<tr><td class="header">Vitesse</td>         <td id="poketab-row-${n}-speed"           class="value"></td></tr>` +
+                                         `<tr><td class="header">Total</td>           <td id="poketab-row-${n}-bst"             class="value"></td></tr>`;
+                    row.appendChild(dropstat);
+
+                    tableBody.appendChild(row);
+
+                    fetchPokemon(data[i].pokemon.name, n);
+                    fetchPokeSpecies(data[i].pokemon.name, n);
+
+                    name_en = document.getElementById(`poketab-row-${n}-name-en`);
+                    name = capitalize(data[i].pokemon.name);
+                    name_en.innerHTML = `<a href="https://bulbapedia.bulbagarden.net/wiki/${name}_(Pok%C3%A9mon)">${name}</a>`;
+
+                    n += 1;
+                }
+            }
+
+            function yipee(n, weight) {
+                document.getElementById(`poketab-row-${n}-cry`).play();
+                let sprite = document.getElementById(`poketab-row-${n}-sprite`);
+                if (weight > 0) {
+                let tier = (weight >= 150) ? 1 : ((weight >= 50) ? 2 : 3);
+                    sprite.classList.add(`furious_jumper${tier}`);
+                    setTimeout(function(){
+                        sprite.classList.remove(`furious_jumper${tier}`);
+                    }, 750);
+                }
+            }
+        </script>
+    </body>
+</html>

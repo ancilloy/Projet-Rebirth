@@ -17,7 +17,7 @@
 
             .main {
                 color: #00aeff;
-                background-color: #48608099;
+                background-color: #3b4e6899;
                 border: 1px solid #333;
 
                 width: 90%;
@@ -27,6 +27,11 @@
             }
 
             .submain {
+                padding: 5px;
+            }
+
+            .submain > p {
+                text-indent: 2%;
                 padding: 5px;
             }
 
@@ -58,6 +63,10 @@
             img[src="rocher_flottant.png"] {
                 padding: 0;
                 vertical-align: middle;
+            }
+
+            .hold-tf-up {
+                cursor: wait;
             }
 
 
@@ -348,8 +357,6 @@
                 border: 1px solid #333;
                 background-color: #577586;
                 border-spacing: 5px;
-                margin: auto;
-                margin-top: 10px;
                 margin-bottom: 10px;
                 border-radius: 5px;
             }
@@ -362,12 +369,19 @@
                 padding: 5px;
                 margin: 5px;
                 border-radius: 5px;
+                cursor: default;
             }
 
             table.results th.pushed, table.results td.pushed {
                 border-color: #406360 #90dfd8 #90dfd8 #406360;
                 background-color: #4d7874;
                 color: #009be2;
+            }
+
+            .mandatory::after {
+                content: '*';
+                color: red;
+                margin-left: 3px;
             }
 
 
@@ -429,11 +443,27 @@
             <div class="submain">
                 <div class="header">
                     <img src="rocher_flottant.png">
-                    <h2>Bienvenue dans la Grotte Electrolithe</h2>
-                    <img src="rocher_flottant.png" onclick="rotateSummaries();">
+                    <h2>Grotte Électrolithe</h2>
+                    <img id="secretRock" src="rocher_flottant.png" onclick="rotateSummaries();">
                 </div>
 
-                <div id="genSelectBlock">
+                <p>
+                    La Grotte Électrolithe est un calculateur de statistiques de Pokémon. Entrez dans les champs
+                    ci-dessous les informations générales sur votre Pokémon ainsi que ses statistiques à différents
+                    niveaux et différents stades de la partie.
+                </p>
+
+                <p>
+                    En vérité, il n'est pas possible de calculer précisément les IV et EV d'un Pokémon à partir de ces
+                    données, mais seulement de définir un ensemble de valeurs possibles. Certains éléments
+                    supplémentaires, comme la caractéristique ou le type de la Puissance Cachée, peuvent légèrement
+                    affiner ce calcul, mais pas d'arriver à une certitude. Ce calculateur montre donc l'ensemble des
+                    valeurs possibles à partir des données fournies, et propose une série d'IV et d'EV qui correspondent
+                    au Pokémon sur son dernier résumé, choisie au hasard, et directement importable sur Pokémon
+                    Showdown.
+                </p>
+
+                <div id="genSelectBlock" style="margin-top: 50px;">
                     <span style="font-weight: bold; margin-right: 10px;">Entrez la génération du jeu :</span><select id="genSelect"></select>
                 </div>
 
@@ -490,7 +520,6 @@
 
 
                 <div id="zack_slider" class="slider_base">
-                    Il peut y avoir des erreurs dans les stats de base des Pokémon. En cas de problème, n'hésitez pas à vérifier les données ci-dessous et à les modifier, puis à relancer le calculateur.
                     <table class="form bst">
                         <thead>
                             <tr>
@@ -542,15 +571,18 @@
 
                 <center><input class="pushy" type="submit" value="Process" onClick="process(); return false;"/></center>
                 <div id="processBlock" class="not-displayed">
+                    <h3>Résultat</h3>
+                    <div id="resultsBlock"></div>
                     <div class="spoiler">
                         <div class="spoiler_header prevent-select" onclick="spoiler('detailedResults');">
                             <span id="detailedResults_icon1" class="material-symbols-outlined">add</span>
-                            Détails
+                            Résultats détaillés
                             <span id="detailedResults_icon2" class="material-symbols-outlined">add</span>
                         </div>
                         <div id="detailedResults" class="spoiler_content not-displayed"></div>
                     </div>
-                    <div id="resultsBlock"></div>
+
+                    <h3>Export Showdown</h3>
                     <div class="export">
                         <button id="copyButton" class="prevent-select" onclick="copyExport();">Copier</button>
                         <p id="export"></p>
@@ -597,121 +629,6 @@
                 async function pokegen_list_ener() {
                     await updatePokeList(this.value);
                 }
-
-                // Prewritten summaries for testing purposes
-                summaries = [
-                    {
-                        gen: 5,
-                        pokeGen: 5,
-                        specie: 593,
-                        nature: "naive",
-                        caract: "defense:1",
-                        typePC: "???100:17:20",
-                        stats: [
-                            {
-                                forme:"jellicent",
-                                niveau: 52,
-                                pv:  172,
-                                atk: 80,
-                                def: 93,
-                                asp: 108,
-                                dsp: 109,
-                                vit: 86
-                            }
-                        ]
-                    },
-                    {
-                        gen: 5,
-                        pokeGen: 5,
-                        specie: 576,
-                        nature: "relaxed",
-                        caract: "defense:3",
-                        typePC: "????0?:13:16",
-                        stats: [
-                            {
-                                forme:"gothita",
-                                niveau: 27,
-                                pv:  61,
-                                atk: 26,
-                                def: 42,
-                                asp: 39,
-                                dsp: 40,
-                                vit: 30
-                            },
-                            {
-                                forme:"gothita",
-                                niveau: 31,
-                                pv:  70,
-                                atk: 31,
-                                def: 48,
-                                asp: 44,
-                                dsp: 45,
-                                vit: 35
-                            },
-                            {
-                                forme:"gothorita",
-                                niveau: 37,
-                                pv:  93,
-                                atk: 49,
-                                def: 75,
-                                asp: 66,
-                                dsp: 68,
-                                vit: 49
-                            },
-                            {
-                                forme:"gothorita",
-                                niveau: 38,
-                                pv:  96,
-                                atk: 51,
-                                def: 78,
-                                asp: 68,
-                                dsp: 70,
-                                vit: 51
-                            },
-                            {
-                                forme:"gothitelle",
-                                niveau: 43,
-                                pv:  116,
-                                atk: 69,
-                                def: 111,
-                                asp: 94,
-                                dsp: 100,
-                                vit: 66
-                            },
-                            {
-                                forme:"gothitelle",
-                                niveau: 52,
-                                pv:  144,
-                                atk: 85,
-                                def: 134,
-                                asp: 113,
-                                dsp: 120,
-                                vit: 80
-                            }
-                        ]
-                    },
-                    {
-                        gen: 5,
-                        pokeGen: 5,
-                        specie: 523,
-                        nature: "modest",
-                        caract: "special-defense:2",
-                        typePC: "111111:63:63",
-                        stats: [
-                            {
-                                forme:"zebstrika",
-                                niveau: 52,
-                                pv:  154,
-                                atk: 104,
-                                def: 72,
-                                asp: 99,
-                                dsp: 84,
-                                vit: 151
-                            }
-                        ]
-                    }
-                ];
-
 
 
 
@@ -1034,14 +951,6 @@
                     }
                     detailsBlock.appendChild(detailsTable);
 
-                    let pcNumber =  (results[4].iv %2)*32 +
-                                    (results[3].iv %2)*16 +
-                                    (results[5].iv %2)*8  +
-                                    (results[2].iv %2)*4  +
-                                    (results[1].iv %2)*2  +
-                                    (results[0].iv %2)*1  ;
-                    detailsBlock.innerHTML += `<br>Valeur PC : ${pcNumber}.`;
-
                     let resultsBlock = document.getElementById("resultsBlock");
                     resultsBlock.innerHTML = "";
 
@@ -1183,9 +1092,16 @@
 
                 nextSummary = 0;
                 // Passe au résumé suivant
-                function rotateSummaries() {
-                    loadSummary(summaries[nextSummary]);
-                    nextSummary = (nextSummary + 1) % summaries.length;
+                async function rotateSummaries() {
+                    let rock = document.getElementById("secretRock");
+                    rock.classList.add("hold-tf-up");
+                    fetch('https://ancilloy.github.io/Projet-Rebirth/pokesummaries.json')
+                        .then(response => response.json())
+                        .then(async data => {
+                            await loadSummary(data.summaries[nextSummary]);
+                            nextSummary = (nextSummary + 1) % data.summaries.length;
+                            rock.classList.remove("hold-tf-up");
+                        });
                 }
 
 
