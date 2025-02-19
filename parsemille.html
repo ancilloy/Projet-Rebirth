@@ -153,7 +153,9 @@
             <img src="champ.png">
         </div>
         Ou souhaitez-vous partir aujourd'hui ?
-        <select id="areaSelect"></select>
+        <select id="areaSelect">
+            <option id="firstLoadBar" value="chargestone-cave">Grotte Électrolithe</option>
+        </select>
 
         <br><br>
         <table class="main">
@@ -181,20 +183,35 @@
                 areaSelect.value = 'chargestone-cave';
             }
             loadPicklist();
-            reloadList('chargestone-cave');
+
+            async function firstLoad() {
+                let firstLoadBar = document.getElementById("firstLoadBar");
+                await reloadList(firstLoadBar);
+                firstLoadBar.remove();
+                document.getElementById("areaSelect").value = 'chargestone-cave';
+            }
+            firstLoad();
+
+            function loadBar(length, progress, total) {
+                let p = Math.floor(length * (progress / total));
+                return `[${"=".repeat(p)}${"-".repeat(length-p)}]`;
+            }
 
             function areaList_ener() {
                 //console.log(this.value);
-                reloadList(this.value);
+                reloadList(this.selectedOptions[0]);
             }
             document.getElementById("areaSelect").onchange = areaList_ener;
 
-            function reloadList(locationName) {
+            async function reloadList(locationOption) {
                 let areaSelect = document.getElementById("areaSelect");
                 areaSelect.classList.add("on_est_trop_en_attente");
                 areaSelect.disabled = true;
 
-                tableHead = document.getElementById('poketab-head');
+                let locationName = locationOption.innerHTML;
+                locationOption.innerHTML = `${locationName} ${loadBar(25, 0, 25)}`;
+
+                let tableHead = document.getElementById('poketab-head');
                 tableHead.innerHTML = '<tr>' +
                         '<th>Sprite</th>' +
                         '<th>Nom</th>' +
@@ -204,23 +221,21 @@
                 let tableBody = document.getElementById('poketab-body');
                 tableBody.innerHTML = "";
 
-                fetch('https://pokeapi.co/api/v2/location/' + locationName)
+                await fetch('https://pokeapi.co/api/v2/location/' + locationOption.value)
                     .then(response => response.json())
                     .then(async data => {
                         let pokeMap = new Map();
-                        for (let i=0; i<data.areas.length; i++) {
-                            console.log("Iterating on areas");
+                        let iMax = data.areas.length;
+                        for (let i=0; i<iMax; i++) {
                             await fetch(data.areas[i].url).then(response => response.json())
                                 .then(areaData => {
-                                    console.log(`Iterating on ${areaData.name}`);
-                                    console.log(areaData.pokemon_encounters);
-                                    for (let i=0; i<areaData.pokemon_encounters.length; i++) {
-                                        pokeMap.set(areaData.pokemon_encounters[i].pokemon.name, true);
+                                    let jMax = areaData.pokemon_encounters.length;
+                                    for (let j=0; j<jMax; j++) {
+                                        pokeMap.set(areaData.pokemon_encounters[j].pokemon.name, true);
+                                        locationOption.innerHTML = `${locationName} ${loadBar(25, i*(20/iMax) + j*(20/iMax)/jMax, 25)}`;
                                     }
                                 });
                         }
-                        console.log("Done iterating");
-                        console.log(pokeMap);
 
                         let rows = [];
                         let keys = pokeMap.keys().toArray();
@@ -233,6 +248,7 @@
                             tableBody.appendChild( rows[i] );
                         }
 
+                        locationOption.innerHTML = locationName;
                         areaSelect.classList.remove("on_est_trop_en_attente");
                         areaSelect.disabled = false;
                     });
