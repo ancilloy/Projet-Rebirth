@@ -1991,6 +1991,10 @@
     {
       "name": "roaming-kalos",
       "nameFr": "Sillonnant Kalos"
+    },
+    {
+      "name": "pokeplace",
+      "nameFr": "Place Pokémon"
     }
   ],
 
