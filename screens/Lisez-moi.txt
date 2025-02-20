@@ -1,0 +1,4 @@
+Dialogue 100 : quand on parle au Pokémon avec entre 100% et 50% de PV restants.
+Dialogue 50 : quand on parle au Pokémon avec entre 50% et 25% de PV restants.
+Dialogue 25 : quand on parle au Pokémon avec moins de 25% de PV restants.
+Dialogue Niveau : quand le Pokémon monte de niveau.

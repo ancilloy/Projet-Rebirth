@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            h1 {
+                text-align: center;
+            }
+
+            table {
+                margin: auto;
+                border: 1px solid black;
+                border-spacing: 0;
+            }
+
+            th {
+                background-color: lightgray;
+                padding: 10px;
+            }
+
+            td {
+                border-top: 1px solid black;
+                border-bottom: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Place Pokémon</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Dialogue full vie</th>
+                    <th>Dialogue mid vie</th>
+                    <th>Dialogue basse vie</th>
+                    <th>Dialogue niveau</th>
+                </tr>
+            </thead>
+            <tbody id="screenTbody"></tbody>
+        </table>
+        <script>
+            function fetchScreens() {
+                fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
+                    .then(async response => await response.json())
+                    .then(data => {
+                        let screenTbody = document.getElementById("screenTbody");
+                        for (let g=1; g<=3; g++) {
+                            for (let i=0; i<data.listNames[g].length; i++) {
+                                let nameFr = data.listNames[g][i].french;
+                                let nameList = [];
+                                // Exception handling
+                                switch(nameFr) {
+                                    case "Nidoran♀":
+                                        nameList = ["Nidoran-F"];
+                                        break;
+                                    case "Nidoran♂":
+                                        nameList = ["Nidoran-M"];
+                                        break;
+                                    case "Deoxys":
+                                        nameList = ["Deoxys-Normal", "Deoxys-Attaque", "Deoxys-Défense", "Deoxys-Vitesse"];
+                                        break;
+                                    default:
+                                        nameList = [nameFr];
+                                        break;
+                                }
+
+                                for(let j=0; j<nameList.length; j++) {
+                                    let name = nameList[j];
+
+                                    let newRow = document.createElement("tr");
+
+                                    let cellName = document.createElement("td");
+                                    cellName.innerHTML = name;
+                                    newRow.appendChild(cellName);
+
+                                    let cell100 = document.createElement("td");
+                                    cell100.innerHTML    = `<img src="screens/PDMRB_${name}_Dialogue_100.png">`;
+                                    newRow.appendChild(cell100);
+
+                                    let cell50 = document.createElement("td");
+                                    cell50.innerHTML     = `<img src="screens/PDMRB_${name}_Dialogue_50.png">`;
+                                    newRow.appendChild(cell50);
+
+                                    let cell25 = document.createElement("td");
+                                    cell25.innerHTML     = `<img src="screens/PDMRB_${name}_Dialogue_25.png">`;
+                                    newRow.appendChild(cell25);
+
+                                    let cellNiveau = document.createElement("td");
+                                    cellNiveau.innerHTML = `<img src="screens/PDMRB_${name}_Dialogue_Niveau.png">`;
+                                    newRow.appendChild(cellNiveau);
+
+                                    screenTbody.appendChild(newRow);
+                                }
+                            }
+                        }
+                });
+            }
+            fetchScreens();
+        </script>
+    </body>
+</html>
