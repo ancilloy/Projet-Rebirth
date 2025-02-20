@@ -181,6 +181,7 @@
                             areaSelect.appendChild(newOption);
                         }
                     });
+
                 areaSelect.value = 'chargestone-cave';
             }
             loadPicklist();
@@ -199,8 +200,11 @@
             }
 
             function areaList_ener() {
-                //console.log(this.value);
-                reloadList(this.selectedOptions[0]);
+                if (this.selectedOptions[0].value=="pokeplace") {
+                    window.location.href = "pokeplace.html";
+                } else {
+                    reloadList(this.selectedOptions[0]);
+                }
             }
             document.getElementById("areaSelect").onchange = areaList_ener;
 
