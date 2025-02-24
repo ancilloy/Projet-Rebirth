@@ -39,8 +39,8 @@
             <tbody id="screenTbody"></tbody>
         </table>
         <script>
-            function fetchScreens() {
-                fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
+            async function fetchScreens() {
+                await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
                     .then(async response => await response.json())
                     .then(data => {
                         let screenTbody = document.getElementById("screenTbody");
@@ -68,6 +68,7 @@
                                     let name = nameList[j];
 
                                     let newRow = document.createElement("tr");
+                                    newRow.id = "row-" + name.toLowerCase();
 
                                     let cellName = document.createElement("td");
                                     cellName.innerHTML = name;
@@ -94,6 +95,9 @@
                             }
                         }
                 });
+                let urlParams = new URLSearchParams(window.location.search);
+                let poke = urlParams.get("poke");
+                if (poke!=null) { document.getElementById("row-" + poke).scrollIntoView(); }
             }
             fetchScreens();
         </script>
