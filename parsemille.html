@@ -81,7 +81,7 @@
                 overflow: visible;
                 background-color: #ccc;
                 margin: auto;
-                margin-bottom: 130px;
+                margin-bottom: 180px;
             }
 
             table {
@@ -121,6 +121,14 @@
                 color: #000;
                 border: 1px solid #000;
                 padding: 5px;
+            }
+
+            table.stat td.lastRow {
+                background-color: #aaa;
+                color: #000;
+                border: 1px solid #000;
+                padding: 0;
+                text-align: center;
             }
 
             .explorer {
@@ -317,13 +325,16 @@
                         row.innerHTML = `<td class="header">Total</td><td class="value">${total}</td>`;
                         dropstat.appendChild(row);
 
-                        fetchPokeSpecies(data.species.name, name_fr, name_en);
+                        let lastRow = document.createElement("tr");
+                        dropstat.appendChild(lastRow);
+
+                        fetchPokeSpecies(data.species.name, name_fr, name_en, lastRow);
                         return n;
                     })
                     .catch(error => console.error('Erreur lors de l\'appel API :', error));
             }
 
-            function fetchPokeSpecies(specieName, name_fr, name_en) {
+            function fetchPokeSpecies(specieName, name_fr, name_en, lastRow) {
                 return fetch('https://pokeapi.co/api/v2/pokemon-species/' + specieName)
                     .then(response => response.json())
                     .then(data => {
@@ -332,8 +343,11 @@
 
                         let nf = data.names.find(elt => elt.language.name == 'fr').name;
                         name_fr.innerHTML = `<a href="https://www.pokepedia.fr/${nf}">${nf}</a>`;
+
                         if (["generation-i", "generation-ii", "generation-iii"].includes(data.generation.name)) {
-                            name_fr.innerHTML += `<a href="pokeplace.html?poke=${nf.toLowerCase()}"><img class="explorer" src="https://archives.bulbagarden.net/media/upload/3/30/Normal_Rank_TDS.png" height=16 width=16/></a>`;
+                            lastRow.innerHTML = `<td colspan="2" class="lastRow"><a href="pokeplace.html?poke=${nf.toLowerCase()}"><img class="explorer" src="https://archives.bulbagarden.net/media/upload/3/30/Normal_Rank_TDS.png" height=16 width=16/></a></td>`;
+                        } else {
+                            lastRow.remove();
                         }
                     })
                     .catch(error => console.error('Erreur lors de l\'appel API :', error));
