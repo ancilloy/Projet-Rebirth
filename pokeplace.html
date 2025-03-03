@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <title>Place Pokémon</title>
+        <link rel="shortcut icon" type="image/x-icon" href="https://archives.bulbagarden.net/media/upload/3/30/Normal_Rank_TDS.png" />
+
         <style>
+            body {
+                background-image: url("pokeplace_blur.png");
+                background-size: cover;
+                background-attachment: fixed;
+            }
+
             h1 {
                 text-align: center;
             }
@@ -13,13 +22,30 @@
             }
 
             th {
-                background-color: lightgray;
+                background-color: darkslategray;
+                color: white;
                 padding: 10px;
             }
 
             td {
                 border-top: 1px solid black;
                 border-bottom: 1px solid black;
+            }
+
+            tr {
+                background-color: lightgray;
+            }
+
+            tr:hover {
+                background-color: darkgrey;
+            }
+
+            img {
+                opacity: 0.85;
+            }
+
+            tr:hover img {
+                opacity: 1;
             }
         </style>
     </head>
