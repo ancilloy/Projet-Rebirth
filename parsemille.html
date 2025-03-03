@@ -3,15 +3,38 @@
     <head>
         <title>Aéroport de Parsemille</title>
         <style>
+            html {
+                height: 100%;
+            }
+
             body {
-                background-color: #88e0b8;
+                background-image: url("je_suis_pilote.png");
+                background-size: cover;
+                background-attachment: fixed;
+                margin: 0;
+                height: 100%;
+                overflow-y: hidden;
+            }
+
+            div.header {
+                padding: 10px;
+                border-bottom: #000 1px solid;
+                height: 20%;
+            }
+
+            div.content {
+                padding: 10px;
+                height: 80%;
+                overflow-y: scroll;
+                scrollbar-width: 10px;
+                padding-left: 20px;
             }
 
             a {
                 color: inherit;
             }
 
-            div.header {
+            div.title {
                 text-align: center;
                 margin-bottom: 20px;
             }
@@ -58,7 +81,7 @@
                 overflow: visible;
                 background-color: #ccc;
                 margin: auto;
-                margin-bottom: 100px;
+                margin-bottom: 130px;
             }
 
             table {
@@ -155,20 +178,23 @@
 
     <body>
         <div class="header">
-            <img src="champ.png">
-            <h2>Bienvenue à l'aéroport de Parsemille</h2>
-            <img src="champ.png">
+            <div class="title">
+                <img src="champ.png">
+                <h2>Bienvenue à l'aéroport de Parsemille</h2>
+                <img src="champ.png">
+            </div>
+            Ou souhaitez-vous partir aujourd'hui ?
+            <select id="areaSelect">
+                <option id="firstLoadBar" value="chargestone-cave">Grotte Électrolithe</option>
+            </select>
         </div>
-        Ou souhaitez-vous partir aujourd'hui ?
-        <select id="areaSelect">
-            <option id="firstLoadBar" value="chargestone-cave">Grotte Électrolithe</option>
-        </select>
 
-        <br><br>
-        <table class="main">
-            <thead id="poketab-head"></thead>
-            <tbody id="poketab-body"></thead>
-        </table>
+        <div class="content">
+            <table class="main">
+                <thead id="poketab-head"></thead>
+                <tbody id="poketab-body"></thead>
+            </table>
+        </div>
 
         <script>
             allstats = ['hp', 'attack', 'defense', 'special-attack', 'special-defense', 'speed'];
