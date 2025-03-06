@@ -6,7 +6,7 @@
 
         <style>
             body {
-                background-image: url("pokeplace_blur.png");
+                background-image: url("assets/images/pokeplace_blur.png");
                 background-size: cover;
                 background-attachment: fixed;
             }
@@ -66,7 +66,7 @@
         </table>
         <script>
             async function fetchScreens() {
-                await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
+                await fetch('https://ancilloy.github.io/Projet-Rebirth/json/pokedata.json')
                     .then(async response => await response.json())
                     .then(data => {
                         let screenTbody = document.getElementById("screenTbody");
@@ -101,19 +101,19 @@
                                     newRow.appendChild(cellName);
 
                                     let cell100 = document.createElement("td");
-                                    cell100.innerHTML    = `<img src="screens/PDMRB_${name}_Dialogue_100.png">`;
+                                    cell100.innerHTML    = `<img src="assets/screens/PDMRB_${name}_Dialogue_100.png">`;
                                     newRow.appendChild(cell100);
 
                                     let cell50 = document.createElement("td");
-                                    cell50.innerHTML     = `<img src="screens/PDMRB_${name}_Dialogue_50.png">`;
+                                    cell50.innerHTML     = `<img src="assets/screens/PDMRB_${name}_Dialogue_50.png">`;
                                     newRow.appendChild(cell50);
 
                                     let cell25 = document.createElement("td");
-                                    cell25.innerHTML     = `<img src="screens/PDMRB_${name}_Dialogue_25.png">`;
+                                    cell25.innerHTML     = `<img src="assets/screens/PDMRB_${name}_Dialogue_25.png">`;
                                     newRow.appendChild(cell25);
 
                                     let cellNiveau = document.createElement("td");
-                                    cellNiveau.innerHTML = `<img src="screens/PDMRB_${name}_Dialogue_Niveau.png">`;
+                                    cellNiveau.innerHTML = `<img src="assets/screens/PDMRB_${name}_Dialogue_Niveau.png">`;
                                     newRow.appendChild(cellNiveau);
 
                                     screenTbody.appendChild(newRow);

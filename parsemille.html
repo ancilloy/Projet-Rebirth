@@ -8,7 +8,7 @@
             }
 
             body {
-                background-image: url("je_suis_pilote.png");
+                background-image: url("assets/images/je_suis_pilote.png");
                 background-size: cover;
                 background-attachment: fixed;
                 margin: 0;
@@ -45,7 +45,7 @@
                 vertical-align: middle;
             }
 
-            img[src="champ.png"] {
+            img[src="assets/images/champ.png"] {
                 padding: 0;
                 vertical-align: middle;
             }
@@ -187,9 +187,9 @@
     <body>
         <div class="header">
             <div class="title">
-                <img src="champ.png">
+                <img src="assets/images/champ.png">
                 <h2>Bienvenue à l'aéroport de Parsemille</h2>
-                <img src="champ.png">
+                <img src="assets/images/champ.png">
             </div>
             Ou souhaitez-vous partir aujourd'hui ?
             <select id="areaSelect">
@@ -210,7 +210,7 @@
 
             async function loadPicklist() {
                 let areaSelect = document.getElementById("areaSelect");
-                await fetch('https://ancilloy.github.io/Projet-Rebirth/pokelocations.json')
+                await fetch('https://ancilloy.github.io/Projet-Rebirth/json/pokelocations.json')
                     .then(response => response.json())
                     .then(async data => {
                         locationList = data.locations.sort((a, b) => a.nameFr.localeCompare(b.nameFr));

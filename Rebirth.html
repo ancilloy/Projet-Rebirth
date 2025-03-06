@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" type="image/x-icon" href="ico.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/icones/ico.ico" />
     <title>Project Rebirth</title>
 <!--JaajaScript-->
     <script>
@@ -21,7 +21,7 @@
             let finalCast = [];
             var pageAlpha = document.getElementsByClassName("Alpha");
             var pageBeta = document.getElementsByClassName("Beta");
-        //passage    
+        //passage
             let passageSwitchPage = 0;
             let passageRevealing = -1;
         //tools
@@ -29,7 +29,7 @@
 
 
 
-    
+
 
 
     //Small functions
@@ -80,7 +80,7 @@
 
         //Counting Deaths
             function deadPeople() {
-                
+
                 let bodies_Nbr = 0;
                 let bodies = [];
                 let students = [];
@@ -88,7 +88,7 @@
                 dangandata.forEach((data, index) => {
                     const isDead = data.status === "Dead";
                     const name = data.name === "K1" ? `${data.name}-${data.lname}` : data.name;
-                    
+
                     if (isDead) {
                         bodies_Nbr++;
                         bodies.push(name);
@@ -101,10 +101,10 @@
                 });
             }
 
-            
+
         //Tell Alive/Dead
             function results(bodies_Nbr, bodies, students) {
-                
+
                 document.getElementById.quote && document.getElementById.author;
             //No death
                 if (bodies_Nbr == 0) {
@@ -125,7 +125,7 @@
                     else if (bodies_Nbr == 6) {
                         quote.textContent = "Au premier crépuscule, les six choisis par la clé seront sacrifiés."
                     }
-                //Multiples deaths 
+                //Multiples deaths
                     else {
                     bodiesAlt = bodies[0] + ", ainsi que de " + bodies.slice(1, -1).join(', ') + ", et " + bodies[bodies.length - 1];
                     quote.textContent = "À tous les étudiants. Aujourd'hui, " + bodies_Nbr + " personnes sont mortes. Il s'agit de " + bodiesAlt
@@ -166,7 +166,7 @@
         //Get data from .JSON
             async function fetchData() {
                 try {
-                    const response = await fetch("https://ancilloy.github.io/Projet-Rebirth/dangandata.json");
+                    const response = await fetch("https://ancilloy.github.io/Projet-Rebirth/json/dangandata.json");
                     dangandata = await response.json();
                     displayData(dangandata);
                 } catch (error) {
@@ -174,7 +174,7 @@
                 }
             }
 
-            
+
 
         //Display data from .JSON
         function displayData(dangandata) {
@@ -202,7 +202,7 @@
 
                 //Checkbox + ID
                     const checkbox = document.createElement('input');
-                    checkbox.type = 'checkbox'; 
+                    checkbox.type = 'checkbox';
                     checkbox.id = `Live_${index}`;
                     checkbox.addEventListener('change', () => updateValue(indexCopy));
 
@@ -218,7 +218,7 @@
 
         function updateValue(indexCopy){
             if (dangandata[indexCopy].status == "Alive"){
-                
+
                 AliveToDead(indexCopy);
             }
             else {
@@ -316,7 +316,7 @@
             //All (Dead) : Swap left image + Right texts
                 else {
                     document.getElementById('danganleft').src = (character.dead2);
-                    if (character.name !== "K1") {                    
+                    if (character.name !== "K1") {
                         document.getElementById('quote').textContent = "\"Regarde-moi, je suis " + character.name + ", je mange ton gâteau.";
 
                     }
@@ -326,7 +326,7 @@
                     document.getElementById('author').textContent = "- Mokonokuma"
                 }
             }
-        
+
 
 
         //Switching pages
@@ -351,10 +351,10 @@
                     passageRevealing = 11;
                     revealing();
                 }
-                
+
                 const showNo = state ? "block" : "none";
                 const showYes = state ? "none" : "block";
-                
+
                 for (let i = 0; i < pageAlpha.length; i++) {
                     pageAlpha[i].style.display = showNo;
                 }
@@ -366,7 +366,7 @@
 
 
 
-            
+
             function revealing() {
                 if (nowpage == 1){
                     passageRevealing++;
@@ -446,7 +446,7 @@
 
         function selectAll() {
             const checkboxes = document.querySelectorAll('#danganTable input[type="checkbox"]');
-            
+
             const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
             checkboxes.forEach(checkbox => checkbox.checked = !allChecked);
             if (allChecked == true) {
@@ -470,7 +470,7 @@
 
 <!--Cedrick Pagx-->
 <div class="Charpenti">
-    <img id="switchlogo" src="Switch.png" draggable="false" onclick="switchPage()">
+    <img id="switchlogo" src="assets/images/Switch.png" draggable="false" onclick="switchPage()">
 </div>
 
 <!--Page 1-->
@@ -490,8 +490,8 @@
                 <a href=electrolithe.html><button>Grotte Electrolithe</button></a>
                 <input type="submit" value="Everyone" onClick="selectAll(); return false;"/>
             <!--Kaede does who the fuck knows what-->
-                <audio id="audio-player" src="Debussy - Clair de Lune.mp3" preload="auto"></audio>
-<!--                <audio id="audio-player2" src="HB.mp3" preload="auto"></audio>-->
+                <audio id="audio-player" src="assets/audio/Debussy - Clair de Lune.mp3" preload="auto"></audio>
+<!--                <audio id="audio-player2" src="assets/audio/HB.mp3" preload="auto"></audio>-->
             </div>
         <!--Block 3-->
             <div class="block right">
@@ -499,7 +499,7 @@
                     <p id="quote">"On vient pas de la street, nous ?"</p>
                 </div>
                 <div>
-                    <p id="author">- Nounours</p>                
+                    <p id="author">- Nounours</p>
                 </div>
             </div>
         </div>

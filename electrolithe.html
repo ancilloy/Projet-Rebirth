@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
         <style>
             body {
-                background-image: url('electroblur.png');
+                background-image: url('assets/images/electroblur.png');
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-position: center;
@@ -60,7 +60,7 @@
                 vertical-align: middle;
             }
 
-            img[src="rocher_flottant.png"] {
+            img[src="assets/images/rocher_flottant.png"] {
                 padding: 0;
                 vertical-align: middle;
             }
@@ -435,16 +435,16 @@
         </style>
 
         <!-- Setting the icon of the page -->
-        <link rel="shortcut icon" type="image/x-icon" href="electrolithe.ico" />
+        <link rel="shortcut icon" type="image/x-icon" href="assets/icones/electrolithe.ico" />
     </head>
 
     <body>
         <div class="main">
             <div class="submain">
                 <div class="header">
-                    <img src="rocher_flottant.png">
+                    <img src="assets/images/rocher_flottant.png">
                     <h2>Grotte Électrolithe</h2>
-                    <img id="secretRock" src="rocher_flottant.png" onclick="rotateSummaries();">
+                    <img id="secretRock" src="assets/images/rocher_flottant.png" onclick="rotateSummaries();">
                 </div>
 
                 <p>
@@ -601,7 +601,7 @@
                 </div>
             </div>
 
-            <script src="statcalc.js"></script>
+            <script src="scripts/statcalc.js"></script>
             <script>
                 // Setting the Pokemon specie list change listener
                 document.getElementById("specieSelect").onchange = pokemon_list_ener;
@@ -654,7 +654,7 @@
                         let gen = parseInt(splitName[0]);
                         let trueName = splitName[1];
 
-                        let response = await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json');
+                        let response = await fetch('https://ancilloy.github.io/Projet-Rebirth/json/pokedata.json');
                         let data = await response.json();
                         let poke = data.autres_pokemon[gen].find(elt => elt.name.fr === trueName);
                         return await func(poke);
@@ -745,7 +745,7 @@
                 };
                 fetchCaracteristics("https://pokeapi.co/api/v2/characteristic");
 
-                fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
+                fetch('https://ancilloy.github.io/Projet-Rebirth/json/pokedata.json')
                     .then(async response => await response.json())
                     .then(data => {
                         data.pc.forEach(item => {
@@ -776,7 +776,7 @@
                     let specieSelect = document.getElementById('specieSelect');
                     specieSelect.innerHTML = "";
 
-                    await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
+                    await fetch('https://ancilloy.github.io/Projet-Rebirth/json/pokedata.json')
                         .then(async response => await response.json())
                         .then(async data => {
                             let pokes = data.listNames[newGen];
@@ -1095,7 +1095,7 @@
                 async function rotateSummaries() {
                     let rock = document.getElementById("secretRock");
                     rock.classList.add("hold-tf-up");
-                    fetch('https://ancilloy.github.io/Projet-Rebirth/pokesummaries.json')
+                    fetch('https://ancilloy.github.io/Projet-Rebirth/json/pokesummaries.json')
                         .then(response => response.json())
                         .then(async data => {
                             await loadSummary(data.summaries[nextSummary]);
@@ -1109,7 +1109,7 @@
                 // Va chercher les updates de base stats
                 async function applyBaseStatsChanges(pokeName, gen) {
                     if (gen < 9) {
-                        await fetch('https://ancilloy.github.io/Projet-Rebirth/pokedata.json')
+                        await fetch('https://ancilloy.github.io/Projet-Rebirth/json/pokedata.json')
                             .then(async response => await response.json())
                             .then(data => {
                                 for (let g=9; g>gen; g--) {
@@ -1302,7 +1302,7 @@
                 }
             </script>
 
-            <div class="bandeau-inf"><a href="parsemille.html"><img src="sortie.png"></a></div>
+            <div class="bandeau-inf"><a href="parsemille.html"><img src="assets/images/sortie.png"></a></div>
         </div>
     </body>
 </html>

@@ -1,5 +1,3 @@
-//import { hp_stat, hp_frame, other_stat, other_frame } from "./modules/statcalc.mjs";
-
 let datapoints = [
     {
         name : "Bleuette",
