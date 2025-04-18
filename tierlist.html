@@ -1,0 +1,195 @@
+<html>
+    <head>
+        <style>
+            :root {
+                --tier-height: 100px;
+                --item-margin: 5px;
+                --item-height: calc(var(--tier-height) - var(--item-margin)*2);
+            }
+            tierlist {
+                display: table;
+                border: 1px black solid;
+                width: 95%;
+            }
+
+            tier {
+                display: table-row;
+                border: 1px black solid;
+                background-color: darkslategray;
+                height: min-content;
+            }
+
+            tiername {
+                display: table-cell;
+                margin: 0;
+                width: var(--tier-height);
+                height: 100%;
+                vertical-align: middle;
+                text-align: center;
+                border: 1px black solid;
+            }
+
+            tieritems {
+                display: table-cell;
+                border: 1px black solid;
+                vertical-align: middle;
+            }
+
+            item {
+                display: inline-block;
+                text-align: center;
+                overflow: hidden;
+
+                border: 2px solid rgb(52, 129, 81);
+                border-right-color: rgb(36, 90, 57);
+                border-bottom-color: rgb(36, 90, 57);
+                background-color: rgb(69, 168, 107);
+
+                width: var(--item-height);
+                height: var(--item-height);
+                border-radius: 10px;
+
+                margin: var(--item-margin);
+                font-size: 12px;
+            }
+
+            item > label {
+                box-sizing: border-box;
+                display: block;
+                width: 100%;
+                height: 60%;
+                padding: 5px;
+                background-color: rgb(23, 119, 39);
+            }
+
+            item > game {
+                display: block;
+                width: 90%;
+
+                border: 1px solid rgb(92, 228, 144);
+                border-right-color: rgb(69, 171, 108);
+                border-bottom-color: rgb(69, 171, 108);
+                background-color: rgb(75, 114, 91);
+
+                color: yellow;
+                border-radius: 5px;
+                margin: auto;
+                margin-top: 5px;
+            }
+
+            category {
+                display: inline-block;
+
+                background-color: rgb(89, 136, 202);
+                border: 1px solid rgb(103, 166, 255);
+                border-right-color: rgb(61, 92, 134);
+                border-bottom-color: rgb(61, 92, 134);
+
+                border-radius: 5px;
+
+                padding: 1px 0 1px 1px;
+            }
+
+            category > item {
+                border-width: 1px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Hello world</h1>
+
+        <tierlist>
+            <tier>
+                <tiername style="background-color: red;">S</tiername>
+                <tieritems>
+                    <item>
+                        <label>Ho-Oh</label>
+                        <game>HGSS</game>
+                    </item>
+                    <item>
+                        <label>Ho-Oh</label>
+                        <game>HGSS</game>
+                    </item>
+                    <category>
+                        <item>
+                            <label>Ho-Oh</label>
+                            <game>HGSS</game>
+                        </item>
+                        <item>
+                            <label>Ho-Oh</label>
+                            <game>HGSS</game>
+                        </item>
+                    </category>
+                    <item>
+                        <label>Ho-Oh</label>
+                        <game>HGSS</game>
+                    </item>
+                    <item>
+                        <label>Ho-Oh</label>
+                        <game>HGSS</game>
+                    </item>
+                    <item>
+                        <label>Ho-Oh</label>
+                        <game>HGSS</game>
+                    </item>
+                    <item>
+                        <label>Ho-Oh</label>
+                        <game>HGSS</game>
+                    </item>
+                    <item>
+                        <label>Ho-Oh</label>
+                        <game>HGSS</game>
+                    </item>
+                    <item>
+                        <label>Ho-Oh</label>
+                        <game>HGSS</game>
+                    </item>
+                    <item>
+                        <label>Ho-Oh</label>
+                        <game>HGSS</game>
+                    </item>
+                    <item>
+                        <label>Ho-Oh</label>
+                        <game>HGSS</game>
+                    </item>
+                    <item>
+                        <label>Ho-Oh</label>
+                        <game>HGSS</game>
+                    </item>
+                    <item>
+                        <label>Ho-Oh</label>
+                        <game>HGSS</game>
+                    </item>
+                    <item>
+                        <label>Ho-Oh</label>
+                        <game>HGSS</game>
+                    </item>
+                    <item>
+                        <label>Ho-Oh</label>
+                        <game>HGSS</game>
+                    </item>
+                    <item>
+                        <label>Ho-Oh</label>
+                        <game>HGSS</game>
+                    </item>
+                    <item>
+                        <label>Ho-Oh</label>
+                        <game>HGSS</game>
+                    </item>
+                    <item>Ho-Oh</item>
+                </tieritems>
+            </tier>
+            <tier>
+                <tiername style="background-color: orange;">A</tiername>
+                <tieritems>
+                    <item>Ho-Oh</item>
+                    <item>Ho-Oh</item>
+                    <item>Ho-Oh</item>
+                    <item>Ho-Oh</item>
+                    <item>Ho-Oh</item>
+                </tieritems>
+            </tier>
+        </tierlist>
+    </body>
+
+</html>

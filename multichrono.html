@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <style>
+            body {
+                text-align: center;
+                background-color: rgb(226, 134, 223);
+            }
+
+            #timerList {
+                border-spacing: 0px;
+                margin: auto;
+                margin-top: 20px;
+            }
+
+            #timerList td {
+                vertical-align: middle;
+                padding: 7px;
+                border: 1px solid transparent;
+            }
+
+            #timerlist td > span {
+                display: inline-block;
+                border: 1px solid black;
+                border-radius: 4px;
+                background-color: lightgreen;
+                color: green;
+                padding: 3px;
+            }
+
+            #timerList td.visible {
+                border: 1px solid black;
+                border-radius: 5px;
+                background-color: darkslategrey;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Multi-chrono</h1>
+        <h2 id="cadran">00:00</h2>
+        <button id="chrono" onclick="chrono();">Lancer le timer</button>
+        <audio id="alarm" src="assets/audio/ng.mp3" preload="auto"></audio>
+
+        <table id="timerList"></table>
+
+        <script>
+            let runningInterval = null;
+            let followingTimers = [5, 5, 5, 10, 15]; //[0.1, 0.1, 0.1, 0.1, 0.1];
+            let timersIndex = 0;
+            let currentTimer = 0;
+
+            let timerList = document.getElementById("timerList");
+            let timerRow = document.createElement("tr");
+            for (let i=0; i<followingTimers.length; i++) {
+                let timerTile = document.createElement("td");
+                timerTile.id = `timerTile-${i}`;
+
+                let timerSpan = document.createElement("span");
+                timerSpan.innerHTML = timerText(followingTimers[i], 0);
+
+                timerTile.appendChild(timerSpan);
+                timerRow.appendChild(timerTile)
+            }
+            timerList.appendChild(timerRow);
+
+            function chrono() {
+                if (runningInterval==null) { // Cas 1 : aucun chrono en cours, on en lance un
+                    document.getElementById("chrono").innerHTML = "Arrêter le timer";
+                    timersIndex = 0;
+                    document.getElementById("timerTile-0").classList.add("visible");
+                    lancerProchainChrono();
+                } else { // Cas 2 : un chrono en cours, on l'arrête
+                    clearInterval(runningInterval);
+                    runningInterval = null;
+                    document.getElementById("cadran").innerHTML = "00:00";
+                    document.getElementById("timerTile-" + timersIndex).classList.remove("visible");
+                    document.getElementById("chrono").innerHTML = "Lancer le timer";
+                }
+            }
+
+            function pad(n, len) {
+                let s = n.toString();
+                while (s.length < len) {
+                    s = "0" + s;
+                }
+                return s;
+            }
+
+            function timerText(mins, secs) {
+                return pad(mins, 2) + ":" + pad(secs, 2);
+            }
+
+            function lancerProchainChrono() {
+                if (runningInterval!=null) {
+                    clearInterval(runningInterval);
+                    runningInterval = null;
+                }
+
+                if (timersIndex < followingTimers.length) {
+                    document.getElementById("cadran").innerHTML = timerText(followingTimers[timersIndex], 0);
+                    currentTimer = followingTimers[timersIndex] * 60;
+                    runningInterval = setInterval(() => {
+                        if (currentTimer > 1) {
+                            currentTimer -= 1;
+                            let minutes = Math.floor(currentTimer / 60);
+                            let secondes = currentTimer % 60;
+                            document.getElementById("cadran").innerHTML = timerText(minutes, secondes);
+                        } else {
+                            document.getElementById('alarm').play();
+                            document.getElementById("timerTile-" + timersIndex).classList.remove("visible");
+                            timersIndex += 1;
+                            if (timersIndex < followingTimers.length) {
+                                document.getElementById("timerTile-" + timersIndex).classList.add("visible");
+                            }
+                            lancerProchainChrono();
+                        }
+                    }, 1000);
+                } else {
+                    document.getElementById("cadran").innerHTML = "00:00";
+                    document.getElementById("chrono").innerHTML = "Lancer le timer";
+                }
+            }
+        </script>
+    </body>
+</html>
