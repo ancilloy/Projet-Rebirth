@@ -91,56 +91,50 @@
             }
         </style>
     </head>
-    <body>
+    <body id="body">
         <div class="header">
             <h1>Index</h1>
         </div>
-
-        <div class="line">
-            <a class="left"  style="background-color: red;"        href="Rebirth.html">
-                <img src="assets/icones/ico.ico">
-                <span>Project Rebirth</span>
-            </a>
-        </div>
-        <div class="line">
-            <a class="right" style="background-color: cyan;"       href="electrolithe.html">
-                <img src="assets/icones/electrolithe.ico">
-                <span>Grotte Électrolithe</span>
-            </a>
-        </div>
-        <div class="line">
-            <a class="left"  style="background-color: chartreuse;" href="parsemille.html">
-                <img src="assets/images/vol.png">
-                <span>Aéroport de Parsemille</span>
-            </a>
-        </div>
-        <div class="line">
-            <a class="right" style="background-color: yellow;"     href="pokeplace.html">
-                <img src="https://archives.bulbagarden.net/media/upload/3/30/Normal_Rank_TDS.png">
-                <span>Place Pokémon</span>
-            </a>
-        </div>
-        <div class="line">
-            <a class="left" style="background-color: magenta;"     href="multichrono.html">
-                <img src="https://archives.bulbagarden.net/media/upload/2/23/Bag_Timer_Ball_SV_Sprite.png">
-                <span>Multi-chrono</span>
-            </a>
-        </div>
-        <div class="line">
-            <a class="right" style="background-color: gray;"      href="https://ancilloy.github.io/Zeronpa/main.html">
-                <img src="https://raw.githubusercontent.com/ancilloy/Zeronpa/refs/heads/main/portraits/santa/stand.png">
-                <span>Zeronpa</span>
-            </a>
-        </div>
-        <div class="line">
-            <a class="left" style="background-color: indigo;"     href="tierlist.html">
-                <img src="https://archives.bulbagarden.net/media/upload/b/b4/HOME0201F.png">
-                <span>Tier Lists</span>
-            </a>
-        </div>
-
-
-
     </body>
-    <script></script>
+    <script>
+        let linkList = [
+            { color: "red", name: "Project Rebirth",
+                link: "Rebirth.html",
+                icon: "assets/icones/ico.ico" },
+            { color: "cyan", name: "Grotte Électrolithe",
+                link: "electrolithe.html",
+                icon: "assets/icones/electrolithe.ico" },
+            { color: "chartreuse", name: "Aéroport de Parsemille",
+                link: "parsemille.html",
+                icon: "assets/images/vol.png" },
+            { color: "yellow", name: "Place Pokémon",
+                link: "pokeplace.html",
+                icon: "https://archives.bulbagarden.net/media/upload/3/30/Normal_Rank_TDS.png" },
+            { color: "magenta", name: "Multi-chrono",
+                link: "multichrono.html",
+                icon: "https://archives.bulbagarden.net/media/upload/2/23/Bag_Timer_Ball_SV_Sprite.png" },
+            { color: "gray", name: "Zeronpa",
+                link: "https://ancilloy.github.io/Zeronpa/main.html",
+                icon: "https://raw.githubusercontent.com/ancilloy/Zeronpa/refs/heads/main/portraits/santa/stand.png" },
+            { color: "indigo", name: "Tier Lists",
+                link: "tierlist.html",
+                icon: "https://archives.bulbagarden.net/media/upload/b/b4/HOME0201F.png" }
+        ];
+
+        let body = document.getElementById("body");
+
+        let i=0;
+        while(i<linkList.length) {
+            let link = linkList[i];
+            let newLine = document.createElement("div");
+            newLine.className = "line";
+            newLine.innerHTML = `<a class="${(i%2==0) ? "left" : "right"}"  style="background-color: ${link.color};"        href="${link.link}">` +
+                `<img src="${link.icon}">` +
+                `<span>${link.name}</span>` +
+                `</a>`;
+            body.appendChild(newLine);
+
+            i++;
+        };
+    </script>
 </html>
